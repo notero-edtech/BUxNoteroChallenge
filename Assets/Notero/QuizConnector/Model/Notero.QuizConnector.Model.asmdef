@@ -1,0 +1,16 @@
+{
+    "name": "Notero.QuizConnector.Model",
+    "rootNamespace": "",
+    "references": [
+        "GUID:31e0357325afaa041b8391bf4650750f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

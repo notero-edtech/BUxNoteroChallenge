@@ -1,0 +1,102 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:Template name="piano_ui_elements_white_key" src="project://database/Assets/Svn/MIDIUnified/UIElements/UIBuilder/piano_ui_elements_white_key.uxml?fileID=9197481963319205126&amp;guid=40db81bda87c744f594124d4a2a7da04&amp;type=3#piano_ui_elements_white_key" />
+    <ui:Template name="piano_ui_elements_black_key" src="project://database/Assets/Svn/MIDIUnified/UIElements/UIBuilder/piano_ui_elements_black_key.uxml?fileID=9197481963319205126&amp;guid=fd1980f7d15594352808716a247b133f&amp;type=3#piano_ui_elements_black_key" />
+    <Style src="project://database/Assets/Svn/MIDIUnified/UIElements/UIBuilder/piano_ui_elements_style.uss?fileID=7433441132597879392&amp;guid=aec68c76f0aa9459d96f58d59701d5ca&amp;type=3#piano_ui_elements_style" />
+    <ui:VisualElement name="piano" class="piano">
+        <uie:Toolbar name="toolbar" class="toolbar" />
+        <ui:VisualElement name="keys" class="keys">
+            <ui:VisualElement name="white_keys" class="white_keys">
+                <ui:Instance template="piano_ui_elements_white_key" name="09" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="11" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="12" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="14" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="16" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="17" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="19" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="21" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="23" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="24" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="26" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="28" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="29" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="31" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="33" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="35" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="36" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="38" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="40" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="41" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="43" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="45" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="47" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="48" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="50" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="52" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="53" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="55" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="57" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="59" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="60" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="62" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="64" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="65" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="67" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="69" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="71" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="72" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="74" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="76" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="77" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="79" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="81" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="83" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="84" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="86" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="88" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="89" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="91" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="93" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="95" class="white_key_container" />
+                <ui:Instance template="piano_ui_elements_white_key" name="96" class="white_key_container" />
+            </ui:VisualElement>
+            <ui:VisualElement name="black_keys" class="black_keys">
+                <ui:Instance template="piano_ui_elements_black_key" name="10" class="black_key_container" style="position: absolute; left: 20px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="13" class="black_key_container" style="position: absolute; left: 80px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="15" class="black_key_container" style="position: absolute; left: 110px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="18" class="black_key_container" style="position: absolute; left: 170px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="20" class="black_key_container" style="position: absolute; left: 200px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="22" class="black_key_container" style="position: absolute; left: 230px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="25" class="black_key_container" style="position: absolute; left: 290px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="27" class="black_key_container" style="position: absolute; left: 320px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="30" class="black_key_container" style="position: absolute; left: 380px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="32" class="black_key_container" style="position: absolute; left: 410px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="34" class="black_key_container" style="position: absolute; left: 440px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="37" class="black_key_container" style="position: absolute; left: 500px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="39" class="black_key_container" style="position: absolute; left: 530px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="42" class="black_key_container" style="position: absolute; left: 590px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="44" class="black_key_container" style="position: absolute; left: 620px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="46" class="black_key_container" style="position: absolute; left: 650px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="49" class="black_key_container" style="position: absolute; left: 710px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="51" class="black_key_container" style="position: absolute; left: 740px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="54" class="black_key_container" style="position: absolute; left: 800px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="56" class="black_key_container" style="position: absolute; left: 830px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="58" class="black_key_container" style="position: absolute; left: 860px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="61" class="black_key_container" style="position: absolute; left: 920px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="63" class="black_key_container" style="position: absolute; left: 950px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="66" class="black_key_container" style="position: absolute; left: 1010px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="68" class="black_key_container" style="position: absolute; left: 1040px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="70" class="black_key_container" style="position: absolute; left: 1070px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="73" class="black_key_container" style="position: relative; left: 1130px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="75" class="black_key_container" style="position: absolute; left: 1160px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="78" class="black_key_container" style="position: absolute; left: 1220px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="80" class="black_key_container" style="position: absolute; left: 1250px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="82" class="black_key_container" style="position: absolute; left: 1280px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="85" class="black_key_container" style="position: absolute; left: 1340px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="87" class="black_key_container" style="position: absolute; left: 1370px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="90" class="black_key_container" style="position: absolute; left: 1430px; top: auto;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="93" class="black_key_container" style="position: absolute; left: 1460px;" />
+                <ui:Instance template="piano_ui_elements_black_key" name="94" class="black_key_container" style="position: absolute; left: 1490px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

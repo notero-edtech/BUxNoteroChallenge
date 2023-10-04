@@ -1,0 +1,21 @@
+﻿using UnityEngine;
+using System.Collections;
+
+#if FORIERO_SOCIALS
+using Prime31;
+#endif
+
+namespace ForieroEngine
+{
+	#if UNITY_ANDROID && !UNITY_EDITOR && FORIERO_SOCIALS
+	public static partial class Social {
+		static void InitTwitter(){
+			
+		}
+			
+		static void PostTwitterInternal (string text, string name = null, string caption = null, string link = null, Texture2D texture = null){
+		
+		}
+	}
+	#endif
+}

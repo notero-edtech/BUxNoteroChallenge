@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Client/Assets/AssetData/Animations/ui_seq_controller_base_controller.controller.meta
+guid: 19c6f29694e7345498c1d21e875e09be
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+=======
+guid: 4574e98ed99d3c648894c58566819fde
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+>>>>>>> 12993228 (UI: NPA-402 and subtasks):Client/Assets/AssetData/Prefabs/UI/(N).meta
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

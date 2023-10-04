@@ -1,0 +1,20 @@
+{
+    "name": "Notero.MidiAdapter",
+    "rootNamespace": "",
+    "references": [
+        "GUID:999e44a8c5acc43038cf3b414007c04f",
+        "GUID:98fff1869a84d4be4875e88061b5f895",
+        "GUID:3870f39588b12004e99996f0da486b37",
+        "GUID:47ae30c22d1cb644984681c0c280a806",
+        "GUID:d0ecce1d30515ad40b828c1551b30aea"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

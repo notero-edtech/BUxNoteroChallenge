@@ -1,0 +1,21 @@
+{
+    "name": "Notero.Unity.Networking.Mirror.Example",
+    "rootNamespace": "Notero.Unity.Networking.Mirror.Example",
+    "references": [
+        "GUID:d89610bd6a9a1f441a2123a13e4c7708",
+        "GUID:0e28104becb4c494eb10555c4b665358",
+        "GUID:30817c1a0e6d646d99c048fc403f5979",
+        "GUID:6f40da5a870b279428b72cf79a992af5",
+        "GUID:fb6b28d6dc391194fb62cb16d2721a92",
+        "GUID:b04f24f432ffa474fbb2fe9a840edc25"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

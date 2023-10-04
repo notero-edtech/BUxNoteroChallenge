@@ -1,0 +1,25 @@
+{
+    "name": "BU",
+    "rootNamespace": "",
+    "references": [
+        "Mirror",
+        "DataStore",
+        "Notero.Unity.UI",
+        "Notero.Unity.UI.Quiz",
+        "Notero.Unity.UI.VirtualPiano",
+        "Notero.Unity.Networking.Mirror",
+        "Notero.Utilities",
+        "Unity.TextMeshPro",
+        "Notero.QuizConnector",
+        "Notero.QuizConnector.Model"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

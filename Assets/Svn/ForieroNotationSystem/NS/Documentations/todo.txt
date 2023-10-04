@@ -1,0 +1,26 @@
+*** FEEDBACK STATS ***
+Problem: Data structure after players have finished playing a music piece.
+Solution: Accuracy, Missed Tones, Graphs data!!!
+
+*** FINGERING ***
+Problem: Finger's numbers are not part of a note class
+Solution: !!!
+
+*** ARTICULATION STACK & IN CHORDS ***
+Problem: Articulation is wrongly displayed for stacked ( more than one articulation symbol per a note ) and for chords
+Solution: Articulation stacking & chord re-arrangement
+
+*** ACCIDENTALS IN CHORDS ***
+Problem: Due to note head shifting in chords the accidentals are wrongly positioned in some cases
+Solution: Chord re-arrangement
+
+*** VOICE's NOTES OVERLAPPING  ***
+Problem: If two notes are on the same vertical position and each of them is in different "voice", then it happens that they overlap since they are in general not one voice chord. 
+Solution: Move the note(s) with the higher voice number a note-head width ( line width ) to the right
+
+*** VOICE's RESTS OVERLAPPING ***
+Problem: Rests with higher voice number overlap notes and rests from other voices. 
+Solution: Follow the MusicXML attributes to properly format the output
+
+
+

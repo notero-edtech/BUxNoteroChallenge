@@ -1,0 +1,16 @@
+{
+    "name": "DataStore",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d0ecce1d30515ad40b828c1551b30aea"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

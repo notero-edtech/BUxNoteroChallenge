@@ -1,0 +1,67 @@
+Language Localization
+---------------------
+
+1) Open from menu Foriero->Language Tool
+
+EXAMPLE SCENE
+-------------
+
+There should be one example dictionary. Right? It's file name is : Localization
+
+Click DonwloadFromGoogleDocs. You can now open the document in OppenOffice if it is installed or you can edit it directly on web. 
+
+You can now run our "Localization" example scene. And you should see how all works together.
+
+
+2) Click Add
+3) Write in first column "Localization" (the name of your file how will be stored in unity "Assets/Resources Localization"
+4) Get public key of your document. Open it in web browser and copy that part from the url that looks like this : "0AlVMfPD5xIYAdGhKVGNlVkNydWZFc0RHLXlNTUNURWc"
+
+ATTENTION When you paste values into unity always check that you don't paste "v" at the end of your pasted value. Sometimes it happends when you use cmd-v or ctrl-v that Unity for some unexpected reasons adds at the and "v"
+
+
+5) Paste it into Public Document Key column in Language Tool
+6) Click DowloadFromGoogleDocs
+
+ODS document will be stored in "Assets/Resources Localization/Localization.ods"
+Dictionaries as .txt semicolon separated files are stored according to list name in your spreadsheet in "Assets/Resources/Localization.txt"
+In our example we have only one List in that spreadsheet so that's why we have only one Localization.txt since the list name is Localization.
+
+7) You can update your camera. Click Update Camera. 
+
+(please do this for every scene you have and don't be afraid that all will be loaded into memory, our package is optimized, this step just tells our engine where to look for when a dictionary is needed)
+
+		* On Camera has been added LangDicionaries.cs with all you spreadsheets *
+		* You can also set default language for that scene if you wish - the dropdownlist next to the Update Camera * -> then press Update Camera
+			
+		 	Set your language in code if you wish : Lang.selectedLanguage = Lang.LanguageCode.EN;
+	
+8) Use playmaker or from code to get text.
+
+Lang.GetText("worksheet name", "id", "defaultValue");
+
+In google doc the structu has to be like this :
+
+ID;EN;DE
+001;Hi;Hallo
+MYID;EN VALUE;DE VALUE
+
+You can have as many language as you wish just add another column.
+
+CAUTION!!!
+----------
+
+On GoogleDoc open your document and go to File->Publish->ODS
+
+There is 5minutes refresh on Google Docs so don't be suprised when you change something in your doc that you will get the change after 5minutes period 
+OR YOU CAN RE-PUBLISH your document again and the change will be immediate.
+
+
+HINTS
+-----
+
+If you are writing your document in google docs, so for new line in a cell use ctrl+enter(win) or cmd+enter(osx).
+If you are writeing your document in openoffice directly, so for new line just inster "\n", since openoffice curently can not exper invisible chars like \n or \r.
+So if you put it there like you are writing : "Hi, how are you?\nI'm fine" you will see this as two line buble.
+
+Thanks and good luck, Foriero

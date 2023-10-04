@@ -1,0 +1,151 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4977324382052900522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4977324382052900523}
+  - component: {fileID: 4977324382052900520}
+  m_Layer: 0
+  m_Name: Piano
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4977324382052900523
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4977324382052900522}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5605046329528421910}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4977324382052900520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4977324382052900522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8be08196fd744405b974ec44ac9745c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: PIANO
+  karaokeSequencers: []
+  autoUpdate: 1
+  hookMidiOut: 1
+  hookSequencer: 0
+  hookKaraokeSequencer: 0
+  hookKeyboard: 0
+  hookInput: 1
+  hookPlaymaker: 0
+  hookSynthSequencer: 0
+  hookMidiDispatcher: 0
+  hookNSBehaviour: 0
+  midiOutMonitor: {fileID: 5605046329535227862}
+  karaokeSequencer: {fileID: 0}
+  nsBehaviour: {fileID: 0}
+  midiOut: 1
+  midiChannel: 2147483647
+  instrument: 0
+  useCustomVolume: 0
+  customVolume: 1
+  rightPedal: {fileID: 0}
+  leftPedal: {fileID: 0}
+  centerPedal: {fileID: 0}
+  isIn: 1
+  userInputNote: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  rightPedalDown: 0
+  centerPedalDown: 0
+  leftPedalDown: 0
+  useColors: 1
+--- !u!1001 &5605046329528030358
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4977324382052900523}
+    m_Modifications:
+    - target: {fileID: 100000, guid: c519fa08bba2a427a831ddbfc6cc3ed7, type: 3}
+      propertyPath: m_Name
+      value: MIDIUnified Monitor
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: c519fa08bba2a427a831ddbfc6cc3ed7, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: c519fa08bba2a427a831ddbfc6cc3ed7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.560108
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: c519fa08bba2a427a831ddbfc6cc3ed7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.758143
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: c519fa08bba2a427a831ddbfc6cc3ed7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.528598
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: c519fa08bba2a427a831ddbfc6cc3ed7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: c519fa08bba2a427a831ddbfc6cc3ed7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: c519fa08bba2a427a831ddbfc6cc3ed7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: c519fa08bba2a427a831ddbfc6cc3ed7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: c519fa08bba2a427a831ddbfc6cc3ed7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: c519fa08bba2a427a831ddbfc6cc3ed7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: c519fa08bba2a427a831ddbfc6cc3ed7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c519fa08bba2a427a831ddbfc6cc3ed7, type: 3}
+--- !u!4 &5605046329528421910 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: c519fa08bba2a427a831ddbfc6cc3ed7,
+    type: 3}
+  m_PrefabInstance: {fileID: 5605046329528030358}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5605046329535227862 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 11400000, guid: c519fa08bba2a427a831ddbfc6cc3ed7,
+    type: 3}
+  m_PrefabInstance: {fileID: 5605046329528030358}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e259e00a094384ac19bbf465cec43e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

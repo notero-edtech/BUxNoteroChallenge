@@ -1,0 +1,15 @@
+SPACING
+-------
+
+lineSpacing = font size / 4
+lineHalfSpacing = font size / 8
+
+NOTEHEAD
+--------
+
+Notehead is placed two lineSpacings under middle stave line.
+
+STAVE
+-----
+
+localScale for stave in order to cover whole screen = font size 

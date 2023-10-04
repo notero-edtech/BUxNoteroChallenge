@@ -1,0 +1,12 @@
+Notion : We will need to talk to some expert from Unity to solve the antialiasing issues. We need their advice what would be the best approach to our NS.
+
+
+DESKTOP
+-------
+Generally you have two options for antialising for Desktops. First is build it anitaliasing in quality settings. Second is free to download Post Processing Stack from GitHub. 
+
+
+MOBILE
+------
+
+For performance reasons please use Post Processing Stack - Antialiasing only. 

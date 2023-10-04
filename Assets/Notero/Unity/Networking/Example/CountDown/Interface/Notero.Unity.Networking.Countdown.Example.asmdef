@@ -1,0 +1,19 @@
+{
+    "name": "Notero.Unity.Networking.Countdown.Example",
+    "rootNamespace": "Notero.Unity.Networking.Countdown.Example",
+    "references": [
+        "GUID:153f230e62591a84f8694acf4905e5bc",
+        "GUID:4d0658c7d6acca84dac0e33ba31fccdc",
+        "GUID:d89610bd6a9a1f441a2123a13e4c7708",
+        "GUID:0e28104becb4c494eb10555c4b665358"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

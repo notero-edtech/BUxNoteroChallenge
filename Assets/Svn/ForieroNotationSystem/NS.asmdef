@@ -1,0 +1,23 @@
+{
+    "name": "NS",
+    "rootNamespace": "",
+    "references": [
+        "ForieroEngine",
+        "Unity.TextMeshPro",
+        "MIDIUnified",
+        "PoolManager",
+        "DOTween.Modules",
+        "ModernUIPack",
+        "Unity.InputSystem",
+        "Unity.VisualScripting.Core"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

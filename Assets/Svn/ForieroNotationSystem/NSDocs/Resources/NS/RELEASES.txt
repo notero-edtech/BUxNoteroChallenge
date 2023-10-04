@@ -1,0 +1,7 @@
+Version 2.2.3
+-------------
+
+Added NSPlayback.Session
+Added NSPlayback.InitSystem(SystemEnum system)
+Added todo.txt containing next steps in development
+Updated README.txt for latest requirements

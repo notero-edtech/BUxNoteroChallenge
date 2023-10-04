@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: c9cf260b3d34f4855bcc56de5d9008a3
+timeCreated: 1432083193
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 50
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Bravura
+  fontNames:
+  - Bravura
+  fallbackFontReferences: []
+  customCharacters: a
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

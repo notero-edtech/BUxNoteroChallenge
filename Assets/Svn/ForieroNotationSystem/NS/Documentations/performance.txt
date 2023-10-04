@@ -1,0 +1,7 @@
+PERFORMANCE
+-----------
+
+You need to ensure that on mobile you set frame rate t0 60fps.
+
+
+

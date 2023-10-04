@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://tempuri.org/midixml" elementFormDefault="qualified" targetNamespace="http://tempuri.org/midixml" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Delta" type="xs:string" />
+  <xs:element name="Absolute" type="xs:string" />
+  <xs:element name="Event">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice>
+          <xs:element ref="Delta" />
+          <xs:element ref="Absolute" />
+        </xs:choice>
+        <xs:choice>
+          <xs:element ref="SequenceNumber" />
+          <xs:element ref="TextEvent" />
+          <xs:element ref="CopyrightNotice" />
+          <xs:element ref="TrackName" />
+          <xs:element ref="InstrumentName" />
+          <xs:element ref="Lyric" />
+          <xs:element ref="Marker" />
+          <xs:element ref="CuePoint" />
+          <xs:element ref="ProgramName" />
+          <xs:element ref="DeviceName" />
+          <xs:element ref="Port" />
+          <xs:element ref="MIDIChannelPrefix" />
+          <xs:element ref="EndOfTrack" />
+          <xs:element ref="SetTempo" />
+          <xs:element ref="SMPTEOffset" />
+          <xs:element ref="TimeSignature" />
+          <xs:element ref="KeySignature" />
+          <xs:element ref="SequencerSpecific" />
+          <xs:element ref="OtherMetaEvent" />
+          <xs:element ref="SystemExclusive" />
+          <xs:element ref="EndOfExclusive" />
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SequenceNumber">
+    <xs:complexType>
+      <xs:attribute name="Value" type="xs:NMTOKEN" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TextEvent" type="xs:string" />
+  <xs:element name="CopyrightNotice" type="xs:string" />
+  <xs:element name="TrackName" type="xs:string" />
+  <xs:element name="InstrumentName" type="xs:string" />
+  <xs:element name="Lyric" type="xs:string" />
+  <xs:element name="Marker" type="xs:string" />
+  <xs:element name="CuePoint" type="xs:string" />
+  <xs:element name="MIDIChannelPrefix">
+    <xs:complexType>
+      <xs:attribute name="Value" type="xs:NMTOKEN" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EndOfTrack">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="SetTempo">
+    <xs:complexType>
+      <xs:attribute name="Value" type="xs:NMTOKEN" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SMPTEOffset">
+    <xs:complexType>
+      <xs:attribute name="TimeCodeType" type="xs:NMTOKEN" use="required" />
+      <xs:attribute name="Hour" type="xs:NMTOKEN" use="required" />
+      <xs:attribute name="Minute" type="xs:NMTOKEN" use="required" />
+      <xs:attribute name="Second" type="xs:NMTOKEN" use="required" />
+      <xs:attribute name="Frame" type="xs:NMTOKEN" use="required" />
+      <xs:attribute name="FractionalFrame" type="xs:NMTOKEN" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TimeSignature">
+    <xs:complexType>
+      <xs:attribute name="Numerator" type="xs:NMTOKEN" use="required" />
+      <xs:attribute name="LogDenominator" type="xs:NMTOKEN" use="required" />
+      <xs:attribute name="MIDIClocksPerMetronomeClick" type="xs:NMTOKEN" use="required" />
+      <xs:attribute name="ThirtySecondsPer24Clocks" type="xs:NMTOKEN" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KeySignature">
+    <xs:complexType>
+      <xs:attribute name="Fifths" type="xs:NMTOKEN" use="required" />
+      <xs:attribute name="Mode" type="xs:NMTOKEN" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SequencerSpecific" type="xs:string" />
+  <xs:element name="ProgramName" type="xs:string" />
+  <xs:element name="DeviceName" type="xs:string" />
+  <xs:element name="XMFPatchTypePrefix">
+    <xs:complexType>
+      <xs:attribute name="Value" type="xs:NMTOKEN" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Port">
+    <xs:complexType>
+      <xs:attribute name="Value" type="xs:NMTOKEN" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OtherMetaEvent">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="Number" type="xs:NMTOKEN" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SystemExclusive" type="xs:string" />
+  <xs:element name="EndOfExclusive" type="xs:string" />
+  <xs:element name="MIDIFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Format" />
+        <xs:element ref="TrackCount" />
+        <xs:choice>
+          <xs:element ref="TicksPerBeat" />
+          <xs:sequence>
+            <xs:element ref="FrameRate" />
+            <xs:element ref="TicksPerFrame" />
+          </xs:sequence>
+        </xs:choice>
+        <xs:element ref="TimestampType" />
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="Track" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Format" type="xs:string" />
+  <xs:element name="TrackCount" type="xs:string" />
+  <xs:element name="TicksPerBeat" type="xs:string" />
+  <xs:element name="FrameRate" type="xs:string" />
+  <xs:element name="TicksPerFrame" type="xs:string" />
+  <xs:element name="TimestampType" type="xs:string" />
+  <xs:element name="Track">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Event" />
+      </xs:sequence>
+      <xs:attribute name="Number" type="xs:NMTOKEN" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

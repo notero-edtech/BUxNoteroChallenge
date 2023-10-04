@@ -1,0 +1,19 @@
+{
+    "name": "Notero.QuizConnector",
+    "rootNamespace": "",
+    "references": [
+        "GUID:8abff921e5f2fdd4ebaec6c568d9e749",
+        "GUID:d0ecce1d30515ad40b828c1551b30aea",
+        "GUID:31e0357325afaa041b8391bf4650750f",
+        "GUID:002e5fb3e561a8c4285d691348d2664e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

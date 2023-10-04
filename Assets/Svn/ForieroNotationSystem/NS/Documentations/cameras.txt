@@ -1,0 +1,6 @@
+CAMERAS SETUP
+-------------
+
+We need to use two cameras and two canvases. One camera for fixed canvas. Second movable camera for movable stave objects. 
+We move with movable camera NOT WITH movable objects. Seems like there is unlimited number of objects allowed if moving camera. No perfomance costs or just very little.
+

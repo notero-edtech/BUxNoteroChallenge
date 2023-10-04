@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AI2UNITY fileName="piano_2D_UI.ai" illustratorDesignResolutionWidth="4000" illustratorDesignResolutionHeight="3000" unityDesignResolutionWidth="4000" unityDesignResolutionHeight="3000" scaleFactor="1" orthoSize="5">
+  <AIItem tag="skip" typeName="Layer" itemName="letters" itemPath="" x="0" y="0" layerId="1" layerName="letters" depthId="0">
+    <AIItem tag="include" typeName="GroupItem" itemName="A" itemPath="/letters" x="205.654020449342" y="2435.75045" layerId="1" layerName="letters" depthId="0"></AIItem>
+    <AIItem tag="include" typeName="GroupItem" itemName="B" itemPath="/letters" x="405.8761753094" y="2436" layerId="1" layerName="letters" depthId="0"></AIItem>
+    <AIItem tag="include" typeName="GroupItem" itemName="H" itemPath="/letters" x="1605.8761829133" y="2436" layerId="1" layerName="letters" depthId="0"></AIItem>
+    <AIItem tag="include" typeName="GroupItem" itemName="C" itemPath="/letters" x="605.709520261185" y="2436.16675" layerId="1" layerName="letters" depthId="0"></AIItem>
+    <AIItem tag="include" typeName="GroupItem" itemName="D" itemPath="/letters" x="806.042773043689" y="2436.00025" layerId="1" layerName="letters" depthId="0"></AIItem>
+    <AIItem tag="include" typeName="GroupItem" itemName="E" itemPath="/letters" x="1005.54276016055" y="2436.16675" layerId="1" layerName="letters" depthId="0"></AIItem>
+    <AIItem tag="include" typeName="GroupItem" itemName="F" itemPath="/letters" x="1205.8761829133" y="2436" layerId="1" layerName="letters" depthId="0"></AIItem>
+    <AIItem tag="include" typeName="GroupItem" itemName="G" itemPath="/letters" x="1405.8762829133" y="2436" layerId="1" layerName="letters" depthId="0"></AIItem>
+  </AIItem>
+  <AIItem tag="skip" typeName="Layer" itemName="keys" itemPath="" x="0" y="0" layerId="2" layerName="keys" depthId="0">
+    <AIItem tag="include" typeName="GroupItem" itemName="piano_2D_white_key_up" itemPath="/keys" x="252.001937218341" y="1499.53402534486" layerId="2" layerName="keys" depthId="0"></AIItem>
+    <AIItem tag="include" typeName="Layer" itemName="piano_2D_black_shadow_up" itemPath="/keys" x="891.796912819631" y="498.604087695747" layerId="2" layerName="keys" depthId="0"></AIItem>
+    <AIItem tag="include" typeName="Layer" itemName="piano_2D_black_shadow_down" itemPath="/keys" x="758.790009337989" y="504.333802990825" layerId="2" layerName="keys" depthId="0"></AIItem>
+    <AIItem tag="include" typeName="Layer" itemName="piano_2D_black_key_up" itemPath="/keys" x="1272.5011829133" y="1448.71459188488" layerId="2" layerName="keys" depthId="0"></AIItem>
+    <AIItem tag="include" typeName="Layer" itemName="piano_2D_black_key_down" itemPath="/keys" x="1077.29805834786" y="1451.72400036478" layerId="2" layerName="keys" depthId="0"></AIItem>
+    <AIItem tag="include" typeName="Layer" itemName="piano_2D_white_key_down" itemPath="/keys" x="768.381747065076" y="1500" layerId="2" layerName="keys" depthId="0"></AIItem>
+    <AIItem tag="include" typeName="Layer" itemName="piano_2D_white_key_down_shadow" itemPath="/keys" x="522.9882723509" y="1500" layerId="2" layerName="keys" depthId="0"></AIItem>
+  </AIItem>
+</AI2UNITY>

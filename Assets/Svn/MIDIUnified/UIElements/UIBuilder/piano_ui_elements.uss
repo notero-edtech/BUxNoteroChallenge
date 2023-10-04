@@ -1,0 +1,69 @@
+.piano {
+    width: 1560px;
+    height: 200px;
+    min-width: 1560px;
+    min-height: 200px;
+    max-width: none;
+}
+
+.toolbar {
+    flex-direction: row;
+    align-items: center;
+    width: auto;
+    height: 30px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+.keys {
+    align-items: flex-start;
+    width: 100%;
+    height: 170px;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-basis: auto;
+}
+
+.white_keys {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    flex-direction: row;
+}
+
+.white_key_container {
+    height: 100%;
+    flex-direction: row;
+    align-items: flex-start;
+    width: auto;
+}
+
+.white_key {
+    flex-direction: row;
+    height: 100%;
+    align-items: auto;
+    background-image: url('project://database/Assets/Svn/MIDIUnified/UIElements/Sprites/piano/piano_2D_white_key_up.png?fileID=21300000&guid=19a4012d42d7741b6901ec825dd35066&type=3#piano_2D_white_key_up');
+    width: 30px;
+}
+
+.black_keys {
+    flex-direction: row;
+    align-items: auto;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.black_key_container {
+    width: 20px;
+    height: 100%;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.black_key {
+    height: 60%;
+    width: 20px;
+    background-image: url('project://database/Assets/Svn/MIDIUnified/UIElements/Sprites/piano/piano_2D_black_key_up.png?fileID=21300000&guid=ea5e14ec37ce04e8897cc6526730cb28&type=3#piano_2D_black_key_up');
+}

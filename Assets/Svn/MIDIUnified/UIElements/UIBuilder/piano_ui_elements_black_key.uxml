@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Svn/MIDIUnified/UIElements/Resources/UIElements/piano_ui_elements_style.uss?fileID=7433441132597879392&amp;guid=aec68c76f0aa9459d96f58d59701d5ca&amp;type=3#piano_ui_elements_style" />
+    <ui:VisualElement name="black_key" class="black_key" />
+</ui:UXML>
