@@ -115,6 +115,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PianoKeyQuizPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 425517517631326959, guid: 3963f6d50cf3d814c8517f732c89408c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2479869415355007858, guid: 3963f6d50cf3d814c8517f732c89408c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
