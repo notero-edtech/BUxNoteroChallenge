@@ -1,0 +1,19 @@
+{
+    "name": "Notero.Raindrop",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:47ae30c22d1cb644984681c0c280a806",
+        "GUID:d0ecce1d30515ad40b828c1551b30aea",
+        "GUID:11156aba705260d428e687d4fb4280f5"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

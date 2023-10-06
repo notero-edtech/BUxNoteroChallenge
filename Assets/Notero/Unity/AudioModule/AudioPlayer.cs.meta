@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: e45797fbbd8abce498c3ae3c25fcf5e6
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_MasterMixer: {fileID: 24300002, guid: a7af3036bb79be940af2426aa787dfdb, type: 2}
+  - m_MusicMixer: {fileID: -333699015601090368, guid: a7af3036bb79be940af2426aa787dfdb,
+      type: 2}
+  - m_SoundEffectMixer: {fileID: 8455642212000716670, guid: a7af3036bb79be940af2426aa787dfdb,
+      type: 2}
+  - m_MetronomeMixer: {instanceID: 0}
+  - m_MidiPlaybackMixer: {fileID: -2386198575383782784, guid: a7af3036bb79be940af2426aa787dfdb,
+      type: 2}
+  executionOrder: 0
+  icon: {fileID: 2800000, guid: b468f99ad504b3f46ac68819321ef905, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
