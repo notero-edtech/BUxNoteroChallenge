@@ -177,16 +177,19 @@ namespace BU.MidiGameplay.Gameplay
             m_ScoringController.SetNoteStartTimeOffset(NoteStartTimeOffset);
 
             GameLogic.OnGameplayEnd.AddListener(OnGameEnd);
-            SetupGameFeedback();
-            SetupOnGameplayTimeUpdateEventHandlers();
+            SubscribeGameFeedback();
+            SubscribeGameplayTimeUpdateEventHandlers();
         }
 
         private void OnGameEnd()
         {
             OnGameEnded?.Invoke();
+            UnsubscribeGameFeedback();
+            UnsubscribeGameplayTimeUpdateEventHandlers();
             var selfResultInfo = m_ScoringController.GetScoringInfo();
             OnGameResultSubmitted?.Invoke(selfResultInfo);
             m_MidiInputHashSet.Clear();
+
         }
 
         public void ResetController()
@@ -207,7 +210,7 @@ namespace BU.MidiGameplay.Gameplay
             m_ScoringController.OnScoreUpdated.AddListener(m_GameplayUIController.HandleScoreUpdate);
         }
 
-        public void SetupGameFeedback()
+        public void SubscribeGameFeedback()
         {
             GameLogic.OnNoteInfoPressed.AddListener(OnNotePressed);
             GameLogic.OnNoteInfoReleased.AddListener(OnNoteReleased);
@@ -217,11 +220,26 @@ namespace BU.MidiGameplay.Gameplay
             GameLogic.OnBlankKeyReleased.AddListener(OnBlankKeyReleased);
         }
 
-        private void SetupOnGameplayTimeUpdateEventHandlers()
+        public void UnsubscribeGameFeedback()
+        {
+            GameLogic.OnNoteInfoPressed.RemoveListener(OnNotePressed);
+            GameLogic.OnNoteInfoReleased.RemoveListener(OnNoteReleased);
+            GameLogic.OnNoteInfoNoteStarted.RemoveListener(OnNoteStarted);
+            GameLogic.OnNoteInfoNoteEnded.RemoveListener(OnNoteEnded);
+            GameLogic.OnBlankKeyPressed.RemoveListener(OnBlankKeyPressed);
+            GameLogic.OnBlankKeyReleased.RemoveListener(OnBlankKeyReleased);
+        }
+
+        private void SubscribeGameplayTimeUpdateEventHandlers()
         {
             GameLogic.OnGameplayTimeUpdate.AddListener(m_GameplayUIController.HandleGameplayTimeUpdate);
             GameLogic.OnGameplayTimeUpdate.AddListener(ActiveBarline);
             GameLogic.OnGameplayTimeUpdate.AddListener(m_RaindropNoteController.UpdateLogic);
+        }
+
+        private void UnsubscribeGameplayTimeUpdateEventHandlers()
+        {
+            GameLogic.OnGameplayTimeUpdate.RemoveAllListeners();
         }
 
         private void OnNoteStarted(MidiNoteInfo note, double time)

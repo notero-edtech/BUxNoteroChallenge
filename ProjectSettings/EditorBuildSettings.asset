@@ -1,15 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!1045 &1
-EditorBuildSettings:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/BU/QuizExample/Scene/QuizFlowExample.unity
-    guid: a66e3f14691bab541ba5289fd7c40290
-  - enabled: 1
-    path: Assets/BU/QuizExample/Scene/QuizResultExample.unity
-    guid: 362fcaa72f0894b4cbdd0786bda0074b
-  m_configObjects:
-    com.unity.addressableassets: {fileID: 11400000, guid: 32756e972c2be4f468f5c271f1800a82, type: 2}
+version https://git-lfs.github.com/spec/v1
+oid sha256:0f04026cc1f154ae1d4dff0280e4a81c257384d76e225f3be1d0b5e967305ff7
+size 493
