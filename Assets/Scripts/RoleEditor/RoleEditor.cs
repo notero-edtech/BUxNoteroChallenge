@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace RoleEditor
 {
+#if UNITY_EDITOR
     public class RoleEditor : EditorWindow
     {
         private const float m_Width = 300;
@@ -71,4 +72,5 @@ namespace RoleEditor
 
         #endregion
     }
+#endif
 }

@@ -2,6 +2,7 @@
 
 namespace RoleEditor
 {
+#if UNITY_EDITOR
     public static class RoleEditorPrefs
     {
         public const string m_AppModeKey = "mode";
@@ -17,4 +18,6 @@ namespace RoleEditor
             return EditorPrefs.GetBool(m_UseEditorContentValueKey);
         }
     }
+
+#endif
 }
