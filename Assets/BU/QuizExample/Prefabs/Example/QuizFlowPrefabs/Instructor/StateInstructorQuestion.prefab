@@ -1574,6 +1574,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -36
       objectReference: {fileID: 0}
+    - target: {fileID: 1261836966259409303, guid: 95051e004cba5974092c04c8349e997f, type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 55
+      objectReference: {fileID: 0}
     - target: {fileID: 1727046463484828040, guid: 95051e004cba5974092c04c8349e997f, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1784,6 +1788,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1727046463484828040, guid: 95051e004cba5974092c04c8349e997f, type: 3}
+    - {fileID: 4133092308073746904, guid: 95051e004cba5974092c04c8349e997f, type: 3}
+    - {fileID: 3245108351915911713, guid: 95051e004cba5974092c04c8349e997f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 95051e004cba5974092c04c8349e997f, type: 3}
 --- !u!114 &2841876388230571842 stripped
 MonoBehaviour:

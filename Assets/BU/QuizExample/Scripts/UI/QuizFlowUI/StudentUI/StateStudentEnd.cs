@@ -1,6 +1,8 @@
 using Notero.QuizConnector.Student;
+using Notero.Unity.UI;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace BU.QuizExample.Scripts.UI.QuizFlowUI.StudentUI
 {
@@ -8,6 +10,19 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.StudentUI
     {
         [SerializeField]
         private TMP_Text m_EndText;
+
+        [SerializeField]
+        private Button m_RestartButton;
+
+        private void Awake()
+        {
+            m_RestartButton.onClick.AddListener(OnRestartClick);
+        }
+
+        private void OnDestroy()
+        {
+            m_RestartButton.onClick.RemoveListener(OnRestartClick);
+        }
 
         private void Start()
         {
@@ -26,6 +41,11 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.StudentUI
         private void SetEndText(string endText)
         {
             m_EndText.text = endText;
+        }
+
+        private void OnRestartClick()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         #endregion

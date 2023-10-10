@@ -110,6 +110,14 @@ namespace DataStore.Quiz
                 return false;
             }
         }
+
+        public void ResetQuestion()
+        {
+            if(m_QuestionList == null) return;
+            m_CurrentQuestionIndex = 0;
+            var question = m_QuestionList[m_CurrentQuestionIndex];
+            CurrentQuestion = question;
+        }
     }
 
     public class Question

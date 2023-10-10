@@ -41,7 +41,10 @@ namespace Notero.QuizConnector
                 slotQuiz.ControllerGameObject = gameObj;
 
                 m_QuizControllerInterface = gameObj.GetComponent<IQuizController>();
+                DontDestroyOnLoad(gameObj);
             }
+
+            if(m_Container == null) m_Container = GameObject.Find("PopupContainer").transform;
 
             m_QuizControllerInterface.Init(m_Container, quizStore);
 

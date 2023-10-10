@@ -164,6 +164,7 @@ namespace BU.QuizExample.Scripts
 
             if(m_QuizControllerType == QuizControllerType.FLOW)
             {
+                QuizState.Default.ResetQuestion();
                 PreparingState();
             }
             else if(m_QuizControllerType == QuizControllerType.RESULT)
@@ -291,6 +292,8 @@ namespace BU.QuizExample.Scripts
             CurrentQuizState = QuizStates.END;
 
             QuizConnectorController.Instance.SpawnInstructorEndStateUI();
+            QuizConnectorController.Instance.OnCustomDataReceive.RemoveListener(OnCustomDataReceive);
+            QuizConnectorController.Instance.OnNextStateReceive.RemoveListener(GoToNextState);
         }
 
         #endregion

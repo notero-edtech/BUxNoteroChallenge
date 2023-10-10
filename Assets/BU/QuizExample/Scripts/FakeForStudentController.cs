@@ -241,6 +241,7 @@ namespace BU.QuizExample.Scripts
 
             if(m_QuizControllerType == QuizControllerType.FLOW)
             {
+                QuizState.Default.ResetQuestion();
                 InstructorNextQuestion();
             }
             else if(m_QuizControllerType == QuizControllerType.RESULT)
