@@ -54,7 +54,7 @@ namespace Notero.Unity.UI.Quiz
             m_PianoKeyQuizSpawner.ClearKeyList();
             m_VirtualPianoController = GetComponent<BaseVirtualPianoController>();
             m_VirtualPianoController.Create("quiz");
-            //m_VirtualPianoController.SetActiveNoteIdicator(false);
+            MidiInputAdapter.Instance.SetComputerKeyboardOctave(5);
 
             m_TimerValue = 0;
             m_IsChoiceConfirm = false;

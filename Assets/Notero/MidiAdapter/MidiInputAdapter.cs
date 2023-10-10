@@ -111,6 +111,11 @@ namespace Notero.MidiAdapter
             MIDISettings.instance.keyboardSettings.customVolume = isEnable ? 1 : 0.004f;
         }
 
+        public void SetComputerKeyboardOctave(int octave)
+        {
+            MIDISettings.instance.keyboardSettings.keyboardOctave = octave;
+        }
+
         private void ProceedKeyboardInput()
         {
             if(!MIDISettings.instance.keyboardSettings.active) return;
