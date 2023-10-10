@@ -411,7 +411,6 @@ GameObject:
   - component: {fileID: 8182664337934334804}
   - component: {fileID: 5404104052197285869}
   - component: {fileID: 5535535748933301707}
-  - component: {fileID: 6662864844703146438}
   - component: {fileID: 8955399830867984773}
   m_Layer: 5
   m_Name: InstructorPopQuizResultPanel
@@ -475,21 +474,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &6662864844703146438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5208754021895172665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4ae24e361a71d041abf43449e1918c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Animator: {fileID: 5404104052197285869}
-  m_ChildAnimationHandlers: []
-  IsSwapPlaying: 0
 --- !u!114 &8955399830867984773
 MonoBehaviour:
   m_ObjectHideFlags: 0

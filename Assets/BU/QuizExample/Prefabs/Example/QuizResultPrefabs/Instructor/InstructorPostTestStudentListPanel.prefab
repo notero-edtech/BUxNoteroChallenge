@@ -87,7 +87,6 @@ GameObject:
   - component: {fileID: 2213120148271418434}
   - component: {fileID: 6627863223677525149}
   - component: {fileID: 8191752687390638836}
-  - component: {fileID: 8397944676363925847}
   - component: {fileID: 1137572587779779862}
   m_Layer: 5
   m_Name: InstructorPostTestStudentListPanel
@@ -152,21 +151,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &8397944676363925847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1820202184046231698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4ae24e361a71d041abf43449e1918c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Animator: {fileID: 6627863223677525149}
-  m_ChildAnimationHandlers: []
-  IsSwapPlaying: 0
 --- !u!114 &1137572587779779862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1850,7 +1834,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 311
+    m_Bits: 55
 --- !u!224 &2486482089351664317 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1618957658873390648, guid: a1bf9a95117dfb3499df1f27192e5650, type: 3}

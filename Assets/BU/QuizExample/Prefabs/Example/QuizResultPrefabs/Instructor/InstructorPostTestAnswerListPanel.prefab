@@ -328,7 +328,6 @@ GameObject:
   - component: {fileID: 8190184158354025672}
   - component: {fileID: 6482437088855596746}
   - component: {fileID: 8607027463733267696}
-  - component: {fileID: 2135533943780239772}
   m_Layer: 5
   m_Name: InstructorPostTestAnswerListPanel
   m_TagString: Untagged
@@ -423,21 +422,6 @@ MonoBehaviour:
   m_SwapResultButton: {fileID: 73815484236101968}
   m_ListItemPrototype: {fileID: 456682769289700411, guid: 37014c91f8f38e04eb545c856242d0b8, type: 3}
   m_ListElementContainer: {fileID: 8227915782590724742}
---- !u!114 &2135533943780239772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2995210832564463992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4ae24e361a71d041abf43449e1918c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Animator: {fileID: 8190184158354025672}
-  m_ChildAnimationHandlers: []
-  IsSwapPlaying: 0
 --- !u!1 &3749673922297261306
 GameObject:
   m_ObjectHideFlags: 0

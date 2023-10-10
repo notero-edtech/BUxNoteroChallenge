@@ -1,8 +1,8 @@
 ﻿using UnityEditor;
 
-namespace Hendrix
+namespace RoleEditor
 {
-    public static class HendrixEditorPrefs
+    public static class RoleEditorPrefs
     {
         public const string m_AppModeKey = "mode";
         public const string m_UseEditorContentValueKey = "isUseEditorContentValue";
@@ -15,18 +15,6 @@ namespace Hendrix
         public static bool IsUseEditorContentValue()
         {
             return EditorPrefs.GetBool(m_UseEditorContentValueKey);
-        }
-
-        public static int GetLessonContentValue(string key)
-        {
-            int result = EditorPrefs.GetInt(key);
-
-            if (result < 0)
-            {
-                result = 0;
-            }
-
-            return result;
         }
     }
 }
