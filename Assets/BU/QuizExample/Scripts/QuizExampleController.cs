@@ -49,9 +49,6 @@ namespace BU.QuizExample.Scripts
         [SerializeField]
         private PianoKeyQuizController m_PianoKeyInput;
 
-        [SerializeField]
-        private TextAsset m_QuizDataJSON;
-
         #region Instructor base classes
 
         private BaseInstructorCountIn m_InstructorCountIn;
@@ -86,6 +83,8 @@ namespace BU.QuizExample.Scripts
 
         public UnityEvent<byte[]> OnCustomDataReceive { get; set; }
 
+        public bool IsQuizLoaded { get; set; }
+
         public QuizStore QuizStore { get; set; }
 
         public void Init(Transform container, QuizStore quizStore)
@@ -99,11 +98,10 @@ namespace BU.QuizExample.Scripts
             OnCustomDataUIReceive?.Invoke(data);
         }
 
-        public void LoadQuizToQuizStore()
+        public void LoadQuizToQuizStore(string jsonContent)
         {
             if(ApplicationFlagConfig.IsInstructorMode)
             {
-                var jsonContent = m_QuizDataJSON.text;
                 var questionJson = JsonConvert.DeserializeObject<SchemaQuiz>(jsonContent);
 
                 QuizState.Default.ResetQuestionIndex();
@@ -120,7 +118,6 @@ namespace BU.QuizExample.Scripts
             }
             else if(ApplicationFlagConfig.IsStudentMode)
             {
-                var jsonContent = m_QuizDataJSON.text;
                 var questionJson = JsonConvert.DeserializeObject<SchemaQuiz>(jsonContent);
 
                 QuizState.Default.ResetQuestionIndex();
@@ -161,6 +158,15 @@ namespace BU.QuizExample.Scripts
 
         private T SpawnPrototype<T>(GameObject gameObj) where T : BaseQuizPanel
         {
+            if(gameObj.scene.IsValid())
+            {
+                Debug.Log("get one");
+            }
+            else
+            {
+                Debug.Log("not there");
+            }
+
             var prototype = Instantiate(gameObj, m_Container);
             var quizPanelPrototype = prototype.GetComponent<BaseQuizPanel>();
 
@@ -387,7 +393,7 @@ namespace BU.QuizExample.Scripts
 
         public void DestroyStudentQuestionStateUI()
         {
-            if(m_StudentQuestion != null)
+            if(m_PianoKeyInput != null)
             {
                 // Destroy piano and unsubscribe event
                 m_PianoKeyInput.OnSubmitPiano -= OnSubmitPiano;
@@ -456,20 +462,20 @@ namespace BU.QuizExample.Scripts
 
         public void SpawnStudentPreResultStateUI()
         {
-            var correctAnswer = QuizState.Default.CurrentQuestion.Answer.CorrectAnswers.ElementAt(0);
             m_StudentPreResult = SpawnPrototype<BaseStudentPreResult>(m_StudentPreResultPrefab);
 
             //Set PreResult panel data
             var quizInfo = QuizStore.QuizInfo;
             var texture = GenerateQuestionTexture(QuizStore.CurrentQuestion.AssetFile);
+            var correctAnswer = QuizState.Default.CurrentQuestion.Answer.CorrectAnswers.ElementAt(0);
 
-            m_StudentPreResult.SetCorrectAnswer(correctAnswer);
-            m_StudentPreResult.SetAnswer(m_Answer);
             m_StudentPreResult.SetChapter("Chapter 1");
             m_StudentPreResult.SetMission("Mission Quiz");
             m_StudentPreResult.SetCurrentPage(quizInfo.CurrentQuizNumber);
             m_StudentPreResult.SetTotalPage(quizInfo.QuestionAmount);
+            m_StudentPreResult.SetAnswer(m_Answer);
             m_StudentPreResult.SetQuestionTexture(texture);
+            m_StudentPreResult.SetCorrectAnswer(correctAnswer);
         }
 
         public void DestroyStudentPreResultStateUI()

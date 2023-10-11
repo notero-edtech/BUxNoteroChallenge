@@ -1,0 +1,19 @@
+{
+    "name": "Notero.RaindropGameplay.Core",
+    "rootNamespace": "",
+    "references": [
+        "GUID:fec09e95d98093140b18d4626790cb68",
+        "GUID:2f04b1422990ba44aab6ac941c4baf8e",
+        "GUID:11156aba705260d428e687d4fb4280f5",
+        "GUID:47ae30c22d1cb644984681c0c280a806"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

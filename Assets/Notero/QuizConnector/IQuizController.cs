@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using DataStore.Quiz;
 using UnityEngine;
 using UnityEngine.Events;
@@ -7,6 +6,8 @@ namespace Notero.QuizConnector
 {
     public interface IQuizController
     {
+        public bool IsQuizLoaded { get; set; }
+
         public QuizStore QuizStore { get; set; }
 
         public UnityEvent OnNextStateReceive { get; set; }
@@ -17,13 +18,11 @@ namespace Notero.QuizConnector
 
         public void Init(Transform container, QuizStore quizStore);
 
-        public void OnStudentAnswerReceive(string stationId, string answer, int answerStudentAmount, int studentAmount);
-
         public void OnCustomDataMessageReceive(byte[] data);
 
         #region instructor loading state
 
-        public void LoadQuizToQuizStore();
+        public void LoadQuizToQuizStore(string jsonContent);
 
         #endregion
 
@@ -44,6 +43,8 @@ namespace Notero.QuizConnector
         public void SpawnInstructorQuestionStateUI();
 
         public void DestroyInstructorQuestionStateUI();
+
+        public void OnStudentAnswerReceive(string stationId, string answer, int answerStudentAmount, int studentAmount);
 
         #endregion
 

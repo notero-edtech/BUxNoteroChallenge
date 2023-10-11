@@ -409,9 +409,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8182664337934334804}
-  - component: {fileID: 5404104052197285869}
   - component: {fileID: 5535535748933301707}
-  - component: {fileID: 6662864844703146438}
   - component: {fileID: 8955399830867984773}
   m_Layer: 5
   m_Name: InstructorPopQuizResultPanel
@@ -443,26 +441,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &5404104052197285869
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5208754021895172665}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bdabe58961643db4e81b032c20743fd1, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!225 &5535535748933301707
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -475,21 +453,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &6662864844703146438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5208754021895172665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4ae24e361a71d041abf43449e1918c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Animator: {fileID: 5404104052197285869}
-  m_ChildAnimationHandlers: []
-  IsSwapPlaying: 0
 --- !u!114 &8955399830867984773
 MonoBehaviour:
   m_ObjectHideFlags: 0

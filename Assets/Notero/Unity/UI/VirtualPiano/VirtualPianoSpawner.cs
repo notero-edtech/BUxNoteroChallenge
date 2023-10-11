@@ -30,7 +30,7 @@ namespace Notero.Unity.UI.VirtualPiano
 
         public Rect BlackKeyRect => ((RectTransform)m_BlackKeySeed.transform).rect;
 
-        public List<PianoKey> Create(string pianoType)
+        public virtual List<PianoKey> Create(string pianoType)
         {
             m_PianoType = pianoType;
             m_PianoInfo = GetPianoInfoStorage(m_PianoType.ToString());
@@ -52,7 +52,7 @@ namespace Notero.Unity.UI.VirtualPiano
 
         #region Loaders
 
-        private PianoKeySpriteInfo GetPianoInfoStorage(string pianoTypeStr)
+        protected virtual PianoKeySpriteInfo GetPianoInfoStorage(string pianoTypeStr)
         {
             return Resources.Load<PianoKeySpriteInfo>($"ScriptableObject/VirtualPianoInfo_{pianoTypeStr}");
         }

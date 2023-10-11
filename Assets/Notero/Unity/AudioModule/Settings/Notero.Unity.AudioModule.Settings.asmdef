@@ -1,0 +1,14 @@
+{
+    "name": "Notero.Unity.AudioModule.Settings",
+    "rootNamespace": "Notero.Unity.AudioModule.Settings",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

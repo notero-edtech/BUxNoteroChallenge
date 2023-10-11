@@ -1,0 +1,20 @@
+{
+    "name": "Notero.MidiGameplay.Core",
+    "rootNamespace": "",
+    "references": [
+        "GUID:11156aba705260d428e687d4fb4280f5",
+        "GUID:2f04b1422990ba44aab6ac941c4baf8e",
+        "GUID:132401904e9856943a74e0018caca4db",
+        "GUID:5696c051bbb38c647b4af039b90578dd",
+        "GUID:d0ecce1d30515ad40b828c1551b30aea"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

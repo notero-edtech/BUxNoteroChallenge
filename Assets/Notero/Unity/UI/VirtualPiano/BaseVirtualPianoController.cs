@@ -22,27 +22,34 @@ namespace Notero.Unity.UI.VirtualPiano
 
         public float IndicatorPosY => m_NoteIndicator.anchoredPosition.y;
 
-        public static event Action<bool> ShowLabel;
+        public event Action<bool> ShowLabel;
 
-        bool isShowLabel;
+        protected bool isShowLabel;
 
-        public void SetActiveNoteIdicator(bool isNoteIndicatorActive)
+        public void SetActiveNoteIndicator(bool isNoteIndicatorActive)
         {
             m_NoteIndicator.gameObject.SetActive(isNoteIndicatorActive);
         }
 
-        public void Create(string pianoType)
+        /// <summary>
+        /// Input pianoType is suffix of a PianoKeySpriteInfo file as in "ScriptableObject/VirtualPianoInfo_{pianoType}".
+        /// </summary>
+        /// <param name="pianoType"></param>
+        public virtual void Create(string pianoType)
         {
             m_currentPianoType = pianoType;
             m_KeyStorage = m_VirtualPianoSpawner.Create(pianoType);
+
+            m_KeyStorage.ForEach(key => ShowLabel += key.ShowLabel);
+
             SetPianoNoteLabel(isShowLabel);
-            SetActiveNoteIdicator(true);
+            if(m_currentPianoType != "quiz") SetActiveNoteIndicator(true);
         }
 
         public void SetPianoNoteLabel(bool show)
         {
             isShowLabel = show;
-            var showLabel = m_currentPianoType == "gameplay" && isShowLabel;
+            var showLabel = m_currentPianoType != "quiz" && isShowLabel;
             ShowLabel?.Invoke(showLabel);
         }
 
@@ -68,7 +75,7 @@ namespace Notero.Unity.UI.VirtualPiano
             }
 
             m_KeyStorage.Clear();
-            SetActiveNoteIdicator(false);
+            SetActiveNoteIndicator(false);
         }
 
         public void SetDefault(int midiId, bool isPressing)
@@ -81,7 +88,7 @@ namespace Notero.Unity.UI.VirtualPiano
             SetSprite(midiId, "3", Handside.Left, isPressing);
         }
 
-        public void SetRaindropIn(int midiId, Handside handSide, bool isPressing)
+        public void SetCueIn(int midiId, Handside handSide, bool isPressing)
         {
             SetSprite(midiId, "1", handSide, isPressing);
         }

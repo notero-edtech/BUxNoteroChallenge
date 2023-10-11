@@ -4,13 +4,11 @@ using DataStore;
 using DataStore.Quiz;
 using Mirror;
 using Notero.QuizConnector;
-using Notero.QuizConnector.Model;
 using Notero.Unity.Networking.Mirror;
 using Notero.Utilities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -18,11 +16,6 @@ namespace BU.QuizExample.Scripts
 {
     public class FakeForInstructorController : MonoSingleton<FakeForInstructorController>
     {
-        private QuizStore m_QuizStore => Store.QuizStore;
-        private IEventHandler[] m_EventHandler;
-        private EventBus m_EventBus;
-        private Store Store;
-
         private IQuizController m_CurrentQuizController;
 
         private QuizStates CurrentQuizState { get; set; }
@@ -31,13 +24,21 @@ namespace BU.QuizExample.Scripts
 
         private QuizControllerType m_QuizControllerType { get; set; }
 
-        private int studentAmount = 4;
+        private QuizStore m_QuizStore => Store.QuizStore;
 
-        public void Init(QuizControllerType quizControllerType)
+        private IEventHandler[] m_EventHandler;
+        private EventBus m_EventBus;
+        private Store Store;
+        private string m_JsonContent;
+
+        private const int StudentAmount = 4;
+
+        public void Init(QuizControllerType quizControllerType, string jsonContent)
         {
             Store = Store.Default;
             m_EventBus = EventBus.Default;
             m_QuizControllerType = quizControllerType;
+            m_JsonContent = jsonContent;
 
             m_EventHandler = new IEventHandler[] { new InstructorQuizEventHandler(m_QuizStore) };
 
@@ -160,7 +161,7 @@ namespace BU.QuizExample.Scripts
         private void LoadingState()
         {
             CurrentQuizState = QuizStates.LOADING;
-            QuizConnectorController.Instance.LoadQuizToQuizStore();
+            QuizConnectorController.Instance.LoadQuizToQuizStore(m_JsonContent);
 
             if(m_QuizControllerType == QuizControllerType.FLOW)
             {
@@ -179,7 +180,7 @@ namespace BU.QuizExample.Scripts
                 {
                     m_QuizStore.SetCurrentQuestionById(question.Id);
 
-                    for(int i = 1; i <= studentAmount; i++)
+                    for(int i = 1; i <= StudentAmount; i++)
                     {
                         var randomScore = Random.Range(0, m_QuizStore.QuizInfo.QuestionAmount + 1);
                         var randomAnswer = Random.Range(1, 5);

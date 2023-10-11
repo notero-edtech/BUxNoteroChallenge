@@ -718,8 +718,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8182664337934334804}
-  - component: {fileID: 5404104052197285869}
-  - component: {fileID: 3513680981126473438}
   - component: {fileID: 1307586666536767423}
   - component: {fileID: 6657096733128875974}
   m_Layer: 5
@@ -751,40 +749,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &5404104052197285869
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5208754021895172665}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8d3d347c7c58c2c4986dbba8cda79a84, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3513680981126473438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5208754021895172665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfc6a83103dd4040807de8c62b71bf2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Animator: {fileID: 5404104052197285869}
-  m_ChildAnimationHandlers: []
 --- !u!225 &1307586666536767423
 CanvasGroup:
   m_ObjectHideFlags: 0

@@ -1,6 +1,4 @@
-﻿using Notero.QuizConnector.Model;
-
-namespace Notero.QuizConnector.Instructor
+﻿namespace Notero.QuizConnector.Instructor
 {
     public abstract class BaseStudentQuizResultListItem<T> : BaseQuizPanel
     {
