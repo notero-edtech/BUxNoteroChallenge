@@ -61,7 +61,7 @@ namespace Notero.Unity.UI.Quiz
 
             foreach(var pianoKeyIndex in m_KeyChoices.Keys.Select(index => m_PianoKeyQuizSpawner.MinimumKey + index))
             {
-                SetLedOn(pianoKeyIndex, true);
+                MidiInputAdapter.Instance.SetLedOn(pianoKeyIndex, true);
             }
         }
 
@@ -69,7 +69,7 @@ namespace Notero.Unity.UI.Quiz
         {
             MidiInputAdapter.Instance.NoteOnEvent -= OnKeyPressed;
             MidiInputAdapter.Instance.NoteOffEvent -= OnKeyReleased;
-            SetAllLedOff();
+            MidiInputAdapter.Instance.SetAllLedOff();
 
             if(m_VirtualPianoController != null) m_VirtualPianoController.DeleteAllPianoKeys();
             if(m_PianoKeyQuizSpawner != null) m_PianoKeyQuizSpawner.ClearKeyList();
@@ -175,33 +175,6 @@ namespace Notero.Unity.UI.Quiz
                 m_TimerValue = 0;
                 timer.fillAmount = 0;
             }
-        }
-
-        private void SetLedOn(int keyIndex, bool cache = false)
-        {
-            keyIndex += m_MidiIdOffset;
-
-            MidiPlugin.MidiPlugin.Instance.SendLedControlMessage(true, keyIndex);
-
-            if(cache) m_KeyIndexLedOnList.Add(keyIndex);
-        }
-
-        public void SetLedOff(int keyIndex)
-        {
-            keyIndex += m_MidiIdOffset;
-
-            MidiPlugin.MidiPlugin.Instance.SendLedControlMessage(false, keyIndex);
-            if(m_KeyIndexLedOnList.Contains(keyIndex)) m_KeyIndexLedOnList.Remove(keyIndex);
-        }
-
-        private void SetAllLedOff()
-        {
-            foreach(var keyIndex in m_KeyIndexLedOnList)
-            {
-                MidiPlugin.MidiPlugin.Instance.SendLedControlMessage(false, keyIndex);
-            }
-
-            m_KeyIndexLedOnList.Clear();
         }
     }
 }
