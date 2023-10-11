@@ -2,6 +2,7 @@
 using Notero.MidiGameplay.Core;
 using Notero.Unity.AudioModule;
 using Notero.Unity.MidiNoteInfo;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -21,6 +22,8 @@ namespace Hendrix.Gameplay.Core
         UnityEvent<SelfResultInfo> OnGameResultSubmitted { get; }
         GameplayModeController ModeController { get; }
 
+        double NoteStartTimeOffset { get; }
+
         #region Loading
         void Setup(MidiFile midiFile, IAdjustableAudioClip music, float midiTimeOffset = 0, float customBPM = 0);
         void Initial();
@@ -35,6 +38,7 @@ namespace Hendrix.Gameplay.Core
         #endregion
 
         #region CountIn
+        void SetCountInCallback(Action callback);
         void SetCompetitivePanelActive(bool isActive);
         void SetCountInActive(bool isActive);
         void SetGameplayOverlayActive(bool isActive);

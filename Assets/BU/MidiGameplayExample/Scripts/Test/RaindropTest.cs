@@ -11,7 +11,7 @@ namespace BU.MidiGameplay.Gameplay
     public class RaindropTest : MonoBehaviour
     {
         [SerializeField]
-        private DemoRaindropGameController m_RaindropGameController;
+        GameObject m_GameControllerPrefab;
 
         [Header("UI Components")]
         [SerializeField]
@@ -37,8 +37,10 @@ namespace BU.MidiGameplay.Gameplay
         [SerializeField]
         private GameplayMode m_GameMode;
 
+        private IMidiGameController m_RaindropGameController;
         private MidiFile m_CurrentMidiFile;
         private bool m_IsBackingTrackAvailable => m_BackingTrack != null;
+        GameObject m_game;
 
         public void Awake()
         {
@@ -58,7 +60,8 @@ namespace BU.MidiGameplay.Gameplay
 
         public void StartTest()
         {
-            m_RaindropGameController.ResetScoreUI();
+            m_game = Instantiate(m_GameControllerPrefab);
+            m_RaindropGameController = m_game.GetComponentInChildren<IMidiGameController>();
 
             OnLoadingGameplayState(m_RaindropGameController);
             OnCoolDownGameplayState(m_RaindropGameController);
@@ -83,6 +86,9 @@ namespace BU.MidiGameplay.Gameplay
             OnEndGameplayState(m_RaindropGameController);
 
             m_StartGameplayPanel.gameObject.SetActive(true);
+
+            Destroy(m_game);
+            m_game = null;
         }
 
         private void OnGameResultSubmit(SelfResultInfo resultInfo)

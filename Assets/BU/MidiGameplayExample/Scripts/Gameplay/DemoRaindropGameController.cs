@@ -88,11 +88,6 @@ namespace BU.MidiGameplay.Gameplay
             GameLogic?.UpdateLogic();
         }
 
-        public void ResetScoreUI()
-        {
-            m_GameplayUIController.HandleScoreUpdate(new());
-        }
-
         public virtual void Initial()
         {
             m_GameplayUIController.SetCanvasScale();
