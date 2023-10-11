@@ -16,23 +16,26 @@ namespace BU.QuizExample.Scripts
 {
     public class FakeForStudentController : MonoSingleton<FakeForStudentController>
     {
-        private QuizStore m_QuizStore => Store.QuizStore;
-        private IEventHandler[] m_EventHandler;
-        private EventBus m_EventBus;
-        private Store Store;
-
         private QuizControllerType m_QuizControllerType { get; set; }
 
         private string m_StationId { get; set; }
 
         private QuizModes QuizMode { get; set; }
 
-        public void Init(string stationId, QuizControllerType quizControllerType)
+        private QuizStore m_QuizStore => Store.QuizStore;
+
+        private IEventHandler[] m_EventHandler;
+        private EventBus m_EventBus;
+        private Store Store;
+        private string m_JsonContent;
+
+        public void Init(string stationId, QuizControllerType quizControllerType, string jsonContent)
         {
             Store = Store.Default;
             m_EventBus = EventBus.Default;
             m_StationId = stationId;
             m_QuizControllerType = quizControllerType;
+            m_JsonContent = jsonContent;
 
             m_EventHandler = new IEventHandler[]
             {
@@ -237,7 +240,7 @@ namespace BU.QuizExample.Scripts
 
         private void LoadingState()
         {
-            QuizConnectorController.Instance.LoadQuizToQuizStore();
+            QuizConnectorController.Instance.LoadQuizToQuizStore(m_JsonContent);
 
             if(m_QuizControllerType == QuizControllerType.FLOW)
             {
@@ -245,13 +248,11 @@ namespace BU.QuizExample.Scripts
             }
             else if(m_QuizControllerType == QuizControllerType.RESULT)
             {
-                // [Instructor] Set quiz store
-                var questionAmount = QuizState.Default.QuestionAmount;
-                m_QuizStore.SetQuizInfo(new QuizInfo(questionAmount, questionAmount));
-
                 // [Instructor] Mock result data and send from instructor to student side
+                var questionAmount = QuizState.Default.QuestionAmount;
                 var currentScore = Random.Range(1, m_QuizStore.QuizInfo.QuestionAmount + 1);
-                SendQuizInfoToStudent(m_QuizStore.QuizInfo.CurrentQuizNumber, m_QuizStore.QuizInfo.QuestionAmount);
+
+                SendQuizInfoToStudent(questionAmount, questionAmount);
                 SendQuizResultToStudent(currentScore);
 
                 if(QuizMode == QuizModes.POSTTEST)

@@ -67,9 +67,12 @@ namespace Notero.Unity.UI.Quiz
 
         public void PianoKeyDestroy()
         {
-            MidiInputAdapter.Instance.NoteOnEvent -= OnKeyPressed;
-            MidiInputAdapter.Instance.NoteOffEvent -= OnKeyReleased;
-            MidiInputAdapter.Instance.SetAllLedOff();
+            if(MidiInputAdapter.Instance != null)
+            {
+                MidiInputAdapter.Instance.NoteOnEvent -= OnKeyPressed;
+                MidiInputAdapter.Instance.NoteOffEvent -= OnKeyReleased;
+                MidiInputAdapter.Instance.SetAllLedOff();
+            }
 
             if(m_VirtualPianoController != null) m_VirtualPianoController.DeleteAllPianoKeys();
             if(m_PianoKeyQuizSpawner != null) m_PianoKeyQuizSpawner.ClearKeyList();

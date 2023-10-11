@@ -1,8 +1,7 @@
-﻿using Notero.Utilities;
+﻿using DataStore.Quiz;
+using Notero.Utilities;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using DataStore.Quiz;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -15,6 +14,11 @@ namespace Notero.QuizConnector
 
         [SerializeField]
         private List<SlotQuiz> m_SlotQuizList;
+
+        public bool IsQuizLoaded
+        {
+            get => m_QuizControllerInterface is { IsQuizLoaded: true };
+        }
 
         public GameObject CurrentUI { get; private set; }
 
@@ -72,11 +76,11 @@ namespace Notero.QuizConnector
             m_QuizControllerInterface.OnCustomDataMessageReceive(data);
         }
 
-        public void LoadQuizToQuizStore()
+        public void LoadQuizToQuizStore(string jsonContent)
         {
             if(m_QuizControllerInterface == null) return;
 
-            m_QuizControllerInterface.LoadQuizToQuizStore();
+            m_QuizControllerInterface.LoadQuizToQuizStore(jsonContent);
         }
 
         public void SpawnInstructorCountInStateUI()

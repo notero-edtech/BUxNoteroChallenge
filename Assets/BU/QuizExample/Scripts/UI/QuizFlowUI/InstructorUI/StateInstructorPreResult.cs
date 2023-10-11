@@ -174,7 +174,6 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
             var choiceAmount2 = AnswerSummaryDic.TryGetValue("2", out var choiceAmount2Value) ? choiceAmount2Value : 0;
             var choiceAmount3 = AnswerSummaryDic.TryGetValue("3", out var choiceAmount3Value) ? choiceAmount3Value : 0;
             var choiceAmount4 = AnswerSummaryDic.TryGetValue("4", out var choiceAmount4Value) ? choiceAmount4Value : 0;
-            //var answerAmount = AnswerSummaryDic.Values.Sum();
 
             var chartBarChoice1 = choiceAmount1 == 0 ? 0 : choiceAmount1 / (float)AnswerAmount * 100;
             var chartBarChoice2 = choiceAmount2 == 0 ? 0 : choiceAmount2 / (float)AnswerAmount * 100;

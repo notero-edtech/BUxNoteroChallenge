@@ -7,7 +7,6 @@ using Notero.QuizConnector.Student;
 using System;
 using System.IO;
 using System.Linq;
-using MoreLinq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -35,13 +34,10 @@ namespace BU.QuizExample.Scripts
         [SerializeField]
         private GameObject m_StudentPostTestResultPrefab;
 
-        [SerializeField]
-        private TextAsset m_QuizDataJSON;
-
         #region Instructor base classes
 
         private BaseInstructorPopQuizResult<StudentQuizResultInfo> m_InstructorPopQuizResult;
-        private BaseInstructorPostTestStudentListResult<StudentPostTestResultInfo> m_InstructorStudentListResult;
+        private BaseInstructorPostTestStudentListResult<StudentPostTestResultInfo> m_InstructorPostTestStudentListResult;
         private BaseInstructorPostTestAnswerListResult<PostTestAnswer> m_InstructorPostTestAnswerListResult;
         private BaseInstructorPostTestAnswerRevealResult m_InstructorPostTestAnswerRevealResult;
 
@@ -56,6 +52,8 @@ namespace BU.QuizExample.Scripts
 
         // Container
         private Transform m_Container;
+
+        public bool IsQuizLoaded { get; set; }
 
         public QuizStore QuizStore { get; set; }
 
@@ -94,9 +92,8 @@ namespace BU.QuizExample.Scripts
             return resource;
         }
 
-        public void LoadQuizToQuizStore()
+        public void LoadQuizToQuizStore(string jsonContent)
         {
-            var jsonContent = m_QuizDataJSON.text;
             var questionJson = JsonConvert.DeserializeObject<SchemaQuiz>(jsonContent);
 
             QuizState.Default.ResetQuestionIndex();
@@ -150,12 +147,12 @@ namespace BU.QuizExample.Scripts
                     m_InstructorPopQuizResult = null;
                     break;
                 case "POSTTEST":
-                    if(m_InstructorStudentListResult == null) return;
+                    if(m_InstructorPostTestStudentListResult == null) return;
 
-                    m_InstructorStudentListResult.OnSwapResultState.RemoveListener(SwapToAnswerList);
+                    m_InstructorPostTestStudentListResult.OnSwapResultState.RemoveListener(SwapToAnswerList);
 
-                    Destroy(m_InstructorStudentListResult.gameObject);
-                    m_InstructorStudentListResult = null;
+                    Destroy(m_InstructorPostTestStudentListResult.gameObject);
+                    m_InstructorPostTestStudentListResult = null;
                     break;
             }
         }
@@ -168,24 +165,24 @@ namespace BU.QuizExample.Scripts
 
             Destroy(QuizConnectorController.Instance.CurrentUI);
 
-            m_InstructorStudentListResult = SpawnQuizPrototype<BaseInstructorPostTestStudentListResult<StudentPostTestResultInfo>>(m_InstructorPostTestStudentListResultPrefab);
-            m_InstructorStudentListResult.SetChapter("Chapter 1");
-            m_InstructorStudentListResult.SetMission("Mission Quiz");
-            m_InstructorStudentListResult.SetQuizMode(mode);
-            m_InstructorStudentListResult.SetCurrentPage(quizInfo.CurrentQuizNumber);
-            m_InstructorStudentListResult.SetTotalPage(quizInfo.QuestionAmount);
-            m_InstructorStudentListResult.SetElementListInfo(studentQuizResultInfo);
+            m_InstructorPostTestStudentListResult = SpawnQuizPrototype<BaseInstructorPostTestStudentListResult<StudentPostTestResultInfo>>(m_InstructorPostTestStudentListResultPrefab);
+            m_InstructorPostTestStudentListResult.SetChapter("Chapter 1");
+            m_InstructorPostTestStudentListResult.SetMission("Mission Quiz");
+            m_InstructorPostTestStudentListResult.SetQuizMode(mode);
+            m_InstructorPostTestStudentListResult.SetCurrentPage(quizInfo.CurrentQuizNumber);
+            m_InstructorPostTestStudentListResult.SetTotalPage(quizInfo.QuestionAmount);
+            m_InstructorPostTestStudentListResult.SetElementListInfo(studentQuizResultInfo);
 
-            m_InstructorStudentListResult.OnSwapResultState.AddListener(SwapToAnswerList);
-            m_InstructorStudentListResult.OnDestroyed.AddListener(OnDestroyed);
+            m_InstructorPostTestStudentListResult.OnSwapResultState.AddListener(SwapToAnswerList);
+            m_InstructorPostTestStudentListResult.OnDestroyed.AddListener(OnDestroyed);
 
             return;
 
             void OnDestroyed()
             {
-                m_InstructorStudentListResult.OnSwapResultState.RemoveListener(SwapToAnswerList);
-                m_InstructorStudentListResult.OnDestroyed.RemoveListener(OnDestroyed);
-                m_InstructorStudentListResult = null;
+                m_InstructorPostTestStudentListResult.OnSwapResultState.RemoveListener(SwapToAnswerList);
+                m_InstructorPostTestStudentListResult.OnDestroyed.RemoveListener(OnDestroyed);
+                m_InstructorPostTestStudentListResult = null;
             }
         }
 

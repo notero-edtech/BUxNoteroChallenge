@@ -28,11 +28,14 @@ namespace BU.QuizExample.Scripts
         [SerializeField]
         private QuizControllerType m_QuizControllerType;
 
+        [SerializeField]
+        private TextAsset m_QuizDataJSON;
+
         private void Awake()
         {
             ApplicationFlagConfig.InitializeCommandlineArgs();
-            if(ApplicationFlagConfig.IsInstructorMode) FakeForInstructorController.Instance.Init(m_QuizControllerType);
-            if(ApplicationFlagConfig.IsStudentMode) FakeForStudentController.Instance.Init("1", m_QuizControllerType);
+            if(ApplicationFlagConfig.IsInstructorMode) FakeForInstructorController.Instance.Init(m_QuizControllerType, m_QuizDataJSON.text);
+            if(ApplicationFlagConfig.IsStudentMode) FakeForStudentController.Instance.Init("1", m_QuizControllerType, m_QuizDataJSON.text);
 
             m_PopQuizStartButton.onClick.AddListener(OnPopQuizStartButtonClick);
             m_PreTestButton.onClick.AddListener(OnPostTestStartClick);

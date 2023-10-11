@@ -1487,6 +1487,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4884416405884748154, guid: abea4abf335b70d47b9ce42c8e1f3aa0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4884416406470702434, guid: abea4abf335b70d47b9ce42c8e1f3aa0, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1705,6 +1709,7 @@ MonoBehaviour:
   m_LoadingBG: {fileID: 29236862}
   m_HideCurrentPanelButton: {fileID: 0}
   m_QuizControllerType: 0
+  m_QuizDataJSON: {fileID: 4900000, guid: 3677c9aa3b160994f8b9109739f0d23b, type: 3}
 --- !u!4 &1692771195
 Transform:
   m_ObjectHideFlags: 0

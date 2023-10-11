@@ -50,4 +50,3 @@ MonoBehaviour:
   m_InstructorPostTestAnswerRevealResultPrefab: {fileID: 4648779460699736671, guid: b8dfad03d47a1d24e9e89528de02cc7c, type: 3}
   m_StudentPopQuizResultPrefab: {fileID: 5208754021895172665, guid: 1147c676646f5e34c80c9d042b9a974b, type: 3}
   m_StudentPostTestResultPrefab: {fileID: 9149186565199449388, guid: 3e393d03c337e2841887bc182874c446, type: 3}
-  m_QuizDataJSON: {fileID: 4900000, guid: 3677c9aa3b160994f8b9109739f0d23b, type: 3}
