@@ -1,5 +1,5 @@
-﻿using Hendrix.Gameplay.Core;
-using Notero.MidiGameplay.Core;
+﻿using Notero.MidiGameplay.Core;
+using Notero.RaindropGameplay.Core;
 using Notero.Unity.MidiNoteInfo;
 using Notero.Unity.UI.VirtualPiano;
 using System;
@@ -13,8 +13,8 @@ namespace BU.MidiGameplay.UI
         public Canvas GameplayCanvas { get; }
 
         //Gameplay Runtime
-        public void HandleScoreUpdate(SelfResultInfo info);
         public void HandleGameplayTimeUpdate(float time);
+        public void HandleScoreUpdate(SelfResultInfo info);
 
         //Feedback
         public void UpdateTextFeedback(MidiNoteInfo noteInfo, string result, string actionState);

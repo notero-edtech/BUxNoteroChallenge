@@ -1,9 +1,9 @@
 ﻿using BU.Gameplay.Scoring;
 using BU.MidiGameplay.UI;
-using Hendrix.Gameplay.Core;
 using Notero.MidiAdapter;
 using Notero.MidiGameplay.Bot;
 using Notero.MidiGameplay.Core;
+using Notero.RaindropGameplay.Core;
 using Notero.RaindropGameplay.Core.Scoring;
 using Notero.Unity.AudioModule;
 using Notero.Unity.MidiNoteInfo;

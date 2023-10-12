@@ -1,4 +1,5 @@
 using Notero.MidiGameplay.Core;
+using Notero.RaindropGameplay.Core;
 using UnityEngine;
 
 namespace Notero.RaindropGameplay.UI
