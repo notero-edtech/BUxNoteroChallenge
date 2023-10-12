@@ -1,8 +1,7 @@
-using Hendrix.Gameplay.Core;
 using Notero.MidiGameplay.Core;
 using UnityEngine;
 
-namespace Hendrix.Gameplay.UI
+namespace Notero.RaindropGameplay.UI
 {
     public class CompetitivePanel : MonoBehaviour
     {

@@ -3,7 +3,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-namespace Hendrix.Gameplay.UI
+namespace Notero.RaindropGameplay.UI
 {
     public class CountInPanel : MonoBehaviour
     {

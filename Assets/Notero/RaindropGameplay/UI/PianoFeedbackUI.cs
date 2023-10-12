@@ -1,9 +1,8 @@
-using Hendrix.Gameplay.Core.Scoring;
-using Hendrix.Gameplay.UI;
+using Notero.RaindropGameplay.Core.Scoring;
 using Notero.Utilities.Pooling;
 using UnityEngine;
 
-namespace Hendrix.Gameplay.UI
+namespace Notero.RaindropGameplay.UI
 {
     public class PianoFeedbackUI : PoolObject<PianoFeedbackUI>, IFeedbackDisplayable
     {
@@ -41,7 +40,7 @@ namespace Hendrix.Gameplay.UI
             m_HitFeedback.SetActive(noteScore == NoteTimingScore.Perfect || noteScore == NoteTimingScore.Good);
             m_MissFeedback.SetActive(noteScore == NoteTimingScore.Oops);
 
-            if (noteScore != NoteTimingScore.Oops) return;
+            if(noteScore != NoteTimingScore.Oops) return;
             m_IsPress = false;
         }
 
@@ -57,7 +56,7 @@ namespace Hendrix.Gameplay.UI
         {
             base.Update();
 
-            if (Time.time >= m_ReturnTime && !m_IsPress) Return();
+            if(Time.time >= m_ReturnTime && !m_IsPress) Return();
         }
     }
 }

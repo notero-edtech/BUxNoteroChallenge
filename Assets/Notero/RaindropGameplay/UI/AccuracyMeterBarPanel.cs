@@ -4,7 +4,7 @@ using Notero.Utilities;
 using TMPro;
 using UnityEngine;
 
-namespace Hendrix.Gameplay.UI
+namespace Notero.RaindropGameplay.UI
 {
     public class AccuracyMeterBarPanel : MonoBehaviour
     {

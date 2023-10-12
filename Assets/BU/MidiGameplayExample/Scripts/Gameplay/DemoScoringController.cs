@@ -1,5 +1,5 @@
 ﻿using Hendrix.Gameplay.Core;
-using Hendrix.Gameplay.Core.Scoring;
+using Notero.RaindropGameplay.Core.Scoring;
 using Notero.Unity.MidiNoteInfo;
 using System;
 using System.Collections.Generic;
