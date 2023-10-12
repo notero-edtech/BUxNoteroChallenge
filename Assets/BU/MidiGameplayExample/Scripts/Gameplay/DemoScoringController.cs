@@ -1,11 +1,10 @@
-﻿using Hendrix.Gameplay.Core;
-using Hendrix.Gameplay.Core.Scoring;
+﻿using Notero.RaindropGameplay.Core;
+using Notero.RaindropGameplay.Core.Scoring;
 using Notero.Unity.MidiNoteInfo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace BU.Gameplay.Scoring
 {

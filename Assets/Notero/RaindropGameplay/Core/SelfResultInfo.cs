@@ -1,4 +1,4 @@
-namespace Hendrix.Gameplay.Core
+namespace Notero.RaindropGameplay.Core
 {
     public class SelfResultInfo
     {

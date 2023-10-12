@@ -1,4 +1,4 @@
-﻿namespace Hendrix.Gameplay.Core.Scoring
+﻿namespace Notero.RaindropGameplay.Core.Scoring
 {
     public enum NoteTimingScore
     {

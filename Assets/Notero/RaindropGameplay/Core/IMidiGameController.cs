@@ -6,7 +6,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Hendrix.Gameplay.Core
+namespace Notero.RaindropGameplay.Core
 {
     public interface IMidiGameController
     {
