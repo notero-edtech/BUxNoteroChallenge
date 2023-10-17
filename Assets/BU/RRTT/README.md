@@ -6,8 +6,8 @@
 ## **Team Members**
 - **Aisarapap Sributta** : Project Manager / Artist Co-Worker
 - **Kantaphon Rachabundit** : Game Developer
- **Parames Poungchan** : Game Developer
- - **Sathan Meekaew** : Game Developer
+- **Parames Poungchan** : Game Developer
+- **Sathan Meekaew** : Game Developer
 - **Nutnoppakun Asaisuk** : Artist
 - **Phakanan Pimanmas** : Artist
 - **Phasathorn Charoenpanich** : Artist
