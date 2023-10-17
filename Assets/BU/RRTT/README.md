@@ -4,16 +4,16 @@
 - VISUAL REPRESENTATION FOR QUIZ MODE
 
 ## **Team Members**
-**Kantaphon Rachabundit** : Game Developer
-**Nutnoppakun Asaisuk** : Artist
-**Kanatsanan Boonjubutr** : Game Designer
-**Chanchon Wongta** : Game Designer
-**Phakanan Pimanmas** : Artist
-**Sathan Meekaew** : Game Developer
-**Jed Phumpong** : Game Designer
-**Phasathorn Charoenpanich** : Artist
-**Aisarapap Sributta** : Project Manager / Artist Co-Worker
-**Parames Poungchan** : Game Developer
+- **Aisarapap Sributta** : Project Manager / Artist Co-Worker
+- **Kantaphon Rachabundit** : Game Developer
+ **Parames Poungchan** : Game Developer
+ - **Sathan Meekaew** : Game Developer
+- **Nutnoppakun Asaisuk** : Artist
+- **Phakanan Pimanmas** : Artist
+- **Phasathorn Charoenpanich** : Artist
+- **Kanatsanan Boonjubutr** : Game Designer
+- **Chanchon Wongta** : Game Designer
+- **Jed Phumpong** : Game Designer
 
 ## **Additional Notes**
 - -
