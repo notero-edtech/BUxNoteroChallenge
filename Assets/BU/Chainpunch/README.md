@@ -17,4 +17,4 @@
 
 ## **References**
 - [BUxNoteroChallenge](https://github.com/notero-edtech/BUxNoteroChallenge)
-- *([Project Shared Drive](https://drive.google.com/drive/u/2/folders/1q0JVONNPYZ-0Pvt3eWs-To_Pk41Y6Cha))*
+- *[Project Shared Drive](https://drive.google.com/drive/u/2/folders/1q0JVONNPYZ-0Pvt3eWs-To_Pk41Y6Cha)*
