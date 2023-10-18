@@ -115,6 +115,9 @@ namespace BU.QuizExample.Scripts
                 )).ToList();
 
                 QuizStore.SetQuizList(list);
+
+                // Example: Set custom data
+                //QuizStore.SetCustomData(new byte[] { 0, 1, 2 });
             }
             else if(ApplicationFlagConfig.IsStudentMode)
             {
@@ -172,6 +175,7 @@ namespace BU.QuizExample.Scripts
 
             OnCustomDataUIReceive.AddListener(OnCustomDataReceived);
 
+            quizPanelPrototype.OnCustomDataReceive(QuizStore.CustomData);
             quizPanelPrototype.OnDestroyed.AddListener(OnPrototypeDestroyed);
             quizPanelPrototype.OnSendCustomData.AddListener(OnSendCustomData);
 
