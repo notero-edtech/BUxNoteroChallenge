@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace Notero.QuizConnector
 {
@@ -14,6 +16,11 @@ namespace Notero.QuizConnector
 
         [SerializeField]
         private List<SlotQuiz> m_SlotQuizList;
+        
+        [Header("Boss Prefabs")]
+        public List<Image> bossPrefabs;
+        public int bossIndex;
+        
 
         public bool IsQuizLoaded
         {
@@ -28,6 +35,13 @@ namespace Notero.QuizConnector
         public UnityEvent<string> OnStudentSubmit;
 
         private IQuizController m_QuizControllerInterface;
+
+        private void OnEnable()
+        {
+            bossIndex = Random.Range(0, 2);
+            Debug.Log(bossIndex);
+            Debug.Log(bossPrefabs[bossIndex].name);
+        }
 
         public void Init(QuizStore quizStore, string keyName)
         {

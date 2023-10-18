@@ -24,6 +24,7 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
 
         [SerializeField]
         private HUDController m_NextButtonUI;
+        
 
         private const string ChapterIndexFormat = "Chapter: <color=white><font=\"EN_Stylize_Neutral_A\">{0}</font></color>";
         private const string MissionFormat = "Mission: <color=white><font=\"EN_Stylize_Neutral_B\">{0}</font></color>";

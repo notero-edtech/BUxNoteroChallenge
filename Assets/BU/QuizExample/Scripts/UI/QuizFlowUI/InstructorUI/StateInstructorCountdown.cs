@@ -1,3 +1,4 @@
+using Notero.QuizConnector;
 using Notero.QuizConnector.Instructor;
 using TMPro;
 using UnityEngine;
@@ -21,6 +22,14 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
         [SerializeField]
         protected TMP_Text m_QuizInfoText;
 
+        [SerializeField]
+        private Transform bossPosition;
+
+        [SerializeField]
+        private Transform CountDownFrame;
+
+        private QuizConnectorController quizConnectorController;
+        
         private const string ChapterIndexFormat = "Chapter: <color=white><font=\"EN_Stylize_Neutral_A\">{0}</font></color>";
         private const string MissionFormat = "Mission: <color=white><font=\"EN_Stylize_Neutral_B\">{0}</font></color>";
         private const string QuizInfoFormat = "<color=#14C287>{0}</color> / {1}";
@@ -30,6 +39,16 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
             SetChapterText(Chapter);
             SetMissionText(Mission);
             SetQuizInfoText(CurrentPage, TotalPage);
+            if (quizConnectorController == null)
+            {
+                quizConnectorController = QuizConnectorController.Instance;
+            }
+            GameObject boss = Instantiate(quizConnectorController.bossPrefabs[quizConnectorController.bossIndex].gameObject, bossPosition);
+            boss.transform.SetParent(CountDownFrame);
+            if (boss != null)
+            {
+                Debug.Log("Spawn!");
+            }
         }
 
         public override void OnCustomDataReceive(byte[] data)

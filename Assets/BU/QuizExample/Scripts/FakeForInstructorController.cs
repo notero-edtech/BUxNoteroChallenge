@@ -175,6 +175,7 @@ namespace BU.QuizExample.Scripts
 
                 // [instructor] Mock result data of student side
                 var studentScore = new Dictionary<string, int>();
+                
 
                 foreach(var question in m_QuizStore.QuizList.Values)
                 {
