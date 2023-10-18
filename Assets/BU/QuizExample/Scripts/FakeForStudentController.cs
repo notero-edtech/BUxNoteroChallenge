@@ -94,6 +94,15 @@ namespace BU.QuizExample.Scripts
 
         #region Send event message to Student
 
+        private void SendCustomDataToStudent(byte[] data)
+        {
+            if(m_EventBus == null) return;
+            m_EventBus.Publish(new CustomDataMessage()
+            {
+                Data = data
+            });
+        }
+
         private void SendQuizStateToStudent(int nextState)
         {
             if(m_EventBus == null) return;
@@ -241,6 +250,9 @@ namespace BU.QuizExample.Scripts
         private void LoadingState()
         {
             QuizConnectorController.Instance.LoadQuizToQuizStore(m_JsonContent);
+
+            // Example:send custom data to student
+            //SendCustomDataToStudent(new byte[] { 0, 1, 2 });
 
             if(m_QuizControllerType == QuizControllerType.FLOW)
             {
