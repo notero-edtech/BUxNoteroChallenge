@@ -77,7 +77,7 @@ PrefabInstance:
     - target: {fileID: 740936834402047855, guid: fdae9fc960af95748b14430637fb42bb, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 494e9f6823004ae458a983a91770e841, type: 3}
+      objectReference: {fileID: 21300000, guid: 047678976baa6f24997d01ba3545de1f, type: 3}
     - target: {fileID: 1494465719099061677, guid: fdae9fc960af95748b14430637fb42bb, type: 3}
       propertyPath: m_Name
       value: vfx_good_old
@@ -169,7 +169,7 @@ PrefabInstance:
     - target: {fileID: 9125229904265845501, guid: fdae9fc960af95748b14430637fb42bb, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 494e9f6823004ae458a983a91770e841, type: 3}
+      objectReference: {fileID: 21300000, guid: 047678976baa6f24997d01ba3545de1f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdae9fc960af95748b14430637fb42bb, type: 3}
 --- !u!1 &1479427922929921709 stripped
