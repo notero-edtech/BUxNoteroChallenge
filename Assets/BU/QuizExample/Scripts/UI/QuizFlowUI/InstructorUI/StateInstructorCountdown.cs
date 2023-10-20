@@ -21,14 +21,18 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
 
         [SerializeField]
         protected TMP_Text m_QuizInfoText;
-
+        
+        // RRTT Variables
         [SerializeField]
         private Transform bossPosition;
 
         [SerializeField]
         private Transform CountDownFrame;
 
-        private QuizConnectorController quizConnectorController;
+        private GameObject bossReference;
+
+        private BossList bossList;
+        
         
         private const string ChapterIndexFormat = "Chapter: <color=white><font=\"EN_Stylize_Neutral_A\">{0}</font></color>";
         private const string MissionFormat = "Mission: <color=white><font=\"EN_Stylize_Neutral_B\">{0}</font></color>";
@@ -39,12 +43,13 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
             SetChapterText(Chapter);
             SetMissionText(Mission);
             SetQuizInfoText(CurrentPage, TotalPage);
-            if (quizConnectorController == null)
-            {
-                quizConnectorController = QuizConnectorController.Instance;
-            }
-            GameObject boss = Instantiate(quizConnectorController.bossPrefabs[quizConnectorController.bossIndex].gameObject, bossPosition);
+            
+            // RRTT Additional
+            bossReference = GameObject.FindGameObjectWithTag("BossReference");
+            bossList = bossReference.GetComponent<BossList>();
+            GameObject boss = Instantiate(bossList.bossPrefabs[bossList.bossIndex].gameObject, bossPosition);
             boss.transform.SetParent(CountDownFrame);
+            boss.transform.SetParent(bossPosition);
             if (boss != null)
             {
                 Debug.Log("Spawn!");

@@ -17,11 +17,6 @@ namespace Notero.QuizConnector
         [SerializeField]
         private List<SlotQuiz> m_SlotQuizList;
         
-        [Header("Boss Prefabs")]
-        public List<Image> bossPrefabs;
-        public int bossIndex;
-        
-
         public bool IsQuizLoaded
         {
             get => m_QuizControllerInterface is { IsQuizLoaded: true };
@@ -35,13 +30,6 @@ namespace Notero.QuizConnector
         public UnityEvent<string> OnStudentSubmit;
 
         private IQuizController m_QuizControllerInterface;
-
-        private void OnEnable()
-        {
-            bossIndex = Random.Range(0, 2);
-            Debug.Log(bossIndex);
-            Debug.Log(bossPrefabs[bossIndex].name);
-        }
 
         public void Init(QuizStore quizStore, string keyName)
         {

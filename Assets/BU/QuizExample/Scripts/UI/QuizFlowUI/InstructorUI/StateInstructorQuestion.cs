@@ -25,6 +25,17 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
         [SerializeField]
         private HUDController m_NextButtonUI;
         
+        // RRTT Variables
+        [SerializeField]
+        private Transform bossPosition;
+        
+        [SerializeField]
+        private Transform ContentFrame;
+        
+        private GameObject bossReference;
+
+        private BossList bossList;
+        
 
         private const string ChapterIndexFormat = "Chapter: <color=white><font=\"EN_Stylize_Neutral_A\">{0}</font></color>";
         private const string MissionFormat = "Mission: <color=white><font=\"EN_Stylize_Neutral_B\">{0}</font></color>";
@@ -39,6 +50,17 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
             SetStudentAmountText(0, StudentAmount);
 
             m_NextButtonUI.OnNextClick.AddListener(OnNextStateReceive);
+            
+            // RRTT Additional
+            bossReference = GameObject.FindGameObjectWithTag("BossReference");
+            bossList = bossReference.GetComponent<BossList>();
+            GameObject boss = Instantiate(bossList.bossPrefabs[bossList.bossIndex].gameObject, bossPosition);
+            boss.transform.SetParent(ContentFrame);
+            boss.transform.SetParent(bossPosition);
+            if (boss != null)
+            {
+                Debug.Log("Spawn!");
+            }
         }
 
         public override void OnCustomDataReceive(byte[] data)
