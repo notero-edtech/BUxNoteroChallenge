@@ -9,6 +9,8 @@ namespace Notero.QuizConnector
 
         public UnityEvent OnDestroyed;
 
+        protected byte[] CustomData { get; private set; }
+
         protected string Chapter { get; private set; }
 
         protected string Mission { get; private set; }
@@ -31,6 +33,6 @@ namespace Notero.QuizConnector
 
         private void OnDestroy() => OnDestroyed?.Invoke();
 
-        public abstract void OnCustomDataReceive(byte[] data);
+        public virtual void OnCustomDataReceive(byte[] data) => CustomData = data;
     }
 }
