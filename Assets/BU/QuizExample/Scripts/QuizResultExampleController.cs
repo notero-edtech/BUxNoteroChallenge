@@ -109,7 +109,8 @@ namespace BU.QuizExample.Scripts
 
             QuizStore.SetQuizList(list);
 
-            QuizStore.SetCustomData(new byte[] { 0, 1, 2 });
+            // Example: Set custom data
+            //QuizStore.SetCustomData(new byte[] { 0, 1, 2 });
         }
 
         #region Instructor Result state nethods
