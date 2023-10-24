@@ -1,5 +1,0 @@
-# BUxNoteroChallenge(Octopuz)
-
-
-
-Test description
