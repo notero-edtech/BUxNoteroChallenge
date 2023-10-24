@@ -50,22 +50,22 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
             SetStudentAmountText(0, StudentAmount);
 
             m_NextButtonUI.OnNextClick.AddListener(OnNextStateReceive);
-            
+        }
+
+        public override void OnCustomDataReceive(byte[] data)
+        {
+            Debug.Log($"NPA-data:{data[0]}");
             // RRTT Additional
             bossReference = GameObject.FindGameObjectWithTag("BossReference");
             bossList = bossReference.GetComponent<BossList>();
-            GameObject boss = Instantiate(bossList.bossPrefabs[bossList.bossIndex].gameObject, bossPosition);
+            GameObject boss = Instantiate(bossList.bossPrefabs[data[0]].gameObject, bossPosition);
+            boss.transform.localScale = new Vector3(4, 4, 4);
             boss.transform.SetParent(ContentFrame);
             boss.transform.SetParent(bossPosition);
             if (boss != null)
             {
                 Debug.Log("Spawn!");
             }
-        }
-
-        public override void OnCustomDataReceive(byte[] data)
-        {
-            Debug.Log($"NPA-data:{data}");
         }
 
         public override void OnStudentAnswerReceive(int studentAnswer, int studentAmount)

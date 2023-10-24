@@ -1,6 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using BU.QuizExample.Scripts;
+using DataStore.Quiz;
+using Notero.QuizConnector;
+using Notero.Utilities;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -10,7 +14,7 @@ public class BossList : MonoBehaviour
     private static BossList instance;
     [Header("Boss Prefabs")]
     public List<Image> bossPrefabs;
-    public int bossIndex;
+    public byte bossIndex;
 
     private void Awake()
     {
@@ -24,10 +28,9 @@ public class BossList : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
-
     private void OnEnable()
     {
-        bossIndex = Random.Range(0, 2);
+        bossIndex = (byte) Random.Range(0, 2);
         Debug.Log(bossIndex);
         Debug.Log(bossPrefabs[bossIndex].name);
     }

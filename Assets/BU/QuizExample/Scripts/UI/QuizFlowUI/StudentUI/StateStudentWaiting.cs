@@ -21,6 +21,17 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.StudentUI
         private const string ChapterIndexFormat = "Chapter: <color=white><font=\"EN_Stylize_Neutral_A\">{0}</font></color>";
         private const string MissionFormat = "Mission: <color=white><font=\"EN_Stylize_Neutral_B\">{0}</font></color>";
         private const string QuizInfoFormat = "<color=#14C287>{0}</color> / {1}";
+        
+        // RRTT Variables
+        [SerializeField]
+        private Transform bossPosition;
+
+        [SerializeField]
+        private Transform CountDownFrame;
+
+        private GameObject bossReference;
+
+        private BossList bossList;
 
         private void Start()
         {
@@ -32,7 +43,17 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.StudentUI
 
         public override void OnCustomDataReceive(byte[] data)
         {
-            Debug.Log($"NPA-data:{data}");
+            Debug.Log($"NPA-data:{data[0]}");
+            // RRTT Additional
+            bossReference = GameObject.FindGameObjectWithTag("BossReference");
+            bossList = bossReference.GetComponent<BossList>();
+            GameObject boss = Instantiate(bossList.bossPrefabs[data[0]].gameObject, bossPosition);
+            boss.transform.SetParent(CountDownFrame);
+            boss.transform.SetParent(bossPosition);
+            if (boss != null)
+            {
+                Debug.Log("Spawn!");
+            }
         }
 
         #region Custom functions

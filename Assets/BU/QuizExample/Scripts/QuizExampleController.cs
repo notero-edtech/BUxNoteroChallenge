@@ -86,6 +86,11 @@ namespace BU.QuizExample.Scripts
         public bool IsQuizLoaded { get; set; }
 
         public QuizStore QuizStore { get; set; }
+        
+        // RRTT Variables
+        private GameObject bossReference;
+
+        private BossList bossList;
 
         public void Init(Transform container, QuizStore quizStore)
         {
@@ -102,6 +107,9 @@ namespace BU.QuizExample.Scripts
         {
             if(ApplicationFlagConfig.IsInstructorMode)
             {
+                bossReference = GameObject.FindGameObjectWithTag("BossReference");
+                bossList = bossReference.GetComponent<BossList>();
+                
                 var questionJson = JsonConvert.DeserializeObject<SchemaQuiz>(jsonContent);
 
                 QuizState.Default.ResetQuestionIndex();
@@ -117,7 +125,7 @@ namespace BU.QuizExample.Scripts
                 QuizStore.SetQuizList(list);
 
                 // Example: Set custom data
-                //QuizStore.SetCustomData(new byte[] { 0, 1, 2 });
+                QuizStore.SetCustomData(new byte[] {bossList.bossIndex});
             }
             else if(ApplicationFlagConfig.IsStudentMode)
             {
@@ -172,9 +180,7 @@ namespace BU.QuizExample.Scripts
 
             var prototype = Instantiate(gameObj, m_Container);
             var quizPanelPrototype = prototype.GetComponent<BaseQuizPanel>();
-
             OnCustomDataUIReceive.AddListener(OnCustomDataReceived);
-
             quizPanelPrototype.OnCustomDataReceive(QuizStore.CustomData);
             quizPanelPrototype.OnDestroyed.AddListener(OnPrototypeDestroyed);
             quizPanelPrototype.OnSendCustomData.AddListener(OnSendCustomData);

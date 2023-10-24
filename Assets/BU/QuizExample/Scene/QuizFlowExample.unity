@@ -1929,6 +1929,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossReference
       objectReference: {fileID: 0}
+    - target: {fileID: 6733189538501950097, guid: daaa0cb160d78aa439f6006cec98bf9a, type: 3}
+      propertyPath: quizExampleController
+      value: 
+      objectReference: {fileID: 5834639129058758962, guid: 331b268a3e5ddaa4295d91e6214450c4, type: 3}
+    - target: {fileID: 6733189538501950097, guid: daaa0cb160d78aa439f6006cec98bf9a, type: 3}
+      propertyPath: quizExampleControllerObj
+      value: 
+      objectReference: {fileID: 5834639129058758962, guid: 331b268a3e5ddaa4295d91e6214450c4, type: 3}
     - target: {fileID: 6733189538501950098, guid: daaa0cb160d78aa439f6006cec98bf9a, type: 3}
       propertyPath: m_RootOrder
       value: 7

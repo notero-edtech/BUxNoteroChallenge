@@ -28,7 +28,11 @@ namespace BU.QuizExample.Scripts
         private EventBus m_EventBus;
         private Store Store;
         private string m_JsonContent;
+        
+        // RRTT Variables
+        private GameObject bossReference;
 
+        private BossList bossList;
         public void Init(string stationId, QuizControllerType quizControllerType, string jsonContent)
         {
             Store = Store.Default;
@@ -250,9 +254,12 @@ namespace BU.QuizExample.Scripts
         private void LoadingState()
         {
             QuizConnectorController.Instance.LoadQuizToQuizStore(m_JsonContent);
+            
+            bossReference = GameObject.FindGameObjectWithTag("BossReference");
+            bossList = bossReference.GetComponent<BossList>();
 
             // Example:send custom data to student
-            //SendCustomDataToStudent(new byte[] { 0, 1, 2 });
+            SendCustomDataToStudent(new byte[] {bossList.bossIndex});
 
             if(m_QuizControllerType == QuizControllerType.FLOW)
             {

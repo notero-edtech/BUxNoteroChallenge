@@ -1,3 +1,5 @@
+using System.Security.Cryptography.X509Certificates;
+using DataStore.Quiz;
 using Notero.QuizConnector;
 using Notero.QuizConnector.Instructor;
 using TMPro;
@@ -43,22 +45,21 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
             SetChapterText(Chapter);
             SetMissionText(Mission);
             SetQuizInfoText(CurrentPage, TotalPage);
-            
+        }
+
+        public override void OnCustomDataReceive(byte[] data)
+        {
+            Debug.Log($"NPA-data:{data[0]}");
             // RRTT Additional
             bossReference = GameObject.FindGameObjectWithTag("BossReference");
             bossList = bossReference.GetComponent<BossList>();
-            GameObject boss = Instantiate(bossList.bossPrefabs[bossList.bossIndex].gameObject, bossPosition);
+            GameObject boss = Instantiate(bossList.bossPrefabs[data[0]].gameObject, bossPosition);
             boss.transform.SetParent(CountDownFrame);
             boss.transform.SetParent(bossPosition);
             if (boss != null)
             {
                 Debug.Log("Spawn!");
             }
-        }
-
-        public override void OnCustomDataReceive(byte[] data)
-        {
-            Debug.Log($"NPA-data:{data}");
         }
 
         /// <summary>

@@ -27,6 +27,17 @@ namespace BU.QuizExample.Scripts.UI.QuizResultUI.StudentUI
         private const string QuestionAmountFormat = "Amount of Questions: <color=white><font=EN_Stylize_Neutral_A>{0} Questions</font></color>";
         private const string ScoreColor = "#14C287";
         private const string QuizScoreFormat = "Your Quiz Score\n<color=" + ScoreColor + ">{0}</color>/{1}";
+        
+        // RRTT Variables
+        private GameObject bossReference;
+
+        private BossList bossList;
+        
+        [SerializeField]
+        private Transform bossPosition;
+
+        [SerializeField]
+        private Transform ContentFrame;
 
         private void Start()
         {
@@ -39,7 +50,14 @@ namespace BU.QuizExample.Scripts.UI.QuizResultUI.StudentUI
 
         public override void OnCustomDataReceive(byte[] data)
         {
-            Debug.Log($"NPA-data:{data}");
+            Debug.Log($"NPA-data:{data[0]}");
+            // RRTT Additional
+            bossReference = GameObject.FindGameObjectWithTag("BossReference");
+            bossList = bossReference.GetComponent<BossList>();
+            GameObject boss = Instantiate(bossList.bossPrefabs[data[0]].gameObject, bossPosition);
+            boss.transform.localScale = new Vector3(4.5f, 4.5f, 4.5f);
+            boss.transform.SetParent(ContentFrame);
+            boss.transform.SetParent(bossPosition);
         }
 
         #region Custom Methods
