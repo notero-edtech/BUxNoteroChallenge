@@ -76,6 +76,7 @@ namespace BU.QuizExample.Scripts
             var prototype = Instantiate(gameObj, m_Container);
 
             QuizConnectorController.Instance.SetCurrentUI(prototype);
+            prototype.GetComponent<BaseQuizPanel>().OnCustomDataReceive(QuizStore.CustomData);
 
             return prototype.GetComponent(typeof(T)) as T;
         }
@@ -107,6 +108,9 @@ namespace BU.QuizExample.Scripts
             )).ToList();
 
             QuizStore.SetQuizList(list);
+
+            // Example: Set custom data
+            //QuizStore.SetCustomData(new byte[] { 0, 1, 2 });
         }
 
         #region Instructor Result state nethods
