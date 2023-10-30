@@ -173,6 +173,7 @@ namespace BU.Gameplay.Scoring
             double noteEventTime = noteActionTime + m_NoteStartTimeOffset;
 
             return CalculateTimingScore(noteEventTime, actionTime);
+
         }
 
         private NoteTimingScore CalculateTimingScore(double noteEventTime, double actionTime)

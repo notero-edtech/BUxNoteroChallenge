@@ -15,6 +15,9 @@ namespace Notero.RaindropGameplay.UI
         [SerializeField]
         private ScorePanel m_ScorePanel;
 
+        [SerializeField]
+        private ComboPanel m_ComboPanel;
+
         public void SetActive(bool isActive) => gameObject.SetActive(isActive);
 
         public void SetupTimerDisplay(float duration)
@@ -32,6 +35,8 @@ namespace Notero.RaindropGameplay.UI
         }
 
         public void UpdateScore(float studentCurrentScore) => m_ScorePanel.SetScoreText(studentCurrentScore);
+
+        public void UpdateCombo(float studentCurrentCombo) => m_ComboPanel.Heal(studentCurrentCombo);
 
         public void SetTimerActive(bool isActive)
         {
@@ -53,6 +58,7 @@ namespace Notero.RaindropGameplay.UI
         {
             UpdateAccuracyMeterBar(studentResultInfo.AccuracyPercent, studentResultInfo.StarCount);
             UpdateScore(studentResultInfo.StudentCurrentScore);
+            UpdateCombo(studentResultInfo.StudentCurrentScore);
         }
     }
 }
