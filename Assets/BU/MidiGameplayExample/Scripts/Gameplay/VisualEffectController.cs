@@ -1,4 +1,4 @@
-﻿using BU.Gameplay.Scoring;
+using BU.Gameplay.Scoring;
 using BU.MidiGameplay.UI;
 using Notero.MidiAdapter;
 using Notero.MidiGameplay.Bot;
@@ -17,7 +17,40 @@ using UnityEngine.Events;
 
 namespace BU.MidiGameplay.Gameplay
 {
-    public class DemoRaindropGameController : MonoBehaviour, IMidiGameController
+    public class VisualEffectController : MonoBehaviour
+    {
+        public DemoRaindropGameController m_DemoGameController;
+        
+        [SerializeField] protected GameObject[] Mascot;
+
+        [SerializeField] protected Transform[] SpawnPoint;
+
+        
+        void Start()
+        {
+            Instantiate(Mascot[0], SpawnPoint[0].position, SpawnPoint[0].rotation);
+            m_DemoGameController.m_ScoringController.OnScoreUpdated.AddListener(MascotSpawner);
+        }
+        
+        private void MascotSpawner(SelfResultInfo Info)
+        {
+            if (Info.AccuracyPercent >= 15f) Instantiate(Mascot[1], SpawnPoint[1].position, SpawnPoint[1].rotation);
+            if (Info.AccuracyPercent >= 30f) Instantiate(Mascot[2], SpawnPoint[2].position, SpawnPoint[2].rotation);
+            if (Info.AccuracyPercent >= 45f) Instantiate(Mascot[3], SpawnPoint[3].position, SpawnPoint[3].rotation);
+            if (Info.AccuracyPercent >= 60f) Instantiate(Mascot[4], SpawnPoint[4].position, SpawnPoint[4].rotation);
+            if (Info.AccuracyPercent >= 75f) Instantiate(Mascot[5], SpawnPoint[5].position, SpawnPoint[5].rotation);
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+        	/*var PercentScore = m_DemoScoringController.CreateStudentResultInfo();
+			Debug.Log("Updete "+PercentScore);*/
+
+        }
+    }
+    
+    /*public class VisualEffectController : MonoBehaviour, IMidiGameController
     {
         [SerializeField]
         protected GameLogicConnector m_GameLogicController;
@@ -50,8 +83,12 @@ namespace BU.MidiGameplay.Gameplay
 
         [SerializeField]
         protected RectTransform m_ActionBar;
+        
+        [SerializeField] protected GameObject[] Mascot;
+        [SerializeField] protected Transform[] SpawnPoint;
+        protected SelfResultInfo m_SelfResultInfo;
 
-        public BaseScoringProcessor m_ScoringController;
+        protected BaseScoringProcessor m_ScoringController;
         public GameplayModeController ModeController { get; protected set; }
 
         public double NoteStartTimeOffset { get; private set; }
@@ -450,5 +487,16 @@ namespace BU.MidiGameplay.Gameplay
         }
 
         bool IsPressing(int midiId) => m_MidiInputHashSet.Contains(midiId);
-    }
+        
+
+        
+        public void MascotSpawner()
+        {
+            if (m_SelfResultInfo.AccuracyPercent >= 0f) Instantiate(Mascot[0], SpawnPoint[0].position, SpawnPoint[0].rotation);
+            
+            if (m_SelfResultInfo.AccuracyPercent >= 15f) Instantiate(Mascot[1], SpawnPoint[1].position, SpawnPoint[1].rotation);
+            //Debug.Log("Update "+PercentScore);
+        }
+    }*/
 }
+

@@ -10,7 +10,7 @@ namespace BU.Gameplay.Scoring
 {
     public class DemoScoringController : BaseScoringProcessor
     {
-        private int m_CurrentScore = 0;
+        public int m_CurrentScore = 0;
 
         public DemoScoringController(List<MidiNoteInfo> tableCondition) : base(tableCondition) { }
 
@@ -128,7 +128,7 @@ namespace BU.Gameplay.Scoring
 
         public override SelfResultInfo GetScoringInfo() => CreateStudentResultInfo();
 
-        private SelfResultInfo CreateStudentResultInfo()
+        public SelfResultInfo CreateStudentResultInfo()
         {
             int countPerfect = CountResult(NoteTimingScore.Perfect);
             int countGood = CountResult(NoteTimingScore.Good);
@@ -149,7 +149,7 @@ namespace BU.Gameplay.Scoring
             };
         }
 
-        private float CalculateAccuracy(int countPerfect, int countGood, int countOops)
+        public float CalculateAccuracy(int countPerfect, int countGood, int countOops)
         {
             int diffTotal = Math.Abs(m_TotalNote - (countPerfect + countGood + countOops));
             int totalScore = (m_TotalNote + diffTotal) * m_PerfectScore;
