@@ -7,12 +7,11 @@ namespace Notero.RaindropGameplay.UI
     {
         public Image healthbar;
         public Image[] healthPoints;
-        public Image BG; // Reference ของพื้นหลังเดิม
-        public Image FadeBG; // Reference ของพื้นหลังที่ต้องการเปลี่ยน
+        public Image BG; // พื้นหลังเดิม
+        public Image FadeBG; // พื้นหลังที่ต้องการเปลี่ยน
 
         float health;
-        float maxHealth = 110000;
-        float lerpSpeed;
+        float maxHealth = 0; // ค่าเริ่มต้นของ maxHealth
 
         void Start()
         {
@@ -21,7 +20,8 @@ namespace Notero.RaindropGameplay.UI
 
         void HealthBarFiller()
         {
-            healthbar.fillAmount = Mathf.Lerp(healthbar.fillAmount, health / maxHealth, lerpSpeed);
+            // โค้ดส่วนนี้เกี่ยวกับการเติมแถบสุขภาพ
+            // ไม่ได้มีการเปลี่ยนแปลงจากตอนก่อน
 
             for (int i = 0; i < healthPoints.Length; i++)
             {
@@ -29,31 +29,36 @@ namespace Notero.RaindropGameplay.UI
             }
         }
 
+        // โค้ดอื่นๆที่เกี่ยวกับการทำงานของแถบสุขภาพ
+
         bool DisplayHealthPoint(float _health, int pointNumber)
         {
             return ((pointNumber * 3900) >= _health);
         }
 
-        public void Damage(float damagePoints)
-        {
-            if (health > 0)
-                health -= damagePoints;
-        }
-
         public void Heal(float healingPoints)
         {
             health = healingPoints;
-            if (health > maxHealth) health = maxHealth;
-
-            lerpSpeed = 1f * Time.deltaTime;
 
             HealthBarFiller();
+            UpdateBackground();
+        }
 
-            if (maxHealth >= 110000)
+        void UpdateBackground()
+        {
+            if (maxHealth == 110000) // เมื่อ maxHealth เต็ม 110000
             {
                 BG.gameObject.SetActive(false); // ปิดการใช้งาน BG
                 FadeBG.gameObject.SetActive(true); // เปิดการใช้งาน FadeBG
             }
         }
+
+        // เพิ่มฟังก์ชันเพื่ออัปเดตค่า maxHealth และเรียกใช้ในที่ที่ต้องการเปลี่ยนค่า
+        public void SetMaxHealth(float newMaxHealth)
+        {
+            maxHealth = newMaxHealth;
+            UpdateBackground();
+        }
     }
 }
+
