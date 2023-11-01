@@ -1,10 +1,20 @@
-# BUxNoteroChallenge
-test
+# **TOMATO**: TOMATO
 
-กรธวัช พรสุข 1630700589 Sec.429E No.2
-ธีมาพนธ์ ปิ่นใจเลิศ 1630700654 Sec.429E No.3
-ธนายุทธ บุญกำจัด 1630702072 Sec.429E No.8
-ฤทธิชัย หลังนาค 1630703450 Sec.429E No.10
-อารีวรรณ รัตนพล 1630703625 Sec.429E No.11
-ศุภณัฐ กองแสน 1630707741 Sec.429E No.20
-ธีระภัทร์ นพรัตน์ 1630703518 Sec.429Q No.6 
+## **Description**
+- Raindrop visual effect.
+
+## **Team Members**
+- **Theemaphon Pinjailert**: Developer
+- **Thanayoot Boonkumjad**: Game design
+- **Rittichai Langnak**: Game design
+- **Supanat Kongsang**: Game design
+- **Areewan Rattanapol**: Game Artist
+- **Theerapat Nopparat**: Game Artist
+- **Kornthawat Pornsuk**: Game Artist
+
+## **Additional Notes**
+-
+
+## **References**
+- [BUxNoteroChallenge](https://github.com/notero-edtech/BUxNoteroChallenge)
+- [Project Shared Drive](https://drive.google.com/drive/u/1/folders/1cI20gVzB7uj_QgAuPxD3jEDhUl8gidP2)
