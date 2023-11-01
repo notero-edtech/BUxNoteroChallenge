@@ -10,7 +10,7 @@ namespace Notero.RaindropGameplay.UI
         public Image BG; // Reference ของพื้นหลังเดิม
         public Image FadeBG; // Reference ของพื้นหลังที่ต้องการเปลี่ยน
 
-        float health;
+        float health = 0;
         float maxHealth = 110000;
         float lerpSpeed;
 
@@ -49,7 +49,7 @@ namespace Notero.RaindropGameplay.UI
 
             HealthBarFiller();
 
-            if (maxHealth >= 110000)
+            if (health >= 40000)
             {
                 BG.gameObject.SetActive(false); // ปิดการใช้งาน BG
                 FadeBG.gameObject.SetActive(true); // เปิดการใช้งาน FadeBG
