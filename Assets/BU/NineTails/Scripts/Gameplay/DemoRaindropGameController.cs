@@ -257,7 +257,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
             if(!IsPressing(note.MidiId)) m_VirtualPianoController.SetDefault(note.MidiId, false);
 
             m_GameplayUIController.UpdateTextFeedbackOnNoteEnd(note, time);
-
+            Debug.Log("OnNoteEnded" + note.MidiId.ToString());
             health.Opps_Healthbar();
         }
 
@@ -278,7 +278,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
         private void OnNoteReleased(MidiNoteInfo note, double time)
         {
             m_ScoringController.ProcessNoteReleaseTiming(note, time);
-
+            Debug.Log("OnNoteReleased" + note.MidiId.ToString());
             const bool isPressing = false;
             int midiId = note.MidiId;
 
@@ -358,7 +358,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
 
             m_GameplayUIController.UpdateFeedbackBlankKeyRelease(midiId, time);
             m_VirtualPianoController.SetDefault(midiId, false);
-
+            Debug.Log("OnBlankKeyReleased" + midiId);
             health.Opps_Healthbar();
         }
 
