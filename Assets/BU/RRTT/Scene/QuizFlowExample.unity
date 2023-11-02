@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Container: {fileID: 907715730}
   m_SlotQuizList:
   - KeyName: A
-    ControllerGameObject: {fileID: 5834639129058758962, guid: 331b268a3e5ddaa4295d91e6214450c4, type: 3}
+    ControllerGameObject: {fileID: 5834639129058758962, guid: d02242c970e76844bb58441c984d7bda, type: 3}
   OnNextStateReceive:
     m_PersistentCalls:
       m_Calls: []

@@ -7,11 +7,11 @@ using Notero.Unity.UI.Quiz;
 using Notero.Utilities;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 namespace BU.RRTT.QuizExample.Scripts
 {
@@ -86,7 +86,15 @@ namespace BU.RRTT.QuizExample.Scripts
         public bool IsQuizLoaded { get; set; }
 
         public QuizStore QuizStore { get; set; }
+        
+        //RRTT Variables
+        private byte bossIndex;
 
+        private void RandomBossIndex()
+        {
+            bossIndex = (byte) Random.Range(0, 2);
+        }
+        
         public void Init(Transform container, QuizStore quizStore)
         {
             m_Container = container;
@@ -102,6 +110,8 @@ namespace BU.RRTT.QuizExample.Scripts
         {
             if(ApplicationFlagConfig.IsInstructorMode)
             {
+                RandomBossIndex();
+                
                 var questionJson = JsonConvert.DeserializeObject<SchemaQuiz>(jsonContent);
 
                 QuizState.Default.ResetQuestionIndex();
@@ -117,7 +127,7 @@ namespace BU.RRTT.QuizExample.Scripts
                 QuizStore.SetQuizList(list);
 
                 // Example: Set custom data
-                //QuizStore.SetCustomData(new byte[] { 0, 1, 2 });
+                QuizStore.SetCustomData(new byte[] {bossIndex});
             }
             else if(ApplicationFlagConfig.IsStudentMode)
             {

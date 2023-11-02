@@ -263,7 +263,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -182, y: 0}
   m_SizeDelta: {x: 0, y: 48}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &3335099491706534093
@@ -634,6 +634,7 @@ RectTransform:
   - {fileID: 3533055134546913674}
   - {fileID: 687431921506019668}
   - {fileID: 8203257994163163743}
+  - {fileID: 2477209642844311835}
   m_Father: {fileID: 4227472373590860123}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -786,7 +787,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4227472373590860123}
-  - component: {fileID: 8729263875306168505}
+  - component: {fileID: 3062151566818503457}
   m_Layer: 5
   m_Name: StateInstructorQuestion
   m_TagString: Untagged
@@ -817,7 +818,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1088, y: 544}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8729263875306168505
+--- !u!114 &3062151566818503457
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -826,7 +827,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5925109979560903397}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a355a9329554e24d9941c0f31418f92, type: 3}
+  m_Script: {fileID: 11500000, guid: 75a49502a56c3dc4eae279d7b5d91a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OnSendCustomData:
@@ -843,7 +844,46 @@ MonoBehaviour:
   m_QuizInfoText: {fileID: 7417336256781071877}
   m_StudentAmountText: {fileID: 2537717380317357470}
   m_QuestionRawImage: {fileID: 780102494746315487}
-  m_NextButtonUI: {fileID: 8850217489882311300}
+  m_NextButtonUI: {fileID: 6830002163587834727}
+  bossPosition: {fileID: 2477209642844311835}
+  contentFrame: {fileID: 2040388450145830431}
+  bossReference: {fileID: 6733189538501950096, guid: daaa0cb160d78aa439f6006cec98bf9a, type: 3}
+--- !u!1 &6607513578084226055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2477209642844311835}
+  m_Layer: 5
+  m_Name: BossPositon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2477209642844311835
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6607513578084226055}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2040388450145830431}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 389, y: 7}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7423594750243597674
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,7 +919,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -182, y: 0}
   m_SizeDelta: {x: 640, y: 360}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7724801300178366973
@@ -1812,7 +1852,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9087708736090782274, guid: 95051e004cba5974092c04c8349e997f, type: 3}
   m_PrefabInstance: {fileID: 5699842024705774537}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8850217489882311300
+--- !u!114 &6830002163587834727
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1821,7 +1861,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3533055134546913675}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c015aa7fafcf95408634b93c0d137e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 663fdb993ff4aa94cb5493d160ee3957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_NextSequenceButton: {fileID: 2841876388230571842}
