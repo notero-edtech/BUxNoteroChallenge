@@ -1,5 +1,6 @@
 ﻿using BU.NineTails.Gameplay.Scoring;
 using BU.NineTails.MidiGameplay.UI;
+using BU.NineTails.Scripts.UI;
 using Notero.MidiAdapter;
 using Notero.MidiGameplay.Bot;
 using Notero.MidiGameplay.Core;
@@ -50,6 +51,9 @@ namespace BU.NineTails.MidiGameplay.Gameplay
 
         [SerializeField]
         protected RectTransform m_ActionBar;
+
+        [SerializeField]
+        private HealthSliderController health;
 
         protected BaseScoringProcessor m_ScoringController;
         public GameplayModeController ModeController { get; protected set; }
@@ -253,6 +257,8 @@ namespace BU.NineTails.MidiGameplay.Gameplay
             if(!IsPressing(note.MidiId)) m_VirtualPianoController.SetDefault(note.MidiId, false);
 
             m_GameplayUIController.UpdateTextFeedbackOnNoteEnd(note, time);
+
+            health.Opps_Healthbar();
         }
 
         private void OnNotePressed(MidiNoteInfo note, double time)
@@ -285,7 +291,20 @@ namespace BU.NineTails.MidiGameplay.Gameplay
             {
                 var score = m_ScoringController.CalculateTimingScore(note, time, false);
 
-                if(m_RaindropNoteController.IsCueShowing(note.RaindropNoteId) && score != NoteTimingScore.Perfect)
+                if (score.ToString() == "Perfect")
+                {
+                    health.Perfect_Healthbar();
+                }
+                else if(score.ToString() == "Good")
+                {
+                    health.Good_Healthbar();
+                }
+                else if (score.ToString() == "Oops")
+                {
+                    health.Opps_Healthbar();
+                }
+
+                if (m_RaindropNoteController.IsCueShowing(note.RaindropNoteId) && score != NoteTimingScore.Perfect)
                 {
                     m_RaindropNoteController.SetMiss(note.RaindropNoteId);
                     m_VirtualPianoController.SetMissKey(midiId, isPressing);
@@ -339,6 +358,8 @@ namespace BU.NineTails.MidiGameplay.Gameplay
 
             m_GameplayUIController.UpdateFeedbackBlankKeyRelease(midiId, time);
             m_VirtualPianoController.SetDefault(midiId, false);
+
+            health.Opps_Healthbar();
         }
 
         public void CreateVirtualPiano() => m_VirtualPianoController.Create("Gameplay_Test");

@@ -1,4 +1,5 @@
-﻿using Notero.RaindropGameplay.Core;
+﻿using BU.NineTails.Scripts.UI;
+using Notero.RaindropGameplay.Core;
 using Notero.RaindropGameplay.Core.Scoring;
 using Notero.Unity.MidiNoteInfo;
 using System;
@@ -107,7 +108,7 @@ namespace BU.NineTails.Gameplay.Scoring
         {
             int score = 0;
 
-            switch(timingScore)
+            switch (timingScore)
             {
                 case NoteTimingScore.None: score = 0; break;
                 case NoteTimingScore.Oops: score = 0; break;
