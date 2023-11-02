@@ -19,7 +19,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
         private void Start()
         {
             animator = GetComponent<Animator>();
-            animator.SetBool("missed", false);
+            animator.SetBool("opps", false);
             animator.SetBool("good", false);
             animator.SetBool("perfect", false);
             originalPosition = transform.position;
@@ -38,7 +38,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
                 else
                 {
                     transform.position = originalPosition;
-                    animator.SetBool("missed", false);
+                    animator.SetBool("opps", false);
                     animator.SetBool("good", false);
                     animator.SetBool("perfect", false);
                     isJumping = false;
