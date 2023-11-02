@@ -1,5 +1,5 @@
-﻿/*using BU.Gameplay.Scoring;
-using BU.MidiGameplay.UI;
+﻿using BU.NineTails.Gameplay.Scoring;
+using BU.NineTails.MidiGameplay.UI;
 using Notero.MidiAdapter;
 using Notero.MidiGameplay.Bot;
 using Notero.MidiGameplay.Core;
@@ -15,7 +15,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Events;
 
-namespace BU.MidiGameplay.Gameplay
+namespace BU.NineTails.MidiGameplay.Gameplay
 {
     public class DemoRaindropGameController : MonoBehaviour, IMidiGameController
     {
@@ -451,4 +451,4 @@ namespace BU.MidiGameplay.Gameplay
 
         bool IsPressing(int midiId) => m_MidiInputHashSet.Contains(midiId);
     }
-}*/
+}

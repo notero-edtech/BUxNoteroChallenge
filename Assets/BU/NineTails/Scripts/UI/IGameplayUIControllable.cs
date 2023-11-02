@@ -1,4 +1,4 @@
-﻿/*using Notero.MidiGameplay.Core;
+﻿using Notero.MidiGameplay.Core;
 using Notero.RaindropGameplay.Core;
 using Notero.Unity.MidiNoteInfo;
 using Notero.Unity.UI.VirtualPiano;
@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BU.MidiGameplay.UI
+namespace BU.NineTails.MidiGameplay.UI
 {
     public interface IGameplayUIControllable
     {
@@ -48,4 +48,3 @@ namespace BU.MidiGameplay.UI
 
     }
 }
-*/

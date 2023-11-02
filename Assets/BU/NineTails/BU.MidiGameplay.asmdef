@@ -1,5 +1,5 @@
 {
-    "name": "BU.MidiGameplayExample",
+    "name": "BU.NineTails.MidiGameplay",
     "rootNamespace": "",
     "references": [
         "GUID:2f04b1422990ba44aab6ac941c4baf8e",

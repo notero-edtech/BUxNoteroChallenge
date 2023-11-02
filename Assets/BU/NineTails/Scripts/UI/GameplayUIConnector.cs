@@ -1,4 +1,4 @@
-﻿/*using Notero.MidiGameplay.Core;
+﻿using Notero.MidiGameplay.Core;
 using Notero.RaindropGameplay.Core;
 using Notero.RaindropGameplay.UI;
 using Notero.Unity.MidiNoteInfo;
@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace BU.MidiGameplay.UI
+namespace BU.NineTails.MidiGameplay.UI
 {
     public class GameplayUIConnector : MonoBehaviour, IGameplayUIControllable
     {
@@ -176,4 +176,4 @@ namespace BU.MidiGameplay.UI
             m_PianoFeedback.UpdateFeedbackBlankKeyRelease(midiId, time);
         }
     }
-}*/
+}

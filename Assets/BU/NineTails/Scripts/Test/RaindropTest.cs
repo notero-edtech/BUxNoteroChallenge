@@ -1,4 +1,4 @@
-/*using Notero.RaindropGameplay.Core;
+using Notero.RaindropGameplay.Core;
 using Notero.Unity.AudioModule;
 using Notero.Unity.MidiNoteInfo;
 using Notero.Utilities;
@@ -6,7 +6,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace BU.MidiGameplay.Gameplay
+namespace BU.NineTails.MidiGameplay.Gameplay
 {
     public class RaindropTest : MonoBehaviour
     {
@@ -187,4 +187,3 @@ namespace BU.MidiGameplay.Gameplay
         }
     }
 }
-*/

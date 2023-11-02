@@ -1,4 +1,4 @@
-﻿/*using Notero.RaindropGameplay.Core;
+﻿using Notero.RaindropGameplay.Core;
 using Notero.RaindropGameplay.Core.Scoring;
 using Notero.Unity.MidiNoteInfo;
 using System;
@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace BU.Gameplay.Scoring
+namespace BU.NineTails.Gameplay.Scoring
 {
     public class DemoScoringController : BaseScoringProcessor
     {
@@ -247,4 +247,3 @@ namespace BU.Gameplay.Scoring
         }
     }
 }
-*/

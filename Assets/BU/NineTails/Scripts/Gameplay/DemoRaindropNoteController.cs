@@ -1,9 +1,9 @@
-/*using Notero.MidiGameplay.Core;
+using Notero.MidiGameplay.Core;
 using Notero.Raindrop;
 
-namespace BU.MidiGameplay
+namespace BU.NineTails.MidiGameplay
 {
     public class DemoRaindropNoteController : BaseRaindropNoteController, IMusicNotationControllable
     {
     }
-}*/
+}

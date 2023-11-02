@@ -1,11 +1,11 @@
-﻿/*using Notero.MidiAdapter;
+﻿using Notero.MidiAdapter;
 using Notero.MidiGameplay.Core;
 using Notero.Unity.AudioModule;
 using Notero.Unity.MidiNoteInfo;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace BU.MidiGameplay.Gameplay
+namespace BU.NineTails.MidiGameplay.Gameplay
 {
     public class GameLogicConnector : MonoBehaviour, IMidiGameLogic
     {
@@ -107,4 +107,3 @@ namespace BU.MidiGameplay.Gameplay
         }
     }
 }
-*/
