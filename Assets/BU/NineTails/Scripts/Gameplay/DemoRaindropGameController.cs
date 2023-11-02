@@ -65,6 +65,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
         protected float m_SongTimeInSecond;
         protected float m_CustomBPM;
         private int m_CurrentBarlineIndex = 0;
+        private CharactersAnimationController[] characters;
 
         public float SpawnPointPos => m_GameplayConfig.SpawnPointPos;
         public bool IsMusicLoaded => m_CurrentMusic != null && m_CurrentMusic.LoadState == AudioDataLoadState.Loaded;
@@ -82,6 +83,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
 
         private void Awake()
         {
+            characters = FindObjectsOfType<CharactersAnimationController>();
             m_GameplayUIController = m_IGameplayUIControllable.GetComponent<IGameplayUIControllable>();
             m_TimeProvider = m_TimeProviderGO.GetComponent<ITimeProvider>();
             GameLogic = m_GameLogicController.GameLogicController;
@@ -254,11 +256,14 @@ namespace BU.NineTails.MidiGameplay.Gameplay
 
         private void OnNoteEnded(MidiNoteInfo note, double time)
         {
-            if(!IsPressing(note.MidiId)) m_VirtualPianoController.SetDefault(note.MidiId, false);
-
+            int midiId = note.MidiId;
+            if (!IsPressing(note.MidiId)) m_VirtualPianoController.SetDefault(note.MidiId, false);
             m_GameplayUIController.UpdateTextFeedbackOnNoteEnd(note, time);
-            Debug.Log("OnNoteEnded" + note.MidiId.ToString());
             health.Opps_Healthbar();
+            foreach (var character in characters)
+            {
+                character.CheckOppsAnimation(midiId);
+            }
         }
 
         private void OnNotePressed(MidiNoteInfo note, double time)
@@ -278,7 +283,6 @@ namespace BU.NineTails.MidiGameplay.Gameplay
         private void OnNoteReleased(MidiNoteInfo note, double time)
         {
             m_ScoringController.ProcessNoteReleaseTiming(note, time);
-            Debug.Log("OnNoteReleased" + note.MidiId.ToString());
             const bool isPressing = false;
             int midiId = note.MidiId;
 
@@ -294,14 +298,26 @@ namespace BU.NineTails.MidiGameplay.Gameplay
                 if (score.ToString() == "Perfect")
                 {
                     health.Perfect_Healthbar();
+                    foreach (var character in characters)
+                    {
+                        character.CheckPerfectAnimation(midiId);
+                    }
                 }
                 else if(score.ToString() == "Good")
                 {
                     health.Good_Healthbar();
+                    foreach (var character in characters)
+                    {
+                        character.CheckGoodAnimation(midiId);
+                    }
                 }
                 else if (score.ToString() == "Oops")
                 {
                     health.Opps_Healthbar();
+                    foreach (var character in characters)
+                    {
+                        character.CheckOppsAnimation(midiId);
+                    }
                 }
 
                 if (m_RaindropNoteController.IsCueShowing(note.RaindropNoteId) && score != NoteTimingScore.Perfect)
@@ -328,7 +344,6 @@ namespace BU.NineTails.MidiGameplay.Gameplay
         {
             Assert.IsFalse(m_MidiInputHashSet.Contains(midiId), $"Duplicate key press without release on note: {midiId}");
             m_MidiInputHashSet.Add(midiId);
-
             if(!GameLogic.IsPlaying)
             {
                 m_VirtualPianoController.SetDefault(midiId, true);
@@ -358,8 +373,11 @@ namespace BU.NineTails.MidiGameplay.Gameplay
 
             m_GameplayUIController.UpdateFeedbackBlankKeyRelease(midiId, time);
             m_VirtualPianoController.SetDefault(midiId, false);
-            Debug.Log("OnBlankKeyReleased" + midiId);
             health.Opps_Healthbar();
+            foreach (var character in characters)
+            {
+                character.CheckOppsAnimation(midiId);
+            }
         }
 
         public void CreateVirtualPiano() => m_VirtualPianoController.Create("Gameplay_Test");

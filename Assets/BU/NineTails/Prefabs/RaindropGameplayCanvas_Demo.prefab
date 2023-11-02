@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: 8888150406038367447}
   - component: {fileID: 3392009269659095396}
   - component: {fileID: 4288080479980636699}
+  - component: {fileID: 998625774935776381}
   m_Layer: 0
   m_Name: Rocky
   m_TagString: Untagged
@@ -437,6 +438,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &998625774935776381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283959560207278952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3c31ca576443f04d93df9b489d1a177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterNotes: 1800000024000000300000003c00000048000000
 --- !u!1 &434576422021307779
 GameObject:
   m_ObjectHideFlags: 0
@@ -1752,6 +1766,7 @@ GameObject:
   - component: {fileID: 1782386580255026263}
   - component: {fileID: 2312663819930598530}
   - component: {fileID: 7801584291387258411}
+  - component: {fileID: 2562536301158180330}
   m_Layer: 0
   m_Name: Roth
   m_TagString: Untagged
@@ -1889,6 +1904,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2562536301158180330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2479050497499993297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3c31ca576443f04d93df9b489d1a177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterNotes: 1d0000002900000035000000410000004d000000
 --- !u!1 &2545503632543179773
 GameObject:
   m_ObjectHideFlags: 0
@@ -1902,6 +1930,7 @@ GameObject:
   - component: {fileID: 7538081571625683838}
   - component: {fileID: 1133000510819863938}
   - component: {fileID: 4593128601211281053}
+  - component: {fileID: 2247614012942552488}
   m_Layer: 0
   m_Name: Poppy
   m_TagString: Untagged
@@ -2039,6 +2068,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2247614012942552488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2545503632543179773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3c31ca576443f04d93df9b489d1a177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterNotes: 1c0000002800000034000000400000004c000000
 --- !u!1 &2971874689948446048
 GameObject:
   m_ObjectHideFlags: 0
@@ -2052,6 +2094,7 @@ GameObject:
   - component: {fileID: 2923346334095366098}
   - component: {fileID: 1578293470618819921}
   - component: {fileID: 4334884623895297431}
+  - component: {fileID: 1910250237829851315}
   m_Layer: 0
   m_Name: Kevin
   m_TagString: Untagged
@@ -2189,6 +2232,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1910250237829851315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2971874689948446048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3c31ca576443f04d93df9b489d1a177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterNotes: 230000002f0000003b0000004700000053000000
 --- !u!1 &3105845238269097863
 GameObject:
   m_ObjectHideFlags: 0
@@ -2732,6 +2788,7 @@ GameObject:
   - component: {fileID: 683523563397349697}
   - component: {fileID: 5258083134881443163}
   - component: {fileID: 1342687077997046032}
+  - component: {fileID: 6513585387713319334}
   m_Layer: 0
   m_Name: Wolfgang
   m_TagString: Untagged
@@ -2869,6 +2926,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6513585387713319334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3776407522650292679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3c31ca576443f04d93df9b489d1a177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterNotes: 1f0000002b00000037000000430000004f000000
 --- !u!1 &4027478081945467011
 GameObject:
   m_ObjectHideFlags: 0
@@ -3037,6 +3107,7 @@ GameObject:
   - component: {fileID: 2470235217278577214}
   - component: {fileID: 7604514302145848654}
   - component: {fileID: 3291985630153994961}
+  - component: {fileID: 2018098243393559677}
   m_Layer: 0
   m_Name: FoxyDiva
   m_TagString: Untagged
@@ -3174,6 +3245,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2018098243393559677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4307088162967543517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3c31ca576443f04d93df9b489d1a177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterNotes: 210000002d000000390000004500000051000000
 --- !u!1 &4742449866524871170
 GameObject:
   m_ObjectHideFlags: 0
@@ -3632,6 +3716,7 @@ GameObject:
   - component: {fileID: 6054097783269535731}
   - component: {fileID: 6805631445325694868}
   - component: {fileID: 7314338935199681367}
+  - component: {fileID: 7257500560086454205}
   m_Layer: 0
   m_Name: MasterRo
   m_TagString: Untagged
@@ -3769,6 +3854,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7257500560086454205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5211128660886425033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3c31ca576443f04d93df9b489d1a177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterNotes: 1a00000026000000320000003e0000004a000000
 --- !u!1 &5281021646706441498
 GameObject:
   m_ObjectHideFlags: 0
