@@ -149,10 +149,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3122484}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b8fdf955a6fb6d44b1f41153b780b43, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c394dd3d9b3a23439c609e0964aaf04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_GameControllerPrefab: {fileID: 3105845238269097863, guid: 1ec033e72f915764ea3263b862a92ef4, type: 3}
+  m_GameControllerPrefab: {fileID: 3105845238269097863, guid: ea66c2ec9c6f91b49b6ffb75cc054ccb, type: 3}
   m_StartGameplayStateButton: {fileID: 1729399543}
   m_StartGameplayPanel: {fileID: 1726403778}
   m_ActionDelaySec: 0
