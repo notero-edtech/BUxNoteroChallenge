@@ -428,6 +428,7 @@ RectTransform:
   m_Children:
   - {fileID: 2462198039200217094}
   - {fileID: 7057034174949055178}
+  - {fileID: 3542201988102775116}
   m_Father: {fileID: 2047746980610638948}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -445,7 +446,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1742434524086745774}
-  - component: {fileID: 5197237061471498110}
+  - component: {fileID: 6611040725734017041}
   m_Layer: 5
   m_Name: StateStudentWaiting
   m_TagString: Untagged
@@ -474,7 +475,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5197237061471498110
+--- !u!114 &6611040725734017041
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -483,7 +484,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7112119435453530060}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43b6c30fb1a740278ce0ee8752dd5f43, type: 3}
+  m_Script: {fileID: 11500000, guid: 47c5df04679ae6f43b531bd7d8cd3119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OnSendCustomData:
@@ -496,6 +497,45 @@ MonoBehaviour:
   m_Mission: {fileID: 5023981669159808407}
   m_QuizInfoText: {fileID: 8607955180998768138}
   m_WaitingCircleAnimator: {fileID: 4100570417825366329}
+  bossPosition: {fileID: 3542201988102775116}
+  countDownFrame: {fileID: 8478951132857065519}
+  bossReference: {fileID: 6733189538501950096, guid: daaa0cb160d78aa439f6006cec98bf9a, type: 3}
+--- !u!1 &7447440293122417844
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3542201988102775116}
+  m_Layer: 5
+  m_Name: BossPostion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3542201988102775116
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7447440293122417844}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8478951132857065519}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -1.71}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8199216209485423287
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,6 +908,10 @@ PrefabInstance:
     - target: {fileID: 2969612026340210476, guid: ab20cac7f6afa2244941863b79e3c2d6, type: 3}
       propertyPath: m_Name
       value: MasterRoQuestion
+      objectReference: {fileID: 0}
+    - target: {fileID: 2969612026340210476, guid: ab20cac7f6afa2244941863b79e3c2d6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6971020052736306816, guid: ab20cac7f6afa2244941863b79e3c2d6, type: 3}
       propertyPath: m_Pivot.x

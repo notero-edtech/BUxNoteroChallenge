@@ -89,13 +89,12 @@ MonoBehaviour:
   m_InstructorQuestionPrefab: {fileID: 5925109979560903397, guid: 6b02ab564470e8d42bb54816d5955254, type: 3}
   m_InstructorPreResultPrefab: {fileID: 5925109979560903397, guid: bd99cd2124d290d4aa2d2c8e0efe36e9, type: 3}
   m_InstructorEndPrefab: {fileID: 7328074058701256189, guid: c410d037698f7ae46bfd941c702e1627, type: 3}
-  m_StudentCountInPrefab: {fileID: 7112119435453530060, guid: 99bd26417979adf458593e6d82e802a9, type: 3}
-  m_StudentQuestionPrefab: {fileID: 7112119435453530060, guid: d492861d9cd29554eba0dd90a1e58a82, type: 3}
-  m_StudentWaitingPrefab: {fileID: 7112119435453530060, guid: afdbc905d8914f9449a4375954acb259, type: 3}
-  m_StudentPreResultPrefab: {fileID: 7112119435453530060, guid: 3cfc084dc05bdb14c949bb02a3edf78b, type: 3}
-  m_StudentEndPrefab: {fileID: 7328074058701256189, guid: 2d9c5e4f572b7da4f8ec42f35a98b6fc, type: 3}
+  m_StudentCountInPrefab: {fileID: 7112119435453530060, guid: 5276a8322b94db642af89012167bfceb, type: 3}
+  m_StudentQuestionPrefab: {fileID: 7112119435453530060, guid: fb465ea8a0d38044bbb8be63ca1454b4, type: 3}
+  m_StudentWaitingPrefab: {fileID: 7112119435453530060, guid: 14715d71beb65fa44be0d420ed386d27, type: 3}
+  m_StudentPreResultPrefab: {fileID: 7112119435453530060, guid: cb8b61784e22d21499f85d743cfe0e22, type: 3}
+  m_StudentEndPrefab: {fileID: 7328074058701256189, guid: d71daecfc0b9aa845a8fb3823aaf9e72, type: 3}
   m_PianoKeyInput: {fileID: 138436486931853645}
-  bossIndex: 0
 --- !u!1001 &4248739471350533252
 PrefabInstance:
   m_ObjectHideFlags: 0

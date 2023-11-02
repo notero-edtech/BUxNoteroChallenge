@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 namespace BU.RRTT.QuizExample.Scripts
 {
@@ -64,6 +65,14 @@ namespace BU.RRTT.QuizExample.Scripts
         public UnityEvent<byte[]> OnCustomDataReceive { get; set; }
 
         private string QuizMode;
+        
+        //RRTT Variables
+        private byte bossIndex;
+
+        private void RandomBossIndex()
+        {
+            bossIndex = (byte) Random.Range(0, 2);
+        }
 
         public void Init(Transform container, QuizStore quizStore)
         {
@@ -110,7 +119,7 @@ namespace BU.RRTT.QuizExample.Scripts
             QuizStore.SetQuizList(list);
 
             // Example: Set custom data
-            //QuizStore.SetCustomData(new byte[] { 0, 1, 2 });
+            QuizStore.SetCustomData(new byte[] {bossIndex});
         }
 
         #region Instructor Result state nethods

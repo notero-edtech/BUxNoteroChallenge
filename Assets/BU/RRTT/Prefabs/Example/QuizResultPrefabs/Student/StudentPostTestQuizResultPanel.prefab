@@ -862,6 +862,42 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &5984248850519821013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2869270322990874833}
+  m_Layer: 5
+  m_Name: BossPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2869270322990874833
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5984248850519821013}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4070970657850396800}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 40, y: 13.2}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6188668656610764557
 GameObject:
   m_ObjectHideFlags: 0
@@ -1161,6 +1197,7 @@ RectTransform:
   m_Children:
   - {fileID: 8607993850274317724}
   - {fileID: 4586105039349029844}
+  - {fileID: 2869270322990874833}
   m_Father: {fileID: 987349378708221844}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1409,7 +1446,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5134085192572109889}
   - component: {fileID: 2635799569731530922}
-  - component: {fileID: 7754453937212959709}
+  - component: {fileID: 3840723916126344102}
   m_Layer: 5
   m_Name: StudentPostTestQuizResultPanel
   m_TagString: Untagged
@@ -1451,7 +1488,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &7754453937212959709
+--- !u!114 &3840723916126344102
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1460,7 +1497,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9149186565199449388}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f4587c7616740fab07e5dfdd724474d, type: 3}
+  m_Script: {fileID: 11500000, guid: a4ec6e690072b714aabfc7a20c34e173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OnSendCustomData:
@@ -1475,6 +1512,8 @@ MonoBehaviour:
   m_QuestionAmountText: {fileID: 5410028888408163927}
   m_PreTestScoreText: {fileID: 1906948198868779380}
   m_PostTestScoreText: {fileID: 2546543068374477797}
+  bossPosition: {fileID: 2869270322990874833}
+  bossReference: {fileID: 6733189538501950096, guid: daaa0cb160d78aa439f6006cec98bf9a, type: 3}
 --- !u!1001 &865338447688471126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1485,6 +1524,10 @@ PrefabInstance:
     - target: {fileID: 1778304544191843151, guid: 6439fb30a7bf74e4ab3eb1d0b0ee6ce4, type: 3}
       propertyPath: m_Name
       value: SplashArtRocky
+      objectReference: {fileID: 0}
+    - target: {fileID: 1778304544191843151, guid: 6439fb30a7bf74e4ab3eb1d0b0ee6ce4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3722034360811161986, guid: 6439fb30a7bf74e4ab3eb1d0b0ee6ce4, type: 3}
       propertyPath: m_Pivot.x

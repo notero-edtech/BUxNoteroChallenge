@@ -1,4 +1,5 @@
-﻿using Notero.QuizConnector.Student;
+﻿using BU.RRTT.QuizExample.Scripts.BossSystem;
+using Notero.QuizConnector.Student;
 using TMPro;
 using UnityEngine;
 
@@ -33,6 +34,17 @@ namespace BU.RRTT.QuizExample.Scripts.UI.QuizResultUI.StudentUI
         private const string PreTestScoreFormat = "Your Pre-Test Score\n<color=" + ScoreColor + ">{0}</color>/{1}";
 
         private int m_PreTestScore;
+        
+        // RRTT Variables
+        [SerializeField]
+        private Transform bossPosition;
+
+        [SerializeField]
+        private GameObject bossReference;
+
+        private BossList bossList;
+        
+        private Vector3 scale = new Vector3( 4.5f,4.5f,4.5f);
 
         private void Start()
         {
@@ -46,7 +58,10 @@ namespace BU.RRTT.QuizExample.Scripts.UI.QuizResultUI.StudentUI
 
         public override void OnCustomDataReceive(byte[] data)
         {
-            Debug.Log($"NPA-data:{data}");
+            bossList = bossReference.GetComponent<BossList>();
+            GameObject boss = Instantiate(bossList.bossPrefabs[data[0]].gameObject, bossPosition);
+            boss.transform.localScale = scale;
+            boss.transform.SetParent(bossPosition);
         }
 
         #region Custom Methods

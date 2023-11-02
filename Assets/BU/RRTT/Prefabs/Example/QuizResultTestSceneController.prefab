@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9071361977912019985}
-  - component: {fileID: 9071361977912019984}
+  - component: {fileID: -4536857359033301851}
   m_Layer: 0
   m_Name: QuizResultTestSceneController
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9071361977912019984
+--- !u!114 &-4536857359033301851
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,12 +41,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 9071361977912019987}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c464f8c2be0aa6d47af3e7074550e297, type: 3}
+  m_Script: {fileID: 11500000, guid: c213c50fcb0f4914894f72319261d734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InstructorPopQuizResultPrefab: {fileID: 5208754021895172665, guid: 36cd716ee4702fa4aa7b9e6966c52132, type: 3}
-  m_InstructorPostTestStudentListResultPrefab: {fileID: 1820202184046231698, guid: c4df39c3cc2d2984385f0a4aec59dd0c, type: 3}
-  m_InstructorPostTestAnswerListResultPrefab: {fileID: 2995210832564463992, guid: c8f1c294a00e8884f8657c14a415c497, type: 3}
-  m_InstructorPostTestAnswerRevealResultPrefab: {fileID: 4648779460699736671, guid: b8dfad03d47a1d24e9e89528de02cc7c, type: 3}
-  m_StudentPopQuizResultPrefab: {fileID: 5208754021895172665, guid: 1147c676646f5e34c80c9d042b9a974b, type: 3}
-  m_StudentPostTestResultPrefab: {fileID: 9149186565199449388, guid: 3e393d03c337e2841887bc182874c446, type: 3}
+  m_InstructorPopQuizResultPrefab: {fileID: 5208754021895172665, guid: c5015416aaacaf34b85c843af921aaba, type: 3}
+  m_InstructorPostTestStudentListResultPrefab: {fileID: 1820202184046231698, guid: 18baa44be2c6ef94bb4745b4edc7350c, type: 3}
+  m_InstructorPostTestAnswerListResultPrefab: {fileID: 2995210832564463992, guid: 083c5e04b720ad74fa01a7539cd1530f, type: 3}
+  m_InstructorPostTestAnswerRevealResultPrefab: {fileID: 4648779460699736671, guid: 09f8fce05fb90374abe894a753db22c9, type: 3}
+  m_StudentPopQuizResultPrefab: {fileID: 5208754021895172665, guid: b7785b8ecb00e86449d0839248a16770, type: 3}
+  m_StudentPostTestResultPrefab: {fileID: 9149186565199449388, guid: 0510f49b5b7da9b4f8b4eecbc9d226dc, type: 3}

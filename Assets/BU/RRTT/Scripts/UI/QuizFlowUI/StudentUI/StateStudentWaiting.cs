@@ -1,4 +1,5 @@
-﻿using Notero.QuizConnector.Student;
+﻿using BU.RRTT.QuizExample.Scripts.BossSystem;
+using Notero.QuizConnector.Student;
 using TMPro;
 using UnityEngine;
 
@@ -21,6 +22,18 @@ namespace BU.RRTT.QuizExample.Scripts.UI.QuizFlowUI.StudentUI
         private const string ChapterIndexFormat = "Chapter: <color=white><font=\"EN_Stylize_Neutral_A\">{0}</font></color>";
         private const string MissionFormat = "Mission: <color=white><font=\"EN_Stylize_Neutral_B\">{0}</font></color>";
         private const string QuizInfoFormat = "<color=#14C287>{0}</color> / {1}";
+        
+        // RRTT Variables
+        [SerializeField]
+        private Transform bossPosition;
+
+        [SerializeField]
+        private Transform countDownFrame;
+        
+        [SerializeField]
+        private GameObject bossReference;
+
+        private BossList bossList;
 
         private void Start()
         {
@@ -32,7 +45,10 @@ namespace BU.RRTT.QuizExample.Scripts.UI.QuizFlowUI.StudentUI
 
         public override void OnCustomDataReceive(byte[] data)
         {
-            Debug.Log($"NPA-data:{data}");
+            bossList = bossReference.GetComponent<BossList>();
+            GameObject boss = Instantiate(bossList.bossPrefabs[data[0]].gameObject, bossPosition);
+            boss.transform.SetParent(countDownFrame);
+            boss.transform.SetParent(bossPosition);
         }
 
         #region Custom functions

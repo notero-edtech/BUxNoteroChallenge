@@ -131,6 +131,8 @@ namespace BU.RRTT.QuizExample.Scripts
             }
             else if(ApplicationFlagConfig.IsStudentMode)
             {
+                RandomBossIndex();
+                
                 var questionJson = JsonConvert.DeserializeObject<SchemaQuiz>(jsonContent);
 
                 QuizState.Default.ResetQuestionIndex();
@@ -144,6 +146,8 @@ namespace BU.RRTT.QuizExample.Scripts
                 )).ToList();
 
                 QuizStore.SetQuizList(list);
+                
+                QuizStore.SetCustomData(new byte[] {bossIndex});
             }
         }
 
