@@ -1,4 +1,5 @@
 ﻿using BU.NineTails.Gameplay.Scoring;
+using BU.NineTails.Gameplay;
 using BU.NineTails.MidiGameplay.UI;
 using BU.NineTails.Scripts.UI;
 using Notero.MidiAdapter;
@@ -55,6 +56,9 @@ namespace BU.NineTails.MidiGameplay.Gameplay
         [SerializeField]
         private HealthSliderController health;
 
+        [SerializeField]
+        private CharactersAnimationController[] characters;
+
         protected BaseScoringProcessor m_ScoringController;
         public GameplayModeController ModeController { get; protected set; }
 
@@ -65,7 +69,6 @@ namespace BU.NineTails.MidiGameplay.Gameplay
         protected float m_SongTimeInSecond;
         protected float m_CustomBPM;
         private int m_CurrentBarlineIndex = 0;
-        private CharactersAnimationController[] characters;
 
         public float SpawnPointPos => m_GameplayConfig.SpawnPointPos;
         public bool IsMusicLoaded => m_CurrentMusic != null && m_CurrentMusic.LoadState == AudioDataLoadState.Loaded;

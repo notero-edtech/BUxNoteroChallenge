@@ -1,4 +1,4 @@
-﻿/*using Notero.MidiGameplay.Core;
+﻿using Notero.MidiGameplay.Core;
 using Notero.RaindropGameplay.Core;
 using Notero.RaindropGameplay.UI;
 using Notero.Unity.MidiNoteInfo;
@@ -176,4 +176,4 @@ namespace BU.MidiGameplay.UI
             m_PianoFeedback.UpdateFeedbackBlankKeyRelease(midiId, time);
         }
     }
-}*/
+}

@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.Animations;
 
-namespace BU.NineTails.MidiGameplay.Gameplay
+namespace BU.NineTails.Gameplay
 {
     public class CharactersAnimationController : MonoBehaviour
     {

@@ -322,6 +322,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4266365193611221104, guid: 3616819b7b0030742885a463f1a28388, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6967451883085904106, guid: 3616819b7b0030742885a463f1a28388, type: 3}
       propertyPath: m_Name
       value: Start_Text

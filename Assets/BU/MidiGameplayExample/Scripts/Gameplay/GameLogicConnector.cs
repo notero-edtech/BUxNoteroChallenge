@@ -1,4 +1,4 @@
-﻿/*using Notero.MidiAdapter;
+﻿using Notero.MidiAdapter;
 using Notero.MidiGameplay.Core;
 using Notero.Unity.AudioModule;
 using Notero.Unity.MidiNoteInfo;
@@ -107,4 +107,3 @@ namespace BU.MidiGameplay.Gameplay
         }
     }
 }
-*/

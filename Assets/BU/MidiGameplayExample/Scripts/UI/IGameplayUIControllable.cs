@@ -1,4 +1,4 @@
-﻿/*using Notero.MidiGameplay.Core;
+﻿using Notero.MidiGameplay.Core;
 using Notero.RaindropGameplay.Core;
 using Notero.Unity.MidiNoteInfo;
 using Notero.Unity.UI.VirtualPiano;
@@ -48,4 +48,3 @@ namespace BU.MidiGameplay.UI
 
     }
 }
-*/

@@ -1,4 +1,4 @@
-﻿/*using Notero.RaindropGameplay.Core;
+﻿using Notero.RaindropGameplay.Core;
 using Notero.RaindropGameplay.Core.Scoring;
 using Notero.Unity.MidiNoteInfo;
 using System;
@@ -247,4 +247,3 @@ namespace BU.Gameplay.Scoring
         }
     }
 }
-*/

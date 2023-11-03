@@ -1,4 +1,4 @@
-/*using Notero.RaindropGameplay.Core;
+using Notero.RaindropGameplay.Core;
 using Notero.Unity.AudioModule;
 using Notero.Unity.MidiNoteInfo;
 using Notero.Utilities;
@@ -187,4 +187,3 @@ namespace BU.MidiGameplay.Gameplay
         }
     }
 }
-*/

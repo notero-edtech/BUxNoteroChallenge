@@ -72,3 +72,17 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 .DS_Store
+Assets/Plugins/Easy Save 3/Resources/ES3/ES3Defaults.asset
+Assets/Plugins/Easy Save 3/Resources/ES3/ES3Defaults.asset
+Assets/Plugins/Android/FirebaseCrashlytics.androidlib/res/values/crashlytics_unity_version.xml.meta
+Assets/Plugins/Android/FirebaseCrashlytics.androidlib/res/values/crashlytics_unity_version.xml
+Assets/Plugins/Android/FirebaseCrashlytics.androidlib/res/values/crashlytics_build_id.xml
+Assets/Plugins/Android/FirebaseCrashlytics.androidlib/res/values.meta
+Assets/Plugins/Android/FirebaseCrashlytics.androidlib/res.meta
+Assets/Plugins/Android/FirebaseCrashlytics.androidlib/project.properties.meta
+Assets/Plugins/Android/FirebaseCrashlytics.androidlib/project.properties
+*.meta
+ProjectSettings/GvhProjectSettings.xml
+ProjectSettings/EditorBuildSettings.asset
+ProjectSettings/GvhProjectSettings.xml
+ProjectSettings/EditorBuildSettings.asset

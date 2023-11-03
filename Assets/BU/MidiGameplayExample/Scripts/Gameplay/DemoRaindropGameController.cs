@@ -1,4 +1,4 @@
-﻿/*using BU.Gameplay.Scoring;
+﻿using BU.Gameplay.Scoring;
 using BU.MidiGameplay.UI;
 using Notero.MidiAdapter;
 using Notero.MidiGameplay.Bot;
@@ -451,4 +451,4 @@ namespace BU.MidiGameplay.Gameplay
 
         bool IsPressing(int midiId) => m_MidiInputHashSet.Contains(midiId);
     }
-}*/
+}

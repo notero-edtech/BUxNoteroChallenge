@@ -58,6 +58,14 @@ MonoBehaviour:
   m_RaindropMinimumKeyId: 24
   m_ActionBar: {fileID: 6510731730976483514}
   health: {fileID: 3081271359152401555}
+  characters:
+  - {fileID: 2018098243393559677}
+  - {fileID: 1910250237829851315}
+  - {fileID: 7257500560086454205}
+  - {fileID: 2247614012942552488}
+  - {fileID: 998625774935776381}
+  - {fileID: 2562536301158180330}
+  - {fileID: 6513585387713319334}
 --- !u!114 &190785122981867036
 MonoBehaviour:
   m_ObjectHideFlags: 0
