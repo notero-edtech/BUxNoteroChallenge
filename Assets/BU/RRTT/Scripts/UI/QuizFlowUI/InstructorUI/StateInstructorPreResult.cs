@@ -1,3 +1,4 @@
+using System;
 using BU.RRTT.QuizExample.Scripts.BossSystem;
 using Notero.QuizConnector.Instructor;
 using Notero.Unity.UI.Quiz;
@@ -82,6 +83,11 @@ namespace BU.RRTT.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
 
         private Vector3 scale = new Vector3( 8.35f,8.35f,8.35f);
         
+        [SerializeField]
+        private Image heartFiller;
+        
+        private float heart;
+        
         private void Start()
         {
             SetChapterText(Chapter);
@@ -93,8 +99,14 @@ namespace BU.RRTT.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
             m_NextButtonUI.OnNextClick.AddListener(OnNextStateReceive);
         }
 
+        private void Update()
+        {
+            heartFiller.fillAmount = Mathf.MoveTowards(heartFiller.fillAmount, heart/TotalPage, 0.5f * Time.deltaTime);
+        }
+
         public override void OnCustomDataReceive(byte[] data)
         {
+            heart = data[1];
             bossList = bossReference.GetComponent<BossList>();
             GameObject boss = Instantiate(bossList.bossPrefabs[data[0]].gameObject, bossPosition);
             boss.transform.localScale = scale;

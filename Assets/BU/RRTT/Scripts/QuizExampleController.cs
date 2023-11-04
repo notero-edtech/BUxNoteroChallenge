@@ -90,6 +90,8 @@ namespace BU.RRTT.QuizExample.Scripts
         //RRTT Variables
         private byte bossIndex;
 
+        private byte bossHeart = 0;
+
         private void RandomBossIndex()
         {
             bossIndex = (byte) Random.Range(0, 2);
@@ -127,7 +129,7 @@ namespace BU.RRTT.QuizExample.Scripts
                 QuizStore.SetQuizList(list);
 
                 // Example: Set custom data
-                QuizStore.SetCustomData(new byte[] {bossIndex});
+                QuizStore.SetCustomData(new byte[] {bossIndex, bossHeart});
             }
             else if(ApplicationFlagConfig.IsStudentMode)
             {
@@ -288,6 +290,19 @@ namespace BU.RRTT.QuizExample.Scripts
 
         public void SpawnInstructorPreResultStateUI()
         {
+            //Boss Heart System
+            var quizList = QuizStore.QuizList;
+            var studentAnswer = QuizStore.StudentAnswers;
+
+            foreach (var question in quizList.Values)
+            {
+                if (!studentAnswer.TryGetValue(question.Id, out var studentList)) continue;
+                var score = 0;
+                score += studentList.Count(student => student.Answer == question.Answer.CorrectAnswers.ElementAt(0));
+                if (score >= (0 * studentList.Count)) QuizStore.CustomData[1] += 1;
+            }
+            
+            
             var correctAnswer = QuizState.Default.CurrentQuestion.Answer.CorrectAnswers.ElementAt(0);
 
             m_InstructorPreResult = SpawnPrototype<BaseInstructorPreResult>(m_InstructorPreResultPrefab);
