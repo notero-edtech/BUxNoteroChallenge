@@ -14,6 +14,9 @@ namespace BU.NineTails.Scripts.UI
         [SerializeField] private bool alived;
         [SerializeField] private float hp;
         private bool isStart;
+
+        private bool isDead;
+
         public void SetMaxHealth(float health)
         {
             Healthbar_Silder.maxValue = health;
@@ -22,12 +25,15 @@ namespace BU.NineTails.Scripts.UI
 
         public void Start()
         {
-            isStart = true;
-            alived = true;
-            currentHealth = maxHealth;
-            hp = maxHealth;
-            SetMaxHealth(maxHealth);
-
+            isDead = false;
+            if  (isDead == false)
+            {
+                isStart = true;
+                alived = true;
+                currentHealth = maxHealth;
+                hp = maxHealth;
+                SetMaxHealth(maxHealth);
+            }
         }
 
         public void Perfect_Healthbar()
@@ -46,28 +52,32 @@ namespace BU.NineTails.Scripts.UI
         }
         private void Update()
         {
-            if (isStart)
+            if (isDead == false)
             {
-                currentHealth = Mathf.SmoothDamp(currentHealth, hp, ref currentVelocity, 0.5f);
-                Healthbar_Silder.value = currentHealth;
-            }
+                if (isStart)
+                {
+                    currentHealth = Mathf.SmoothDamp(currentHealth, hp, ref currentVelocity, 0.5f);
+                    Healthbar_Silder.value = currentHealth;
+                }
 
-            if (currentHealth > 0)
-            {
-                alived = true;
-            }
-            else
-            {
-                alived = false;
-            }
+                if (currentHealth > 0)
+                {
+                    alived = true;
+                }
+                else
+                {
+                    alived = false;
+                }
 
-            if (hp > maxHealth)
-            {
-                hp = maxHealth;
-            }
-            else if (alived == false)
-            {
-                hp = 0;
+                if (hp > maxHealth)
+                {
+                    hp = maxHealth;
+                }
+                else if (alived == false)
+                {
+                    hp = 0;
+                    isDead = true;
+                }
             }
         }
     }
