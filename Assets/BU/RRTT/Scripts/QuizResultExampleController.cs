@@ -119,7 +119,7 @@ namespace BU.RRTT.QuizExample.Scripts
             QuizStore.SetQuizList(list);
 
             // Example: Set custom data
-            QuizStore.SetCustomData(new byte[] {bossIndex});
+            QuizStore.SetCustomData(new byte[] {bossIndex, 2});
         }
 
         #region Instructor Result state nethods
