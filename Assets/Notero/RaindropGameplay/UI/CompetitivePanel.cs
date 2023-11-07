@@ -21,6 +21,7 @@ namespace Notero.RaindropGameplay.UI
         {
             m_TimerPanel.SetTimerBarMaxValue(duration);
             m_TimerPanel.SetTimerText(duration);
+            m_TimerPanel.SetTimerBarCurrentValue(0);
         }
 
         public void UpdateAccuracyMeterBar(float accuracy, int startCount)
