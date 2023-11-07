@@ -104,6 +104,8 @@ namespace BU.RRTT.QuizExample.Scripts
 
         public void LoadQuizToQuizStore(string jsonContent)
         {
+            RandomBossIndex();
+            
             var questionJson = JsonConvert.DeserializeObject<SchemaQuiz>(jsonContent);
 
             QuizState.Default.ResetQuestionIndex();
