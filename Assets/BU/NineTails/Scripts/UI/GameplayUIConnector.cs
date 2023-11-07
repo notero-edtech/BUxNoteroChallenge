@@ -45,6 +45,9 @@ namespace BU.NineTails.MidiGameplay.UI
         [SerializeField]
         private GameObject m_OctaceBar;
 
+        /*[SerializeField]
+        private GameObject m_HealthBar;*/
+
         public Canvas GameplayCanvas => m_GameplayCanvas;
 
         public event Action MetronomeButtonClicked;
@@ -134,6 +137,11 @@ namespace BU.NineTails.MidiGameplay.UI
         {
             m_VirtualPiano.SetActive(isActive);
         }
+
+        /*public void SetHealthBarActive(bool isActive)
+        {
+            m_HealthBar.SetActive(isActive);
+        }*/
 
         public void StartCutSceneAnimation()
         {
