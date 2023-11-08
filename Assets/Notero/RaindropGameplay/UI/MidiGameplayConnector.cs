@@ -9,7 +9,7 @@ namespace Notero.RaindropGameplay.Core
     public class PrefabInfo
     {
         public string Name;
-        public GameObject gamePrefab;
+        public GameObject GamePrefab;
     }
 
     public class MidiGameplayConnector : MonoSingleton<MidiGameplayConnector>
@@ -58,9 +58,9 @@ namespace Notero.RaindropGameplay.Core
 
         private void InstantiateBackgroundManager()
         {
-            if(m_BackgroundInfo[m_CurrentBGIndex].gamePrefab == null) return;
+            if(m_BackgroundInfo[m_CurrentBGIndex].GamePrefab == null) return;
 
-            var backgroundGameObject = Instantiate(m_BackgroundInfo[m_CurrentBGIndex].gamePrefab);
+            var backgroundGameObject = Instantiate(m_BackgroundInfo[m_CurrentBGIndex].GamePrefab);
 
             //if not in parent, check children.
             if(!backgroundGameObject.TryGetComponent(out BaseBackgroundFeedbackManager baseBackgroundFeedback))
@@ -79,7 +79,7 @@ namespace Notero.RaindropGameplay.Core
 
         private void InstantiateGameController()
         {
-            m_GameplayObject = Instantiate(m_MidiGameInfo[m_CurrentGameIndex].gamePrefab);
+            m_GameplayObject = Instantiate(m_MidiGameInfo[m_CurrentGameIndex].GamePrefab);
 
             if(m_GameplayObject.TryGetComponent(out IMidiGameController game))
             {
