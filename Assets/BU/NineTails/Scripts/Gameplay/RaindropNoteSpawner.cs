@@ -88,11 +88,11 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
             foreach (var note in GetComponentsInChildren<RaindropNote>())
             {
                 RectTransform rect = (RectTransform)note.transform;
-                rect.anchoredPosition += new Vector2(-m_RaindropSpeed * Time.deltaTime, 0); // Move the note to the left
+                rect.anchoredPosition += new Vector2(-m_RaindropSpeed * Time.deltaTime, 0);
 
                 if (rect.anchoredPosition.x < -rect.rect.width)
                 {
-                    ReturnRaindropNoteToPool(note); // Return the note to the pool when it's off-screen
+                    ReturnRaindropNoteToPool(note);
                 }
             }
         }

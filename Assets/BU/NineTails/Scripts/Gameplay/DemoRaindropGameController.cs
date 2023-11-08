@@ -51,6 +51,9 @@ namespace BU.NineTails.MidiGameplay.Gameplay
         protected int m_RaindropMinimumKeyId = 24;
 
         [SerializeField]
+        protected int m_RaindropMaximumKeyId = 47;
+
+        [SerializeField]
         protected RectTransform m_ActionBar;
 
         [SerializeField]
