@@ -177,8 +177,7 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
 
         public virtual void CreateActionCue(MidiNoteInfo info)
         {
-            float timeOffset = 3.0f;
-            RaindropScrollSpeed = 450;
+            RaindropScrollSpeed = 250;
             RaindropNote note = m_RaindropNoteSpawner.Create(info);
             note.Init(RaindropScrollSpeed, (float)info.NoteOnTime / 1000);
             //GetKeySignature(note, info);
