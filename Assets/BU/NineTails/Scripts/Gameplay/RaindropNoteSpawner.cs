@@ -40,7 +40,8 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
         public virtual RaindropNote Create(MidiNoteInfo info)
         {
             int notePosIndex = info.MidiId - m_MinimumKeyGiven;
-            float xPos = this.PianoFitWidth;
+            float spawnOffset = 600; // Adjust this value as needed
+            float xPos = this.PianoFitWidth + spawnOffset;
             float yPos = LanePositionList[notePosIndex];
             RaindropNote raindropNote = PoolNewRaindropNote(info, new Vector2(xPos, yPos));
             return raindropNote;
@@ -90,7 +91,7 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
                 RectTransform rect = (RectTransform)note.transform;
                 rect.anchoredPosition += new Vector2(-m_RaindropSpeed * Time.deltaTime, 0);
 
-                if (rect.anchoredPosition.x < -rect.rect.width)
+                if (rect.anchoredPosition.x < -1280)
                 {
                     ReturnRaindropNoteToPool(note);
                 }

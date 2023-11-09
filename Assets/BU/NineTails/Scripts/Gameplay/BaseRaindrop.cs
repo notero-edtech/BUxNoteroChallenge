@@ -46,6 +46,7 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
 
         public virtual void Init(float spawnPointPosY)
         {
+            spawnPointPosY = 0; //Have to set 0 because Horizontal Raindrop not working. and setting not save at all.
             m_RaindropNoteSpawner.Init(OctaveInputAmount, MinimumKeyId, RaindropScrollSpeed, spawnPointPosY);
             m_RaindropBarOverlay.Init(m_RaindropNoteSpawner.PianoFitWidth, OctaveInputAmount, m_RaindropNoteSpawner.LanePositionList);
             m_RaindropNoteStorage.Clear();
@@ -176,6 +177,8 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
 
         public virtual void CreateActionCue(MidiNoteInfo info)
         {
+            float timeOffset = 3.0f;
+            RaindropScrollSpeed = 450;
             RaindropNote note = m_RaindropNoteSpawner.Create(info);
             note.Init(RaindropScrollSpeed, (float)info.NoteOnTime / 1000);
             //GetKeySignature(note, info);
