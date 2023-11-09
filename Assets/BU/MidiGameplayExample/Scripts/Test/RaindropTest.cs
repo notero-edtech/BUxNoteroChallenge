@@ -1,4 +1,5 @@
 using Notero.RaindropGameplay.Core;
+using Notero.RaindropGameplay.UI;
 using Notero.Unity.AudioModule;
 using Notero.Unity.MidiNoteInfo;
 using Notero.Utilities;
@@ -12,9 +13,6 @@ namespace BU.MidiGameplay.Gameplay
     {
         [SerializeField]
         MidiGameplayConnector m_GameConnector;
-
-        [SerializeField]
-        GameObject m_GameControllerPrefab;
 
         [Header("UI Components")]
         [SerializeField]
@@ -57,15 +55,11 @@ namespace BU.MidiGameplay.Gameplay
         private IMidiGameController m_RaindropGameController;
         private MidiFile m_CurrentMidiFile;
         private bool m_IsBackingTrackAvailable => m_BackingTrack != null;
-        GameObject m_game;
 
         public void Awake()
         {
             m_GameConnector.SelectGameController(m_GameName.ToString());
             m_GameConnector.SelectBackgroundManager(m_BackgroundName.ToString());
-            m_GameConnector.InstantiateGameplay();
-
-            m_RaindropGameController = m_GameConnector.CurrentGameController;
 
             AudioPlayer.Instance.MasterVolume = 1F;
             AudioPlayer.Instance.BGMVolume = 1F;
@@ -83,6 +77,9 @@ namespace BU.MidiGameplay.Gameplay
 
         public void StartTest()
         {
+            m_GameConnector.InstantiateGameplay();
+            m_RaindropGameController = m_GameConnector.CurrentGameController;
+
             OnLoadingGameplayState(m_RaindropGameController);
             OnCoolDownGameplayState(m_RaindropGameController);
 
@@ -107,8 +104,9 @@ namespace BU.MidiGameplay.Gameplay
 
             m_StartGameplayPanel.gameObject.SetActive(true);
 
-            Destroy(m_game);
-            m_game = null;
+            m_GameConnector.DestroyGame();
+            var bg = FindObjectOfType<BaseBackgroundFeedbackManager>();
+            Destroy(bg.gameObject);
         }
 
         private void OnGameResultSubmit(SelfResultInfo resultInfo)
