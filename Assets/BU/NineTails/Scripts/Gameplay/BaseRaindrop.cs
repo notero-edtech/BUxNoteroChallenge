@@ -16,8 +16,8 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
         [SerializeField]
         protected BarlineSpawner m_BarlineSpawner;
 
-        [SerializeField]
-        protected RaindropBarOverlay m_RaindropBarOverlay;
+        /*[SerializeField]
+        protected RaindropBarOverlay m_RaindropBarOverlay;*/
 
         public RaindropNoteSpawner RaindropNoteSpawner => m_RaindropNoteSpawner;
         public int OctaveInputAmount { get; private set; }
@@ -48,7 +48,7 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
         {
             spawnPointPosY = 0; //Have to set 0 because Horizontal Raindrop not working. and setting not save at all.
             m_RaindropNoteSpawner.Init(OctaveInputAmount, MinimumKeyId, RaindropScrollSpeed, spawnPointPosY);
-            m_RaindropBarOverlay.Init(m_RaindropNoteSpawner.PianoFitWidth, OctaveInputAmount, m_RaindropNoteSpawner.LanePositionList);
+            //m_RaindropBarOverlay.Init(m_RaindropNoteSpawner.PianoFitWidth, OctaveInputAmount, m_RaindropNoteSpawner.LanePositionList);
             m_RaindropNoteStorage.Clear();
 
             m_FlatSign = System.Net.WebUtility.HtmlDecode(m_FlatUnicode);
@@ -112,7 +112,7 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
 
         protected bool HasRaindropNote() => m_RaindropNoteStorage?.Count > 0;
 
-        protected bool HasRaindropBarline() => m_BarlineSpawner.GetBarlineList()?.Count > 0;
+        //protected bool HasRaindropBarline() => m_BarlineSpawner.GetBarlineList()?.Count > 0;
 
         public virtual void BarlineSetup(float bpm, float timeSignatureTop, float timeSiganatureBottom, float songDuration)
         {
@@ -134,7 +134,7 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
             }
         }*/
 
-        public void SetBarOverlayActive(bool isActive) => m_RaindropBarOverlay.SetActive(isActive);
+        //public void SetBarOverlayActive(bool isActive) => m_RaindropBarOverlay.SetActive(isActive);
 
         /*private void CheckAccidentalText(string noteName, RaindropNote note, MidiNoteInfo info)
         {
@@ -197,7 +197,7 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
                 }
             }
 
-            if (HasRaindropBarline())
+            /*if (HasRaindropBarline())
             {
                 foreach (RaindropBarline barline in m_BarlineSpawner.GetBarlineList())
                 {
@@ -206,7 +206,7 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
                         barline.UpdatePosition(currentTime);
                     }
                 }
-            }
+            }*/
         }
     }
 

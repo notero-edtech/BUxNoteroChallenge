@@ -36,8 +36,8 @@ namespace BU.NineTails.MidiGameplay.UI
         [SerializeField]
         private GameObject m_VirtualPiano;
 
-        [SerializeField]
-        private GameObject m_Barline;
+        /*[SerializeField]
+        private GameObject m_Barline;*/
 
         [SerializeField]
         private GameObject m_ActionBar;

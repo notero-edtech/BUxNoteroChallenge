@@ -240,7 +240,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
         private void SubscribeGameplayTimeUpdateEventHandlers()
         {
             GameLogic.OnGameplayTimeUpdate.AddListener(m_GameplayUIController.HandleGameplayTimeUpdate);
-            GameLogic.OnGameplayTimeUpdate.AddListener(ActiveBarline);
+            //GameLogic.OnGameplayTimeUpdate.AddListener(ActiveBarline);
             GameLogic.OnGameplayTimeUpdate.AddListener(m_RaindropNoteController.UpdateLogic);
         }
 
@@ -392,7 +392,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
         {
             if(m_RaindropNoteController == null) return;
 
-            m_RaindropNoteController.SetBarOverlayActive(isActive);
+            //m_RaindropNoteController.SetBarOverlayActive(isActive);
 
             SetGameplayScene();
         }
@@ -438,20 +438,20 @@ namespace BU.NineTails.MidiGameplay.Gameplay
             m_GameplayUIController.SetBarlineActive(true);
         }
 
-        private void ActiveBarline(float currentTime)
+        /*private void ActiveBarline(float currentTime)
         {
             if(HasBarlineToActive(currentTime) && !m_RaindropNoteController.RaindropBarlineList[m_CurrentBarlineIndex].isActiveAndEnabled)
             {
                 m_RaindropNoteController.RaindropBarlineList[m_CurrentBarlineIndex].gameObject.SetActive(true);
                 m_CurrentBarlineIndex++;
             }
-        }
+        }*/
 
-        private bool HasBarlineToActive(double currentTime)
+        /*private bool HasBarlineToActive(double currentTime)
         {
             return m_CurrentBarlineIndex < m_RaindropNoteController.RaindropBarlineList.Count &&
                    currentTime >= m_RaindropNoteController.RaindropBarlineList[m_CurrentBarlineIndex].EndScreenTimeInSecond;
-        }
+        }*/
 
         public void SetBackgroundImage(Texture texture)
         {

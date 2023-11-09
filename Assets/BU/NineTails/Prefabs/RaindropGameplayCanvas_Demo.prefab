@@ -87,7 +87,6 @@ MonoBehaviour:
   m_TextFeedback: {fileID: 2649423315590453676}
   m_PianoFeedback: {fileID: 383665275608746542}
   m_VirtualPiano: {fileID: 6469867801421338299}
-  m_Barline: {fileID: 3326007224153149095}
   m_ActionBar: {fileID: 335131170735858886}
   m_OctaceBar: {fileID: 9190952639030262740}
 --- !u!114 &3351390289793232884
@@ -2502,95 +2501,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &3326007224153149095
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3073034633633574454}
-  m_Layer: 5
-  m_Name: Barlines
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &3073034633633574454
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3326007224153149095}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 9010462131049886008}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &3411347701717317959
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9010462131049886008}
-  - component: {fileID: 2009114582639749237}
-  m_Layer: 5
-  m_Name: VerticalBarlineSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &9010462131049886008
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3411347701717317959}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3073034633633574454}
-  m_Father: {fileID: 3721456845319821711}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: -620}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2009114582639749237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3411347701717317959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48c49e97a37096a478b3c6fd2803c293, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RaindropBarLine: {fileID: 7867584686392457314, guid: 069f1d0d85bf377428969b93d90e19b4, type: 3}
-  m_RaindropBarLineParent: {fileID: 284520031065534320, guid: 069f1d0d85bf377428969b93d90e19b4, type: 3}
-  m_BarLineList: []
 --- !u!1 &3506384988885502945
 GameObject:
   m_ObjectHideFlags: 0
@@ -3371,7 +3281,6 @@ RectTransform:
   m_Children:
   - {fileID: 7483765475210410325}
   - {fileID: 8929899408901839526}
-  - {fileID: 9010462131049886008}
   - {fileID: 4786339138394422021}
   m_Father: {fileID: 4968309143730086581}
   m_RootOrder: 2
@@ -4106,8 +4015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RaindropNoteSpawner: {fileID: 3566113897316604142}
-  m_BarlineSpawner: {fileID: 2009114582639749237}
-  m_RaindropBarOverlay: {fileID: 2300174868604049143}
+  m_BarlineSpawner: {fileID: 0}
 --- !u!1 &5544296121234541139
 GameObject:
   m_ObjectHideFlags: 0
@@ -5004,10 +4912,10 @@ RectTransform:
   m_Father: {fileID: 4786339138394422021}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -980, y: 720}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 206.157, y: 0.0010070801}
+  m_SizeDelta: {x: 867.687, y: -379.803}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7009519760582797057
 GameObject:
@@ -5783,14 +5691,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4786339138394422021}
-  - component: {fileID: 2300174868604049143}
   m_Layer: 5
   m_Name: RaindropBarOverlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4786339138394422021
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5806,28 +5713,13 @@ RectTransform:
   - {fileID: 8693142206857748065}
   - {fileID: 124669894706510299}
   m_Father: {fileID: 3721456845319821711}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0.00012207031}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2300174868604049143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9190952639030262740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d741ded2522bd904396715a1afc2c32f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SplitterMid: {fileID: 8944523172221689218, guid: 0b24327876b8309499f5ff736473e95e, type: 3}
-  m_MainBar: {fileID: 8693142206857748065}
-  m_SplitterContainer: {fileID: 124669894706510299}
 --- !u!1 &9207466474517181151
 GameObject:
   m_ObjectHideFlags: 0
