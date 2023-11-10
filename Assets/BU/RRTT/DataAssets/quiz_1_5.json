@@ -1,0 +1,27 @@
+{
+    "schemaVersion": "1.8.0",
+    "data": [
+        {
+            "id": "d84bf-83a63-c8a8f-b8c30",
+            "assetFile": "images/quiz_1_5_1.png",
+            "assetType": "IMAGE",
+            "answer": {
+                "assetAnswerFile": "images/quiz_1_5_1.png",
+                "correctAnswers": [
+                    "2"
+                ]
+            }
+        },
+        {
+            "id": "be95c-c3757-1a0de-2844e",
+            "assetFile": "images/quiz_1_5_2.png",
+            "assetType": "IMAGE",
+            "answer": {
+                "assetAnswerFile": "images/quiz_1_5_2.png",
+                "correctAnswers": [
+                    "1"
+                ]
+            }
+        }
+    ]
+}
