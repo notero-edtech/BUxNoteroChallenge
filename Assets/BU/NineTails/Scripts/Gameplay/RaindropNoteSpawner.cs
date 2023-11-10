@@ -83,7 +83,7 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
             Destroy(note.gameObject);
         }
 
-        void Update()
+        /*void Update()
         {
             foreach (var note in GetComponentsInChildren<RaindropNote>())
             {
@@ -95,6 +95,6 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
                     ReturnRaindropNoteToPool(note);
                 }
             }
-        }
+        }*/
     }
 }

@@ -426,8 +426,8 @@ namespace BU.NineTails.MidiGameplay.Gameplay
 
         protected virtual double CalculateNoteStartTimeOffset(float noteSpeed)
         {
-            var destination = m_ActionBar.anchoredPosition.y;
-            var origin = ((RectTransform)m_RaindropNoteController.RaindropNoteSpawner.transform).anchoredPosition.y;
+            var destination = m_ActionBar.anchoredPosition.x;
+            var origin = ((RectTransform)m_RaindropNoteController.RaindropNoteSpawner.transform).anchoredPosition.x;
             float distance = Mathf.Abs(destination - origin);
             return distance / noteSpeed * 1000;
         }
