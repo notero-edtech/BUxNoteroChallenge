@@ -36,8 +36,8 @@ namespace BU.NineTails.MidiGameplay.UI
         [SerializeField]
         private GameObject m_VirtualPiano;
 
-        [SerializeField]
-        private GameObject m_Barline;
+        /*[SerializeField]
+        private GameObject m_Barline;*/
 
         [SerializeField]
         private GameObject m_ActionBar;
@@ -84,8 +84,8 @@ namespace BU.NineTails.MidiGameplay.UI
 
         public void SetBarlineActive(bool isActive)
         {
-            m_Barline.SetActive(isActive);
-            m_OctaceBar.SetActive(isActive);
+            /*m_Barline.SetActive(isActive);*/
+            //m_OctaceBar.SetActive(isActive);
         }
 
         public void SetCanvasScale()
@@ -135,7 +135,7 @@ namespace BU.NineTails.MidiGameplay.UI
 
         public void SetVirtualPianoActive(bool isActive)
         {
-            m_VirtualPiano.SetActive(isActive);
+            //m_VirtualPiano.SetActive(isActive);
         }
 
         /*public void SetHealthBarActive(bool isActive)

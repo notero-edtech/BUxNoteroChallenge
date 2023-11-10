@@ -50,7 +50,7 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
 
         protected virtual void SetSpawnerPosition(float yPos)
         {
-            float xPos = 0;
+            float xPos = 0; // have to set 0 because horizontal raindrop
             RectTransform rect = (RectTransform)transform;
             rect.anchoredPosition = new Vector2(xPos, yPos);
         }
@@ -83,18 +83,18 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
             Destroy(note.gameObject);
         }
 
-        void Update()
+        /*void Update()
         {
             foreach (var note in GetComponentsInChildren<RaindropNote>())
             {
                 RectTransform rect = (RectTransform)note.transform;
                 rect.anchoredPosition += new Vector2(-m_RaindropSpeed * Time.deltaTime, 0);
 
-                if (rect.anchoredPosition.x < -rect.rect.width)
+                if (rect.anchoredPosition.x < -1280)
                 {
                     ReturnRaindropNoteToPool(note);
                 }
             }
-        }
+        }*/
     }
 }

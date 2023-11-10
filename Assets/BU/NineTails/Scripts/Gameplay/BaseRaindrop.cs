@@ -16,8 +16,8 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
         [SerializeField]
         protected BarlineSpawner m_BarlineSpawner;
 
-        [SerializeField]
-        protected RaindropBarOverlay m_RaindropBarOverlay;
+        /*[SerializeField]
+        protected RaindropBarOverlay m_RaindropBarOverlay;*/
 
         public RaindropNoteSpawner RaindropNoteSpawner => m_RaindropNoteSpawner;
         public int OctaveInputAmount { get; private set; }
@@ -44,10 +44,11 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
             RaindropScrollSpeed = speed;
         }
 
-        public virtual void Init(float spawnPointPosY)
+        public virtual void Init(float spawnPointPosX)
         {
-            m_RaindropNoteSpawner.Init(OctaveInputAmount, MinimumKeyId, RaindropScrollSpeed, spawnPointPosY);
-            m_RaindropBarOverlay.Init(m_RaindropNoteSpawner.PianoFitWidth, OctaveInputAmount, m_RaindropNoteSpawner.LanePositionList);
+            spawnPointPosX = 0; //Have to set 0 because Horizontal Raindrop not working. and setting not save at all.
+            m_RaindropNoteSpawner.Init(OctaveInputAmount, MinimumKeyId, RaindropScrollSpeed, spawnPointPosX);
+            //m_RaindropBarOverlay.Init(m_RaindropNoteSpawner.PianoFitWidth, OctaveInputAmount, m_RaindropNoteSpawner.LanePositionList);
             m_RaindropNoteStorage.Clear();
 
             m_FlatSign = System.Net.WebUtility.HtmlDecode(m_FlatUnicode);
@@ -111,7 +112,7 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
 
         protected bool HasRaindropNote() => m_RaindropNoteStorage?.Count > 0;
 
-        protected bool HasRaindropBarline() => m_BarlineSpawner.GetBarlineList()?.Count > 0;
+        //protected bool HasRaindropBarline() => m_BarlineSpawner.GetBarlineList()?.Count > 0;
 
         public virtual void BarlineSetup(float bpm, float timeSignatureTop, float timeSiganatureBottom, float songDuration)
         {
@@ -133,7 +134,7 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
             }
         }*/
 
-        public void SetBarOverlayActive(bool isActive) => m_RaindropBarOverlay.SetActive(isActive);
+        //public void SetBarOverlayActive(bool isActive) => m_RaindropBarOverlay.SetActive(isActive);
 
         /*private void CheckAccidentalText(string noteName, RaindropNote note, MidiNoteInfo info)
         {
@@ -176,6 +177,7 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
 
         public virtual void CreateActionCue(MidiNoteInfo info)
         {
+            RaindropScrollSpeed = 150;
             RaindropNote note = m_RaindropNoteSpawner.Create(info);
             note.Init(RaindropScrollSpeed, (float)info.NoteOnTime / 1000);
             //GetKeySignature(note, info);
@@ -195,7 +197,7 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
                 }
             }
 
-            if (HasRaindropBarline())
+            /*if (HasRaindropBarline())
             {
                 foreach (RaindropBarline barline in m_BarlineSpawner.GetBarlineList())
                 {
@@ -205,39 +207,40 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
                     }
                 }
             }
+        }*/
         }
-    }
 
-    public enum KeySignatureEnum
-    {
-        CFlatMaj = -7,
-        GFlatMaj_EFlatMin = -6,
-        DFlatMaj_BFlatMin = -5,
-        AFlatMaj_FMin = -4,
-        EFlatMaj_CMin = -3,
-        BFlatMaj_GMin = -2,
-        FMaj_DMin = -1,
-        CMaj_AMin = 0,
-        GMaj_EMin = 1,
-        DMaj_BMin = 2,
-        AMaj_FSharpMin = 3,
-        EMaj_CSharpMin = 4,
-        BMaj_GSharpMin = 5,
-        FSharpMaj_DSharpMin = 6,
-        CSharpMaj = 7
-    }
+        public enum KeySignatureEnum
+        {
+            CFlatMaj = -7,
+            GFlatMaj_EFlatMin = -6,
+            DFlatMaj_BFlatMin = -5,
+            AFlatMaj_FMin = -4,
+            EFlatMaj_CMin = -3,
+            BFlatMaj_GMin = -2,
+            FMaj_DMin = -1,
+            CMaj_AMin = 0,
+            GMaj_EMin = 1,
+            DMaj_BMin = 2,
+            AMaj_FSharpMin = 3,
+            EMaj_CSharpMin = 4,
+            BMaj_GSharpMin = 5,
+            FSharpMaj_DSharpMin = 6,
+            CSharpMaj = 7
+        }
 
-    public enum ScaleEnum
-    {
-        Major = 0,
-        Minor = 1
-    }
+        public enum ScaleEnum
+        {
+            Major = 0,
+            Minor = 1
+        }
 
-    public enum RaindropState //state of each press key
-    {
-        Default,
-        Correct,
-        Miss
-    }
+        public enum RaindropState //state of each press key
+        {
+            Default,
+            Correct,
+            Miss
+        }
 
+    }
 }

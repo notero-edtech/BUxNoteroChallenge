@@ -81,7 +81,7 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
         {
             RectTransform rect = (RectTransform)transform;
             rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, m_Length);
-            rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 70);
+            rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 50);
         }
 
         public virtual void UpdatePosition(float currentTime)
