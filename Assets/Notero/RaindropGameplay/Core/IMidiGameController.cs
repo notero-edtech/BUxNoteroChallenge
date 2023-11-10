@@ -47,7 +47,7 @@ namespace Notero.RaindropGameplay.Core
         #endregion
 
         #region Start
-        void StartGameplayWithMusic();
+        void StartGameplay();
         void ShowGameplayControllerHUD();
         #endregion
 

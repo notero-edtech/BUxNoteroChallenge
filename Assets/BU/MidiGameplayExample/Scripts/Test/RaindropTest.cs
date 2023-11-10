@@ -11,6 +11,9 @@ namespace BU.MidiGameplay.Gameplay
     public class RaindropTest : MonoBehaviour
     {
         [SerializeField]
+        MidiGameplayConnector m_GameConnector;
+
+        [SerializeField]
         GameObject m_GameControllerPrefab;
 
         [Header("UI Components")]
@@ -33,9 +36,23 @@ namespace BU.MidiGameplay.Gameplay
         [SerializeField]
         private float m_MidiTimeOffset;
 
-        [Header("Mode")]
         [SerializeField]
-        private GameplayMode m_GameMode;
+        private GameName m_GameName;
+
+        enum GameName
+        {
+            Notero,
+            Test
+        }
+
+        [SerializeField]
+        private BGName m_BackgroundName;
+
+        enum BGName
+        {
+            Notero,
+            Test
+        }
 
         private IMidiGameController m_RaindropGameController;
         private MidiFile m_CurrentMidiFile;
@@ -44,6 +61,12 @@ namespace BU.MidiGameplay.Gameplay
 
         public void Awake()
         {
+            m_GameConnector.SelectGameController(m_GameName.ToString());
+            m_GameConnector.SelectBackgroundManager(m_BackgroundName.ToString());
+            m_GameConnector.InstantiateGameplay();
+
+            m_RaindropGameController = m_GameConnector.CurrentGameController;
+
             AudioPlayer.Instance.MasterVolume = 1F;
             AudioPlayer.Instance.BGMVolume = 1F;
             AudioPlayer.Instance.SFXVolume = 1F;
@@ -60,9 +83,6 @@ namespace BU.MidiGameplay.Gameplay
 
         public void StartTest()
         {
-            m_game = Instantiate(m_GameControllerPrefab);
-            m_RaindropGameController = m_game.GetComponentInChildren<IMidiGameController>();
-
             OnLoadingGameplayState(m_RaindropGameController);
             OnCoolDownGameplayState(m_RaindropGameController);
 
@@ -109,7 +129,7 @@ namespace BU.MidiGameplay.Gameplay
 
             gameController.Setup(m_CurrentMidiFile, new BackingTrack(m_BackingTrack), m_MidiTimeOffset);
             gameController.Initial();
-            gameController.SelectMode(m_GameMode);
+            gameController.SelectMode(GameplayMode.Normal);
         }
 
         private void OnCoolDownGameplayState(IMidiGameController gameController)
@@ -130,7 +150,7 @@ namespace BU.MidiGameplay.Gameplay
 
         private void OnStartGameplayState(IMidiGameController gameController)
         {
-            gameController.StartGameplayWithMusic();
+            gameController.StartGameplay();
         }
 
         private void OnPlayGameplayState(IMidiGameController gameController)

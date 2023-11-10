@@ -72,3 +72,10 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 .DS_Store
+
+# JetBrains 
+**/ProjectSettings/RiderScriptEditorPersistedState.asset
+.idea/
+
+**/EditorStartupPrefs.asset
+[Pp]rojectSettings/GvhProjectSettings.xml

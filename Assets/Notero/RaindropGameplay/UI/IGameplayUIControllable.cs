@@ -6,15 +6,15 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BU.MidiGameplay.UI
+namespace Notero.RaindropGameplay.UI
 {
     public interface IGameplayUIControllable
     {
         public Canvas GameplayCanvas { get; }
 
         //Gameplay Runtime
-        public void HandleGameplayTimeUpdate(float time);
         public void HandleScoreUpdate(SelfResultInfo info);
+        public void HandleGameplayTimeUpdate(float time);
 
         //Feedback
         public void UpdateTextFeedback(MidiNoteInfo noteInfo, string result, string actionState);
@@ -44,7 +44,5 @@ namespace BU.MidiGameplay.UI
         public void SetVirtualPianoActive(bool isActive);
         public void SetActionBarActive(bool isActive);
         public void SetBarlineActive(bool isActive);
-
-
     }
 }
