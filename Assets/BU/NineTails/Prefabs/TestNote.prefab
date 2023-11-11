@@ -653,7 +653,7 @@ MonoBehaviour:
   - {fileID: 8569633704497200347}
   - {fileID: 5183832568791475919}
   m_NoteRect: {fileID: 3265922329109970965}
-  circleNote: {fileID: 0}
+  circleNote: {fileID: 7130812475820885060, guid: 4cd076cd5ffda174782a409bae0fb1d0, type: 3}
 --- !u!1 &8569633704497200347
 GameObject:
   m_ObjectHideFlags: 0
