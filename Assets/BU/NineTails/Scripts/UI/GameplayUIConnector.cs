@@ -1,4 +1,5 @@
-﻿using Notero.MidiGameplay.Core;
+﻿using BU.NineTails.Scripts.UI.VirtualPiano;
+using Notero.MidiGameplay.Core;
 using Notero.RaindropGameplay.Core;
 using Notero.RaindropGameplay.UI;
 using Notero.Unity.MidiNoteInfo;
@@ -31,7 +32,7 @@ namespace BU.NineTails.MidiGameplay.UI
         private TextFeedbackManager m_TextFeedback;
 
         [SerializeField]
-        private PianoFeedbackManager m_PianoFeedback;
+        private PianoFeedback m_PianoFeedback;
 
         [SerializeField]
         private GameObject m_VirtualPiano;
@@ -135,7 +136,7 @@ namespace BU.NineTails.MidiGameplay.UI
 
         public void SetVirtualPianoActive(bool isActive)
         {
-            //m_VirtualPiano.SetActive(isActive);
+            m_VirtualPiano.SetActive(isActive);
         }
 
         /*public void SetHealthBarActive(bool isActive)
@@ -157,7 +158,7 @@ namespace BU.NineTails.MidiGameplay.UI
             m_PianoFeedback.UpdateFeedback(noteInfo, result, actionState);
         }
 
-        public void SetupPianoFeedback(BaseVirtualPianoController virtualPianoController, List<float> lanePosX)
+        public void SetupPianoFeedback(BaseVirtualPiano virtualPianoController, List<float> lanePosX)
         {
             m_PianoFeedback.Init(virtualPianoController, lanePosX);
         }

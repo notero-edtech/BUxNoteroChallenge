@@ -2,6 +2,7 @@
 using BU.NineTails.Gameplay;
 using BU.NineTails.MidiGameplay.UI;
 using BU.NineTails.Scripts.UI;
+using BU.NineTails.Scripts.UI.VirtualPiano;
 using Notero.MidiAdapter;
 using Notero.MidiGameplay.Bot;
 using Notero.MidiGameplay.Core;
@@ -32,7 +33,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
         protected ITimeProvider m_TimeProvider;
 
         [SerializeField]
-        protected BaseVirtualPianoController m_VirtualPianoController;
+        protected BaseVirtualPiano m_VirtualPiano;
 
         [SerializeField]
         protected DemoRaindropNoteController m_RaindropNoteController;
@@ -78,7 +79,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
         public IMidiGameLogic GameLogic { get; protected set; }
         public IBotControllable BotControllable => null;
         public bool IsMusicExists => m_CurrentMusic != null;
-        public bool IsControllerReady => m_VirtualPianoController != null && m_ScoringController != null;
+        public bool IsControllerReady => m_VirtualPiano != null && m_ScoringController != null;
 
         protected HashSet<int> m_MidiInputHashSet = new();
 
@@ -107,7 +108,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
             if(m_CurrentBackgroundTexture != null) m_GameplayUIController.SetBackgroundImage(m_CurrentBackgroundTexture);
 
             m_RaindropNoteController.Init(SpawnPointPos);
-            m_GameplayUIController.SetupPianoFeedback(m_VirtualPianoController, m_RaindropNoteController.LanePosList);
+            m_GameplayUIController.SetupPianoFeedback(m_VirtualPiano, m_RaindropNoteController.LanePosList);
 
             StartCoroutine(ProcessMusicLoadingCompletedEvent());
         }
@@ -254,7 +255,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
             if(!IsPressing(note.MidiId))
             {
                 Handside hand = HandIdentifier.GetHandsideByTrackIndex(note.TrackIndex);
-                m_VirtualPianoController.SetCueIn(note.MidiId, hand, false);
+                m_VirtualPiano.SetCueIn(note.MidiId, hand, false);
             }
 
             m_GameplayUIController.UpdateFeedbackOnNoteStart(note, time);
@@ -263,7 +264,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
         private void OnNoteEnded(MidiNoteInfo note, double time)
         {
             int midiId = note.MidiId;
-            if (!IsPressing(note.MidiId)) m_VirtualPianoController.SetDefault(note.MidiId, false);
+            if (!IsPressing(note.MidiId)) m_VirtualPiano.SetDefault(note.MidiId, false);
             m_GameplayUIController.UpdateTextFeedbackOnNoteEnd(note, time);
             health.Opps_Healthbar();
             foreach (var character in characters)
@@ -282,7 +283,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
             m_ScoringController.ProcessNotePressTiming(note, time);
 
             Handside hand = HandIdentifier.GetHandsideByTrackIndex(note.TrackIndex);
-            m_VirtualPianoController.SetCueIn(midiId, hand, true);
+            m_VirtualPiano.SetCueIn(midiId, hand, true);
             m_RaindropNoteController.SetCorrect(note.RaindropNoteId);
         }
 
@@ -329,19 +330,19 @@ namespace BU.NineTails.MidiGameplay.Gameplay
                 if (m_RaindropNoteController.IsCueShowing(note.RaindropNoteId) && score != NoteTimingScore.Perfect)
                 {
                     m_RaindropNoteController.SetMiss(note.RaindropNoteId);
-                    m_VirtualPianoController.SetMissKey(midiId, isPressing);
+                    m_VirtualPiano.SetMissKey(midiId, isPressing);
                     m_GameplayUIController.UpdatePianoFeedback(note, score.ToString(), "Release");
                     m_GameplayUIController.UpdateTextFeedback(note, score.ToString(), "Release");
                 }
                 else
                 {
-                    m_VirtualPianoController.SetDefault(midiId, isPressing);
+                    m_VirtualPiano.SetDefault(midiId, isPressing);
                 }
             }
             else
             {
                 Handside hand = HandIdentifier.GetHandsideByTrackIndex(note.TrackIndex);
-                m_VirtualPianoController.SetCueIn(midiId, hand, isPressing);
+                m_VirtualPiano.SetCueIn(midiId, hand, isPressing);
 
             }
         }
@@ -352,14 +353,14 @@ namespace BU.NineTails.MidiGameplay.Gameplay
             m_MidiInputHashSet.Add(midiId);
             if(!GameLogic.IsPlaying)
             {
-                m_VirtualPianoController.SetDefault(midiId, true);
+                m_VirtualPiano.SetDefault(midiId, true);
                 return;
             }
 
             m_ScoringController.ProcessBlankKeyPress(midiId, time);
 
             m_GameplayUIController.UpdateFeedbackBlankKeyPress(midiId, time);
-            m_VirtualPianoController.SetMissKey(midiId, true);
+            m_VirtualPiano.SetMissKey(midiId, true);
         }
 
         private void OnBlankKeyReleased(int midiId, double time)
@@ -371,14 +372,14 @@ namespace BU.NineTails.MidiGameplay.Gameplay
 
             if(!GameLogic.IsPlaying)
             {
-                m_VirtualPianoController.SetDefault(midiId, false);
+                m_VirtualPiano.SetDefault(midiId, false);
                 return;
             }
 
             m_ScoringController.ProcessBlankKeyRelease(midiId, time);
 
             m_GameplayUIController.UpdateFeedbackBlankKeyRelease(midiId, time);
-            m_VirtualPianoController.SetDefault(midiId, false);
+            m_VirtualPiano.SetDefault(midiId, false);
             health.Opps_Healthbar();
             foreach (var character in characters)
             {
@@ -386,7 +387,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
             }
         }
 
-        public void CreateVirtualPiano() => m_VirtualPianoController.Create("Gameplay_Test");
+        public void CreateVirtualPiano() => m_VirtualPiano.Create("Gameplay_Test");
 
         public void SetGameplayOverlayActive(bool isActive)
         {
@@ -415,7 +416,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
         /// </summary>
         public void ClearGameplayComponents()
         {
-            if(m_VirtualPianoController != null) m_VirtualPianoController.DeleteAllPianoKeys();
+            if(m_VirtualPiano != null) m_VirtualPiano.DeleteAllPianoKeys();
 
             m_RaindropNoteController?.ResetCues();
 
