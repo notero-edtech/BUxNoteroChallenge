@@ -51,7 +51,7 @@ namespace BU.MidiGameplay.Gameplay
         [SerializeField]
         protected RectTransform m_ActionBar;
 
-        public BaseScoringProcessor m_ScoringController;
+        protected BaseScoringProcessor m_ScoringController;
         public GameplayModeController ModeController { get; protected set; }
 
         public double NoteStartTimeOffset { get; private set; }
