@@ -11,7 +11,9 @@
         "Notero.Utilities",
         "Unity.TextMeshPro",
         "Notero.QuizConnector",
-        "Notero.QuizConnector.Model"
+        "Notero.QuizConnector.Model",
+        "BU.MidiGameplay",
+        "Notero.RaindropGameplay.Core"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
