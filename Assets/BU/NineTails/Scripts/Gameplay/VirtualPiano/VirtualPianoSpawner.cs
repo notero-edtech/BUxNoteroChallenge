@@ -1,4 +1,4 @@
-using Notero.Unity.UI.VirtualPiano.Structure;
+using BU.NineTails.Scripts.UI.VirtualPiano.Structure;
 using Notero.Unity.UI.VirtualPiano;
 using UnityEngine;
 using System.Collections.Generic;
@@ -41,7 +41,7 @@ namespace BU.NineTails.Scripts.UI.VirtualPiano
         protected RectTransform m_BlackLayer;
 
         private PianoKeySpriteInfo m_PianoInfo;
-        protected List<PianoSpriteCollection> m_PianoKeySpriteCollection;
+        protected List<VirtualKeySpriteCollection> m_PianoKeySpriteCollection;
         protected List<PianoKey> m_Keys { get; } = new List<PianoKey>();
         protected int m_InputOctaves;
         private string m_PianoType;
@@ -79,7 +79,7 @@ namespace BU.NineTails.Scripts.UI.VirtualPiano
 
         protected virtual PianoKeySpriteInfo GetPianoInfoStorage(string pianoTypeStr)
         {
-            return Resources.Load<PianoKeySpriteInfo>($"ScriptableObject/VirtualPianoInfo_{pianoTypeStr}");
+            return Resources.Load<PianoKeySpriteInfo>($"ScriptableObject/VirtualPianoKeySpriteInfo_{pianoTypeStr}");
         }
 
         #endregion
@@ -151,19 +151,19 @@ namespace BU.NineTails.Scripts.UI.VirtualPiano
             return keyGo;
         }
 
-        public void ResetKeys()
+        public void ResetKeys(int note)
         {
             foreach (PianoKey key in m_Keys)
             {
-                key.SetSprite("0", Handside.Left, false);
+                key.SetSprite("0", Handside.Left, false, note);
             }
         }
 
         private void CreateSpriteCollection()
         {
-            m_PianoKeySpriteCollection = new List<PianoSpriteCollection>();
+            m_PianoKeySpriteCollection = new List<VirtualKeySpriteCollection>();
 
-            PianoSpriteCollection[] stateSpriteInfo = m_PianoInfo.SpriteCollection;
+            VirtualKeySpriteCollection[] stateSpriteInfo = m_PianoInfo.SpriteCollection;
             List<OverridedPianoSpriteInfo> overridedSpriteInfo = m_PianoInfo.OverrideSprite.ToList();
 
             int totalKeys = m_InputOctaves * VirtualPianoHelper.OctaveTotalKeys;
@@ -175,7 +175,7 @@ namespace BU.NineTails.Scripts.UI.VirtualPiano
 
                 if (overridedKeys.Any())
                 {
-                    PianoSpriteCollection newSpriteInfo = stateSpriteInfo[keyColor].Clone();
+                    VirtualKeySpriteCollection newSpriteInfo = stateSpriteInfo[keyColor].Clone();
 
                     foreach (OverridedPianoSpriteInfo overrideKey in overridedKeys)
                     {
@@ -183,7 +183,8 @@ namespace BU.NineTails.Scripts.UI.VirtualPiano
                             overrideKey.SpriteInfo.State,
                             overrideKey.SpriteInfo.Hand,
                             overrideKey.SpriteInfo.IsPressing,
-                            overrideKey.SpriteInfo.Sprite
+                            overrideKey.SpriteInfo.Sprite,
+                            overrideKey.SpriteInfo.Note
                         );
                     }
 

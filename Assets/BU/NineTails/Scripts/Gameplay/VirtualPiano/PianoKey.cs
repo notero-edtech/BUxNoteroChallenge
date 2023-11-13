@@ -1,4 +1,4 @@
-using Notero.Unity.UI.VirtualPiano.Structure;
+using BU.NineTails.Scripts.UI.VirtualPiano.Structure;
 using Notero.Unity.UI.VirtualPiano;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,16 +10,16 @@ namespace BU.NineTails.Scripts.UI.VirtualPiano
         [SerializeField]
         private Image m_PianoKeyImage;
 
-        private PianoSpriteCollection m_LocalPianoInfo;
+        private VirtualKeySpriteCollection m_LocalPianoInfo;
 
-        public void SetupPianoSpriteCollection(PianoSpriteCollection spriteCollection)
+        public void SetupPianoSpriteCollection(VirtualKeySpriteCollection spriteCollection)
         {
             m_LocalPianoInfo = spriteCollection;
         }
 
-        public void SetSprite(string state, Handside handSide, bool isPressing)
+        public void SetSprite(string state, Handside handSide, bool isPressing, int note)
         {
-            m_PianoKeyImage.sprite = m_LocalPianoInfo.GetSprite(state, handSide, isPressing);
+            m_PianoKeyImage.sprite = m_LocalPianoInfo.GetSprite(state, handSide, isPressing, note);
         }
 
         /*public void ShowLabel(bool showLabel)

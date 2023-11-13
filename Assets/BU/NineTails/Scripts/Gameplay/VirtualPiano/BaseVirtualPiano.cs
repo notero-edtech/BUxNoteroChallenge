@@ -80,42 +80,49 @@ namespace BU.NineTails.Scripts.UI.VirtualPiano
             SetActiveNoteIndicator(false);
         }
 
-        public void SetDefault(int midiId, bool isPressing)
+        public void SetDefault(int midiId, bool isPressing, int note)
         {
-            SetSprite(midiId, "0", Handside.Left, isPressing);
+            if(isPressing == true)
+            {
+                SetSprite(midiId, "0", Handside.Left, isPressing, 7);
+            }
+            else
+            {
+                SetSprite(midiId, "0", Handside.Left, isPressing, note);
+            }
         }
 
-        public void SetQuiz(int midiId, bool isPressing)
+        public void SetQuiz(int midiId, bool isPressing, int note)
         {
-            SetSprite(midiId, "3", Handside.Left, isPressing);
+            SetSprite(midiId, "3", Handside.Left, isPressing, 7);
         }
 
-        public void SetCueIn(int midiId, Handside handSide, bool isPressing)
+        public void SetCueIn(int midiId, Handside handSide, bool isPressing, int note)
         {
-            SetSprite(midiId, "1", handSide, isPressing);
+            SetSprite(midiId, "1", handSide, isPressing, 7);
         }
 
-        public void SetMissKey(int midiId, bool isPressing)
+        public void SetMissKey(int midiId, bool isPressing, int note)
         {
-            SetSprite(midiId, "2", Handside.Left, isPressing);
+            SetSprite(midiId, "2", Handside.Left, isPressing, 7);
         }
 
-        public void ResetPiano()
+        public void ResetPiano(int note)
         {
             foreach (PianoKey key in m_KeyStorage)
             {
-                key.SetSprite("0", Handside.Left, false);
+                key.SetSprite("0", Handside.Left, false, note);
             }
 
-            m_VirtualPianoSpawner.ResetKeys();
+            m_VirtualPianoSpawner.ResetKeys(note);
         }
 
-        private void SetSprite(int midiId, string state, Handside handside, bool isPressing)
+        private void SetSprite(int midiId, string state, Handside handside, bool isPressing, int note)
         {
             if (m_VirtualPianoSpawner.IsMidiIdInRange(midiId))
             {
                 int index = GetPianoKeyIndex(midiId);
-                m_KeyStorage[index].SetSprite(state, handside, isPressing);
+                m_KeyStorage[index].SetSprite(state, handside, isPressing, note);
             }
             else
             {
