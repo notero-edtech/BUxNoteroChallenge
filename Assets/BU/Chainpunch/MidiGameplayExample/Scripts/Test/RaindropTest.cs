@@ -130,7 +130,7 @@ namespace BU.Chainpunch.MidiGameplay.Gameplay
 
         private void OnStartGameplayState(IMidiGameController gameController)
         {
-            gameController.StartGameplayWithMusic();
+            gameController.StartGameplay();
         }
 
         private void OnPlayGameplayState(IMidiGameController gameController)
