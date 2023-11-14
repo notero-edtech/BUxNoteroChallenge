@@ -4374,12 +4374,12 @@ MonoBehaviour:
   m_WhiteRaindropContainer: {fileID: 7596284178329885408}
   m_BlackRaindropContainer: {fileID: 9156022870763302290}
   noteC: {fileID: 1485867252011978454, guid: 971cd33875165344ba2511ea1a0f3bb7, type: 3}
-  noteD: {fileID: 1485867252011978454, guid: 971cd33875165344ba2511ea1a0f3bb7, type: 3}
-  noteE: {fileID: 1485867252011978454, guid: 971cd33875165344ba2511ea1a0f3bb7, type: 3}
-  noteF: {fileID: 1485867252011978454, guid: 971cd33875165344ba2511ea1a0f3bb7, type: 3}
-  noteG: {fileID: 1485867252011978454, guid: 971cd33875165344ba2511ea1a0f3bb7, type: 3}
-  noteA: {fileID: 1485867252011978454, guid: 971cd33875165344ba2511ea1a0f3bb7, type: 3}
-  noteB: {fileID: 1485867252011978454, guid: 971cd33875165344ba2511ea1a0f3bb7, type: 3}
+  noteD: {fileID: 4085173105955704557, guid: fcef535e523217c4b988a4f5b3976a7d, type: 3}
+  noteE: {fileID: 8228435310141015618, guid: 7a37f1ec6386963468b9267f7eb3356f, type: 3}
+  noteF: {fileID: 8897683424536390489, guid: 6782af95bb9b1fc4fbc7d0b8cfe6e5d9, type: 3}
+  noteG: {fileID: 1862341298698366078, guid: 3dcd2b2faf4dd0641a27500db91f9ceb, type: 3}
+  noteA: {fileID: 1854065103976425541, guid: a397294a97891104fbe153d3dc05d3b4, type: 3}
+  noteB: {fileID: 5702084025636018500, guid: 0b47f23ddedcc424eb0f79113862f011, type: 3}
 --- !u!223 &6042820330262389919
 Canvas:
   m_ObjectHideFlags: 0

@@ -875,7 +875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d534331e80f201e42b3f983ff2fd054b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ExpireDuration: 20
+  m_ExpireDuration: 10
   m_DefaultRaindropGO: {fileID: 2448399941138710303}
   m_leftArchon: {fileID: 3331359422820584105}
   m_rightArchon: {fileID: 772290090432247558}
