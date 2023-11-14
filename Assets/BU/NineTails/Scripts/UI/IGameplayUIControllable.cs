@@ -1,7 +1,7 @@
-﻿using Notero.MidiGameplay.Core;
+﻿using BU.NineTails.Scripts.UI.VirtualPiano;
+using Notero.MidiGameplay.Core;
 using Notero.RaindropGameplay.Core;
 using Notero.Unity.MidiNoteInfo;
-using Notero.Unity.UI.VirtualPiano;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,7 +23,7 @@ namespace BU.NineTails.MidiGameplay.UI
         public void UpdateFeedbackOnNoteStart(MidiNoteInfo noteInfo, double time);
         public void UpdateFeedbackBlankKeyPress(int midiId, double time);
         public void UpdateFeedbackBlankKeyRelease(int midiId, double time);
-        public void SetupPianoFeedback(BaseVirtualPianoController virtualPianoController, List<float> lanePosX);
+        public void SetupPianoFeedback(BaseVirtualPiano virtualPianoController, List<float> lanePosX);
 
         //State Flow
         public void SetCanvasScale();

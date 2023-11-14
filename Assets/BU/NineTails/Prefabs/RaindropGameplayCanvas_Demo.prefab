@@ -50,7 +50,7 @@ MonoBehaviour:
   m_GameLogicController: {fileID: 3351390289793232884}
   m_GameplayConfig: {fileID: 11400000, guid: 33136848577ff61439e57eefcb42f84a, type: 2}
   m_TimeProviderGO: {fileID: 25375924964497680}
-  m_VirtualPianoController: {fileID: 6085202625566223616}
+  m_VirtualPiano: {fileID: 5931009757047530593}
   m_RaindropNoteController: {fileID: 4601015708172025169}
   m_IGameplayUIControllable: {fileID: 25375924964497680}
   m_CurrentBackgroundTexture: {fileID: 0}
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_CompetitivePanel: {fileID: 7282640982589108623}
   m_BackgroundImage: {fileID: 5679739599085581156}
   m_TextFeedback: {fileID: 2649423315590453676}
-  m_PianoFeedback: {fileID: 383665275608746542}
+  m_PianoFeedback: {fileID: 2412956069613190481}
   m_VirtualPiano: {fileID: 6469867801421338299}
   m_ActionBar: {fileID: 335131170735858886}
   m_OctaceBar: {fileID: 9190952639030262740}
@@ -422,7 +422,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 426.99997, y: -0.00021362305}
+  m_AnchoredPosition: {x: 487, y: -0.00021362305}
   m_SizeDelta: {x: 16, y: -0.00054932}
   m_Pivot: {x: 0.5, y: 0.49999997}
 --- !u!222 &7466425013481959644
@@ -2606,7 +2606,7 @@ GameObject:
   - component: {fileID: 3587556735038608129}
   - component: {fileID: 3587556735038608131}
   - component: {fileID: 2649423315590453676}
-  - component: {fileID: 383665275608746542}
+  - component: {fileID: 2412956069613190481}
   m_Layer: 5
   m_Name: FeedbackPanel
   m_TagString: Untagged
@@ -2655,7 +2655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TextFeedbackUI: {fileID: 3942017265643537524, guid: 58a47fe597591b444a744edb32d37d64, type: 3}
---- !u!114 &383665275608746542
+--- !u!114 &2412956069613190481
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2664,10 +2664,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3587556735038608134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80b18c15b0a39ea49a94f553418be7c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b21d4440a8e4d0478092a3352ffd983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PianoFeedbackUI: {fileID: 4558054027629601666, guid: 36c83ae66cce8f34893cea6f5ab119ee, type: 3}
+  m_PianoFeedbackUI: {fileID: 4558054027629601666, guid: e514b185f8df70640b4e0433e623cab2, type: 3}
 --- !u!1 &3676138780163683660
 GameObject:
   m_ObjectHideFlags: 0
@@ -3434,7 +3434,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6110473530942497181}
-  - component: {fileID: 6085202625566223616}
+  - component: {fileID: 5931009757047530593}
   - component: {fileID: 7252328860216499491}
   m_Layer: 0
   m_Name: VirtualPianoController
@@ -3458,7 +3458,7 @@ Transform:
   m_Father: {fileID: 1077112788273215540}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6085202625566223616
+--- !u!114 &5931009757047530593
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3467,10 +3467,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4885819927425688707}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bb76e5460f7430aacc493d4a4e5ea3d, type: 3}
+  m_Script: {fileID: 11500000, guid: cadb009438c4d414e8b0be2b49b94aed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_VirtualPianoSpawner: {fileID: 7334260185854137803}
+  m_VirtualPianoSpawner: {fileID: 1378029469105347831}
   m_NoteIndicator: {fileID: 8552938015738637738}
 --- !u!114 &7252328860216499491
 MonoBehaviour:
@@ -4350,10 +4350,10 @@ RectTransform:
   m_Father: {fileID: 3721456845319821711}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.2723333}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00024414062}
-  m_SizeDelta: {x: 1280, y: 0.0004272461}
+  m_AnchorMin: {x: 0, y: 0.27600002}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.00012207031, y: -0.99975586}
+  m_SizeDelta: {x: 0, y: 2}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &3566113897316604142
 MonoBehaviour:
@@ -4439,7 +4439,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4359369580865881289}
-  - component: {fileID: 7334260185854137803}
+  - component: {fileID: 1378029469105347831}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -4468,7 +4468,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 168}
   m_Pivot: {x: 0.5, y: 0}
---- !u!114 &7334260185854137803
+--- !u!114 &1378029469105347831
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4477,11 +4477,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 6469867801421338299}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01e2ddfface17e340a1e1b811de7d2a4, type: 3}
+  m_Script: {fileID: 11500000, guid: c70e1647792b96040864f5291e605f18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_WhiteKeySeed: {fileID: 2833607535195835658, guid: 83e250d36bda3ea4d8f0a6be346d6fd3, type: 3}
-  m_BlackKeySeed: {fileID: -8235509804953530113, guid: ff52fe7311eb67446b13729ac47029ab, type: 3}
+  C_WhiteKeySeed: {fileID: -7182933527376350908, guid: 540a99f53778bf24d8b1c4ee42f4f651, type: 3}
+  D_WhiteKeySeed: {fileID: 4580402101298841277, guid: 171a0623b0a075444aecf54e82a8d02e, type: 3}
+  E_WhiteKeySeed: {fileID: 6187234568312712603, guid: c064abf5afe7cc0458ddf988ce20352c, type: 3}
+  F_WhiteKeySeed: {fileID: -5672432199477957836, guid: 02bde3abad216804abd9c5103ca2be9e, type: 3}
+  G_WhiteKeySeed: {fileID: 126108642110468987, guid: 491966c8ca9dd274f86d2a0d0228e83c, type: 3}
+  A_WhiteKeySeed: {fileID: 3328283171896972664, guid: 2063243edab8b5c428bde8e31046f087, type: 3}
+  B_WhiteKeySeed: {fileID: 2449055844228313649, guid: 6ca4b48b65b15a449b3aa59b71ceda50, type: 3}
+  m_BlackKeySeed: {fileID: 8956405792298196314, guid: a2f4cd72488ed654893edfca66e8cdb7, type: 3}
   m_WhiteLayer: {fileID: 7098666321752066335}
   m_BlackLayer: {fileID: 8879679600192834693}
 --- !u!1 &6548563112210475797

@@ -2,6 +2,7 @@
 using BU.NineTails.Gameplay;
 using BU.NineTails.MidiGameplay.UI;
 using BU.NineTails.Scripts.UI;
+using BU.NineTails.Scripts.UI.VirtualPiano;
 using Notero.MidiAdapter;
 using Notero.MidiGameplay.Bot;
 using Notero.MidiGameplay.Core;
@@ -32,7 +33,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
         protected ITimeProvider m_TimeProvider;
 
         [SerializeField]
-        protected BaseVirtualPianoController m_VirtualPianoController;
+        protected BaseVirtualPiano m_VirtualPiano;
 
         [SerializeField]
         protected DemoRaindropNoteController m_RaindropNoteController;
@@ -78,7 +79,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
         public IMidiGameLogic GameLogic { get; protected set; }
         public IBotControllable BotControllable => null;
         public bool IsMusicExists => m_CurrentMusic != null;
-        public bool IsControllerReady => m_VirtualPianoController != null && m_ScoringController != null;
+        public bool IsControllerReady => m_VirtualPiano != null && m_ScoringController != null;
 
         protected HashSet<int> m_MidiInputHashSet = new();
 
@@ -107,7 +108,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
             if(m_CurrentBackgroundTexture != null) m_GameplayUIController.SetBackgroundImage(m_CurrentBackgroundTexture);
 
             m_RaindropNoteController.Init(SpawnPointPos);
-            m_GameplayUIController.SetupPianoFeedback(m_VirtualPianoController, m_RaindropNoteController.LanePosList);
+            m_GameplayUIController.SetupPianoFeedback(m_VirtualPiano, m_RaindropNoteController.LanePosList);
 
             StartCoroutine(ProcessMusicLoadingCompletedEvent());
         }
@@ -254,7 +255,8 @@ namespace BU.NineTails.MidiGameplay.Gameplay
             if(!IsPressing(note.MidiId))
             {
                 Handside hand = HandIdentifier.GetHandsideByTrackIndex(note.TrackIndex);
-                m_VirtualPianoController.SetCueIn(note.MidiId, hand, false);
+                int customValue = MidiNoteMapper.MapMidiToCustom(note.MidiId);
+                m_VirtualPiano.SetCueIn(note.MidiId, hand, false, customValue);
             }
 
             m_GameplayUIController.UpdateFeedbackOnNoteStart(note, time);
@@ -263,7 +265,8 @@ namespace BU.NineTails.MidiGameplay.Gameplay
         private void OnNoteEnded(MidiNoteInfo note, double time)
         {
             int midiId = note.MidiId;
-            if (!IsPressing(note.MidiId)) m_VirtualPianoController.SetDefault(note.MidiId, false);
+            int customValue = MidiNoteMapper.MapMidiToCustom(note.MidiId);
+            if (!IsPressing(note.MidiId)) m_VirtualPiano.SetDefault(note.MidiId, false, customValue);
             m_GameplayUIController.UpdateTextFeedbackOnNoteEnd(note, time);
             health.Opps_Healthbar();
             foreach (var character in characters)
@@ -275,14 +278,15 @@ namespace BU.NineTails.MidiGameplay.Gameplay
         private void OnNotePressed(MidiNoteInfo note, double time)
         {
             var midiId = note.MidiId;
-
+            int customValue = MidiNoteMapper.MapMidiToCustom(note.MidiId);
+            Debug.Log($"Note {midiId}, Custom Value: {customValue}");
             Assert.IsFalse(m_MidiInputHashSet.Contains(midiId), $"Duplicate key press without release on note: {midiId}");
             m_MidiInputHashSet.Add(midiId);
 
             m_ScoringController.ProcessNotePressTiming(note, time);
 
             Handside hand = HandIdentifier.GetHandsideByTrackIndex(note.TrackIndex);
-            m_VirtualPianoController.SetCueIn(midiId, hand, true);
+            m_VirtualPiano.SetCueIn(midiId, hand, true, customValue);
             m_RaindropNoteController.SetCorrect(note.RaindropNoteId);
         }
 
@@ -291,8 +295,10 @@ namespace BU.NineTails.MidiGameplay.Gameplay
             m_ScoringController.ProcessNoteReleaseTiming(note, time);
             const bool isPressing = false;
             int midiId = note.MidiId;
+            int customValue = MidiNoteMapper.MapMidiToCustom(note.MidiId);
+            Debug.Log($"Note {note.MidiId}, Custom Value: {customValue}, Pressed: {isPressing}");
 
-            if(IsPressing(midiId))
+            if (IsPressing(midiId))
             {
                 m_MidiInputHashSet.Remove(midiId);
             }
@@ -329,20 +335,22 @@ namespace BU.NineTails.MidiGameplay.Gameplay
                 if (m_RaindropNoteController.IsCueShowing(note.RaindropNoteId) && score != NoteTimingScore.Perfect)
                 {
                     m_RaindropNoteController.SetMiss(note.RaindropNoteId);
-                    m_VirtualPianoController.SetMissKey(midiId, isPressing);
+                    if (isPressing == true) m_VirtualPiano.SetMissKey(midiId, isPressing, 7);
+                    else m_VirtualPiano.SetMissKey(midiId, isPressing, customValue);
                     m_GameplayUIController.UpdatePianoFeedback(note, score.ToString(), "Release");
                     m_GameplayUIController.UpdateTextFeedback(note, score.ToString(), "Release");
                 }
                 else
                 {
-                    m_VirtualPianoController.SetDefault(midiId, isPressing);
+                    if (isPressing == true) m_VirtualPiano.SetDefault(midiId, isPressing, 7);
+                    else m_VirtualPiano.SetDefault(midiId, isPressing, customValue);
                 }
             }
             else
             {
                 Handside hand = HandIdentifier.GetHandsideByTrackIndex(note.TrackIndex);
-                m_VirtualPianoController.SetCueIn(midiId, hand, isPressing);
-
+                if (isPressing == true) m_VirtualPiano.SetCueIn(midiId, hand, isPressing, 7);
+                else m_VirtualPiano.SetCueIn(midiId, hand, isPressing, customValue);
             }
         }
 
@@ -350,35 +358,39 @@ namespace BU.NineTails.MidiGameplay.Gameplay
         {
             Assert.IsFalse(m_MidiInputHashSet.Contains(midiId), $"Duplicate key press without release on note: {midiId}");
             m_MidiInputHashSet.Add(midiId);
-            if(!GameLogic.IsPlaying)
+            int customValue = MidiNoteMapper.MapMidiToCustom(midiId);
+            Debug.Log($"Note {midiId}, Custom Value: {customValue}");
+            if (!GameLogic.IsPlaying)
             {
-                m_VirtualPianoController.SetDefault(midiId, true);
+                m_VirtualPiano.SetDefault(midiId, true, 7);
                 return;
             }
 
             m_ScoringController.ProcessBlankKeyPress(midiId, time);
 
             m_GameplayUIController.UpdateFeedbackBlankKeyPress(midiId, time);
-            m_VirtualPianoController.SetMissKey(midiId, true);
+            m_VirtualPiano.SetMissKey(midiId, true, 7);
         }
 
         private void OnBlankKeyReleased(int midiId, double time)
         {
-            if(IsPressing(midiId))
+            int customValue = MidiNoteMapper.MapMidiToCustom(midiId);
+            Debug.Log($"Note {midiId}, Custom Value: {customValue}");
+            if (IsPressing(midiId))
             {
                 m_MidiInputHashSet.Remove(midiId);
             }
 
             if(!GameLogic.IsPlaying)
             {
-                m_VirtualPianoController.SetDefault(midiId, false);
+                m_VirtualPiano.SetDefault(midiId, false, customValue);
                 return;
             }
 
             m_ScoringController.ProcessBlankKeyRelease(midiId, time);
 
             m_GameplayUIController.UpdateFeedbackBlankKeyRelease(midiId, time);
-            m_VirtualPianoController.SetDefault(midiId, false);
+            m_VirtualPiano.SetDefault(midiId, false, customValue);
             health.Opps_Healthbar();
             foreach (var character in characters)
             {
@@ -386,7 +398,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
             }
         }
 
-        public void CreateVirtualPiano() => m_VirtualPianoController.Create("Gameplay_Test");
+        public void CreateVirtualPiano() => m_VirtualPiano.Create("Gameplay_Test");
 
         public void SetGameplayOverlayActive(bool isActive)
         {
@@ -415,7 +427,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
         /// </summary>
         public void ClearGameplayComponents()
         {
-            if(m_VirtualPianoController != null) m_VirtualPianoController.DeleteAllPianoKeys();
+            if(m_VirtualPiano != null) m_VirtualPiano.DeleteAllPianoKeys();
 
             m_RaindropNoteController?.ResetCues();
 
@@ -427,9 +439,50 @@ namespace BU.NineTails.MidiGameplay.Gameplay
         protected virtual double CalculateNoteStartTimeOffset(float noteSpeed)
         {
             var destination = m_ActionBar.anchoredPosition.x;
-            var origin = ((RectTransform)m_RaindropNoteController.RaindropNoteSpawner.transform).anchoredPosition.x;
+            //var origin = ((RectTransform)m_RaindropNoteController.RaindropNoteSpawner.transform).anchoredPosition.x;
+            var origin = 1270;
             float distance = Mathf.Abs(destination - origin);
+            Debug.Log("Destination = " + destination + " Origin = " + origin + " Distance = "+ distance);
             return distance / noteSpeed * 1000;
+        }
+
+        public class MidiNoteMapper
+        {
+            public static int MapMidiToCustom(int midiNote)
+            {
+                if(midiNote == 24 || midiNote == 36 || midiNote == 48 || midiNote == 60 || midiNote == 72)
+                {
+                    return 0;
+                }
+                else if (midiNote == 26 || midiNote == 38 || midiNote == 50 || midiNote == 62 || midiNote == 74)
+                {
+                    return 1;
+                }
+                else if (midiNote == 28 || midiNote == 40 || midiNote == 52 || midiNote == 64 || midiNote == 76)
+                {
+                    return 2;
+                }
+                else if (midiNote == 29 || midiNote == 41 || midiNote == 53 || midiNote == 65 || midiNote == 77)
+                {
+                    return 3;
+                }
+                else if (midiNote == 31 || midiNote == 43 || midiNote == 55 || midiNote == 67 || midiNote == 79)
+                {
+                    return 4;
+                }
+                else if (midiNote == 33 || midiNote == 45 || midiNote == 57 || midiNote == 69 || midiNote == 81)
+                {
+                    return 5;
+                }
+                else if (midiNote == 35 || midiNote == 47 || midiNote == 59 || midiNote == 71 || midiNote == 83)
+                {
+                    return 6;
+                }
+                else
+                {
+                    throw new ArgumentException("Invalid MIDI note value");
+                }
+            }
         }
 
         public void SetGameplayScene()
