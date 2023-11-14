@@ -1,5 +1,6 @@
 using Notero.Unity.MidiNoteInfo;
 using Notero.Utilities.Pooling;
+using System.ComponentModel.DataAnnotations;
 using UnityEngine;
 
 namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
@@ -8,6 +9,20 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
     {
         [SerializeField]
         protected GameObject m_DefaultRaindropGO;
+
+        [SerializeField]
+        protected Transform m_leftArchon;
+
+        [SerializeField]
+        protected Transform m_rightArchon;
+
+        [SerializeField]
+        protected GameObject m_NoteAlphabet;
+
+        private RectTransform m_RectAlphabet;
+
+        [SerializeField]
+        protected GameObject m_NoteSymbol;
 
         [SerializeField]
         protected GameObject[] m_SubRaindropEffects;
@@ -25,6 +40,8 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
 
         protected float m_Speed;
         protected float m_Length => (float)MidiNoteInfo.GetNoteDurationInMilliseconds() / 1000f * m_Speed;
+
+        public static bool hasSpawned = false;
 
         public void Remove()
         {
@@ -99,6 +116,38 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
         {
             m_SubRaindropEffects[m_CorrectEffectId].SetActive(isCorrect);
             m_SubRaindropEffects[m_MissEffectId].SetActive(!isCorrect);
+        }
+
+        public void AlphabetSymbolSpawner()
+        {
+            Vector3 m_leftArchorPosition = m_leftArchon.position;
+            Vector3 m_rightArchorPosition = m_rightArchon.position;
+
+            GameObject leftObject = Instantiate(m_NoteAlphabet, m_leftArchorPosition, Quaternion.identity);
+            GameObject rightObject = Instantiate(m_NoteSymbol, m_rightArchorPosition, Quaternion.identity);
+
+            leftObject.transform.SetParent(transform);
+            rightObject.transform.SetParent(transform);
+
+        }
+
+        void Update()
+        {
+            m_RectAlphabet = m_NoteAlphabet.GetComponent<RectTransform>();
+
+            
+            if (m_RectAlphabet != null)
+            {
+               m_RectAlphabet.localScale = new Vector3(1, 1, 1);
+            }
+
+            if (!hasSpawned)
+            {
+                AlphabetSymbolSpawner();
+                hasSpawned = true;
+                m_NoteAlphabet.SetActive(false);
+                m_NoteSymbol.SetActive(false);
+            }
         }
     }
 }
