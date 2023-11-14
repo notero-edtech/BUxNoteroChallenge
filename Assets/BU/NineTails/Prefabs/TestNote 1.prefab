@@ -877,10 +877,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExpireDuration: 20
   m_DefaultRaindropGO: {fileID: 5183832568791475919}
-  m_leftArchon: {fileID: 0}
-  m_rightArchon: {fileID: 0}
-  m_NoteAlphabet: {fileID: 0}
-  m_NoteSymbol: {fileID: 0}
+  m_leftArchon: {fileID: 1063774525970494870}
+  m_rightArchon: {fileID: 1901837539045248429}
+  m_NoteAlphabet: {fileID: 6754186531115081474}
+  m_NoteSymbol: {fileID: 2599560807730688010}
   m_SubRaindropEffects:
   - {fileID: 8569633704497200347}
   - {fileID: 5183832568791475919}

@@ -19,7 +19,7 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
         [SerializeField]
         protected GameObject m_NoteAlphabet;
 
-        private RectTransform m_RectAlphabet;
+        //private RectTransform m_RectAlphabet;
 
         [SerializeField]
         protected GameObject m_NoteSymbol;
@@ -41,7 +41,7 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
         protected float m_Speed;
         protected float m_Length => (float)MidiNoteInfo.GetNoteDurationInMilliseconds() / 1000f * m_Speed;
 
-        public static bool hasSpawned = false;
+        private bool hasSpawned = false;
 
         public void Remove()
         {
@@ -126,6 +126,9 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
             GameObject leftObject = Instantiate(m_NoteAlphabet, m_leftArchorPosition, Quaternion.identity);
             GameObject rightObject = Instantiate(m_NoteSymbol, m_rightArchorPosition, Quaternion.identity);
 
+            leftObject.transform.localScale = new Vector3(1f, 1f, 1f);
+            rightObject.transform.localScale = new Vector3(1f, 1f, 1f);
+
             leftObject.transform.SetParent(transform);
             rightObject.transform.SetParent(transform);
 
@@ -133,14 +136,14 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
 
         void Update()
         {
-            m_RectAlphabet = m_NoteAlphabet.GetComponent<RectTransform>();
+            /*m_RectAlphabet = m_NoteAlphabet.GetComponent<RectTransform>();
 
             
             if (m_RectAlphabet != null)
             {
                m_RectAlphabet.localScale = new Vector3(1, 1, 1);
             }
-
+            */
             if (!hasSpawned)
             {
                 AlphabetSymbolSpawner();
