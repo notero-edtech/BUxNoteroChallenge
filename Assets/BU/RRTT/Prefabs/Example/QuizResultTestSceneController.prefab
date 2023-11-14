@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9071361977912019987
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9071361977912019985}
+  - component: {fileID: -4536857359033301851}
+  m_Layer: 0
+  m_Name: QuizResultTestSceneController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9071361977912019985
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9071361977912019987}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 640, y: 360, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-4536857359033301851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9071361977912019987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c213c50fcb0f4914894f72319261d734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InstructorPopQuizResultPrefab: {fileID: 5208754021895172665, guid: c5015416aaacaf34b85c843af921aaba, type: 3}
+  m_InstructorPostTestStudentListResultPrefab: {fileID: 1820202184046231698, guid: 18baa44be2c6ef94bb4745b4edc7350c, type: 3}
+  m_InstructorPostTestAnswerListResultPrefab: {fileID: 2995210832564463992, guid: 083c5e04b720ad74fa01a7539cd1530f, type: 3}
+  m_InstructorPostTestAnswerRevealResultPrefab: {fileID: 4648779460699736671, guid: 09f8fce05fb90374abe894a753db22c9, type: 3}
+  m_StudentPopQuizResultPrefab: {fileID: 5208754021895172665, guid: b7785b8ecb00e86449d0839248a16770, type: 3}
+  m_StudentPostTestResultPrefab: {fileID: 9149186565199449388, guid: 0510f49b5b7da9b4f8b4eecbc9d226dc, type: 3}

@@ -20,6 +20,7 @@ namespace BU.QuizExample.QuizExampleMessages.EventHandler
             subscribable.Subscribe<QuizInfoMessage>(OnQuizInfoReceived);
             subscribable.Subscribe<AnswerCorrectMessage>(OnAnswerCorrectMessage);
             subscribable.Subscribe<PreTestResultMessage>(OnPreTestResultReceived);
+            subscribable.Subscribe<CustomDataMessage>(OnCustomDataMessageReceived);
         }
 
         public void Unsubscribe(IEventSubscribable subscribable)
@@ -29,6 +30,7 @@ namespace BU.QuizExample.QuizExampleMessages.EventHandler
             subscribable.Unsubscribe<QuizInfoMessage>(OnQuizInfoReceived);
             subscribable.Unsubscribe<AnswerCorrectMessage>(OnAnswerCorrectMessage);
             subscribable.Unsubscribe<PreTestResultMessage>(OnPreTestResultReceived);
+            subscribable.Unsubscribe<CustomDataMessage>(OnCustomDataMessageReceived);
         }
 
         private void OnQuizResultReceived(QuizResultMessage message)
@@ -52,6 +54,11 @@ namespace BU.QuizExample.QuizExampleMessages.EventHandler
         private void OnAnswerCorrectMessage(AnswerCorrectMessage message)
         {
             m_Store.SetCorrectAnswer(message.Answer);
+        }
+
+        private void OnCustomDataMessageReceived(CustomDataMessage message)
+        {
+            m_Store.SetCustomData(message.Data);
         }
 
         private void OnCurrentQuestionReceived(CurrentQuestionMessage message)
