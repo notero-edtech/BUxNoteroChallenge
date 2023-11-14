@@ -4491,10 +4491,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RaindropNotebar
       objectReference: {fileID: 0}
-    - target: {fileID: 4220374033035450051, guid: cb5bb368a26021243bc432282904c685, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb5bb368a26021243bc432282904c685, type: 3}
 --- !u!224 &4612048150207726723 stripped
