@@ -881,7 +881,9 @@ MonoBehaviour:
   m_rightArchon: {fileID: 5007565511742566021}
   m_NoteAlphabet: {fileID: 3503422151043512474}
   m_NoteSymbol: {fileID: 3917740494571484063}
-  m_SubRaindropEffects: []
+  m_SubRaindropEffects:
+  - {fileID: 8569633704497200347}
+  - {fileID: 5183832568791475919}
   m_NoteRect: {fileID: 3265922329109970965}
 --- !u!1 &8569633704497200347
 GameObject:
