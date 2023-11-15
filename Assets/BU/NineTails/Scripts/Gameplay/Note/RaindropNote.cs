@@ -128,11 +128,11 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
             GameObject leftObject = Instantiate(m_NoteAlphabet, m_leftArchorPosition, Quaternion.identity);
             GameObject rightObject = Instantiate(m_NoteSymbol, m_rightArchorPosition, Quaternion.identity);
 
-            this.leftObject.transform.localScale = new Vector3(1f, 1f, 1f);
-            this.rightObject.transform.localScale = new Vector3(1f, 1f, 1f);
+            leftObject.transform.localScale = new Vector3(1f, 1f, 1f);
+            rightObject.transform.localScale = new Vector3(1f, 1f, 1f);
 
-            this.leftObject.transform.SetParent(transform);
-            this.rightObject.transform.SetParent(transform);
+            leftObject.transform.SetParent(transform);
+            rightObject.transform.SetParent(transform);
 
         }
 
