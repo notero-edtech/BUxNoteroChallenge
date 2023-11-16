@@ -82,14 +82,7 @@ namespace BU.NineTails.Scripts.UI.VirtualPiano
 
         public void SetDefault(int midiId, bool isPressing, int note)
         {
-            if(isPressing == true)
-            {
-                SetSprite(midiId, "0", Handside.Left, isPressing, 7);
-            }
-            else
-            {
-                SetSprite(midiId, "0", Handside.Left, isPressing, note);
-            }
+            SetSprite(midiId, "0", Handside.Left, isPressing, note);
         }
 
         public void SetQuiz(int midiId, bool isPressing, int note)
@@ -99,7 +92,14 @@ namespace BU.NineTails.Scripts.UI.VirtualPiano
 
         public void SetCueIn(int midiId, Handside handSide, bool isPressing, int note)
         {
-            SetSprite(midiId, "1", handSide, isPressing, 7);
+            if (isPressing == true)
+            {
+                SetSprite(midiId, "1", handSide, isPressing, note);
+            }
+            else
+            {
+                SetSprite(midiId, "1", handSide, isPressing, 7);
+            }
         }
 
         public void SetMissKey(int midiId, bool isPressing, int note)

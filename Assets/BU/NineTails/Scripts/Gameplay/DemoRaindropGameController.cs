@@ -279,7 +279,6 @@ namespace BU.NineTails.MidiGameplay.Gameplay
         {
             var midiId = note.MidiId;
             int customValue = MidiNoteMapper.MapMidiToCustom(note.MidiId);
-            Debug.Log($"Note {midiId}, Custom Value: {customValue}");
             Assert.IsFalse(m_MidiInputHashSet.Contains(midiId), $"Duplicate key press without release on note: {midiId}");
             m_MidiInputHashSet.Add(midiId);
 
@@ -296,7 +295,6 @@ namespace BU.NineTails.MidiGameplay.Gameplay
             const bool isPressing = false;
             int midiId = note.MidiId;
             int customValue = MidiNoteMapper.MapMidiToCustom(note.MidiId);
-            Debug.Log($"Note {note.MidiId}, Custom Value: {customValue}, Pressed: {isPressing}");
 
             if (IsPressing(midiId))
             {
@@ -349,7 +347,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
             else
             {
                 Handside hand = HandIdentifier.GetHandsideByTrackIndex(note.TrackIndex);
-                if (isPressing == true) m_VirtualPiano.SetCueIn(midiId, hand, isPressing, 7);
+                if (isPressing == true) m_VirtualPiano.SetCueIn(midiId, hand, isPressing, customValue);
                 else m_VirtualPiano.SetCueIn(midiId, hand, isPressing, customValue);
             }
         }
