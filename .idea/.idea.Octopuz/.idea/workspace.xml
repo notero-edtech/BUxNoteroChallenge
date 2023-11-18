@@ -4,271 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1b177c2-14e9-4f30-9623-0e1d9c761906" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Octopuz/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Octopuz/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Octopuz/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Octopuz/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Octopuz/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/01.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/01.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/Image.controller" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/Image.controller.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin/1.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin/10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin/10.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin/11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin/11.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin/12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin/12.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin/13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin/13.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin/14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin/14.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin/2.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin/3.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin/4.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin/5.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin/6.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin/7.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin/8.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin/9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Kevin/9.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/0.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/1.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/10.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/11.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/12.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/13.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/14.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/2.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/3.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/4.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/5.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/6.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/7.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/8.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy/9.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy_IDLE_HAPPY_SAD.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy_IDLE_HAPPY_SAD/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy_IDLE_HAPPY_SAD/1.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy_IDLE_HAPPY_SAD/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy_IDLE_HAPPY_SAD/2.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy_IDLE_HAPPY_SAD/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy_IDLE_HAPPY_SAD/3.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy_IDLE_HAPPY_SAD/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy_IDLE_HAPPY_SAD/4.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy_IDLE_HAPPY_SAD/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Poppy/Poppy_IDLE_HAPPY_SAD/5.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/0.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/1.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/10.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/11.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/12.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/13.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/14.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/2.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/3.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/4.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/5.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/6.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/7.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/8.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky/9.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky_IDLE_HAPPY_SAD.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky_IDLE_HAPPY_SAD/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky_IDLE_HAPPY_SAD/1.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky_IDLE_HAPPY_SAD/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky_IDLE_HAPPY_SAD/2.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky_IDLE_HAPPY_SAD/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky_IDLE_HAPPY_SAD/3.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky_IDLE_HAPPY_SAD/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky_IDLE_HAPPY_SAD/4.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky_IDLE_HAPPY_SAD/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Rocky/Rocky_IDLE_HAPPY_SAD/5.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/0.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/1.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/10.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/11.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/12.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/13.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/14.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/2.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/3.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/4.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/5.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/6.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/7.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/8.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth/9.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth_IDLE_HAPPY_SAD.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth_IDLE_HAPPY_SAD/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth_IDLE_HAPPY_SAD/1.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth_IDLE_HAPPY_SAD/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth_IDLE_HAPPY_SAD/2.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth_IDLE_HAPPY_SAD/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth_IDLE_HAPPY_SAD/3.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth_IDLE_HAPPY_SAD/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth_IDLE_HAPPY_SAD/4.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth_IDLE_HAPPY_SAD/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Roth Marley/Roth_IDLE_HAPPY_SAD/5.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/0.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/1.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/10.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/11.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/12.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/13.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/14.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/2.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/3.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/4.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/5.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/6.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/7.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/8.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang/9.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang_HAPPY_SAD.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang_HAPPY_SAD/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang_HAPPY_SAD/1.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang_HAPPY_SAD/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang_HAPPY_SAD/2.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang_HAPPY_SAD/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang_HAPPY_SAD/3.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang_HAPPY_SAD/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang_HAPPY_SAD/4.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang_HAPPY_SAD/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/Wolfgang/Wolfgang_HAPPY_SAD/5.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/pr.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/pr/Bridge.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/pr/Bridge.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/pr/Ground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/pr/Ground.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/pr/IMG_1501.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/pr/IMG_1501.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/pr/Pole.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Octopuz/pr/Pole.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Tomato.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BU/Tomato/README (1).md.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/Prefabs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/DataAsset/Prefabs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/Prefabs/BackgroundManager_Static.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/DataAsset/Prefabs/BackgroundManager_Static.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/Prefabs/BackgroundManager_Static.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/DataAsset/Prefabs/BackgroundManager_Static.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/Prefabs/BackgroundManager_TextFeedback_wCam.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/DataAsset/Prefabs/BackgroundManager_TextFeedback_wCam.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/Prefabs/BackgroundManager_TextFeedback_wCam.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/DataAsset/Prefabs/BackgroundManager_TextFeedback_wCam.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/Prefabs/HendrixPanel_Demo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/DataAsset/Prefabs/HendrixPanel_Demo.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/Prefabs/HendrixPanel_Demo.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/DataAsset/Prefabs/HendrixPanel_Demo.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/Prefabs/PianoFeedbackUI_Demo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/DataAsset/Prefabs/PianoFeedbackUI_Demo.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/Prefabs/PianoFeedbackUI_Demo.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/DataAsset/Prefabs/PianoFeedbackUI_Demo.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/Prefabs/RaindropGameplayCanvas_BGRefactored_Demo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/DataAsset/Prefabs/RaindropGameplayCanvas_BGRefactored_Demo.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/Prefabs/RaindropGameplayCanvas_BGRefactored_Demo.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/DataAsset/Prefabs/RaindropGameplayCanvas_BGRefactored_Demo.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/Prefabs/ScrollText_Example.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/DataAsset/Prefabs/ScrollText_Example.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/Prefabs/ScrollText_Example.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/DataAsset/Prefabs/ScrollText_Example.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/Prefabs/TextFeedbackUI_Demo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/DataAsset/Prefabs/TextFeedbackUI_Demo.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/Prefabs/TextFeedbackUI_Demo.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/DataAsset/Prefabs/TextFeedbackUI_Demo.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/Scenes/TestScene_Raindrop.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BU/MidiGameplayExample/Scenes/TestScene_Raindrop.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BU/Octopuz/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BU/Octopuz/1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BU/Octopuz/Map_Hawaii_A.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BU/Octopuz/Map_Hawaii_A.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BU/Octopuz/Octopuz_Map1.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BU/Octopuz/Octopuz_Map1.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BU/Octopuz/TEST.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BU/Octopuz/TEST.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BU/Octopuz/ssss.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BU/Octopuz/ssss.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BU/Octopuz/tt.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BU/Octopuz/tt.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Kevin.meta" beforeDir="false" />
+    <list default="true" id="d29dc616-d0c9-4127-909e-4112784e7980" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Octopuz/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Octopuz/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Notero/RaindropGameplay/UI/AccuracyMeterBarPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Notero/RaindropGameplay/UI/AccuracyMeterBarPanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayMaker/Editor/Resources/EditorStartupPrefs.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayMaker/Editor/Resources/EditorStartupPrefs.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayMaker/Editor/Resources/EditorStartupPrefs.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayMaker/Editor/Resources/EditorStartupPrefs.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Easy Save 3/Resources/ES3/ES3Defaults.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Easy Save 3/Resources/ES3/ES3Defaults.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Svn/ForieroNotationSystem/NS/Frameworks/SMuFL/Fonts/Bravura/BravuraText SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Svn/ForieroNotationSystem/NS/Frameworks/SMuFL/Fonts/Bravura/BravuraText SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Svn/ForieroNotationSystem/NS/Frameworks/SMuFL/Fonts/Finale/FinaleAshText SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Svn/ForieroNotationSystem/NS/Frameworks/SMuFL/Fonts/Finale/FinaleAshText SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Svn/ForieroNotationSystem/NS/Frameworks/SMuFL/Fonts/Finale/FinaleBroadwayText SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Svn/ForieroNotationSystem/NS/Frameworks/SMuFL/Fonts/Finale/FinaleBroadwayText SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Svn/ForieroNotationSystem/NS/Frameworks/SMuFL/Fonts/Finale/FinaleJazz SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Svn/ForieroNotationSystem/NS/Frameworks/SMuFL/Fonts/Finale/FinaleJazz SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Svn/ForieroNotationSystem/NS/Frameworks/SMuFL/Fonts/Leland/LelandText SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Svn/ForieroNotationSystem/NS/Frameworks/SMuFL/Fonts/Leland/LelandText SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Notero/RaindropGameplay/UI/AccuracyMeterBarPanel.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Notero/RaindropGameplay/UI/AccuracyMeterBarPanel.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,7 +18,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="2XwcLH0mqozdHbuaJfBWSwfEUNn" />
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/Temp/ecce21ec-473f-4998-b893-948bbf7237f1_Octopuz.zip.7f1/Octopuz/Assets/Notero/RaindropGameplay/UI/CompetitivePanel.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectId" id="2YLUT07HBNkDWLrOqEgCBUmrhAI" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -319,15 +62,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b1b177c2-14e9-4f30-9623-0e1d9c761906" name="Changes" comment="" />
-      <created>1699543530008</created>
+      <changelist id="d29dc616-d0c9-4127-909e-4112784e7980" name="Changes" comment="" />
+      <created>1700304361954</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1699543530008</updated>
-      <workItem from="1699543553003" duration="1525000" />
-      <workItem from="1699583735260" duration="5894000" />
-      <workItem from="1699891122548" duration="1907000" />
-      <workItem from="1700033340678" duration="6508000" />
+      <updated>1700304361954</updated>
+      <workItem from="1700304373621" duration="1060000" />
     </task>
     <servers />
   </component>
@@ -337,7 +77,4 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
-  <component name="VcsManagerConfiguration">
-    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
 </project>
