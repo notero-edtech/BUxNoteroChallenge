@@ -208,12 +208,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MidiGameInfo:
   - Name: Notero
-    GamePrefab: {fileID: 3105845238269097863, guid: 42233571bd5e3bc4ebd7abf752a8a0e1, type: 3}
+    gamePrefab: {fileID: 3105845238269097863, guid: 1ec033e72f915764ea3263b862a92ef4, type: 3}
   m_BackgroundInfo:
   - Name: Notero
-    GamePrefab: {fileID: 1291097113000287891, guid: 9e30f7b3ba3d3f44788a3e1439bc7eec, type: 3}
+    gamePrefab: {fileID: 1291097113000287891, guid: 9e30f7b3ba3d3f44788a3e1439bc7eec, type: 3}
   - Name: Test
-    GamePrefab: {fileID: 4790748946109744026, guid: c4f75cf7de5a6be45bd187e27059b0be, type: 3}
+    gamePrefab: {fileID: 4790748946109744026, guid: c4f75cf7de5a6be45bd187e27059b0be, type: 3}
 --- !u!4 &95072842
 Transform:
   m_ObjectHideFlags: 0
