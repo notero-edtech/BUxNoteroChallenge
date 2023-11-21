@@ -128,7 +128,7 @@ namespace BU.Chainpunch.Gameplay.Scoring
 
         public override SelfResultInfo GetScoringInfo() => CreateStudentResultInfo();
 
-        public SelfResultInfo CreateStudentResultInfo()
+        private SelfResultInfo CreateStudentResultInfo()
         {
             int countPerfect = CountResult(NoteTimingScore.Perfect);
             int countGood = CountResult(NoteTimingScore.Good);
@@ -149,7 +149,7 @@ namespace BU.Chainpunch.Gameplay.Scoring
             };
         }
 
-        public float CalculateAccuracy(int countPerfect, int countGood, int countOops)
+        private float CalculateAccuracy(int countPerfect, int countGood, int countOops)
         {
             int diffTotal = Math.Abs(m_TotalNote - (countPerfect + countGood + countOops));
             int totalScore = (m_TotalNote + diffTotal) * m_PerfectScore;
