@@ -1,5 +1,6 @@
 using System;
 using Notero.RaindropGameplay.Core;
+using Notero.RaindropGameplay.Core.Scoring;
 using UnityEngine;
 
 namespace BU.Chainpunch.MidiGameplay.Gameplay
@@ -13,16 +14,16 @@ namespace BU.Chainpunch.MidiGameplay.Gameplay
     }
     public class VisualEffectController : MonoBehaviour
     {
-        public DemoRaindropGameController m_DemoGameController;
+        public BaseScoringProcessor m_ScoringController;
         
         public MascotData[] MascotList;
         
-        void Start()
+        public void Setup()
         {
             var instant = MascotList[0];
             Instantiate(instant.MascotPrefab, instant.SpawnPoint.position, instant.SpawnPoint.rotation);
             instant.isSpawned = true;
-            m_DemoGameController.m_ScoringController.OnScoreUpdated.AddListener(MascotSpawner);
+            m_ScoringController.OnScoreUpdated.AddListener(MascotSpawner);
         }
         
         private void MascotSpawner(SelfResultInfo Info)
@@ -45,9 +46,13 @@ namespace BU.Chainpunch.MidiGameplay.Gameplay
                     Instantiate(MascotList[4].MascotPrefab, MascotList[4].SpawnPoint.position, MascotList[4].SpawnPoint.rotation);
                     MascotList[4].isSpawned = true;
                     break;
-                case >= 75f and < 100f when !MascotList[5].isSpawned:
+                case >= 75f and < 95f when !MascotList[5].isSpawned:
                     Instantiate(MascotList[5].MascotPrefab, MascotList[5].SpawnPoint.position, MascotList[5].SpawnPoint.rotation);
                     MascotList[5].isSpawned = true;
+                    break;
+                case >= 95f and < 100f when !MascotList[6].isSpawned:
+                    Instantiate(MascotList[6].MascotPrefab, MascotList[6].SpawnPoint.position, MascotList[6].SpawnPoint.rotation);
+                    MascotList[6].isSpawned = true;
                     break;
             }
         }
