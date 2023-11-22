@@ -68,10 +68,12 @@ namespace BU.RRTT.QuizExample.Scripts
         
         //RRTT Variables
         private byte bossIndex;
+        private byte heart;
 
         private void RandomBossIndex()
         {
-            bossIndex = (byte) Random.Range(0, 2);
+            bossIndex = (byte) Random.Range(0, 5);
+            heart = (byte) Random.Range(0, 2);
         }
 
         public void Init(Transform container, QuizStore quizStore)
@@ -121,7 +123,7 @@ namespace BU.RRTT.QuizExample.Scripts
             QuizStore.SetQuizList(list);
 
             // Example: Set custom data
-            QuizStore.SetCustomData(new byte[] {bossIndex, 2});
+            QuizStore.SetCustomData(new byte[] {bossIndex, heart});
         }
 
         #region Instructor Result state nethods

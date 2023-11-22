@@ -1,4 +1,3 @@
-using System;
 using BU.RRTT.QuizExample.Scripts.BossSystem;
 using Notero.QuizConnector.Instructor;
 using Notero.Unity.UI.Quiz;
@@ -81,12 +80,14 @@ namespace BU.RRTT.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
 
         private BossList bossList;
 
-        private Vector3 scale = new Vector3( 8.35f,8.35f,8.35f);
-        
         [SerializeField]
         private Image heartFiller;
+
+        private float currentHeart;
         
-        private float heart;
+        private float heart = 0;
+
+        private Animator animator;
         
         private void Start()
         {
@@ -101,17 +102,27 @@ namespace BU.RRTT.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
 
         private void Update()
         {
-            heartFiller.fillAmount = Mathf.MoveTowards(heartFiller.fillAmount, heart/TotalPage, 0.5f * Time.deltaTime);
+            heartFiller.fillAmount = Mathf.MoveTowards(heartFiller.fillAmount, currentHeart/TotalPage, 0.5f * Time.deltaTime);
         }
 
         public override void OnCustomDataReceive(byte[] data)
         {
-            heart = data[1];
+            currentHeart = data[1];
+            Debug.Log($"Current Heart : {data[1]}");
             bossList = bossReference.GetComponent<BossList>();
             GameObject boss = Instantiate(bossList.bossPrefabs[data[0]].gameObject, bossPosition);
-            boss.transform.localScale = scale;
+            animator = boss.GetComponent<Animator>();
             boss.transform.SetParent(contentFrame);
             boss.transform.SetParent(bossPosition);
+            if (currentHeart > heart)
+            {
+                animator.SetBool("Positive", true);
+            }
+            else if (currentHeart <= heart)
+            {
+                animator.SetBool("Negative", true);
+            }
+            heart = currentHeart;
         }
 
         #region Custom function
