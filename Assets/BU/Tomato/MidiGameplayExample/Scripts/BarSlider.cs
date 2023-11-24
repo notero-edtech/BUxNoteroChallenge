@@ -6,13 +6,15 @@ using TMPro;
 
 public class BarSlider : MonoBehaviour
 {
-
+    public int progress = 0;
+    public bool succeed = false;
     [SerializeField] private TMP_Text valueText;
     [SerializeField] private TMP_Text currentValueText;
-    int progress = 0;
     [SerializeField] private Slider slider;
     [SerializeField] private GameObject barColor;
     [SerializeField] private GameObject handle;
+    [SerializeField] private GameObject thaiBG;
+    [SerializeField] private GameObject normalBG;
 
 
     Color lowScore = Color.red;
@@ -27,6 +29,7 @@ public class BarSlider : MonoBehaviour
        
     }
 
+   
   
 
     public void UpdateProgress()
@@ -128,15 +131,11 @@ public class BarSlider : MonoBehaviour
             slider.value = progress;
             barColor.gameObject.GetComponent<Image>().color = highScore;
             handle.gameObject.GetComponent<Image>().color = highScore;
+            normalBG.SetActive(true);
+            thaiBG.SetActive(false);
+            succeed = true;
         }
       
-        if(int.Parse(valueText.text) > 21000)
-        {
-            progress = 10;
-            slider.value = progress;
-            barColor.gameObject.GetComponent<Image>().color = highScore;
-            handle.gameObject.GetComponent<Image>().color = highScore;
-        }
     }
     
 }

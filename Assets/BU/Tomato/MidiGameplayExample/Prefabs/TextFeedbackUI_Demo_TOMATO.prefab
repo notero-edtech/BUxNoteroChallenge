@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba102e984c81fa542b23e47894579c5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ExpireDuration: 10
+  m_ExpireDuration: 1
   m_RectTransform: {fileID: 6924997764850669603}
   m_PerfacFeedback: {fileID: 3921538464540224668}
   m_GoodFeedback: {fileID: 4767527275420168958}
