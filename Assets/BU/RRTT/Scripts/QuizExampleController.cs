@@ -92,7 +92,7 @@ namespace BU.RRTT.QuizExample.Scripts
 
         private void RandomBossIndex()
         {
-            bossIndex = (byte) Random.Range(0, 2);
+            bossIndex = (byte) Random.Range(0, 5);
         }
         
         public void Init(Transform container, QuizStore quizStore)
@@ -127,7 +127,7 @@ namespace BU.RRTT.QuizExample.Scripts
                 QuizStore.SetQuizList(list);
 
                 // Example: Set custom data
-                QuizStore.SetCustomData(new byte[] {bossIndex});
+                QuizStore.SetCustomData(new byte[] {bossIndex, 0});
             }
             else if(ApplicationFlagConfig.IsStudentMode)
             {
@@ -288,6 +288,26 @@ namespace BU.RRTT.QuizExample.Scripts
 
         public void SpawnInstructorPreResultStateUI()
         {
+            //Boss Heart System
+            var quizList = QuizStore.QuizList;
+            var studentAnswer = QuizStore.StudentAnswers;
+            byte heart = 0;
+            
+            foreach (var question in quizList.Values)
+            {
+                if (!studentAnswer.TryGetValue(question.Id, out var studentList))
+                {
+                    continue;
+                }
+                var score = 0;
+                score += studentList.Count(student => student.Answer == question.Answer.CorrectAnswers.ElementAt(0));
+                if (score >= (0.25f * studentList.Count))
+                {
+                    heart++;
+                }
+                QuizStore.SetCustomData(new byte[] {bossIndex, heart});
+            }
+            
             var correctAnswer = QuizState.Default.CurrentQuestion.Answer.CorrectAnswers.ElementAt(0);
 
             m_InstructorPreResult = SpawnPrototype<BaseInstructorPreResult>(m_InstructorPreResultPrefab);
@@ -312,6 +332,8 @@ namespace BU.RRTT.QuizExample.Scripts
             m_InstructorPreResult.SetAnswerSummaryDic(AnswerSummaryDic);
 
             m_InstructorPreResult.OnNextState = OnNextStateReceive;
+            
+            
         }
 
         public void DestroyInstructorPreResultStateUI()

@@ -1716,6 +1716,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HendrixPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 4884416406470702439, guid: abea4abf335b70d47b9ce42c8e1f3aa0, type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 55
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abea4abf335b70d47b9ce42c8e1f3aa0, type: 3}
 --- !u!224 &1420564158 stripped
