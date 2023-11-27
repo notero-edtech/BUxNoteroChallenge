@@ -2,7 +2,7 @@
 using Notero.Utilities;
 using UnityEngine;
 
-namespace BU.RRTT.QuizExample.Scripts
+namespace BU.RRTT.Scripts
 {
     public class Bootstraper : MonoBehaviour
     {

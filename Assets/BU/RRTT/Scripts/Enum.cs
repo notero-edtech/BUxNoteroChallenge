@@ -1,4 +1,4 @@
-﻿namespace BU.RRTT.QuizExample.Scripts
+﻿namespace BU.RRTT.Scripts
 {
     public enum QuizControllerType
     {

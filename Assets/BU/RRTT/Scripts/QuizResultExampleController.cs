@@ -11,7 +11,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
-namespace BU.RRTT.QuizExample.Scripts
+namespace BU.RRTT.Scripts
 {
     public class QuizResultExampleController : MonoBehaviour, IQuizController
     {
@@ -73,7 +73,7 @@ namespace BU.RRTT.QuizExample.Scripts
         private void RandomBossIndex()
         {
             bossIndex = (byte) Random.Range(0, 5);
-            heart = (byte) Random.Range(0, 2);
+            heart = (byte) Random.Range(0, 3);
         }
 
         public void Init(Transform container, QuizStore quizStore)

@@ -13,7 +13,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
-namespace BU.RRTT.QuizExample.Scripts
+namespace BU.RRTT.Scripts
 {
     public class QuizExampleController : MonoBehaviour, IQuizController
     {
@@ -89,6 +89,7 @@ namespace BU.RRTT.QuizExample.Scripts
         
         //RRTT Variables
         private byte bossIndex;
+        private int currentQuiz = 0;
 
         private void RandomBossIndex()
         {
@@ -250,6 +251,7 @@ namespace BU.RRTT.QuizExample.Scripts
 
         public void SpawnInstructorQuestionStateUI()
         {
+            currentQuiz++;
             m_InstructorQuestion = SpawnPrototype<BaseInstructorQuestion>(m_InstructorQuestionPrefab);
 
             var assetFilePath = QuizStore.CurrentQuestion.AssetFile;
@@ -289,6 +291,7 @@ namespace BU.RRTT.QuizExample.Scripts
         public void SpawnInstructorPreResultStateUI()
         {
             //Boss Heart System
+            var quiz = QuizStore.QuizInfo;
             var quizList = QuizStore.QuizList;
             var studentAnswer = QuizStore.StudentAnswers;
             byte heart = 0;
@@ -299,13 +302,16 @@ namespace BU.RRTT.QuizExample.Scripts
                 {
                     continue;
                 }
-                var score = 0;
-                score += studentList.Count(student => student.Answer == question.Answer.CorrectAnswers.ElementAt(0));
-                if (score >= (0.25f * studentList.Count))
+                if (currentQuiz == quiz.CurrentQuizNumber)
                 {
-                    heart++;
+                    var score = 0;
+                    score += studentList.Count(student => student.Answer == question.Answer.CorrectAnswers.ElementAt(0));
+                    if (score >= (0.25f * studentList.Count))
+                    {
+                        heart++;
+                    }
+                    QuizStore.SetCustomData(new byte[] {bossIndex, heart});   
                 }
-                QuizStore.SetCustomData(new byte[] {bossIndex, heart});
             }
             
             var correctAnswer = QuizState.Default.CurrentQuestion.Answer.CorrectAnswers.ElementAt(0);
@@ -332,8 +338,6 @@ namespace BU.RRTT.QuizExample.Scripts
             m_InstructorPreResult.SetAnswerSummaryDic(AnswerSummaryDic);
 
             m_InstructorPreResult.OnNextState = OnNextStateReceive;
-            
-            
         }
 
         public void DestroyInstructorPreResultStateUI()

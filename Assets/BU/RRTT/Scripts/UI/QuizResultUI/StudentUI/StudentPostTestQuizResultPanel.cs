@@ -1,11 +1,10 @@
-﻿using System;
-using BU.RRTT.QuizExample.Scripts.BossSystem;
+﻿using BU.RRTT.Scripts.BossSystem;
 using Notero.QuizConnector.Student;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace BU.RRTT.QuizExample.Scripts.UI.QuizResultUI.StudentUI
+namespace BU.RRTT.Scripts.UI.QuizResultUI.StudentUI
 {
     public class StudentPostTestQuizResultPanel : BaseStudentPostTestResult
     {

@@ -2,7 +2,7 @@ using Notero.QuizConnector.Instructor;
 using TMPro;
 using UnityEngine;
 
-namespace BU.RRTT.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
+namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
 {
     public class StateInstructorEnd : BaseInstructorEnd
     {

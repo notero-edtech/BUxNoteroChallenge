@@ -12,7 +12,7 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace BU.RRTT.QuizExample.Scripts
+namespace BU.RRTT.Scripts
 {
     public class FakeForStudentController : MonoSingleton<FakeForStudentController>
     {
