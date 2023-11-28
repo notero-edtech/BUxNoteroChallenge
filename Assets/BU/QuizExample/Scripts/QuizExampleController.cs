@@ -525,11 +525,11 @@ namespace BU.QuizExample.Scripts
 
         public void SpawnStudentQuestionStateUI()
         {
-            var asseetType = QuizStore.CurrentQuestion.QuestionAssetType;
+            var assetType = QuizStore.CurrentQuestion.QuestionAssetType;
 
             m_StudentQuestion = SpawnPrototype<BaseStudentQuestion>(m_StudentQuestionPrefab);
 
-            switch(asseetType)
+            switch(assetType)
             {
                 case QuestionAssetType.IMAGE:
                     var texture = GenerateQuestionTexture(QuizStore.CurrentQuestion.AssetFile, m_RootDirectory);

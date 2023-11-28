@@ -241,7 +241,7 @@ namespace BU.QuizExample.Scripts
             QuizConnectorController.Instance.Init(m_QuizStore, "A");
             QuizConnectorController.Instance.SetChapterIndex(1);
             QuizConnectorController.Instance.SetRootDirectory("");
-            QuizConnectorController.Instance.SetChapter("Chapeter");
+            QuizConnectorController.Instance.SetChapter("Chapter");
             QuizConnectorController.Instance.SetMission("Mission");
             QuizConnectorController.Instance.SetGenerateTextureLogic((path, rootDir) =>
             {
