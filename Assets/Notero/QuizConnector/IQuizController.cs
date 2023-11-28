@@ -1,3 +1,4 @@
+using System;
 using DataStore.Quiz;
 using UnityEngine;
 using UnityEngine.Events;
@@ -16,9 +17,19 @@ namespace Notero.QuizConnector
 
         public UnityEvent<byte[]> OnCustomDataReceive { get; set; }
 
-        public void Init(Transform container, QuizStore quizStore);
+        public void Init(Transform container, QuizStore quizStore, Func<string, string, Texture> logic);
+
+        public void SetChapterIndex(int chapterIndex);
+
+        public void SetRootDirectory(string rootDirectory);
+
+        public void SetChapter(string chapter);
+
+        public void SetMission(string mission);
 
         public void OnCustomDataMessageReceive(byte[] data);
+
+        public void SetGenerateTextureLogic(Func<string, string, Texture> logic);
 
         #region instructor loading state
 
@@ -43,6 +54,8 @@ namespace Notero.QuizConnector
         public void SpawnInstructorQuestionStateUI();
 
         public void DestroyInstructorQuestionStateUI();
+
+        public void SetFullScreen(bool isFull);
 
         public void OnStudentAnswerReceive(string stationId, string answer, int answerStudentAmount, int studentAmount);
 
