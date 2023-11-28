@@ -69,7 +69,7 @@ namespace BU.Chainpunch.MidiGameplay.Gameplay
         public float SpawnPointPos => m_GameplayConfig.SpawnPointPos;
         public bool IsMusicLoaded => m_CurrentMusic != null && m_CurrentMusic.LoadState == AudioDataLoadState.Loaded;
         public IMidiGameLogic GameLogic { get; protected set; }
-        public IBotControllable BotControllable => null;
+        public IBotControllable BotControllable { get; protected set; }
         public bool IsMusicExists => m_CurrentMusic != null;
         public bool IsControllerReady => m_VirtualPianoController != null && m_ScoringController != null;
 
@@ -85,6 +85,7 @@ namespace BU.Chainpunch.MidiGameplay.Gameplay
             m_GameplayUIController = m_IGameplayUIControllable.GetComponent<IGameplayUIControllable>();
             m_TimeProvider = m_TimeProviderGO.GetComponent<ITimeProvider>();
             GameLogic = m_GameLogicController.GameLogicController;
+            BotControllable = m_GameLogicController.BotControllable;
         }
 
         private void Update()
@@ -110,8 +111,9 @@ namespace BU.Chainpunch.MidiGameplay.Gameplay
             m_CurrentMusic = music;
             m_CurrentMidiTimeOffset = midiTimeOffset;
             var accompaniment = music.AudioClip;
+            m_CustomBPM = customBPM;
 
-            if(customBPM <= 0)
+            if(m_CustomBPM <= 0)
             {
                 m_CustomBPM = midiFile.BPM;
             }
@@ -149,14 +151,15 @@ namespace BU.Chainpunch.MidiGameplay.Gameplay
         {
             m_CurrentBarlineIndex = 0;
             m_MidiInputHashSet.Clear();
+            var bpmMultiplier = m_CustomBPM / m_CurrentMidiFile.BPM;
 
             if((ModeController.Mode == GameplayMode.Normal || ModeController.Mode == GameplayMode.LibraryNormal))
             {
-                GameLogic.StartGameplay(true);
+                GameLogic.StartGameplay(true, bpmMultiplier);
             }
             else
             {
-                GameLogic.StartGameplay(false);
+                GameLogic.StartGameplay(false, bpmMultiplier);
             }
 
             OnGameStarted?.Invoke();
