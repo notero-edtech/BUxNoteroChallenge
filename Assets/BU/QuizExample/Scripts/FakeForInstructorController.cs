@@ -9,6 +9,8 @@ using Notero.Utilities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -131,8 +133,11 @@ namespace BU.QuizExample.Scripts
         {
             QuizConnectorController.Instance.DestroyInstructorQuestionStateUI();
             QuizConnectorController.Instance.DestroyInstructorPreResultStateUI();
+            
+            var correctAnswer = QuizState.Default.CurrentQuestion.Answer.CorrectAnswers.ElementAt(0);
+            m_QuizStore.SetCorrectAnswer(correctAnswer);
 
-            if(QuizMode == QuizModes.POPQUIZ && CurrentQuizState != QuizStates.PRERESULT)
+            if(QuizMode == QuizModes.POP_QUIZ && CurrentQuizState != QuizStates.PRERESULT)
             {
                 StopSetStudentAnswerCoroutine();
                 PreResultState();
@@ -148,6 +153,24 @@ namespace BU.QuizExample.Scripts
         public void StarterState()
         {
             QuizConnectorController.Instance.Init(m_QuizStore, "A");
+            QuizConnectorController.Instance.SetChapterIndex(1);
+            QuizConnectorController.Instance.SetRootDirectory("");
+            QuizConnectorController.Instance.SetChapter("Chapeter");
+            QuizConnectorController.Instance.SetMission("Mission");
+            QuizConnectorController.Instance.SetGenerateTextureLogic((path, rootDir) =>
+            {
+                path = Path.Combine(rootDir, path);
+
+                var imagePath = path.Split(".")[0].Trim();
+                var texturePath = Path.Combine(imagePath);
+                var resource = Resources.Load<Texture2D>(texturePath);
+
+                resource.filterMode = FilterMode.Bilinear;
+                resource.anisoLevel = 4;
+
+                return resource;
+            });
+            
             QuizConnectorController.Instance.OnCustomDataReceive.AddListener(OnCustomDataReceive);
             QuizConnectorController.Instance.OnNextStateReceive.AddListener(GoToNextState);
 

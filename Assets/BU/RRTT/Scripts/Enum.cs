@@ -19,8 +19,8 @@
 
     public enum QuizModes
     {
-        POPQUIZ,
-        PRETEST,
-        POSTTEST
+        POP_QUIZ,
+        PRE_TEST,
+        POST_TEST
     }
 }

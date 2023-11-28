@@ -1,4 +1,5 @@
-﻿using Notero.Unity.UI;
+﻿using DataStore.Quiz;
+using Notero.Unity.UI;
 using Notero.Utilities;
 using UnityEngine;
 
@@ -34,6 +35,8 @@ namespace BU.QuizExample.Scripts
         private void Awake()
         {
             ApplicationFlagConfig.InitializeCommandlineArgs();
+            QuizState.Default.SetAppVersion("2.0.0");
+
             if(ApplicationFlagConfig.IsInstructorMode) FakeForInstructorController.Instance.Init(m_QuizControllerType, m_QuizDataJSON.text);
             if(ApplicationFlagConfig.IsStudentMode) FakeForStudentController.Instance.Init("1", m_QuizControllerType, m_QuizDataJSON.text);
 
@@ -63,8 +66,8 @@ namespace BU.QuizExample.Scripts
 
             if(m_HideCurrentPanelButton != null) SetActiveHideCurrentUIButton(true);
 
-            if(ApplicationFlagConfig.IsInstructorMode) FakeForInstructorController.Instance.SetQuizMode(QuizModes.POPQUIZ);
-            if(ApplicationFlagConfig.IsStudentMode) FakeForStudentController.Instance.SetQuizMode(QuizModes.POPQUIZ);
+            if(ApplicationFlagConfig.IsInstructorMode) FakeForInstructorController.Instance.SetQuizMode(QuizModes.POP_QUIZ);
+            if(ApplicationFlagConfig.IsStudentMode) FakeForStudentController.Instance.SetQuizMode(QuizModes.POP_QUIZ);
 
             StartQuiz();
         }
@@ -77,8 +80,8 @@ namespace BU.QuizExample.Scripts
 
             if(m_HideCurrentPanelButton != null) SetActiveHideCurrentUIButton(true);
 
-            if(ApplicationFlagConfig.IsInstructorMode) FakeForInstructorController.Instance.SetQuizMode(QuizModes.POSTTEST);
-            if(ApplicationFlagConfig.IsStudentMode) FakeForStudentController.Instance.SetQuizMode(QuizModes.POSTTEST);
+            if(ApplicationFlagConfig.IsInstructorMode) FakeForInstructorController.Instance.SetQuizMode(QuizModes.POST_TEST);
+            if(ApplicationFlagConfig.IsStudentMode) FakeForStudentController.Instance.SetQuizMode(QuizModes.POST_TEST);
 
             StartQuiz();
         }

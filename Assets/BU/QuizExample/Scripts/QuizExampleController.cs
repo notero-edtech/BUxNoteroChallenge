@@ -1,15 +1,13 @@
 using DataStore.Quiz;
-using Newtonsoft.Json;
 using Notero.QuizConnector;
 using Notero.QuizConnector.Instructor;
 using Notero.QuizConnector.Student;
 using Notero.Unity.UI.Quiz;
-using Notero.Utilities;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Notero.QuizConnector.Model;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -30,6 +28,18 @@ namespace BU.QuizExample.Scripts
         [SerializeField]
         private GameObject m_InstructorEndPrefab;
 
+        [SerializeField]
+        private GameObject m_InstructorPopQuizResultPrefab;
+
+        [SerializeField]
+        private GameObject m_InstructorPostTestStudentListResultPrefab;
+
+        [SerializeField]
+        private GameObject m_InstructorPostTestAnswerListResultPrefab;
+
+        [SerializeField]
+        private GameObject m_InstructorPostTestAnswerRevealResultPrefab;
+
         [Header("Student Prefabs")]
         [SerializeField]
         private GameObject m_StudentCountInPrefab;
@@ -47,35 +57,36 @@ namespace BU.QuizExample.Scripts
         private GameObject m_StudentEndPrefab;
 
         [SerializeField]
+        private GameObject m_StudentPopQuizResultPrefab;
+
+        [SerializeField]
+        private GameObject m_StudentPostTestResultPrefab;
+
+        [SerializeField]
         private PianoKeyQuizController m_PianoKeyInput;
 
-        #region Instructor base classes
-
+        // Instructor
         private BaseInstructorCountIn m_InstructorCountIn;
         private BaseInstructorQuestion m_InstructorQuestion;
         private BaseInstructorPreResult m_InstructorPreResult;
         private BaseInstructorEnd m_InstructorEnd;
+        private BaseInstructorPopQuizResult<StudentQuizResultInfo> m_InstructorPopQuizResult;
+        private BaseInstructorPostTestStudentListResult<StudentPostTestResultInfo> m_InstructorPostTestStudentListResult;
+        private BaseInstructorPostTestAnswerListResult<PostTestAnswer> m_InstructorPostTestAnswerListResult;
+        private BaseInstructorPostTestAnswerRevealResult m_InstructorPostTestAnswerRevealResult;
 
-        #endregion
-
-        #region Student base classes
-
+        // Student
         private BaseStudentCountIn m_StudentCountIn;
         private BaseStudentQuestion m_StudentQuestion;
         private BaseStudentWaiting m_StudentWaiting;
         private BaseStudentPreResult m_StudentPreResult;
         private BaseStudentEnd m_StudentEnd;
+        private BaseStudentPopQuizResult m_StudentPopQuizResult;
+        private BaseStudentPostTestResult m_StudentPostTestResult;
 
-        #endregion
+        public bool IsQuizLoaded { get; set; }
 
-        // Container
-        private Transform m_Container;
-
-        // Coroutine Variables
-        private Coroutine m_SetStudentAnswerCoroutine;
-        private int CountdownTime = 3;
-
-        private UnityEvent<byte[]> OnCustomDataUIReceive = new();
+        public QuizStore QuizStore { get; set; }
 
         public UnityEvent OnNextStateReceive { get; set; }
 
@@ -83,14 +94,46 @@ namespace BU.QuizExample.Scripts
 
         public UnityEvent<byte[]> OnCustomDataReceive { get; set; }
 
-        public bool IsQuizLoaded { get; set; }
+        private Transform m_Container;
+        private int m_CountdownTime;
+        private int m_ChapterIndex;
+        private string m_Chapter;
+        private string m_Mission;
+        private string m_Answer;
+        private string m_RootDirectory;
+        private Coroutine m_CountdownCoroutine;
 
-        public QuizStore QuizStore { get; set; }
+        private event Action<byte[]> OnCustomDataUIReceive;
+        private Func<string, string, Texture> m_GenerateTextureLogicDefault;
 
-        public void Init(Transform container, QuizStore quizStore)
+        //RRTT Variables
+        private byte bossIndex;
+
+        public void Init(Transform container, QuizStore quizStore, Func<string, string, Texture> logic)
         {
             m_Container = container;
             QuizStore = quizStore;
+            m_GenerateTextureLogicDefault = logic;
+        }
+
+        public void SetChapterIndex(int chapterIndex)
+        {
+            m_ChapterIndex = chapterIndex;
+        }
+
+        public void SetRootDirectory(string rootDirectory)
+        {
+            m_RootDirectory = rootDirectory;
+        }
+
+        public void SetChapter(string chapter)
+        {
+            m_Chapter = chapter;
+        }
+
+        public void SetMission(string mission)
+        {
+            m_Mission = mission;
         }
 
         public void OnCustomDataMessageReceive(byte[] data)
@@ -98,159 +141,119 @@ namespace BU.QuizExample.Scripts
             OnCustomDataUIReceive?.Invoke(data);
         }
 
-        public void LoadQuizToQuizStore(string jsonContent)
+        public void SetGenerateTextureLogic(Func<string, string, Texture> logic)
         {
-            if(ApplicationFlagConfig.IsInstructorMode)
-            {
-                var questionJson = JsonConvert.DeserializeObject<SchemaQuiz>(jsonContent);
-
-                QuizState.Default.ResetQuestionIndex();
-                QuizState.Default.SetQuizList(questionJson.Data.ToList());
-
-                var list = questionJson.Data.Select(question => new Question(
-                    id: question.Id,
-                    assetFile: question.AssetFile,
-                    answer: question.Answer,
-                    questionAssetType: question.QuestionAssetType
-                )).ToList();
-
-                QuizStore.SetQuizList(list);
-
-                // Example: Set custom data
-                //QuizStore.SetCustomData(new byte[] { 0, 1, 2 });
-            }
-            else if(ApplicationFlagConfig.IsStudentMode)
-            {
-                var questionJson = JsonConvert.DeserializeObject<SchemaQuiz>(jsonContent);
-
-                QuizState.Default.ResetQuestionIndex();
-                QuizState.Default.SetQuizList(questionJson.Data.ToList());
-
-                var list = questionJson.Data.Select(question => new Question(
-                    id: question.Id,
-                    assetFile: question.AssetFile,
-                    answer: question.Answer,
-                    questionAssetType: question.QuestionAssetType
-                )).ToList();
-
-                QuizStore.SetQuizList(list);
-            }
+            m_GenerateTextureLogicDefault = logic;
         }
 
-        private IEnumerator StartCountdownCoroutine(Action<int> tick)
+        public void LoadQuizToQuizStore(string quizJson)
         {
-            tick?.Invoke(CountdownTime);
-            if(CountdownTime == 0) yield break;
+            QuizState.Default.Load(
+                assetJson: quizJson,
+                onFinished: quizList =>
+                {
+                    var list = quizList.Select(question => new Question
+                    {
+                        Id = question.Id,
+                        AssetFile = question.AssetFile,
+                        Answer = question.Answer,
+                        QuestionAssetType = question.QuestionAssetType
+                    }).ToList();
 
-            yield return new WaitForSeconds(1);
-            CountdownTime--;
-
-            yield return StartCountdownCoroutine(tick);
+                    QuizStore.SetQuizList(list);
+                    IsQuizLoaded = true;
+                },
+                onFailed: _ => { Debug.LogError("Error: Loader json file failed"); });
         }
-
-        private Texture GenerateQuestionTexture(string path)
-        {
-            var imagePath = path.Split(".")[0].Trim();
-            var texturePath = Path.Combine(imagePath);
-            var resource = Resources.Load<Texture2D>(texturePath);
-            resource.filterMode = FilterMode.Bilinear;
-            resource.anisoLevel = 4;
-
-            return resource;
-        }
-
-        private T SpawnPrototype<T>(GameObject gameObj) where T : BaseQuizPanel
-        {
-            if(gameObj.scene.IsValid())
-            {
-                Debug.Log("get one");
-            }
-            else
-            {
-                Debug.Log("not there");
-            }
-
-            var prototype = Instantiate(gameObj, m_Container);
-            var quizPanelPrototype = prototype.GetComponent<BaseQuizPanel>();
-
-            OnCustomDataUIReceive.AddListener(OnCustomDataReceived);
-
-            quizPanelPrototype.OnCustomDataReceive(QuizStore.CustomData);
-            quizPanelPrototype.OnDestroyed.AddListener(OnPrototypeDestroyed);
-            quizPanelPrototype.OnSendCustomData.AddListener(OnSendCustomData);
-
-            return prototype.GetComponent(typeof(T)) as T;
-
-            void OnSendCustomData(byte[] data)
-            {
-                OnCustomDataReceive?.Invoke(data);
-            }
-
-            void OnCustomDataReceived(byte[] message)
-            {
-                quizPanelPrototype.OnCustomDataReceive(message);
-            }
-
-            void OnPrototypeDestroyed()
-            {
-                quizPanelPrototype.OnSendCustomData.RemoveListener(OnSendCustomData);
-                quizPanelPrototype.OnDestroyed.RemoveListener(OnPrototypeDestroyed);
-
-                OnCustomDataUIReceive.RemoveListener(OnCustomDataReceived);
-            }
-        }
-
-        #region Instructor CountIn state methods
 
         public void SpawnInstructorCountInStateUI()
         {
             m_InstructorCountIn = SpawnPrototype<BaseInstructorCountIn>(m_InstructorCountInPrefab);
 
-            //Set Countdown panel data
-            var quizInfo = QuizStore.QuizInfo;
-            m_InstructorCountIn.SetChapter("Chapter 1");
-            m_InstructorCountIn.SetMission("Mission Quiz");
-            m_InstructorCountIn.SetCurrentPage(quizInfo.CurrentQuizNumber);
-            m_InstructorCountIn.SetTotalPage(quizInfo.QuestionAmount);
-
             // Start countdown
-            CountdownTime = 3;
-            StartCoroutine(StartCountdownCoroutine((time) => m_InstructorCountIn.OnCountdownSet(time)));
+            m_CountdownTime = 3;
+
+            if(m_CountdownCoroutine != null) return;
+
+            m_CountdownCoroutine = StartCoroutine(StartCountdownCoroutine((time) =>
+            {
+                if(m_InstructorCountIn == null) return;
+
+                m_InstructorCountIn.OnCountdownSet(time);
+            }, () => m_CountdownCoroutine = null));
         }
-
-        public void AddInstructorFinishCountInStateEventListener(UnityAction action) => m_InstructorCountIn.OnNextState.AddListener(action);
-
-        public void RemoveInstructorFinishCountInStateEventListener(UnityAction action) => m_InstructorCountIn.OnNextState.RemoveListener(action);
 
         public void DestroyInstructorCountInStateUI()
         {
             if(m_InstructorCountIn == null) return;
 
             Destroy(m_InstructorCountIn.gameObject);
+            m_CountdownCoroutine = null;
             m_InstructorCountIn = null;
         }
 
-        #endregion
+        public void AddInstructorFinishCountInStateEventListener(UnityAction action)
+        {
+            if(m_InstructorCountIn == null) return;
 
-        #region Instructor Question state methods
+            m_InstructorCountIn.OnNextState.AddListener(action);
+        }
+
+        public void RemoveInstructorFinishCountInStateEventListener(UnityAction action)
+        {
+            if(m_InstructorCountIn == null) return;
+
+            m_InstructorCountIn.OnNextState.RemoveListener(action);
+        }
 
         public void SpawnInstructorQuestionStateUI()
         {
+            var assetType = QuizStore.CurrentQuestion.QuestionAssetType;
+            var assetFilePath = QuizStore.CurrentQuestion.AssetFile;
+
             m_InstructorQuestion = SpawnPrototype<BaseInstructorQuestion>(m_InstructorQuestionPrefab);
 
-            var assetFilePath = QuizStore.CurrentQuestion.AssetFile;
-            var texture = GenerateQuestionTexture(assetFilePath);
+            switch(assetType)
+            {
+                case QuestionAssetType.IMAGE:
+                {
+                    var texture = GenerateQuestionTexture(assetFilePath, m_RootDirectory);
+                    m_InstructorQuestion.SetQuestionImage(texture);
+                    break;
+                }
+                case QuestionAssetType.VIDEO:
+                {
+                    var url = Path.Combine(m_RootDirectory, assetFilePath);
+                    m_InstructorQuestion.SetQuestionVideo(url);
+                    break;
+                }
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
 
-            //Set question panel data
-            var quizInfo = QuizStore.QuizInfo;
-            m_InstructorQuestion.SetChapter("Chapter 1");
-            m_InstructorQuestion.SetMission("Mission Quiz");
-            m_InstructorQuestion.SetCurrentPage(quizInfo.CurrentQuizNumber);
-            m_InstructorQuestion.SetTotalPage(quizInfo.QuestionAmount);
-            m_InstructorQuestion.SetQuestionTexture(texture);
             m_InstructorQuestion.SetStudentAmount(QuizStore.StudentAmount);
 
             m_InstructorQuestion.OnNextState = OnNextStateReceive;
+            m_InstructorQuestion.OnDestroyed.AddListener(OnDestroyed);
+            QuizStore.OnStudentAmountChange += OnStudentAmountChange;
+
+            return;
+
+            void OnStudentAmountChange(int amount)
+            {
+                if(m_InstructorQuestion == null) return;
+
+                m_InstructorQuestion.SetStudentAmount(amount);
+            }
+
+            void OnDestroyed()
+            {
+                QuizStore.OnStudentAmountChange -= OnStudentAmountChange;
+
+                if(m_InstructorQuestion == null) return;
+
+                m_InstructorQuestion.OnDestroyed.RemoveListener(OnDestroyed);
+            }
         }
 
         public void DestroyInstructorQuestionStateUI()
@@ -261,6 +264,13 @@ namespace BU.QuizExample.Scripts
             m_InstructorQuestion = null;
         }
 
+        public void SetFullScreen(bool isFull)
+        {
+            if(m_InstructorQuestion == null) return;
+
+            m_InstructorQuestion.SetFullScreen(isFull);
+        }
+
         public void OnStudentAnswerReceive(string stationId, string answer, int answerStudentAmount, int studentAmount)
         {
             if(m_InstructorQuestion == null) return;
@@ -268,29 +278,17 @@ namespace BU.QuizExample.Scripts
             m_InstructorQuestion.OnStudentAnswerReceive(answerStudentAmount, studentAmount);
         }
 
-        #endregion
-
-        #region Instructor Pre-Result state methods
-
         public void SpawnInstructorPreResultStateUI()
         {
-            var correctAnswer = QuizState.Default.CurrentQuestion.Answer.CorrectAnswers.ElementAt(0);
-
-            m_InstructorPreResult = SpawnPrototype<BaseInstructorPreResult>(m_InstructorPreResultPrefab);
-            QuizStore.SetCorrectAnswer(correctAnswer);
-
             //Set per-result data
-            var assetFilePath = QuizStore.CurrentQuestion.AssetFile;
-            var texture = GenerateQuestionTexture(assetFilePath);
-            var quizInfo = QuizStore.QuizInfo;
+            var assetFilePath = QuizStore.CurrentQuestion.Answer.AssetAnswerFile;
+            var correctAnswer = QuizStore.CorrectAnswer;
             var studentAmount = QuizStore.StudentAmount;
             var answerAmount = QuizStore.AnswerStudentAmount;
             var AnswerSummaryDic = QuizStore.AnswerSummaryDic;
+            var texture = GenerateQuestionTexture(assetFilePath, m_RootDirectory);
 
-            m_InstructorPreResult.SetChapter("Chapter 1");
-            m_InstructorPreResult.SetMission("Mission Quiz");
-            m_InstructorPreResult.SetCurrentPage(quizInfo.CurrentQuizNumber);
-            m_InstructorPreResult.SetTotalPage(quizInfo.QuestionAmount);
+            m_InstructorPreResult = SpawnPrototype<BaseInstructorPreResult>(m_InstructorPreResultPrefab);
             m_InstructorPreResult.SetQuestionTexture(texture);
             m_InstructorPreResult.SetCorrectAnswer(correctAnswer);
             m_InstructorPreResult.SetAnswerAmount(answerAmount);
@@ -308,10 +306,6 @@ namespace BU.QuizExample.Scripts
             m_InstructorPreResult = null;
         }
 
-        #endregion
-
-        #region Instructor End state methods
-
         public void SpawnInstructorEndStateUI()
         {
             m_InstructorEnd = SpawnPrototype<BaseInstructorEnd>(m_InstructorEndPrefab);
@@ -325,37 +319,199 @@ namespace BU.QuizExample.Scripts
             m_InstructorEnd = null;
         }
 
-        #endregion
-
-        #region Instructor Result state nethods
-
         public void SpawnInstructorResultStateUI(string mode)
         {
-            throw new NotImplementedException();
+            switch(mode)
+            {
+                case "POP_QUIZ":
+                case "PRE_TEST":
+                    var studentQuizResultList = QuizSequenceHelper.GenerateStudentQuizResultInfoList(QuizStore.StudentAnswers);
+                    var modeText = getModeText();
+
+                    m_InstructorPopQuizResult = SpawnPrototype<BaseInstructorPopQuizResult<StudentQuizResultInfo>>(m_InstructorPopQuizResultPrefab);
+                    m_InstructorPopQuizResult.SetQuizMode(modeText);
+                    m_InstructorPopQuizResult.SetElementListInfo(studentQuizResultList);
+                    break;
+                case "POST_TEST":
+                    SwapToStudentList(mode);
+                    break;
+            }
+
+            return;
+
+            string getModeText()
+            {
+                return mode switch
+                {
+                    "POP_QUIZ" => "Pop Quiz",
+                    "PRE_TEST" => "Pre Test",
+                    "POST_TEST" => "Post Test",
+                    _ => mode
+                };
+            }
         }
 
         public void DestroyInstructorResultStateUI(string mode)
         {
-            throw new NotImplementedException();
+            switch(mode)
+            {
+                case "POP_QUIZ":
+                case "PRE_TEST":
+                    if(m_InstructorPopQuizResult == null) return;
+
+                    Destroy(m_InstructorPopQuizResult.gameObject);
+                    m_InstructorPopQuizResult = null;
+                    break;
+                case "POST_TEST":
+                    if(m_InstructorPostTestStudentListResult == null) return;
+
+                    m_InstructorPostTestStudentListResult.OnSwapResultState.RemoveListener(SwapToAnswerList);
+
+                    Destroy(m_InstructorPostTestStudentListResult.gameObject);
+                    m_InstructorPostTestStudentListResult = null;
+                    break;
+            }
         }
 
-        #endregion
+        private void SwapToStudentList(string mode)
+        {
+            var studentQuizResultInfo = QuizSequenceHelper.GenerateStudentPostTestResultInfoList(QuizStore.StudentAnswers, QuizStore.StudentPreTestResult, QuizStore.QuizInfo.QuestionAmount);
+            var modeText = getModeText();
 
-        #region Student CountIn state methods
+            Destroy(QuizConnectorController.Instance.CurrentUI);
+
+            m_InstructorPostTestStudentListResult = SpawnPrototype<BaseInstructorPostTestStudentListResult<StudentPostTestResultInfo>>(m_InstructorPostTestStudentListResultPrefab);
+            m_InstructorPostTestStudentListResult.SetQuizMode(modeText);
+            m_InstructorPostTestStudentListResult.SetElementListInfo(studentQuizResultInfo);
+
+            m_InstructorPostTestStudentListResult.OnSwapResultState.AddListener(SwapToAnswerList);
+            m_InstructorPostTestStudentListResult.OnDestroyed.AddListener(OnDestroyed);
+
+            return;
+
+            string getModeText()
+            {
+                return mode switch
+                {
+                    "POP_QUIZ" => "Pop Quiz",
+                    "PRE_TEST" => "Pre Test",
+                    "POST_TEST" => "Post Test",
+                    _ => mode
+                };
+            }
+
+            void OnDestroyed()
+            {
+                m_InstructorPostTestStudentListResult.OnSwapResultState.RemoveListener(SwapToAnswerList);
+                m_InstructorPostTestStudentListResult.OnDestroyed.RemoveListener(OnDestroyed);
+                m_InstructorPostTestStudentListResult = null;
+            }
+        }
+
+        private void SwapToAnswerList(string mode)
+        {
+            var postTestAnswer = QuizSequenceHelper.GeneratePostTestAnswerList(QuizStore);
+            var modeText = getModeText();
+
+            Destroy(QuizConnectorController.Instance.CurrentUI);
+
+            m_InstructorPostTestAnswerListResult = SpawnPrototype<BaseInstructorPostTestAnswerListResult<PostTestAnswer>>(m_InstructorPostTestAnswerListResultPrefab);
+            m_InstructorPostTestAnswerListResult.SetQuizMode(modeText);
+            m_InstructorPostTestAnswerListResult.SetElementListInfo(postTestAnswer);
+
+            m_InstructorPostTestAnswerListResult.OnClicked.AddListener(OnSwapToAnswerReveal);
+            m_InstructorPostTestAnswerListResult.OnSwapResultState.AddListener(SwapToStudentList);
+            m_InstructorPostTestAnswerListResult.OnDestroyed.AddListener(OnDestroyed);
+
+            return;
+
+            string getModeText()
+            {
+                return mode switch
+                {
+                    "POP_QUIZ" => "Pop Quiz",
+                    "PRE_TEST" => "Pre Test",
+                    "POST_TEST" => "Post Test",
+                    _ => mode
+                };
+            }
+
+            void OnDestroyed()
+            {
+                m_InstructorPostTestAnswerListResult.OnClicked.RemoveListener(OnSwapToAnswerReveal);
+                m_InstructorPostTestAnswerListResult.OnSwapResultState.RemoveListener(SwapToStudentList);
+                m_InstructorPostTestAnswerListResult.OnDestroyed.RemoveListener(OnDestroyed);
+                m_InstructorPostTestAnswerListResult = null;
+            }
+
+            void OnSwapToAnswerReveal(PostTestAnswer answer) => SwapToAnswerReveal(answer, mode);
+        }
+
+        private void SwapToAnswerReveal(PostTestAnswer postTestAnswer, string mode)
+        {
+            Destroy(QuizConnectorController.Instance.CurrentUI);
+
+            var modeText = getModeText();
+
+            m_InstructorPostTestAnswerRevealResult = SpawnPrototype<BaseInstructorPostTestAnswerRevealResult>(m_InstructorPostTestAnswerRevealResultPrefab);
+            m_InstructorPostTestAnswerRevealResult.SetQuizMode(modeText);
+            m_InstructorPostTestAnswerRevealResult.SetCurrentQuestionIndex(postTestAnswer.QuestionIndex);
+            m_InstructorPostTestAnswerRevealResult.SetQuestionTexture(GenerateQuestionTexture(postTestAnswer.QuestionImagePath, m_RootDirectory));
+            m_InstructorPostTestAnswerRevealResult.SetCorrectAnswer(postTestAnswer.QuestionAnswer);
+
+            m_InstructorPostTestAnswerRevealResult.OnShowAnswerList.AddListener(SwapToAnswerList);
+            m_InstructorPostTestAnswerRevealResult.OnSwapResultState.AddListener(SwapToStudentList);
+            m_InstructorPostTestAnswerRevealResult.OnNextAnswerReveal.AddListener(OnAnswerRevealChange);
+            m_InstructorPostTestAnswerRevealResult.OnPreviousAnswerReveal.AddListener(OnAnswerRevealChange);
+            m_InstructorPostTestAnswerRevealResult.OnDestroyed.AddListener(OnDestroyed);
+
+            return;
+
+            string getModeText()
+            {
+                return mode switch
+                {
+                    "POP_QUIZ" => "Pop Quiz",
+                    "PRE_TEST" => "Pre Test",
+                    "POST_TEST" => "Post Test",
+                    _ => mode
+                };
+            }
+
+            void OnDestroyed()
+            {
+                m_InstructorPostTestAnswerRevealResult.OnShowAnswerList.RemoveListener(SwapToAnswerList);
+                m_InstructorPostTestAnswerRevealResult.OnSwapResultState.RemoveListener(SwapToStudentList);
+                m_InstructorPostTestAnswerRevealResult.OnNextAnswerReveal.RemoveListener(OnAnswerRevealChange);
+                m_InstructorPostTestAnswerRevealResult.OnPreviousAnswerReveal.RemoveListener(OnAnswerRevealChange);
+                m_InstructorPostTestAnswerRevealResult.OnDestroyed.RemoveListener(OnDestroyed);
+                m_InstructorPostTestAnswerRevealResult = null;
+            }
+        }
+
+        private void OnAnswerRevealChange(int index)
+        {
+            var postTestAnswerList = QuizSequenceHelper.GeneratePostTestAnswerList(QuizStore);
+            var max = postTestAnswerList.Max(item => item.QuestionIndex);
+
+            index = index < 0 ? 0 : index;
+            index = index > max ? max : index;
+
+            var postTestAnswer = postTestAnswerList.Find(item => item.QuestionIndex == index);
+
+            if(m_InstructorPostTestAnswerRevealResult == null) return;
+
+            m_InstructorPostTestAnswerRevealResult.SetCurrentQuestionIndex(postTestAnswer.QuestionIndex);
+            m_InstructorPostTestAnswerRevealResult.SetQuestionTexture(GenerateQuestionTexture(postTestAnswer.QuestionImagePath, m_RootDirectory));
+            m_InstructorPostTestAnswerRevealResult.SetCorrectAnswer(postTestAnswer.QuestionAnswer);
+        }
 
         public void SpawnStudentCountInStateUI()
         {
             m_StudentCountIn = SpawnPrototype<BaseStudentCountIn>(m_StudentCountInPrefab);
 
-            //Set Countdown panel data
-            var quizInfo = QuizStore.QuizInfo;
-            m_StudentCountIn.SetChapter("Chapter 1");
-            m_StudentCountIn.SetMission("Mission Quiz");
-            m_StudentCountIn.SetCurrentPage(quizInfo.CurrentQuizNumber);
-            m_StudentCountIn.SetTotalPage(quizInfo.QuestionAmount);
-
             // Start countdown
-            CountdownTime = 3;
+            m_CountdownTime = 3;
             StartCoroutine(StartCountdownCoroutine((time) => m_StudentCountIn.OnCountdownSet(time)));
         }
 
@@ -367,25 +523,27 @@ namespace BU.QuizExample.Scripts
             m_StudentCountIn = null;
         }
 
-        #endregion
-
-        #region Student Question state methods
-
-        private string m_Answer;
-
         public void SpawnStudentQuestionStateUI()
         {
+            var asseetType = QuizStore.CurrentQuestion.QuestionAssetType;
+
             m_StudentQuestion = SpawnPrototype<BaseStudentQuestion>(m_StudentQuestionPrefab);
 
-            //Set Question panel data
-            var quizInfo = QuizStore.QuizInfo;
-            var texture = GenerateQuestionTexture(QuizStore.CurrentQuestion.AssetFile);
+            switch(asseetType)
+            {
+                case QuestionAssetType.IMAGE:
+                    var texture = GenerateQuestionTexture(QuizStore.CurrentQuestion.AssetFile, m_RootDirectory);
 
-            m_StudentQuestion.SetChapter("Chapter 1");
-            m_StudentQuestion.SetMission("Mission Quiz");
-            m_StudentQuestion.SetCurrentPage(quizInfo.CurrentQuizNumber);
-            m_StudentQuestion.SetTotalPage(quizInfo.QuestionAmount);
-            m_StudentQuestion.SetQuestionTexture(texture);
+                    m_StudentQuestion.SetQuestionTexture(texture);
+
+                    break;
+                case QuestionAssetType.VIDEO:
+                    m_StudentQuestion.ShowWatchInstructorScreen();
+
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
 
             // Spawner piano and subscribe event
             m_PianoKeyInput.gameObject.SetActive(true);
@@ -393,6 +551,8 @@ namespace BU.QuizExample.Scripts
             m_PianoKeyInput.OnReleasePiano += OnReleasePiano;
             m_PianoKeyInput.OnPressingPiano += OnPressingPiano;
             m_PianoKeyInput.OnSubmitPiano += OnSubmitPiano;
+
+            m_Answer = "";
         }
 
         public void DestroyStudentQuestionStateUI()
@@ -414,15 +574,33 @@ namespace BU.QuizExample.Scripts
             }
         }
 
+        private void OnReleasePiano(int noteIndex, string choice)
+        {
+            if(m_StudentQuestion == null) return;
+
+            m_StudentQuestion.OnPianoStateReceive(PianoStates.PIANO_WAITFORINPUT, choice);
+        }
+
+        private void OnPressingPiano(int noteIndex, string choice)
+        {
+            if(m_StudentQuestion == null) return;
+
+            m_StudentQuestion.OnPianoStateReceive(PianoStates.PIANO_PRESSING, choice);
+        }
+
+        private void OnSubmitPiano(int noteIndex, string choice)
+        {
+            m_Answer = choice;
+            OnStudentSubmit?.Invoke(choice);
+
+            if(m_StudentQuestion == null) return;
+
+            m_StudentQuestion.OnPianoStateReceive(PianoStates.PIANO_SUBMITTED, choice);
+        }
+
         public void SpawnStudentSubmitedStateUI()
         {
             m_StudentWaiting = SpawnPrototype<BaseStudentWaiting>(m_StudentWaitingPrefab);
-
-            var quizInfo = QuizStore.QuizInfo;
-            m_StudentWaiting.SetChapter("Chapter 1");
-            m_StudentWaiting.SetMission("Mission Quiz");
-            m_StudentWaiting.SetCurrentPage(quizInfo.CurrentQuizNumber);
-            m_StudentWaiting.SetTotalPage(quizInfo.QuestionAmount);
         }
 
         public void DestroyStudentSubmitedStateUI()
@@ -435,51 +613,27 @@ namespace BU.QuizExample.Scripts
 
         public void AddStudentSubmitedQuestionStateEventListener(UnityAction action)
         {
+            if(m_StudentQuestion == null) return;
+
             m_StudentQuestion.OnNextState.AddListener(action);
         }
 
         public void RemoveStudentSubmitedQuestionStateEventListener(UnityAction action)
         {
+            if(m_StudentQuestion == null) return;
+
             m_StudentQuestion.OnNextState.RemoveListener(action);
         }
 
-        private void OnReleasePiano(int noteIndex, string choice)
-        {
-            m_StudentQuestion.OnPianoStateReceive(PianoStates.PIANO_WAITFORINPUT, choice);
-        }
-
-        private void OnPressingPiano(int noteIndex, string choice)
-        {
-            m_StudentQuestion.OnPianoStateReceive(PianoStates.PIANO_PRESSING, choice);
-        }
-
-        private void OnSubmitPiano(int noteIndex, string choice)
-        {
-            OnStudentSubmit?.Invoke(choice);
-            m_StudentQuestion.OnPianoStateReceive(PianoStates.PIANO_SUBMITTED, choice);
-            m_Answer = choice;
-        }
-
-        #endregion
-
-        #region Student PreResult state methods
-
         public void SpawnStudentPreResultStateUI()
         {
+            var correctAnswer = QuizStore.CorrectAnswer;
+            var texture = GenerateQuestionTexture(QuizStore.CurrentQuestion.Answer.AssetAnswerFile, m_RootDirectory);
+
             m_StudentPreResult = SpawnPrototype<BaseStudentPreResult>(m_StudentPreResultPrefab);
-
-            //Set PreResult panel data
-            var quizInfo = QuizStore.QuizInfo;
-            var texture = GenerateQuestionTexture(QuizStore.CurrentQuestion.AssetFile);
-            var correctAnswer = QuizState.Default.CurrentQuestion.Answer.CorrectAnswers.ElementAt(0);
-
-            m_StudentPreResult.SetChapter("Chapter 1");
-            m_StudentPreResult.SetMission("Mission Quiz");
-            m_StudentPreResult.SetCurrentPage(quizInfo.CurrentQuizNumber);
-            m_StudentPreResult.SetTotalPage(quizInfo.QuestionAmount);
             m_StudentPreResult.SetAnswer(m_Answer);
-            m_StudentPreResult.SetQuestionTexture(texture);
             m_StudentPreResult.SetCorrectAnswer(correctAnswer);
+            m_StudentPreResult.SetQuestionTexture(texture);
         }
 
         public void DestroyStudentPreResultStateUI()
@@ -489,10 +643,6 @@ namespace BU.QuizExample.Scripts
             Destroy(m_StudentPreResult.gameObject);
             m_StudentPreResult = null;
         }
-
-        #endregion
-
-        #region Student End state methods
 
         public void SpawnStudentEndStateUI()
         {
@@ -507,20 +657,110 @@ namespace BU.QuizExample.Scripts
             m_StudentEnd = null;
         }
 
-        #endregion
-
-        #region Student Result state methods
-
         public void SpawnStudentResultStateUI(string mode)
         {
-            throw new NotImplementedException();
+            var quizInfo = QuizStore.QuizInfo;
+
+            switch(mode)
+            {
+                case "POP_QUIZ":
+                case "PRE_TEST":
+                    m_StudentPopQuizResult = SpawnPrototype<BaseStudentPopQuizResult>(m_StudentPopQuizResultPrefab);
+                    m_StudentPopQuizResult.SetQuizMode(mode);
+                    m_StudentPopQuizResult.SetQuestionAmount(quizInfo.QuestionAmount);
+                    m_StudentPopQuizResult.SetCurrentScore(QuizStore.CorrectAnswerAmount);
+                    break;
+                case "POST_TEST":
+                    var preTestResult = QuizStore.PreTestResult;
+
+                    m_StudentPostTestResult = SpawnPrototype<BaseStudentPostTestResult>(m_StudentPostTestResultPrefab);
+                    m_StudentPostTestResult.SetQuizMode(mode);
+                    m_StudentPostTestResult.SetQuestionAmount(quizInfo.QuestionAmount);
+                    m_StudentPostTestResult.SetCurrentScore(QuizStore.CorrectAnswerAmount);
+                    m_StudentPostTestResult.SetPreTestScore(preTestResult.Score, preTestResult.HasScore);
+                    break;
+            }
         }
 
         public void DestroyStudentResultStateUI(string mode)
         {
-            throw new NotImplementedException();
+            switch(mode)
+            {
+                case "POP_QUIZ":
+                case "PRE_TEST":
+                    if(m_StudentPopQuizResult == null) return;
+
+                    Destroy(m_StudentPopQuizResult.gameObject);
+                    m_StudentPopQuizResult = null;
+                    break;
+                case "POST_TEST":
+                    if(m_StudentPostTestResult == null) return;
+
+                    Destroy(m_StudentPostTestResult.gameObject);
+                    m_StudentPostTestResult = null;
+                    break;
+            }
         }
 
-        #endregion
+        private T SpawnPrototype<T>(GameObject gameObj) where T : BaseQuizPanel
+        {
+            var prototype = Instantiate(gameObj, m_Container);
+            var baseQuizPanelPrototype = prototype.GetComponent<BaseQuizPanel>();
+            var quizInfo = QuizStore.QuizInfo;
+
+            baseQuizPanelPrototype.SetChapterIndex(m_ChapterIndex);
+            baseQuizPanelPrototype.SetChapter(m_Chapter);
+            baseQuizPanelPrototype.SetMission(m_Mission);
+            baseQuizPanelPrototype.SetCurrentPage(quizInfo.CurrentQuizNumber);
+            baseQuizPanelPrototype.SetTotalPage(quizInfo.QuestionAmount);
+            baseQuizPanelPrototype.OnCustomDataReceive(QuizStore.CustomData);
+
+            baseQuizPanelPrototype.OnDestroyed.AddListener(OnPrototypeDestroyed);
+            baseQuizPanelPrototype.OnSendCustomData.AddListener(OnSendCustomData);
+
+            OnCustomDataUIReceive += OnCustomDataReceived;
+
+            QuizConnectorController.Instance.SetCurrentUI(prototype);
+
+            return prototype.GetComponent(typeof(T)) as T;
+
+            void OnSendCustomData(byte[] data)
+            {
+                OnCustomDataReceive?.Invoke(data);
+            }
+
+            void OnCustomDataReceived(byte[] message)
+            {
+                baseQuizPanelPrototype.OnCustomDataReceive(message);
+            }
+
+            void OnPrototypeDestroyed()
+            {
+                baseQuizPanelPrototype.OnSendCustomData.RemoveListener(OnSendCustomData);
+                baseQuizPanelPrototype.OnDestroyed.RemoveListener(OnPrototypeDestroyed);
+
+                OnCustomDataUIReceive -= OnCustomDataReceived;
+            }
+        }
+
+        private Texture GenerateQuestionTexture(string path, string rootDir = "")
+        {
+            return m_GenerateTextureLogicDefault.Invoke(path, rootDir);
+        }
+
+        private IEnumerator StartCountdownCoroutine(Action<int> tick, Action onFinished = null)
+        {
+            tick?.Invoke(m_CountdownTime);
+            if(m_CountdownTime == 0)
+            {
+                onFinished?.Invoke();
+                yield break;
+            }
+
+            yield return new WaitForSeconds(1);
+            m_CountdownTime--;
+
+            yield return StartCountdownCoroutine(tick, onFinished);
+        }
     }
 }

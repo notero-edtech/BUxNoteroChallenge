@@ -483,7 +483,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 411316956}
-  - component: {fileID: 411316955}
+  - component: {fileID: 411316957}
   m_Layer: 0
   m_Name: Bootstraper
   m_TagString: Untagged
@@ -491,26 +491,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &411316955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 411316954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a74a982e97b449ff99751523d6e2fd1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PopQuizStartButton: {fileID: 1649878129}
-  m_PopQuizOption: {fileID: 1029353605}
-  m_PreTestButton: {fileID: 18634579}
-  m_PreTestOption: {fileID: 556826092}
-  m_LoadingBG: {fileID: 1084286037}
-  m_HideCurrentPanelButton: {fileID: 1107709973}
-  m_QuizControllerType: 1
-  m_QuizDataJSON: {fileID: 4900000, guid: 3677c9aa3b160994f8b9109739f0d23b, type: 3}
 --- !u!4 &411316956
 Transform:
   m_ObjectHideFlags: 0
@@ -526,6 +506,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &411316957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411316954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 641f02687bf0381459cf0a3c51de95ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PopQuizStartButton: {fileID: 1649878129}
+  m_PopQuizOption: {fileID: 2057261561}
+  m_PreTestButton: {fileID: 18634579}
+  m_PreTestOption: {fileID: 556826092}
+  m_LoadingBG: {fileID: 1084286037}
+  m_HideCurrentPanelButton: {fileID: 1107709973}
+  m_QuizControllerType: 1
+  m_QuizDataJSON: {fileID: 4900000, guid: a42a3cd3c531e4c4eac350cedec01f2c, type: 3}
 --- !u!1 &529425310
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,7 +793,7 @@ MonoBehaviour:
   m_Container: {fileID: 1420564158}
   m_SlotQuizList:
   - KeyName: A
-    ControllerGameObject: {fileID: 9071361977912019987, guid: e1f0fe325db11214fa5d17b361cb4c56, type: 3}
+    ControllerGameObject: {fileID: 5834639129058758962, guid: d02242c970e76844bb58441c984d7bda, type: 3}
   OnNextStateReceive:
     m_PersistentCalls:
       m_Calls: []
