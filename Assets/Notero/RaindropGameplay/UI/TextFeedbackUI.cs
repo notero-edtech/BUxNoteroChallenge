@@ -29,6 +29,15 @@ namespace Notero.RaindropGameplay.UI
 
         public void SetRotation(Quaternion rotation) => m_RectTransform.rotation = rotation;
 
+        private void Awake()
+        {
+            if(m_RectTransform != null) return;
+            m_RectTransform = GetComponent<RectTransform>();
+            m_PerfacFeedback = transform.GetChild(0).gameObject;
+            m_GoodFeedback = transform.GetChild(1).gameObject;
+            m_OopsFeedback = transform.GetChild(2).gameObject;
+        }
+
         public void SetActive(NoteTimingScore noteScore)
         {
             m_PerfacFeedback.SetActive(noteScore == NoteTimingScore.Perfect);
