@@ -9,7 +9,7 @@ namespace Notero.QuizConnector
 
         public UnityEvent OnDestroyed;
 
-        protected byte[] CustomData { get; private set; }
+        protected int m_ChapterIndex { get; private set; }
 
         protected string Chapter { get; private set; }
 
@@ -21,6 +21,8 @@ namespace Notero.QuizConnector
 
         protected int TotalPage { get; private set; }
 
+        protected byte[] CustomData { get; private set; }
+
         public virtual void SetChapter(string chapter) => Chapter = chapter;
 
         public virtual void SetMission(string mission) => Mission = mission;
@@ -30,6 +32,8 @@ namespace Notero.QuizConnector
         public virtual void SetCurrentPage(int currentPage) => CurrentPage = currentPage;
 
         public virtual void SetTotalPage(int totalpage) => TotalPage = totalpage;
+
+        public virtual void SetChapterIndex(int chapterIndex) => m_ChapterIndex = chapterIndex;
 
         private void OnDestroy() => OnDestroyed?.Invoke();
 

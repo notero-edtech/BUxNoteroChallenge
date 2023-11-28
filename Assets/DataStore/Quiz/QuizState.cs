@@ -1,9 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
 using UnityEngine;
 
 namespace DataStore.Quiz
@@ -25,23 +23,14 @@ namespace DataStore.Quiz
 
         private QuizState()
         {
-            m_AppVersion = Application.version;
             m_QuestionList = new();
         }
 
-        public void Load(string assetFilePath, Action<List<Question>> onFinished)
+        public void SetAppVersion(string version) => m_AppVersion = version;
+
+        public void Load(string assetJson, Action<List<Question>> onFinished, Action<string> onFailed = null)
         {
-            if(!File.Exists(assetFilePath))
-            {
-                Debug.LogError($"Quiz file not exists, path: {assetFilePath}");
-                return;
-            }
-
             m_QuestionList.Clear();
-
-            var fileStream = new FileStream(assetFilePath, FileMode.Open, FileAccess.Read);
-            var readStream = new StreamReader(fileStream, Encoding.UTF8);
-            var assetJson = readStream.ReadToEnd();
 
             try
             {
@@ -64,12 +53,12 @@ namespace DataStore.Quiz
                 ResetQuestionIndex();
                 m_QuestionList = quizList;
 
-                readStream.Close();
                 onFinished?.Invoke(quizList);
             }
             catch(Exception e)
             {
                 Debug.LogError($"Unexpected error, message: {Application.version} {e.Message}");
+                onFailed?.Invoke(e.Message);
             }
         }
 
@@ -112,42 +101,37 @@ namespace DataStore.Quiz
         }
     }
 
+    [Serializable]
     public class Question
     {
         [JsonProperty("id")]
-        public readonly string Id;
+        public string Id;
 
         [JsonProperty("assetFile")]
-        public readonly string AssetFile;
+        public string AssetFile;
 
         [JsonProperty("assetType")]
-        public readonly QuestionAssetType QuestionAssetType;
+        public QuestionAssetType QuestionAssetType;
 
+        [JsonIgnore]
         public Answer Answer
         {
             get
             {
-                if(m_Answer == null)
+                return m_Answer ??= new()
                 {
-                    m_Answer = new(
-                        assetAnswerFile: AssetFile,
-                        correctAnswers: Answers
-                    );
-                }
-
-                return m_Answer;
+                    AssetAnswerFile = AssetFile,
+                    CorrectAnswers = Answers
+                };
             }
-            private set
-            {
-                m_Answer = value;
-            }
+            set { m_Answer = value; }
         }
 
         [JsonProperty("answers")]
-        public readonly HashSet<string> Answers;
+        public List<string> Answers;
 
         [JsonProperty("answer")]
-        private Answer m_Answer;
+        public Answer m_Answer;
 
         private const char Splitter = '/';
 
@@ -156,29 +140,15 @@ namespace DataStore.Quiz
         public string GetRootDirectoryAssetFile => m_PathAssetFileSplit.Length < 1 ? "" : m_PathAssetFileSplit[0];
 
         private string[] m_PathAssetFileSplit => AssetFile.Split(Splitter);
-
-        public Question(string id, string assetFile, Answer answer, QuestionAssetType questionAssetType)
-        {
-            Id = id;
-            AssetFile = assetFile;
-            Answer = answer;
-            QuestionAssetType = questionAssetType;
-        }
     }
 
     public class Answer
     {
         [JsonProperty("assetAnswerFile")]
-        public readonly string AssetAnswerFile;
+        public string AssetAnswerFile;
 
         [JsonProperty("correctAnswers")]
-        public readonly HashSet<string> CorrectAnswers;
-
-        public Answer(string assetAnswerFile, HashSet<string> correctAnswers)
-        {
-            AssetAnswerFile = assetAnswerFile;
-            CorrectAnswers = correctAnswers;
-        }
+        public List<string> CorrectAnswers;
 
         private const char Splitter = '/';
 

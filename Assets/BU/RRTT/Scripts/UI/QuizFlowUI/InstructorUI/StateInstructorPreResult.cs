@@ -1,11 +1,11 @@
-using BU.RRTT.QuizExample.Scripts.BossSystem;
+using BU.RRTT.Scripts.BossSystem;
 using Notero.QuizConnector.Instructor;
 using Notero.Unity.UI.Quiz;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace BU.RRTT.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
+namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
 {
     public class StateInstructorPreResult : BaseInstructorPreResult
     {
@@ -108,7 +108,6 @@ namespace BU.RRTT.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
         public override void OnCustomDataReceive(byte[] data)
         {
             currentHeart = data[1];
-            Debug.Log($"Current Heart : {data[1]}");
             bossList = bossReference.GetComponent<BossList>();
             GameObject boss = Instantiate(bossList.bossPrefabs[data[0]].gameObject, bossPosition);
             animator = boss.GetComponent<Animator>();

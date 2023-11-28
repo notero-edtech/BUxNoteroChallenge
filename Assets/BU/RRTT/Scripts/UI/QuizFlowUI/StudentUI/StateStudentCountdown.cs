@@ -2,7 +2,7 @@ using Notero.QuizConnector.Student;
 using TMPro;
 using UnityEngine;
 
-namespace BU.RRTT.QuizExample.Scripts.UI.QuizFlowUI.StudentUI
+namespace BU.RRTT.Scripts.UI.QuizFlowUI.StudentUI
 {
     public class StateStudentCountdown : BaseStudentCountIn
     {

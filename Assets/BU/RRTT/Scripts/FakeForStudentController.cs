@@ -1,5 +1,5 @@
-using BU.QuizExample.QuizExampleMessages;
-using BU.QuizExample.QuizExampleMessages.EventHandler;
+using BU.RRTT.QuizExampleMessages;
+using BU.RRTT.QuizExampleMessages.EventHandler;
 using DataStore;
 using DataStore.Quiz;
 using Mirror;
@@ -8,11 +8,12 @@ using Notero.Unity.Networking.Mirror;
 using Notero.Utilities;
 using System;
 using System.Collections;
+using System.IO;
 using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace BU.RRTT.QuizExample.Scripts
+namespace BU.RRTT.Scripts
 {
     public class FakeForStudentController : MonoSingleton<FakeForStudentController>
     {
@@ -238,6 +239,24 @@ namespace BU.RRTT.QuizExample.Scripts
         public void StarterState()
         {
             QuizConnectorController.Instance.Init(m_QuizStore, "A");
+            QuizConnectorController.Instance.SetChapterIndex(1);
+            QuizConnectorController.Instance.SetRootDirectory("");
+            QuizConnectorController.Instance.SetChapter("Chapter");
+            QuizConnectorController.Instance.SetMission("Mission");
+            QuizConnectorController.Instance.SetGenerateTextureLogic((path, rootDir) =>
+            {
+                path = Path.Combine(rootDir, path);
+
+                var imagePath = path.Split(".")[0].Trim();
+                var texturePath = Path.Combine(imagePath);
+                var resource = Resources.Load<Texture2D>(texturePath);
+
+                resource.filterMode = FilterMode.Bilinear;
+                resource.anisoLevel = 4;
+
+                return resource;
+            });
+
             QuizConnectorController.Instance.OnStudentSubmit.AddListener(SendAnswerToInstructor);
 
             LoadingState();
@@ -267,7 +286,7 @@ namespace BU.RRTT.QuizExample.Scripts
                 SendQuizInfoToStudent(questionAmount, questionAmount);
                 SendQuizResultToStudent(currentScore);
 
-                if(QuizMode == QuizModes.POSTTEST)
+                if(QuizMode == QuizModes.POST_TEST)
                 {
                     var preTestScore = Random.Range(1, m_QuizStore.QuizInfo.QuestionAmount + 1);
 
@@ -323,7 +342,7 @@ namespace BU.RRTT.QuizExample.Scripts
             QuizConnectorController.Instance.DestroyStudentQuestionStateUI();
             QuizConnectorController.Instance.SpawnStudentSubmitedStateUI();
 
-            if(QuizMode == QuizModes.POPQUIZ)
+            if(QuizMode == QuizModes.POP_QUIZ)
             {
                 // Instructor processing answer and send result to student
                 CoroutineHelper.Instance.StartCoroutine(InstructorFakeAction(3, () => { SendQuizStateToStudent((int)QuizStates.PRERESULT); }));

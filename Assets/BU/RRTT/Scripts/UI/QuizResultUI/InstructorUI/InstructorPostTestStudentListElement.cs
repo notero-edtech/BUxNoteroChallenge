@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace BU.RRTT.QuizExample.Scripts.UI.QuizResultUI.InstructorUI
+namespace BU.RRTT.Scripts.UI.QuizResultUI.InstructorUI
 {
     public class InstructorPostTestStudentListElement : BasePostTestStudentListItem<StudentPostTestResultInfo>
     {
