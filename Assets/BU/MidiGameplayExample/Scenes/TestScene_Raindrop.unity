@@ -161,7 +161,7 @@ MonoBehaviour:
   m_BackingTrack: {fileID: 8300000, guid: 2642659fcde340340a6d467c73ce70f4, type: 3}
   m_MidiTimeOffset: 0
   m_GameName: 0
-  m_BackgroundName: 1
+  m_BackgroundName: 0
 --- !u!4 &3122486
 Transform:
   m_ObjectHideFlags: 0
