@@ -1,6 +1,5 @@
 using DataStore.Quiz;
 using Notero.Unity.Networking.Mirror;
-using System.Collections.Generic;
 
 namespace BU.QuizExample.QuizExampleMessages.EventHandler
 {
@@ -40,7 +39,7 @@ namespace BU.QuizExample.QuizExampleMessages.EventHandler
 
         private void OnPreTestResultReceived(PreTestResultMessage message)
         {
-            m_Store.SetPreTestResult(new PreTestResult(message.HasScore, message.Score, message.FullScore));
+            m_Store.SetPreTestResult(new PreTestResult { HasScore = message.HasScore, Score = message.Score, FullScore = message.FullScore });
         }
 
         private void OnQuizInfoReceived(QuizInfoMessage message)
@@ -63,12 +62,13 @@ namespace BU.QuizExample.QuizExampleMessages.EventHandler
 
         private void OnCurrentQuestionReceived(CurrentQuestionMessage message)
         {
-            m_Store.SetCurrentQuestion(new Question(
-                id: message.Id,
-                assetFile: message.AssetFile,
-                answer: new Answer(message.AssetAnswerFile, new HashSet<string>()),
-                questionAssetType: message.QuestionAssetType
-            ));
+            m_Store.SetCurrentQuestion(new Question
+            {
+                Id = message.Id,
+                AssetFile = message.AssetFile,
+                Answer = new Answer { AssetAnswerFile = message.AssetAnswerFile },
+                QuestionAssetType = message.QuestionAssetType
+            });
         }
     }
 }

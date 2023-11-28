@@ -1,0 +1,25 @@
+{
+    "name": "BU.QuizExample",
+    "rootNamespace": "",
+    "references": [
+        "GUID:fb6b28d6dc391194fb62cb16d2721a92",
+        "GUID:31e0357325afaa041b8391bf4650750f",
+        "GUID:7b5c7992206d8c84a9d47150a95d0cd7",
+        "GUID:36092c9a14c651445a813f18e6127db1",
+        "GUID:47ae30c22d1cb644984681c0c280a806",
+        "GUID:6f40da5a870b279428b72cf79a992af5",
+        "GUID:d0ecce1d30515ad40b828c1551b30aea",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:da57db9873ca16a45ac4c6a746ef702b",
+        "GUID:8abff921e5f2fdd4ebaec6c568d9e749"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

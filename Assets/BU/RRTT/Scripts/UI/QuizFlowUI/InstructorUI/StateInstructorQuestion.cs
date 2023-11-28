@@ -1,10 +1,10 @@
-using BU.RRTT.QuizExample.Scripts.BossSystem;
+using BU.RRTT.Scripts.BossSystem;
 using Notero.QuizConnector.Instructor;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace BU.RRTT.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
+namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
 {
     public class StateInstructorQuestion : BaseInstructorQuestion
     {

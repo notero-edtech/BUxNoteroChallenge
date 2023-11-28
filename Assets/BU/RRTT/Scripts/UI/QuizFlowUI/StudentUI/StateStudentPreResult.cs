@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace BU.RRTT.QuizExample.Scripts.UI.QuizFlowUI.StudentUI
+namespace BU.RRTT.Scripts.UI.QuizFlowUI.StudentUI
 {
     public class StateStudentPreResult : BaseStudentPreResult
     {
