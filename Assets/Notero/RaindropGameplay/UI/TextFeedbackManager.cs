@@ -12,7 +12,7 @@ namespace Notero.RaindropGameplay.UI
 
         public void UpdateFeedbackBlankKeyPress(int midiId, double time)
         {
-
+            ShowFeedback(NoteTimingScore.Oops);
         }
 
         public void UpdateFeedbackBlankKeyRelease(int midiId, double time)
@@ -34,7 +34,7 @@ namespace Notero.RaindropGameplay.UI
 
         public virtual void UpdateFeedback(int midiId, NoteTimingScore result, ActionState actionState)
         {
-            if(actionState is ActionState.Release or ActionState.NoteEnd && result != NoteTimingScore.None)
+            if(actionState is not ActionState.NoteStart && result != NoteTimingScore.None)
             {
                 ShowFeedback(result);
             }

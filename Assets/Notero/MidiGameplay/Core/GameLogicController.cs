@@ -170,7 +170,7 @@ namespace Notero.MidiGameplay.Core
             m_MaximumKeyId = m_MinimumKeyId + (m_OctaveInputAmount * 12) - 1;
         }
 
-        public void StartGameplay(bool withBGMusic)
+        public void StartGameplay(bool withBGMusic, float speedMultiplier = 1)
         {
             m_IsEnd = false;
 
