@@ -82,5 +82,10 @@ namespace BU.Chainpunch.MidiGameplay.UI
         public override void SetTimeSignature(float numerator, float denominator)
         {
         }
+
+        public override void SetCanvasScale(float scale)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

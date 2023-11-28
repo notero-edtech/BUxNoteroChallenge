@@ -91,9 +91,9 @@ namespace BU.NineTails.MidiGameplay.Gameplay
             GameLogicController.SetTimeProvider(timeProvider);
         }
 
-        public void StartGameplay(bool withMusic)
+        public void StartGameplay(bool withMusic, float speedMultiplier = 1)
         {
-            GameLogicController.StartGameplay(withMusic);
+            GameLogicController.StartGameplay(withMusic, speedMultiplier);
         }
 
         public void UpdateGUI()
