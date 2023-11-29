@@ -70,6 +70,13 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
 
         #region Custom functions
 
+        public override void SetStudentAmount(int amount)
+        {
+            base.SetStudentAmount(amount);
+
+            SetStudentAmountText(StudentAnswer, amount);
+        }
+
         private void OnNextStateReceive()
         {
             OnNextState?.Invoke();
