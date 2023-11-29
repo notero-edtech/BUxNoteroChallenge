@@ -7,9 +7,9 @@ public class MissScreen : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private GameObject failPanel;
-    [SerializeField] private GameObject bgPerfect;
-    [SerializeField] private GameObject bgOops;
-    [SerializeField] private GameObject bgNormal;
+    [SerializeField] private GameObject m_BGPerfect;
+    [SerializeField] private GameObject m_BGOops;
+    [SerializeField] private GameObject m_BGNormal;
 
     private BarSlider slider;
 
@@ -24,13 +24,13 @@ public class MissScreen : MonoBehaviour
 
         if (GameObject.Find("vfx_oops_old") != null)
             {
-            bgPerfect.SetActive(false);
-            bgNormal.SetActive(false);
+            m_BGPerfect.SetActive(false);
+            m_BGNormal.SetActive(false);
             failPanel.SetActive(true);
 
                 if(slider.succeed == true)
                 {
-                    bgOops.SetActive(true);
+                    m_BGOops.SetActive(true);
                     
                 
                 
@@ -38,11 +38,11 @@ public class MissScreen : MonoBehaviour
 
                if (GameObject.Find("vfx_perfect_old") != null)
                     {
-                        bgOops.SetActive(false);
+                    m_BGOops.SetActive(false);
                     if (slider.succeed == true)
                    {
 
-                    bgPerfect.SetActive(true);  
+                    m_BGPerfect.SetActive(true);  
                    }
                }
 
@@ -57,24 +57,24 @@ public class MissScreen : MonoBehaviour
 
         if (GameObject.Find("vfx_perfect_old") != null)
         {
-            bgOops.SetActive(false);
-            bgNormal.SetActive(false);
+            m_BGOops.SetActive(false);
+            m_BGNormal.SetActive(false);
             if (slider.succeed == true)
             {
 
-                bgPerfect.SetActive(true);
+                m_BGPerfect.SetActive(true);
             }
         }
 
 
         if (GameObject.Find("vfx_perfect_old") != null && GameObject.Find("vfx_oops_old") != null)
         {
-                bgPerfect.SetActive(false);
-                bgOops.SetActive(false);
+                m_BGPerfect.SetActive(false);
+                m_BGOops.SetActive(false);
             if (slider.succeed == true)
             {
 
-                bgNormal.SetActive(true);
+                m_BGNormal.SetActive(true);
             }
         }
 

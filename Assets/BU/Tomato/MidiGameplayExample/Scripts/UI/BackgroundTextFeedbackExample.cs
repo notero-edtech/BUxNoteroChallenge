@@ -123,5 +123,10 @@ namespace BU.TOMATO.MidiGameplay.UI
             bgAspectRatioFitter.aspectRatio = aspectRatio;
             m_BackgroundImage.texture = texture;
         }
+
+        public override void SetCanvasScale(float scale)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
