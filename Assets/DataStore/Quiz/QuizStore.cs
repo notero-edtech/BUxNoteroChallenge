@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
 using UnityEngine;
 
 namespace DataStore.Quiz
@@ -10,34 +10,48 @@ namespace DataStore.Quiz
     public class QuizStore
     {
         public event Action<byte[]> OnCustomDataChange;
+
         public event Action<QuizInfo> OnQuizInfoChange;
+
         public event Action<int, bool> OnQuizStateChange;
+
         public event Action<Question> OnQuestionChange;
+
         public event Action<string> OnAnswerChange;
-        public event Action OnStudentAnswerChange;
+
+        public event Action<string, string> OnStudentAnswerChange;
+
         public event Action<int> OnCorrectAnswerAmountChange;
+
+        public event Action<int> OnStudentAmountChange;
+
         public event Action<PreTestResult> OnPreTestResultChange;
 
         [JsonProperty]
-        public byte[] CustomData { get; private set; }
+        public byte[] CustomData;
 
         [JsonProperty]
-        public Question CurrentQuestion { get; private set; }
+        public Question CurrentQuestion;
 
         [JsonProperty]
-        public QuizInfo QuizInfo { get; private set; }
+        public QuizInfo QuizInfo;
 
         [JsonProperty]
-        public string CorrectAnswer { get; private set; }
+        public string CorrectAnswer;
 
         [JsonProperty]
-        public int CurrentQuizState { get; private set; }
+        public int CurrentQuizState;
 
         [JsonIgnore]
-        public int CorrectAnswerAmount { get; private set; }
+        public int CorrectAnswerAmount;
 
         [JsonIgnore]
-        public PreTestResult PreTestResult { get; private set; }
+        public bool IsHasPreTestResult => m_PreTestResult is { initialOrigin: "Host" };
+
+        [JsonIgnore]
+        public PreTestResult PreTestResult => m_PreTestResult;
+
+        private PreTestResult m_PreTestResult = new();
 
         [JsonIgnore]
         public Dictionary<string, Question> QuizList => m_QuizList;
@@ -59,7 +73,7 @@ namespace DataStore.Quiz
         {
             get
             {
-                if(CurrentQuestion.Id == null || m_StudentAnswers == null || !m_StudentAnswers.TryGetValue(CurrentQuestion.Id, out var studentAnswers)) return 0;
+                if(CurrentQuestion == null || CurrentQuestion.Id == null || m_StudentAnswers == null || !m_StudentAnswers.TryGetValue(CurrentQuestion.Id, out var studentAnswers)) return 0;
 
                 return studentAnswers.Count;
             }
@@ -70,7 +84,7 @@ namespace DataStore.Quiz
         {
             get
             {
-                if(CurrentQuestion.Id == null || m_StudentAnswers == null || !m_StudentAnswers.TryGetValue(CurrentQuestion.Id, out var studentAnswers)) return 0;
+                if(CurrentQuestion == null || CurrentQuestion.Id == null || m_StudentAnswers == null || !m_StudentAnswers.TryGetValue(CurrentQuestion.Id, out var studentAnswers)) return 0;
 
                 return studentAnswers.Count(student => !string.IsNullOrEmpty(student.Answer));
             }
@@ -82,6 +96,8 @@ namespace DataStore.Quiz
             get
             {
                 var answerSummary = new Dictionary<string, int>();
+
+                if(m_StudentAnswers == null || CurrentQuestion == null) return answerSummary;
 
                 if(!m_StudentAnswers.TryGetValue(CurrentQuestion.Id, out var studentAnswers)) return answerSummary;
 
@@ -108,14 +124,13 @@ namespace DataStore.Quiz
 
             foreach(var quiz in quizList)
             {
-                if(m_QuizList.ContainsKey(quiz.Id))
+                m_QuizList[quiz.Id] = new Question
                 {
-                    m_QuizList[quiz.Id] = new Question(quiz.Id, quiz.AssetFile, quiz.Answer, quiz.QuestionAssetType);
-                }
-                else
-                {
-                    m_QuizList.Add(quiz.Id, new Question(quiz.Id, quiz.AssetFile, quiz.Answer, quiz.QuestionAssetType));
-                }
+                    Id = quiz.Id,
+                    AssetFile = quiz.AssetFile,
+                    Answer = quiz.Answer,
+                    QuestionAssetType = quiz.QuestionAssetType
+                };
             }
         }
 
@@ -169,6 +184,8 @@ namespace DataStore.Quiz
                     new StudentAnswer { StationId = stationId, Answer = "" }
                 });
             }
+
+            OnStudentAmountChange?.Invoke(StudentAmount);
         }
 
         public void SetStudentAnswer(string stationId, string answer)
@@ -198,7 +215,7 @@ namespace DataStore.Quiz
                 );
             }
 
-            OnStudentAnswerChange?.Invoke();
+            OnStudentAnswerChange?.Invoke(stationId, answer);
         }
 
         public void SetStudentPreTestResult(Dictionary<string, int> studentPreTestResult)
@@ -209,6 +226,7 @@ namespace DataStore.Quiz
         public void SetCurrentQuizSequenceState(int quizState, bool isFollowing)
         {
             CurrentQuizState = quizState;
+
             OnQuizStateChange?.Invoke(quizState, isFollowing);
         }
 
@@ -221,7 +239,7 @@ namespace DataStore.Quiz
 
         public void SetPreTestResult(PreTestResult preTestResult)
         {
-            PreTestResult = preTestResult;
+            m_PreTestResult = preTestResult;
 
             OnPreTestResultChange?.Invoke(preTestResult);
         }
@@ -262,12 +280,7 @@ namespace DataStore.Quiz
 
         public int FullScore;
 
-        public PreTestResult(bool hasScore, int score, int fullScore)
-        {
-            HasScore = hasScore;
-            Score = score;
-            FullScore = fullScore;
-        }
+        public string initialOrigin = "Client";
     }
 
     public enum QuestionAssetType

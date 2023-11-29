@@ -1,10 +1,10 @@
-using BU.RRTT.QuizExample.Scripts.BossSystem;
+using BU.RRTT.Scripts.BossSystem;
 using Notero.QuizConnector.Instructor;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace BU.RRTT.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
+namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
 {
     public class StateInstructorQuestion : BaseInstructorQuestion
     {
@@ -69,6 +69,13 @@ namespace BU.RRTT.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
         }
 
         #region Custom functions
+
+        public override void SetStudentAmount(int amount)
+        {
+            base.SetStudentAmount(amount);
+
+            SetStudentAmountText(StudentAnswer, amount);
+        }
 
         private void OnNextStateReceive()
         {

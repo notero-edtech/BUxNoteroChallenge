@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Button = Notero.Unity.UI.Button;
 
-namespace BU.RRTT.QuizExample.Scripts.UI.QuizResultUI.InstructorUI
+namespace BU.RRTT.Scripts.UI.QuizResultUI.InstructorUI
 {
     public class InstructorPostTestAnswerRevealPanel : BaseInstructorPostTestAnswerRevealResult
     {
