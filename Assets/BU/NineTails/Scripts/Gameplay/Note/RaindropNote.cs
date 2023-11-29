@@ -39,10 +39,9 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
         protected float m_Speed;
         protected float m_Length => (float)MidiNoteInfo.GetNoteDurationInMilliseconds() / 1000f * m_Speed;
 
-        private bool hasSpawned = false;
-
-        private void Start()
+        private void Awake()
         {
+            AlphabetSymbolSpawner();
         }
 
         public void Remove()
@@ -128,23 +127,15 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
             GameObject leftObject = Instantiate(m_NoteAlphabet, m_leftArchorPosition, Quaternion.identity);
             GameObject rightObject = Instantiate(m_NoteSymbol, m_rightArchorPosition, Quaternion.identity);
 
+            Destroy(m_NoteAlphabet);
+            Destroy(m_NoteSymbol);
+
             leftObject.transform.localScale = new Vector3(1f, 1f, 1f);
             rightObject.transform.localScale = new Vector3(1f, 1f, 1f);
 
             leftObject.transform.SetParent(transform);
             rightObject.transform.SetParent(transform);
 
-        }
-
-        void Update()
-        {
-            if (!hasSpawned)
-            {
-                AlphabetSymbolSpawner();
-                hasSpawned = true;
-                m_NoteAlphabet.SetActive(false);
-                m_NoteSymbol.SetActive(false);
-            }
         }
     }
 }

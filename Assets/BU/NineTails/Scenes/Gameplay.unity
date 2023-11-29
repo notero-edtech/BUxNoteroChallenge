@@ -208,7 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MidiGameInfo:
   - Name: Notero
-    GamePrefab: {fileID: 3105845238269097863, guid: 1ec033e72f915764ea3263b862a92ef4, type: 3}
+    GamePrefab: {fileID: 3105845238269097863, guid: ea66c2ec9c6f91b49b6ffb75cc054ccb, type: 3}
   m_BackgroundInfo:
   - Name: Notero
     GamePrefab: {fileID: 1291097113000287891, guid: 9e30f7b3ba3d3f44788a3e1439bc7eec, type: 3}
