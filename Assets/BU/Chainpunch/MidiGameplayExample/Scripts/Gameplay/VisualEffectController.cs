@@ -3,6 +3,7 @@ using NAudio.SoundFont;
 using Notero.RaindropGameplay.Core;
 using Notero.RaindropGameplay.Core.Scoring;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace BU.Chainpunch.MidiGameplay.Gameplay
 {
@@ -18,8 +19,10 @@ namespace BU.Chainpunch.MidiGameplay.Gameplay
         public BaseScoringProcessor m_ScoringController;
         
         public MascotData[] MascotList;
-        [SerializeField] private GameObject Particle;
-        [SerializeField] private Transform TestPoint;
+        
+        [SerializeField] private GameObject m_Particle;
+        [SerializeField] private GameObject m_EmojiMascot;
+        [SerializeField] private Transform m_FeedbackPoint;
         
         public void Setup()
         {
@@ -35,32 +38,38 @@ namespace BU.Chainpunch.MidiGameplay.Gameplay
             {
                 case >= 15f and < 30f when !MascotList[1].isSpawned :
                     Instantiate(MascotList[1].MascotPrefab, MascotList[1].SpawnPoint.position, MascotList[1].SpawnPoint.rotation);
-                    Instantiate(Particle, TestPoint.position, TestPoint.rotation);
+                    Instantiate(m_Particle, m_FeedbackPoint.position, m_FeedbackPoint.rotation);
+                    Instantiate(m_EmojiMascot, m_FeedbackPoint.position, m_FeedbackPoint.rotation);
                     MascotList[1].isSpawned = true;
                     break;
                 case >= 30f and < 45f when !MascotList[2].isSpawned:
                     Instantiate(MascotList[2].MascotPrefab, MascotList[2].SpawnPoint.position, MascotList[2].SpawnPoint.rotation);
-                    Instantiate(Particle, TestPoint.position, TestPoint.rotation);
+                    Instantiate(m_Particle, m_FeedbackPoint.position, m_FeedbackPoint.rotation);
+                    Instantiate(m_EmojiMascot, m_FeedbackPoint.position, m_FeedbackPoint.rotation);
                     MascotList[2].isSpawned = true;
                     break;
                 case >= 45f and < 60f when !MascotList[3].isSpawned:
                     Instantiate(MascotList[3].MascotPrefab, MascotList[3].SpawnPoint.position, MascotList[3].SpawnPoint.rotation);
-                    Instantiate(Particle, TestPoint.position, TestPoint.rotation);
+                    Instantiate(m_Particle, m_FeedbackPoint.position, m_FeedbackPoint.rotation);
+                    Instantiate(m_EmojiMascot, m_FeedbackPoint.position, m_FeedbackPoint.rotation);
                     MascotList[3].isSpawned = true;
                     break;
                 case >= 60f and < 75f when !MascotList[4].isSpawned:
                     Instantiate(MascotList[4].MascotPrefab, MascotList[4].SpawnPoint.position, MascotList[4].SpawnPoint.rotation);
-                    Instantiate(Particle, TestPoint.position, TestPoint.rotation);
+                    Instantiate(m_Particle, m_FeedbackPoint.position, m_FeedbackPoint.rotation);
+                    Instantiate(m_EmojiMascot, m_FeedbackPoint.position, m_FeedbackPoint.rotation);
                     MascotList[4].isSpawned = true;
                     break;
                 case >= 75f and < 95f when !MascotList[5].isSpawned:
                     Instantiate(MascotList[5].MascotPrefab, MascotList[5].SpawnPoint.position, MascotList[5].SpawnPoint.rotation);
-                    Instantiate(Particle, TestPoint.position, TestPoint.rotation);
+                    Instantiate(m_Particle, m_FeedbackPoint.position, m_FeedbackPoint.rotation);
+                    Instantiate(m_EmojiMascot, m_FeedbackPoint.position, m_FeedbackPoint.rotation);
                     MascotList[5].isSpawned = true;
                     break;
                 case >= 95f and < 100f when !MascotList[6].isSpawned:
                     Instantiate(MascotList[6].MascotPrefab, MascotList[6].SpawnPoint.position, MascotList[6].SpawnPoint.rotation);
-                    Instantiate(Particle, TestPoint.position, TestPoint.rotation);
+                    Instantiate(m_Particle, m_FeedbackPoint.position, m_FeedbackPoint.rotation);
+                    Instantiate(m_EmojiMascot, m_FeedbackPoint.position, m_FeedbackPoint.rotation);
                     MascotList[6].isSpawned = true;
                     break;
             }

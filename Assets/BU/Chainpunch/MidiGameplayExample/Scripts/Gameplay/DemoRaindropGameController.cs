@@ -426,9 +426,7 @@ namespace BU.Chainpunch.MidiGameplay.Gameplay
                    currentTime >= m_RaindropNoteController.RaindropBarlineList[m_CurrentBarlineIndex].EndScreenTimeInSecond;
         }
 
-        public void SetBackgroundImage(Texture texture)
-        {
-        }
+        public void SetBackgroundImage(Texture texture) => m_CurrentBackgroundTexture = texture;
 
         public void SetMetronome(bool active)
         {
