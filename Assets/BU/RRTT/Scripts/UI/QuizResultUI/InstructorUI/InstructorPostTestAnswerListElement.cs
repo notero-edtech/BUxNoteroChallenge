@@ -3,7 +3,7 @@ using Notero.Unity.UI;
 using TMPro;
 using UnityEngine;
 
-namespace BU.RRTT.QuizExample.Scripts.UI.QuizResultUI.InstructorUI
+namespace BU.RRTT.Scripts.UI.QuizResultUI.InstructorUI
 {
     public class InstructorPostTestAnswerListElement : BaseAnswerListItem<Notero.QuizConnector.Model.PostTestAnswer>
     {

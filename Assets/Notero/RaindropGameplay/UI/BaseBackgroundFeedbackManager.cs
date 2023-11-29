@@ -7,6 +7,8 @@ namespace Notero.RaindropGameplay.UI
     public abstract class BaseBackgroundFeedbackManager : MonoBehaviour
     {
         #region Background
+        public abstract void SetCanvasScale(float scale);
+
         public abstract void SetBackgroundImage(Texture texture);
         #endregion
 

@@ -2,7 +2,7 @@ using DataStore.Quiz;
 using Mirror;
 using Notero.Unity.Networking.Mirror;
 
-namespace BU.RRTT.QuizExample.QuizExampleMessages.EventHandler
+namespace BU.RRTT.QuizExampleMessages.EventHandler
 {
     public class InstructorQuizEventHandler : IEventHandler
     {

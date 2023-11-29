@@ -89,11 +89,17 @@ MonoBehaviour:
   m_InstructorQuestionPrefab: {fileID: 5925109979560903397, guid: 6b02ab564470e8d42bb54816d5955254, type: 3}
   m_InstructorPreResultPrefab: {fileID: 5925109979560903397, guid: bd99cd2124d290d4aa2d2c8e0efe36e9, type: 3}
   m_InstructorEndPrefab: {fileID: 7328074058701256189, guid: c410d037698f7ae46bfd941c702e1627, type: 3}
+  m_InstructorPopQuizResultPrefab: {fileID: 5208754021895172665, guid: c5015416aaacaf34b85c843af921aaba, type: 3}
+  m_InstructorPostTestStudentListResultPrefab: {fileID: 1820202184046231698, guid: 18baa44be2c6ef94bb4745b4edc7350c, type: 3}
+  m_InstructorPostTestAnswerListResultPrefab: {fileID: 2995210832564463992, guid: 083c5e04b720ad74fa01a7539cd1530f, type: 3}
+  m_InstructorPostTestAnswerRevealResultPrefab: {fileID: 4648779460699736671, guid: 09f8fce05fb90374abe894a753db22c9, type: 3}
   m_StudentCountInPrefab: {fileID: 7112119435453530060, guid: 5276a8322b94db642af89012167bfceb, type: 3}
   m_StudentQuestionPrefab: {fileID: 7112119435453530060, guid: fb465ea8a0d38044bbb8be63ca1454b4, type: 3}
   m_StudentWaitingPrefab: {fileID: 7112119435453530060, guid: 14715d71beb65fa44be0d420ed386d27, type: 3}
   m_StudentPreResultPrefab: {fileID: 7112119435453530060, guid: cb8b61784e22d21499f85d743cfe0e22, type: 3}
   m_StudentEndPrefab: {fileID: 7328074058701256189, guid: d71daecfc0b9aa845a8fb3823aaf9e72, type: 3}
+  m_StudentPopQuizResultPrefab: {fileID: 5208754021895172665, guid: b7785b8ecb00e86449d0839248a16770, type: 3}
+  m_StudentPostTestResultPrefab: {fileID: 9149186565199449388, guid: 0510f49b5b7da9b4f8b4eecbc9d226dc, type: 3}
   m_PianoKeyInput: {fileID: 138436486931853645}
 --- !u!1001 &4248739471350533252
 PrefabInstance:
