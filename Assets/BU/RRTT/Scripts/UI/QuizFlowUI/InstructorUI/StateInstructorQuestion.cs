@@ -58,6 +58,7 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
             SetQuizInfoText(CurrentPage, TotalPage);
             SetQuestionImage(QuestionImage);
             SetStudentAmountText(0, StudentAmount);
+            heartFiller.fillAmount = currentHeart / TotalPage;
 
             if(m_NextButtonUI != null) m_NextButtonUI.OnNextClick.AddListener(OnNextStateReceive);
         }

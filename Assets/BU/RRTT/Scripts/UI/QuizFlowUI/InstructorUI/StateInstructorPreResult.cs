@@ -118,6 +118,7 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
             {
                 animator.SetBool("Positive", true);
             }
+
             if (currentHeart <= heart)
             {
                 animator.SetBool("Negative", true);

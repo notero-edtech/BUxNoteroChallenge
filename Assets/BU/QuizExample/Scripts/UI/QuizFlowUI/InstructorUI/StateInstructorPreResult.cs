@@ -75,12 +75,7 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
             SetQuestionImage(QuestionImage);
             SetPreResultUI();
 
-            m_NextButtonUI.OnNextClick.AddListener(OnNextStateReceive);
-        }
-
-        public override void OnCustomDataReceive(byte[] data)
-        {
-            Debug.Log($"NPA-data:{data}");
+            if(m_NextButtonUI != null) m_NextButtonUI.OnNextClick.AddListener(OnNextStateReceive);
         }
 
         #region Custom function
