@@ -149,17 +149,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 3122484}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c394dd3d9b3a23439c609e0964aaf04, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b8fdf955a6fb6d44b1f41153b780b43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_GameControllerPrefab: {fileID: 3105845238269097863, guid: ea66c2ec9c6f91b49b6ffb75cc054ccb, type: 3}
+  m_GameConnector: {fileID: 95072841}
+  m_GameControllerPrefab: {fileID: 3105845238269097863, guid: 1ec033e72f915764ea3263b862a92ef4, type: 3}
   m_StartGameplayStateButton: {fileID: 1729399543}
   m_StartGameplayPanel: {fileID: 1726403778}
   m_ActionDelaySec: 0
   m_MidiFile: {fileID: 4900000, guid: 83f6371caac809d4d8fb01d12d95ba86, type: 3}
   m_BackingTrack: {fileID: 8300000, guid: 2642659fcde340340a6d467c73ce70f4, type: 3}
   m_MidiTimeOffset: 0
-  m_GameMode: 0
+  m_GameName: 0
+  m_BackgroundName: 1
 --- !u!4 &3122486
 Transform:
   m_ObjectHideFlags: 0
@@ -174,6 +176,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &95072840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 95072842}
+  - component: {fileID: 95072841}
+  m_Layer: 0
+  m_Name: GameplayConnector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &95072841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95072840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eec9a3a53e41b7e4fad3ea54bb361e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MidiGameInfo:
+  - Name: Notero
+    GamePrefab: {fileID: 3105845238269097863, guid: dadbf7df28f9c574d8617c006eb683f3, type: 3}
+  m_BackgroundInfo:
+  - Name: Notero
+    GamePrefab: {fileID: 1291097113000287891, guid: f05da1c3e55d6c141930c65d6c030860, type: 3}
+  - Name: Test
+    GamePrefab: {fileID: 4790748946109744026, guid: 6b8d9c3f834070746924d055e7778f43, type: 3}
+--- !u!4 &95072842
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95072840}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -33.799274, y: -18.726883, z: -2.3957438}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1726403778 stripped
 RectTransform:
@@ -320,6 +374,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4266365193611221104, guid: 3616819b7b0030742885a463f1a28388, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4266365193611221104, guid: 3616819b7b0030742885a463f1a28388, type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4266365193611221104, guid: 3616819b7b0030742885a463f1a28388, type: 3}

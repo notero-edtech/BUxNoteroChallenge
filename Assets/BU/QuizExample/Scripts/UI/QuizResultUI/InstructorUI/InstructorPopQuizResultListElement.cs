@@ -25,11 +25,6 @@ namespace BU.QuizExample.Scripts.UI.QuizResultUI.InstructorUI
             SetCorrentAnswerAmount(info.CurrentScore, info.FullScore);
         }
 
-        public override void OnCustomDataReceive(byte[] data)
-        {
-            Debug.Log($"NPA-data:{data}");
-        }
-
         #region Custom methods
 
         private void SetSeatNumber(string stationId)

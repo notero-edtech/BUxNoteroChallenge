@@ -16,11 +16,6 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.StudentUI
             SetEndText(endText);
         }
 
-        public override void OnCustomDataReceive(byte[] data)
-        {
-            Debug.Log($"NPA-data:{data}");
-        }
-
         #region Custom function
 
         private void SetEndText(string endText)

@@ -37,11 +37,6 @@ namespace BU.QuizExample.Scripts.UI.QuizResultUI.InstructorUI
 
         private const string AnswerSummaryFormat = "<color={0}>{1}</color> / {2}";
 
-        public override void OnCustomDataReceive(byte[] data)
-        {
-            Debug.Log($"NPA-data:{data}");
-        }
-
         public override void SetElementInfo(StudentPostTestResultInfo info)
         {
             base.SetElementInfo(info);

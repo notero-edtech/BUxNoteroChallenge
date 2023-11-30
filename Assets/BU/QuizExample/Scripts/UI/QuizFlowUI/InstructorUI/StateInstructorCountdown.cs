@@ -32,11 +32,6 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
             SetQuizInfoText(CurrentPage, TotalPage);
         }
 
-        public override void OnCustomDataReceive(byte[] data)
-        {
-            Debug.Log($"NPA-data:{data}");
-        }
-
         /// <summary>
         /// Trigger this method each second
         /// </summary>
