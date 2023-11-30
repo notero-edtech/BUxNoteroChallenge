@@ -1,9 +1,7 @@
 using System;
-using NAudio.SoundFont;
 using Notero.RaindropGameplay.Core;
 using Notero.RaindropGameplay.Core.Scoring;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace BU.Chainpunch.MidiGameplay.Gameplay
 {
