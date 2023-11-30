@@ -84,13 +84,8 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
         private Image heartFiller;
 
         private float currentHeart;
-<<<<<<< HEAD
-        
-        private float heart;
-=======
 
         private float heart = 0;
->>>>>>> d87b581e0df966eb738bb75ae538f11639fb6be5
 
         private Animator animator;
 
@@ -123,19 +118,18 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
             {
                 animator.SetBool("Positive", true);
             }
-<<<<<<< HEAD
+
             if (currentHeart <= heart)
             {
                 animator.SetBool("Negative", true);
             }
-=======
+
             else if(currentHeart <= heart)
             {
                 animator.SetBool("Negative", true);
             }
 
             heart = currentHeart;
->>>>>>> d87b581e0df966eb738bb75ae538f11639fb6be5
         }
 
         #region Custom function

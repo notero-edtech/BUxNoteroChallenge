@@ -42,19 +42,15 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
 
         private BossList bossList;
 
-<<<<<<< HEAD
-        private Vector3 scale = new Vector3( 4,4,4);
-        
         private Animator animator;
         
         [SerializeField]
         private Image heartFiller;
         
         private float currentHeart;
-=======
+        
         private Vector3 scale = new Vector3(4, 4, 4);
-
->>>>>>> d87b581e0df966eb738bb75ae538f11639fb6be5
+        
         private void Start()
         {
             SetChapterText(Chapter);
