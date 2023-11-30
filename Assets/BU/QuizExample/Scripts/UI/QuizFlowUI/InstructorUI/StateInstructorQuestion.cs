@@ -40,24 +40,12 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
             if(m_NextButtonUI != null) m_NextButtonUI.OnNextClick.AddListener(OnNextStateReceive);
         }
 
-        public override void OnCustomDataReceive(byte[] data)
-        {
-            Debug.Log($"NPA-data:{data}");
-        }
-
         public override void OnStudentAnswerReceive(int studentAnswer, int studentAmount)
         {
             SetStudentAmountText(studentAnswer, studentAmount);
         }
 
         #region Custom functions
-
-        public override void SetStudentAmount(int amount)
-        {
-            base.SetStudentAmount(amount);
-
-            SetStudentAmountText(StudentAnswer, amount);
-        }
 
         private void OnNextStateReceive()
         {

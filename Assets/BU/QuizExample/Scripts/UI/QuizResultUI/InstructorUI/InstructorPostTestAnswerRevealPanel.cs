@@ -66,11 +66,6 @@ namespace BU.QuizExample.Scripts.UI.QuizResultUI.InstructorUI
             m_PreviousAnswerButton.onClick.RemoveListener(OnPreviousQuestionClick);
         }
 
-        public override void OnCustomDataReceive(byte[] data)
-        {
-            Debug.Log($"NPA-data:{data}");
-        }
-
         public override void SetQuestionTexture(Texture texture)
         {
             base.SetQuestionTexture(texture);

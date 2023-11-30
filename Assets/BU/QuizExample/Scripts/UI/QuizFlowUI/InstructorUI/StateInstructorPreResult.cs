@@ -78,11 +78,6 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
             if(m_NextButtonUI != null) m_NextButtonUI.OnNextClick.AddListener(OnNextStateReceive);
         }
 
-        public override void OnCustomDataReceive(byte[] data)
-        {
-            Debug.Log($"NPA-data:{data}");
-        }
-
         #region Custom function
 
         private void OnNextStateReceive()
