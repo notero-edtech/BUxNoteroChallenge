@@ -43,6 +43,13 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
         private BossList bossList;
 
         private Vector3 scale = new Vector3( 4,4,4);
+        
+        private Animator animator;
+        
+        [SerializeField]
+        private Image heartFiller;
+        
+        private float currentHeart;
         private void Start()
         {
             SetChapterText(Chapter);
@@ -57,7 +64,15 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
         public override void OnCustomDataReceive(byte[] data)
         {
             bossList = bossReference.GetComponent<BossList>();
+            currentHeart = data[1];
+            heartFiller.fillAmount = currentHeart / TotalPage;
             GameObject boss = Instantiate(bossList.bossPrefabs[data[0]].gameObject, bossPosition);
+            animator = boss.GetComponent<Animator>();
+            animator.SetBool("Positive", false);
+            animator.SetBool("Negative", false);
+            animator.SetBool("Question", true);
+            animator.SetBool("ResultNeg", false);
+            animator.SetBool("ResultPos", false);
             boss.transform.localScale = scale;
             boss.transform.SetParent(contentFrame);
             boss.transform.SetParent(bossPosition);
