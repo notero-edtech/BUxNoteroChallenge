@@ -4458,6 +4458,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4227472373590860123}
+  - component: {fileID: 1458266742542108146}
   - component: {fileID: 665981430917676986}
   m_Layer: 5
   m_Name: StateInstructorPreResult
@@ -4489,6 +4490,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1088, y: 544}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!223 &1458266742542108146
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5925109979560903397}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_SortingLayerID: 0
+  m_SortingOrder: 5
+  m_TargetDisplay: 0
 --- !u!114 &665981430917676986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6778,6 +6800,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4226773547985582054, guid: 877da3134fc50124e82cf9dca900dae0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6430211453460026586, guid: 877da3134fc50124e82cf9dca900dae0, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7455771587002925363, guid: 877da3134fc50124e82cf9dca900dae0, type: 3}

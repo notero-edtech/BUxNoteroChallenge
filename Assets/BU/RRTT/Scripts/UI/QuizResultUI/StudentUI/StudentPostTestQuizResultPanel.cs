@@ -62,16 +62,12 @@ namespace BU.RRTT.Scripts.UI.QuizResultUI.StudentUI
             SetQuestionAmountText(QuestionAmount);
             SetPostTestQuizScoreText(CurrentScore, QuestionAmount);
             SetPreTestQuizScoreText(PreTestScore, QuestionAmount);
-            Debug.Log($"Questions : {QuestionAmount}");
-            Debug.Log($"Heart : {heart}");
             if (heart < (0.5 * QuestionAmount))
             {
-                Debug.Log("Negative!!!");
                 animator.SetBool("ResultNeg", true);
             }
             if (heart >= (0.5 * QuestionAmount))
             {
-                Debug.Log("Positive!!!");
                 animator.SetBool("ResultPos", true);
             }
         }

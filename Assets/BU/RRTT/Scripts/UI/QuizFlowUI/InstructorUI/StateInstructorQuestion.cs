@@ -29,27 +29,28 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
         private const string ChapterIndexFormat = "Chapter: <color=white><font=\"EN_Stylize_Neutral_A\">{0}</font></color>";
         private const string MissionFormat = "Mission: <color=white><font=\"EN_Stylize_Neutral_B\">{0}</font></color>";
         private const string QuizInfoFormat = "<color=#14C287>{0}</color> / {1}";
-        
+
         // RRTT Variables
         [SerializeField]
         private Transform bossPosition;
 
         [SerializeField]
         private Transform contentFrame;
-        
+
         [SerializeField]
         private GameObject bossReference;
 
         private BossList bossList;
 
-        private Vector3 scale = new Vector3( 4,4,4);
-        
         private Animator animator;
         
         [SerializeField]
         private Image heartFiller;
         
         private float currentHeart;
+        
+        private Vector3 scale = new Vector3(4, 4, 4);
+        
         private void Start()
         {
             SetChapterText(Chapter);
@@ -58,7 +59,7 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
             SetQuestionImage(QuestionImage);
             SetStudentAmountText(0, StudentAmount);
 
-            m_NextButtonUI.OnNextClick.AddListener(OnNextStateReceive);
+            if(m_NextButtonUI != null) m_NextButtonUI.OnNextClick.AddListener(OnNextStateReceive);
         }
 
         public override void OnCustomDataReceive(byte[] data)
@@ -84,6 +85,13 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
         }
 
         #region Custom functions
+
+        public override void SetStudentAmount(int amount)
+        {
+            base.SetStudentAmount(amount);
+
+            SetStudentAmountText(StudentAnswer, amount);
+        }
 
         private void OnNextStateReceive()
         {
