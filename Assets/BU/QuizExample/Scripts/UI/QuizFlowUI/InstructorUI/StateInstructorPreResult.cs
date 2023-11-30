@@ -75,7 +75,7 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
             SetQuestionImage(QuestionImage);
             SetPreResultUI();
 
-            m_NextButtonUI.OnNextClick.AddListener(OnNextStateReceive);
+            if(m_NextButtonUI != null) m_NextButtonUI.OnNextClick.AddListener(OnNextStateReceive);
         }
 
         public override void OnCustomDataReceive(byte[] data)
