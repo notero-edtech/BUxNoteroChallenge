@@ -67,14 +67,14 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
         private const string MissionFormat = "Mission: <color=white><font=\"EN_Stylize_Neutral_B\">{0}</font></color>";
         private const string QuizInfoFormat = "<color=#14C287>{0}</color> / {1}";
         private const string StudentAnswerAmountFormat = "<color=#14C287>{0}</color> / {1}";
-        
+
         // RRTT Variables
         [SerializeField]
         private Transform bossPosition;
 
         [SerializeField]
         private Transform contentFrame;
-        
+
         [SerializeField]
         private GameObject bossReference;
 
@@ -84,11 +84,16 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
         private Image heartFiller;
 
         private float currentHeart;
+<<<<<<< HEAD
         
         private float heart;
+=======
+
+        private float heart = 0;
+>>>>>>> d87b581e0df966eb738bb75ae538f11639fb6be5
 
         private Animator animator;
-        
+
         private void Start()
         {
             SetChapterText(Chapter);
@@ -97,12 +102,12 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
             SetQuestionImage(QuestionImage);
             SetPreResultUI();
 
-            m_NextButtonUI.OnNextClick.AddListener(OnNextStateReceive);
+            if(m_NextButtonUI != null) m_NextButtonUI.OnNextClick.AddListener(OnNextStateReceive);
         }
 
         private void Update()
         {
-            heartFiller.fillAmount = Mathf.MoveTowards(heartFiller.fillAmount, currentHeart/TotalPage, 0.5f * Time.deltaTime);
+            heartFiller.fillAmount = Mathf.MoveTowards(heartFiller.fillAmount, currentHeart / TotalPage, 0.5f * Time.deltaTime);
         }
 
         public override void OnCustomDataReceive(byte[] data)
@@ -114,14 +119,23 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
             animator = boss.GetComponent<Animator>();
             boss.transform.SetParent(contentFrame);
             boss.transform.SetParent(bossPosition);
-            if (currentHeart > heart)
+            if(currentHeart > heart)
             {
                 animator.SetBool("Positive", true);
             }
+<<<<<<< HEAD
             if (currentHeart <= heart)
             {
                 animator.SetBool("Negative", true);
             }
+=======
+            else if(currentHeart <= heart)
+            {
+                animator.SetBool("Negative", true);
+            }
+
+            heart = currentHeart;
+>>>>>>> d87b581e0df966eb738bb75ae538f11639fb6be5
         }
 
         #region Custom function
