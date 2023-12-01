@@ -14,6 +14,7 @@ namespace Notero.MidiGameplay.Core
 {
     public class GameLogicController : IBotControllable, IMidiGameLogic
     {
+        public static bool checkA;
         public UnityEvent<float> OnGameplayTimeUpdate { get; } = new();
         public UnityEvent OnGameplayStart { get; } = new();
         public UnityEvent OnGameplayEnd { get; } = new();
@@ -91,7 +92,7 @@ namespace Notero.MidiGameplay.Core
 
         public void SetMidiInput(IMidiKeyCallable keyCallable)
         {
-            if(m_KeyCallable != null)
+            if (m_KeyCallable != null)
             {
                 m_KeyCallable.NoteOnEvent -= OnKeyPressed;
                 m_KeyCallable.NoteOffEvent -= OnKeyReleased;
@@ -117,7 +118,7 @@ namespace Notero.MidiGameplay.Core
             m_CurrentAudioSpeaker?.Stop();
             MidiInputAdapter.Instance.SetAllLedOff();
 
-            if(m_KeyCallable != null)
+            if (m_KeyCallable != null)
             {
                 m_KeyCallable.NoteOnEvent -= OnKeyPressed;
                 m_KeyCallable.NoteOffEvent -= OnKeyReleased;
@@ -312,7 +313,7 @@ namespace Notero.MidiGameplay.Core
 
         protected void SpawnNote(float currentTime)
         {
-            while(HasNoteToSpawn(currentTime))
+            while (HasNoteToSpawn(currentTime))
             {
                 MidiNoteInfo midiNoteInfo = m_MidiNoteInfoList[m_CurrentNoteIndex];
 
@@ -342,19 +343,24 @@ namespace Notero.MidiGameplay.Core
                     {
                         OnNoteStart(note);
                     }
-                    else if(IsNoteEnd(currentTime, note.NoteOffTime))
+                    else if (IsNoteEnd(currentTime, note.NoteOffTime))
                     {
                         OnNoteEnd(note);
                     }
                 }
             }
         }
-
+        public static bool CheckforRun = false;
         protected void GameEndCheck(float currentTime)
         {
             if(!m_IsEnd && currentTime > m_EndTime)
             {
-                End();
+                CheckforRun = true;
+                if(!m_IsEnd && currentTime - 12000f > m_EndTime)
+                {
+                    End();
+                }
+
             }
         }
 
@@ -430,16 +436,16 @@ namespace Notero.MidiGameplay.Core
         {
             double pressTimeMilliseconds = m_CurrentTime;
 
-            if(TryGetSpawnedNote(midiId, out MidiNoteInfo note) && IsInNoteRange(note, pressTimeMilliseconds) && !note.IsPlayed)
+            if(TryGetSpawnedNote(midiId, out MidiNoteInfo note) && IsInNoteRange(note,pressTimeMilliseconds) && !note.IsPlayed)
             {
                 note.SetIsPressed(true);
 
-                OnNoteInfoPressed?.Invoke(note, pressTimeMilliseconds);
+                OnNoteInfoPressed?.Invoke(note,pressTimeMilliseconds);
                 return;
             }
             else
             {
-                OnBlankKeyPressed?.Invoke(midiId, pressTimeMilliseconds);
+                OnBlankKeyPressed?.Invoke(midiId,pressTimeMilliseconds);
             }
         }
 
@@ -449,7 +455,7 @@ namespace Notero.MidiGameplay.Core
 
             if(TryGetSpawnedNote(midiId, out MidiNoteInfo note, true) && IsInNoteRange(note, releaseTimeMilliseconds))
             {
-                if(note.IsPressed)
+                if (note.IsPressed)
                 {
                     note.SetIsPlayed(true);
                 }
@@ -500,7 +506,13 @@ namespace Notero.MidiGameplay.Core
             double noteStartTime = noteInfo.NoteOnTime + NoteStartTimeOffset - marginTime;
             double noteEndTime = noteInfo.NoteOffTime + NoteStartTimeOffset + marginTime;
 
-            return (noteStartTime <= actionTime) && (actionTime <= noteEndTime);
+            return(noteStartTime <= actionTime) && (actionTime <= noteEndTime);
+        }
+        public IEnumerator WaitEndcount(float Sec)
+        {
+            Debug.Log("ASD");
+            yield return new WaitForSecondsRealtime(Sec);
         }
     }
+
 }
