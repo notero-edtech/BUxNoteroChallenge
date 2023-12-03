@@ -16,6 +16,7 @@ namespace Hendrix.Generic.UI.Elements
         private float m_TargetValue;
         private float m_Velocity;
         private float m_LowestAnchorMaxXValue;
+
         private const float m_Precision = 0.1f;
 
         public override float value

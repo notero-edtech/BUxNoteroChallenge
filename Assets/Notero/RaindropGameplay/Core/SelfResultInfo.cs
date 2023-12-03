@@ -1,7 +1,3 @@
-using System;
-using UnityEngine;
-using UnityEngine.PlayerLoop;
-
 namespace Notero.RaindropGameplay.Core
 {
     public class SelfResultInfo
@@ -18,7 +14,7 @@ namespace Notero.RaindropGameplay.Core
         public int GoodCount;
         public int OopsCount;
 
-        public float AccuracyPercent ;
+        public float AccuracyPercent;
 
         public int Rank;
         public int StarCount;
@@ -31,10 +27,6 @@ namespace Notero.RaindropGameplay.Core
         public float ClassCurrentHighScore;
         public float ClassAllTimeHighScore;
 
-        public float GetAccuracyPercent()
-        {
-            return AccuracyPercent;
-        }
         public override string ToString()
         {
             string text =
@@ -46,7 +38,6 @@ namespace Notero.RaindropGameplay.Core
 
             return text;
         }
-       
     }
 
     public enum StudentResultStatus
