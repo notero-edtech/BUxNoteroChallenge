@@ -22,8 +22,7 @@ namespace Notero.RaindropGameplay.UI
         private float m_AutoReturnDuration = 1;
 
         private float m_ReturnTime;
-        
-        
+
         public void SetPosition(Vector2 position) => m_RectTransform.anchoredPosition = position;
 
         public void SetScale(Vector3 scale) => m_RectTransform.localScale = scale;
@@ -46,14 +45,12 @@ namespace Notero.RaindropGameplay.UI
             m_OopsFeedback.SetActive(noteScore == NoteTimingScore.Oops);
         }
 
-       
-
         protected override void OnRented()
         {
             base.OnRented();
             m_ReturnTime = Time.time + m_AutoReturnDuration;
         }
-        
+
         protected override void Update()
         {
             base.Update();

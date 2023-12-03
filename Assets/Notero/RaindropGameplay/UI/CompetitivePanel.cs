@@ -1,4 +1,3 @@
-﻿using System;
 using Notero.MidiGameplay.Core;
 using Notero.RaindropGameplay.Core;
 using UnityEngine;
@@ -13,7 +12,8 @@ namespace Notero.RaindropGameplay.UI
         [SerializeField]
         private AccuracyMeterBarPanel m_AccuracyMeterBar;
 
-        [SerializeField] public ScorePanel m_ScorePanel;
+        [SerializeField]
+        private ScorePanel m_ScorePanel;
 
         public void SetActive(bool isActive) => gameObject.SetActive(isActive);
 
@@ -26,7 +26,7 @@ namespace Notero.RaindropGameplay.UI
 
         public void UpdateAccuracyMeterBar(float accuracy, int startCount)
         {
-            if (float.IsNaN(accuracy)) return; // Intercept NaN value
+            if(float.IsNaN(accuracy)) return; // Intercept NaN value
             m_AccuracyMeterBar.SetProgressBarValue(accuracy);
             m_AccuracyMeterBar.SetAccuracyPercentText(accuracy);
             m_AccuracyMeterBar.SetStar(startCount);
@@ -49,14 +49,11 @@ namespace Notero.RaindropGameplay.UI
         public void SetAccuracyMeterActive(bool isActive) => m_AccuracyMeterBar.SetActive(isActive);
 
         public void SetScoreActive(bool isActive) => m_ScorePanel.SetActive(isActive);
-        
+
         public void OnScoreUpdated(SelfResultInfo studentResultInfo)
         {
             UpdateAccuracyMeterBar(studentResultInfo.AccuracyPercent, studentResultInfo.StarCount);
             UpdateScore(studentResultInfo.StudentCurrentScore);
-            
         }
-
-        
     }
 }

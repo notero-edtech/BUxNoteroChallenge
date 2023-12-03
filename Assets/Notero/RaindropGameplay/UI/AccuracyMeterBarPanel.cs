@@ -11,7 +11,8 @@ namespace Notero.RaindropGameplay.UI
         [SerializeField]
         private RectTransform m_ProgressBarRect;
 
-        [SerializeField] public SmoothProgressBar m_ProgressBar;
+        [SerializeField]
+        private SmoothProgressBar m_ProgressBar;
 
         [SerializeField]
         private TMP_Text m_AccuracyPercent;
