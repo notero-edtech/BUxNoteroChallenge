@@ -93,7 +93,7 @@ namespace BU.MidiGameplay.Gameplay
         {
             m_GameplayUIController.SetCanvasScale();
 
-            if(m_CurrentBackgroundTexture != null) m_BackgroundFeedbackManager.SetBackgroundImage(m_CurrentBackgroundTexture);
+            if (m_CurrentBackgroundTexture != null) m_BackgroundFeedbackManager.SetBackgroundImage(m_CurrentBackgroundTexture);
 
             m_RaindropNoteController.Init(SpawnPointPos);
             m_GameplayUIController.SetupPianoFeedback(m_VirtualPianoController, m_RaindropNoteController.LanePosList);
@@ -109,7 +109,7 @@ namespace BU.MidiGameplay.Gameplay
             var accompaniment = music.AudioClip;
             m_CustomBPM = customBPM;
 
-            if(m_CustomBPM <= 0)
+            if (m_CustomBPM <= 0)
             {
                 m_CustomBPM = midiFile.BPM;
             }
@@ -131,13 +131,13 @@ namespace BU.MidiGameplay.Gameplay
 
         public void SetCountInCallback(Action callback)
         {
-            if(m_GameplayUIController == null) return;
+            if (m_GameplayUIController == null) return;
             m_GameplayUIController.SetCountInCallback(callback);
         }
 
         public void SetCountInActive(bool isActive)
         {
-            if(m_GameplayUIController == null) return;
+            if (m_GameplayUIController == null) return;
             m_GameplayUIController.SetCountInActive(isActive);
         }
 
@@ -147,13 +147,13 @@ namespace BU.MidiGameplay.Gameplay
             m_MidiInputHashSet.Clear();
             var bpmMultiplier = m_CustomBPM / m_CurrentMidiFile.BPM;
 
-            if((ModeController.Mode == GameplayMode.Normal || ModeController.Mode == GameplayMode.LibraryNormal))
+            if ((ModeController.Mode == GameplayMode.Normal || ModeController.Mode == GameplayMode.LibraryNormal))
             {
-                GameLogic.StartGameplay(true,bpmMultiplier);
+                GameLogic.StartGameplay(true, bpmMultiplier);
             }
             else
             {
-                GameLogic.StartGameplay(false,bpmMultiplier);
+                GameLogic.StartGameplay(false, bpmMultiplier);
             }
 
             OnGameStarted?.Invoke();
@@ -244,7 +244,7 @@ namespace BU.MidiGameplay.Gameplay
         {
             m_BackgroundFeedbackManager?.OnNoteInfoNoteStarted(note, time);
 
-            if(!IsPressing(note.MidiId))
+            if (!IsPressing(note.MidiId))
             {
                 Handside hand = HandIdentifier.GetHandsideByTrackIndex(note.TrackIndex);
                 m_VirtualPianoController.SetCueIn(note.MidiId, hand, false);
@@ -256,8 +256,8 @@ namespace BU.MidiGameplay.Gameplay
         private void OnNoteEnded(MidiNoteInfo note, double time)
         {
             m_BackgroundFeedbackManager?.OnNoteInfoNoteEnded(note, time);
-            
-            if(!IsPressing(note.MidiId)) m_VirtualPianoController.SetDefault(note.MidiId, false);
+
+            if (!IsPressing(note.MidiId)) m_VirtualPianoController.SetDefault(note.MidiId, false);
 
             m_GameplayUIController.UpdateTextFeedbackOnNoteEnd(note, time);
         }
@@ -287,17 +287,17 @@ namespace BU.MidiGameplay.Gameplay
             const bool isPressing = false;
             int midiId = note.MidiId;
 
-            if(IsPressing(midiId))
+            if (IsPressing(midiId))
             {
                 m_MidiInputHashSet.Remove(midiId);
             }
 
-            if(note.IsPressed)
+            if (note.IsPressed)
             {
                 var score = m_ScoringController.CalculateTimingScore(note, time, false);
                 m_BackgroundFeedbackManager?.OnNoteTimingScore(note, score.ToString(), "Release");
 
-                if(m_RaindropNoteController.IsCueShowing(note.RaindropNoteId) && score != NoteTimingScore.Perfect)
+                if (m_RaindropNoteController.IsCueShowing(note.RaindropNoteId) && score != NoteTimingScore.Perfect)
                 {
                     m_RaindropNoteController.SetMiss(note.RaindropNoteId);
                     m_VirtualPianoController.SetMissKey(midiId, isPressing);
@@ -322,7 +322,7 @@ namespace BU.MidiGameplay.Gameplay
             Assert.IsFalse(m_MidiInputHashSet.Contains(midiId), $"Duplicate key press without release on note: {midiId}");
             m_MidiInputHashSet.Add(midiId);
 
-            if(!GameLogic.IsPlaying)
+            if (!GameLogic.IsPlaying)
             {
                 m_VirtualPianoController.SetDefault(midiId, true);
                 return;
@@ -336,12 +336,12 @@ namespace BU.MidiGameplay.Gameplay
 
         private void OnBlankKeyReleased(int midiId, double time)
         {
-            if(IsPressing(midiId))
+            if (IsPressing(midiId))
             {
                 m_MidiInputHashSet.Remove(midiId);
             }
 
-            if(!GameLogic.IsPlaying)
+            if (!GameLogic.IsPlaying)
             {
                 m_VirtualPianoController.SetDefault(midiId, false);
                 return;
@@ -357,7 +357,7 @@ namespace BU.MidiGameplay.Gameplay
 
         public void SetGameplayOverlayActive(bool isActive)
         {
-            if(m_RaindropNoteController == null) return;
+            if (m_RaindropNoteController == null) return;
 
             m_RaindropNoteController.SetBarOverlayActive(isActive);
 
@@ -366,7 +366,7 @@ namespace BU.MidiGameplay.Gameplay
 
         public virtual void SetCompetitivePanelActive(bool isActive)
         {
-            if(m_GameplayUIController != null)
+            if (m_GameplayUIController != null)
             {
                 m_GameplayUIController.SetupTimerDisplay(m_SongTimeInSecond + (float)NoteStartTimeOffset / 1000f);
                 m_GameplayUIController.SetupAccuracyMeterBar(m_GameplayConfig);
@@ -382,7 +382,7 @@ namespace BU.MidiGameplay.Gameplay
         /// </summary>
         public void ClearGameplayComponents()
         {
-            if(m_VirtualPianoController != null) m_VirtualPianoController.DeleteAllPianoKeys();
+            if (m_VirtualPianoController != null) m_VirtualPianoController.DeleteAllPianoKeys();
 
             m_RaindropNoteController?.ResetCues();
 
@@ -407,7 +407,7 @@ namespace BU.MidiGameplay.Gameplay
 
         private void ActiveBarline(float currentTime)
         {
-            if(HasBarlineToActive(currentTime) && !m_RaindropNoteController.RaindropBarlineList[m_CurrentBarlineIndex].isActiveAndEnabled)
+            if (HasBarlineToActive(currentTime) && !m_RaindropNoteController.RaindropBarlineList[m_CurrentBarlineIndex].isActiveAndEnabled)
             {
                 m_RaindropNoteController.RaindropBarlineList[m_CurrentBarlineIndex].gameObject.SetActive(true);
                 m_CurrentBarlineIndex++;

@@ -502,10 +502,5 @@ namespace Notero.MidiGameplay.Core
 
             return (noteStartTime <= actionTime) && (actionTime <= noteEndTime);
         }
-        public IEnumerator WaitEndcount(float Sec)
-        {
-            Debug.Log("ASD");
-            yield return new WaitForSecondsRealtime(Sec);
-        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Notero.MidiAdapter;
+using Notero.MidiGameplay.Bot;
 using Notero.MidiGameplay.Core;
 using Notero.Unity.AudioModule;
 using Notero.Unity.MidiNoteInfo;
@@ -25,11 +26,14 @@ namespace BU.MidiGameplay.Gameplay
 
         public UnityEvent<int, double> OnBlankKeyReleased => GameLogicController.OnBlankKeyReleased;
 
-        public IMidiGameLogic GameLogicController { get; private set; } = new GameLogicController();
+        public IMidiGameLogic GameLogicController => m_GameLogic;
+        public IBotControllable BotControllable => m_GameLogic;
 
         public UnityEvent OnGameplayStart => GameLogicController.OnGameplayStart;
 
         public bool IsPlaying => GameLogicController.IsPlaying;
+
+        private GameLogicController m_GameLogic = new();
 
         public void Dispose()
         {

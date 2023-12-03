@@ -25,7 +25,7 @@ namespace Notero.MidiGameplay.Core
         #region Game Flow Methods
         public void UpdateLogic();
         public void UpdateGUI();
-        public void StartGameplay(bool withMusic);
+        public void StartGameplay(bool withMusic, float speedMuultiplier);
         public void End();
         public void Dispose();
         #endregion
