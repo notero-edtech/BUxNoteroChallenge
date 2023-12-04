@@ -1,0 +1,25 @@
+{
+    "name": "BU.NineTails.MidiGameplay",
+    "rootNamespace": "",
+    "references": [
+        "GUID:2f04b1422990ba44aab6ac941c4baf8e",
+        "GUID:11156aba705260d428e687d4fb4280f5",
+        "GUID:fec09e95d98093140b18d4626790cb68",
+        "GUID:5696c051bbb38c647b4af039b90578dd",
+        "GUID:47ae30c22d1cb644984681c0c280a806",
+        "GUID:d0ecce1d30515ad40b828c1551b30aea",
+        "GUID:2d7fdfb03b5e34844b4533737b990f91",
+        "GUID:0b0f37e89b926c24bb4eb8ac9b220b8f",
+        "GUID:b8ddad41250b23449933be9eb4a39207",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -4,7 +4,7 @@ using Notero.QuizConnector.Model;
 using TMPro;
 using UnityEngine;
 
-namespace BU.RRTT.QuizExample.Scripts.UI.QuizResultUI.InstructorUI
+namespace BU.RRTT.Scripts.UI.QuizResultUI.InstructorUI
 {
     public class InstructorPopQuizResultPanel : BaseInstructorPopQuizResult<StudentQuizResultInfo>
     {

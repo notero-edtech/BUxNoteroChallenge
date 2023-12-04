@@ -426,6 +426,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1618957658873390648, guid: a1bf9a95117dfb3499df1f27192e5650, type: 3}
   m_PrefabInstance: {fileID: 422598441}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &422598443 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1618957658873390649, guid: a1bf9a95117dfb3499df1f27192e5650, type: 3}
+  m_PrefabInstance: {fileID: 422598441}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &525475594
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1050,7 +1055,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1618957658873390651, guid: a1bf9a95117dfb3499df1f27192e5650, type: 3}
   m_PrefabInstance: {fileID: 422598441}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 422598443}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f84ea9925361ff4186b93f4ae0958b4, type: 3}
@@ -1682,7 +1687,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1692771195}
-  - component: {fileID: 1692771194}
+  - component: {fileID: 1692771196}
   m_Layer: 0
   m_Name: Bootstraper
   m_TagString: Untagged
@@ -1690,26 +1695,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1692771194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1692771193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a74a982e97b449ff99751523d6e2fd1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PopQuizStartButton: {fileID: 1750719107}
-  m_PopQuizOption: {fileID: 1582771955}
-  m_PreTestButton: {fileID: 1040883888}
-  m_PreTestOption: {fileID: 1572355076}
-  m_LoadingBG: {fileID: 29236862}
-  m_HideCurrentPanelButton: {fileID: 0}
-  m_QuizControllerType: 0
-  m_QuizDataJSON: {fileID: 4900000, guid: 3677c9aa3b160994f8b9109739f0d23b, type: 3}
 --- !u!4 &1692771195
 Transform:
   m_ObjectHideFlags: 0
@@ -1725,6 +1710,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1692771196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692771193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 641f02687bf0381459cf0a3c51de95ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PopQuizStartButton: {fileID: 1750719107}
+  m_PopQuizOption: {fileID: 1582771955}
+  m_PreTestButton: {fileID: 1040883888}
+  m_PreTestOption: {fileID: 422598443}
+  m_LoadingBG: {fileID: 29236862}
+  m_HideCurrentPanelButton: {fileID: 0}
+  m_QuizControllerType: 0
+  m_QuizDataJSON: {fileID: 4900000, guid: a42a3cd3c531e4c4eac350cedec01f2c, type: 3}
 --- !u!114 &1750719107 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1618957658873390651, guid: a1bf9a95117dfb3499df1f27192e5650, type: 3}

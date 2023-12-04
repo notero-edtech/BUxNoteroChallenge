@@ -1,7 +1,7 @@
 ﻿using DataStore.Quiz;
 using Newtonsoft.Json;
 
-namespace BU.RRTT.QuizExample.QuizExampleMessages
+namespace BU.RRTT.QuizExampleMessages
 {
     public struct CurrentQuestionMessage
     {

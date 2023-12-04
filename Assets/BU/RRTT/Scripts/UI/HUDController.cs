@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace BU.RRTT.QuizExample.Scripts.UI
+namespace BU.RRTT.Scripts.UI
 {
     public class HUDController : MonoBehaviour
     {

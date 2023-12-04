@@ -20,6 +20,8 @@ namespace Notero.QuizConnector.Student
         }
 
         public virtual void SetQuestionTexture(Texture texture) => QuestionImage = texture;
+
+        public virtual void ShowWatchInstructorScreen() { }
     }
 
     public enum PianoStates

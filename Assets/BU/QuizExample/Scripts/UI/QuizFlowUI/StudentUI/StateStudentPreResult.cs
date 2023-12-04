@@ -44,11 +44,6 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.StudentUI
             SetIsCorrectAnswer(Answer == CorrectAnswer);
         }
 
-        public override void OnCustomDataReceive(byte[] data)
-        {
-            Debug.Log($"NPA-data:{data}");
-        }
-
         #region Custom function
 
         private void SetChapterText(string text)

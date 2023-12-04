@@ -2,6 +2,7 @@
 using Notero.Utilities;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -29,6 +30,18 @@ namespace Notero.QuizConnector
 
         private IQuizController m_QuizControllerInterface;
 
+        private Func<string, string, Texture> m_GenerateTextureLogicDefault { get; set; } = (path, rootDir) =>
+        {
+            path = Path.Combine(rootDir, path);
+
+            var fileByte = File.ReadAllBytes(path);
+            var texture = new Texture2D(1, 1);
+
+            texture.LoadImage(fileByte);
+
+            return texture;
+        };
+
         public void Init(QuizStore quizStore, string keyName)
         {
             var slotQuiz = GetSlotQuizByKeyName(keyName);
@@ -42,14 +55,46 @@ namespace Notero.QuizConnector
                 var gameObj = Instantiate(slotQuiz.ControllerGameObject);
 
                 gameObj.name = keyName;
-                slotQuiz.ControllerGameObject = gameObj;
 
                 m_QuizControllerInterface = gameObj.GetComponent<IQuizController>();
             }
 
-            m_QuizControllerInterface.Init(m_Container, quizStore);
+            m_QuizControllerInterface.Init(m_Container, quizStore, m_GenerateTextureLogicDefault);
+
+            m_QuizControllerInterface.SetChapterIndex(-1);
+            m_QuizControllerInterface.SetRootDirectory("");
+            m_QuizControllerInterface.SetChapter("");
+            m_QuizControllerInterface.SetMission("");
 
             SubscribeEvent();
+        }
+
+        public void SetChapterIndex(int chapterIndex)
+        {
+            if(m_QuizControllerInterface == null) return;
+
+            m_QuizControllerInterface.SetChapterIndex(chapterIndex);
+        }
+
+        public void SetRootDirectory(string rootDirectory)
+        {
+            if(m_QuizControllerInterface == null) return;
+
+            m_QuizControllerInterface.SetRootDirectory(rootDirectory);
+        }
+
+        public void SetChapter(string chapter)
+        {
+            if(m_QuizControllerInterface == null) return;
+
+            m_QuizControllerInterface.SetChapter(chapter);
+        }
+
+        public void SetMission(string mission)
+        {
+            if(m_QuizControllerInterface == null) return;
+
+            m_QuizControllerInterface.SetMission(mission);
         }
 
         private void SubscribeEvent()
@@ -76,12 +121,23 @@ namespace Notero.QuizConnector
             m_QuizControllerInterface.OnCustomDataMessageReceive(data);
         }
 
+        public void SetGenerateTextureLogic(Func<string, string, Texture> logic)
+        {
+            if(m_QuizControllerInterface == null) return;
+
+            m_QuizControllerInterface.SetGenerateTextureLogic(logic);
+        }
+
         public void LoadQuizToQuizStore(string jsonContent)
         {
             if(m_QuizControllerInterface == null) return;
 
             m_QuizControllerInterface.LoadQuizToQuizStore(jsonContent);
         }
+
+        public void SetCurrentUI(GameObject current) => CurrentUI = current;
+
+        public void DestroyCurrentUI() => Destroy(CurrentUI.gameObject);
 
         public void SpawnInstructorCountInStateUI()
         {
@@ -123,6 +179,13 @@ namespace Notero.QuizConnector
             if(m_QuizControllerInterface == null) return;
 
             m_QuizControllerInterface.DestroyInstructorQuestionStateUI();
+        }
+
+        public void SetFullScreen(bool isFull)
+        {
+            if(m_QuizControllerInterface == null) return;
+
+            m_QuizControllerInterface.SetFullScreen(isFull);
         }
 
         public void SpawnInstructorPreResultStateUI()
@@ -271,8 +334,6 @@ namespace Notero.QuizConnector
 
             return m_SlotQuizList.Find(slot => slot.KeyName == keyName);
         }
-
-        public void SetCurrentUI(GameObject current) => CurrentUI = current;
     }
 
     [Serializable]

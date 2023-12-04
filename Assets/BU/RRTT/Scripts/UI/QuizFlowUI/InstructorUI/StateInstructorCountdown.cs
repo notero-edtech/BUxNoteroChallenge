@@ -1,9 +1,9 @@
-using BU.RRTT.QuizExample.Scripts.BossSystem;
+using BU.RRTT.Scripts.BossSystem;
 using Notero.QuizConnector.Instructor;
 using TMPro;
 using UnityEngine;
 
-namespace BU.RRTT.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
+namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
 {
     public class StateInstructorCountdown : BaseInstructorCountIn
     {
@@ -38,6 +38,8 @@ namespace BU.RRTT.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
 
         private BossList bossList;
 
+        private Animator animator;
+
         private void Start()
         {
             SetChapterText(Chapter);
@@ -49,6 +51,9 @@ namespace BU.RRTT.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
         {
             bossList = bossReference.GetComponent<BossList>();
             GameObject boss = Instantiate(bossList.bossPrefabs[data[0]].gameObject, bossPosition);
+            animator = boss.GetComponent<Animator>();
+            animator.SetBool("Positive", false);
+            animator.SetBool("Negative", false);
             boss.transform.SetParent(countDownFrame);
             boss.transform.SetParent(bossPosition);
         }

@@ -46,5 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossPrefabs:
   - {fileID: 914249410881103378, guid: 169c60f69ff62bb4a99ddf9fc4afdf48, type: 3}
-  - {fileID: 914249410881103378, guid: 95f97ca816e141a479460581172ceed1, type: 3}
-  bossIndex: 4
+  - {fileID: 914249410881103378, guid: aefd9dfc8b6d91a43b433a6a3bfc213f, type: 3}
+  - {fileID: 914249410881103378, guid: 5fccdf2420fda834cacb8510cf6ee394, type: 3}
+  - {fileID: 914249410881103378, guid: ebaa28a517c8da54a82dbc040e59c565, type: 3}
+  - {fileID: 914249410881103378, guid: b0fb72b647db78e4bb79f47d4e729264, type: 3}

@@ -30,11 +30,6 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.StudentUI
             TriggerWaitingCircleAnimation();
         }
 
-        public override void OnCustomDataReceive(byte[] data)
-        {
-            Debug.Log($"NPA-data:{data}");
-        }
-
         #region Custom functions
 
         private void SetChapterText(string text)

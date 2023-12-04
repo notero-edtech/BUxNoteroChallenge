@@ -20,11 +20,6 @@ namespace BU.QuizExample.Scripts.UI.QuizResultUI.InstructorUI
             m_AnswerRevealButton.onClick.AddListener(OnAnswerRevealClick);
         }
 
-        public override void OnCustomDataReceive(byte[] data)
-        {
-            Debug.Log($"NPA-data:{data}");
-        }
-
         public override void SetElementInfo(Notero.QuizConnector.Model.PostTestAnswer info)
         {
             base.SetElementInfo(info);

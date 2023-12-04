@@ -37,11 +37,6 @@ namespace BU.QuizExample.Scripts.UI.QuizResultUI.StudentUI
             SetQuizScoreText(CurrentScore, QuestionAmount);
         }
 
-        public override void OnCustomDataReceive(byte[] data)
-        {
-            Debug.Log($"NPA-data:{data}");
-        }
-
         #region Custom Methods
 
         private void SetChapterText(string chapterText)

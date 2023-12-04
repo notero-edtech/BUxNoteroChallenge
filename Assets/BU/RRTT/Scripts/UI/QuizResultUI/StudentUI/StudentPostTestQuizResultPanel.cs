@@ -1,9 +1,10 @@
-﻿using BU.RRTT.QuizExample.Scripts.BossSystem;
+﻿using BU.RRTT.Scripts.BossSystem;
 using Notero.QuizConnector.Student;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-namespace BU.RRTT.QuizExample.Scripts.UI.QuizResultUI.StudentUI
+namespace BU.RRTT.Scripts.UI.QuizResultUI.StudentUI
 {
     public class StudentPostTestQuizResultPanel : BaseStudentPostTestResult
     {
@@ -45,6 +46,11 @@ namespace BU.RRTT.QuizExample.Scripts.UI.QuizResultUI.StudentUI
         private BossList bossList;
         
         private Vector3 scale = new Vector3( 4.5f,4.5f,4.5f);
+        
+        [SerializeField]
+        private Image heartFiller;
+        
+        private float heart;
 
         private void Start()
         {
@@ -56,8 +62,14 @@ namespace BU.RRTT.QuizExample.Scripts.UI.QuizResultUI.StudentUI
             SetPreTestQuizScoreText(PreTestScore, QuestionAmount);
         }
 
+        private void Update()
+        {
+            heartFiller.fillAmount = Mathf.MoveTowards(heartFiller.fillAmount, heart/TotalPage, 0.5f * Time.deltaTime);
+        }
+
         public override void OnCustomDataReceive(byte[] data)
         {
+            heart = data[1];
             bossList = bossReference.GetComponent<BossList>();
             GameObject boss = Instantiate(bossList.bossPrefabs[data[0]].gameObject, bossPosition);
             boss.transform.localScale = scale;
