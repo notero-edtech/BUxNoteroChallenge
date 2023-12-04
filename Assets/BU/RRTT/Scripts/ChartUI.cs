@@ -2,7 +2,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Notero.Unity.UI.Quiz
+namespace BU.RRTT.Scripts
 {
     public class ChartUI : MonoBehaviour
     {
@@ -18,7 +18,7 @@ namespace Notero.Unity.UI.Quiz
         [SerializeField]
         private GameObject m_ChartBarWrong;
 
-        private float m_ChartHeightMax => 200; // TODO: get height from game object
+        private float m_ChartHeightMax => 154.2053f; // TODO: get height from game object
 
         private const int MinHeightChartBar = 16; // is 16px
 
