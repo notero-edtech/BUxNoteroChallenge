@@ -49,11 +49,6 @@ namespace BU.QuizExample.Scripts.UI.QuizResultUI.InstructorUI
             RemoveListenerFromListElement();
         }
 
-        public override void OnCustomDataReceive(byte[] data)
-        {
-            Debug.Log($"NPA-data:{data}");
-        }
-
         public override void SetElementListInfo(List<Notero.QuizConnector.Model.PostTestAnswer> list)
         {
             base.SetElementListInfo(list);

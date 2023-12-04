@@ -38,11 +38,6 @@ namespace BU.QuizExample.Scripts.UI.QuizResultUI.InstructorUI
             SetQuizModeText("Pop Quiz");
         }
 
-        public override void OnCustomDataReceive(byte[] data)
-        {
-            Debug.Log($"NPA-data:{data}");
-        }
-
         public override void SetElementListInfo(List<StudentQuizResultInfo> list)
         {
             base.SetElementListInfo(list);

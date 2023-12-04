@@ -1,4 +1,4 @@
-﻿namespace BU.RRTT.QuizExample.Scripts
+﻿namespace BU.RRTT.Scripts
 {
     public enum QuizControllerType
     {
@@ -19,8 +19,8 @@
 
     public enum QuizModes
     {
-        POPQUIZ,
-        PRETEST,
-        POSTTEST
+        POP_QUIZ,
+        PRE_TEST,
+        POST_TEST
     }
 }

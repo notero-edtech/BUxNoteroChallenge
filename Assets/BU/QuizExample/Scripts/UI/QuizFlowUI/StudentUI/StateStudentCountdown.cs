@@ -42,11 +42,6 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.StudentUI
             m_CountdownText.text = $"In {count} ...";
         }
 
-        public override void OnCustomDataReceive(byte[] data)
-        {
-            Debug.Log($"NPA-data:{data}");
-        }
-
         #region Custom function
 
         private void SetChapterText(string text)

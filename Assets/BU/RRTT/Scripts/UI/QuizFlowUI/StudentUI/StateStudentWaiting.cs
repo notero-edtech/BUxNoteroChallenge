@@ -1,9 +1,9 @@
-﻿using BU.RRTT.QuizExample.Scripts.BossSystem;
+﻿using BU.RRTT.Scripts.BossSystem;
 using Notero.QuizConnector.Student;
 using TMPro;
 using UnityEngine;
 
-namespace BU.RRTT.QuizExample.Scripts.UI.QuizFlowUI.StudentUI
+namespace BU.RRTT.Scripts.UI.QuizFlowUI.StudentUI
 {
     public class StateStudentWaiting : BaseStudentWaiting
     {
