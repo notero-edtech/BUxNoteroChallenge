@@ -21,7 +21,7 @@ namespace BU.MidiGameplay.UI
 
         [SerializeField]
         private CountInPanel m_CountInPanel;
-        
+
         [SerializeField]
         private Bright m_CountฺฺBright;
 
@@ -57,6 +57,7 @@ namespace BU.MidiGameplay.UI
         {
             m_CompetitivePanel.OnGameplayTimeUpdate(time);
             m_CountฺฺBright.OnGameplayTimeUpdate(time);
+            m_CountฺฺBright.AnimetionFeedback(time);
         }
 
         public void HandleScoreUpdate(SelfResultInfo info)
@@ -104,7 +105,7 @@ namespace BU.MidiGameplay.UI
         {
             m_CountInPanel.SetActive(isActive);
 
-            if(isActive)
+            if (isActive)
             {
                 m_CountInPanel.OnCountInFinished += onFinished;
                 m_CountInPanel.StartCount();
