@@ -72,7 +72,7 @@ MonoBehaviour:
   m_GameplayCanvas: {fileID: 3105845238269097858}
   m_RaindropGameplayCanvas: {fileID: 3105845238269097863}
   m_CountInPanel: {fileID: 1544611240791376543}
-  "m_Count\u0E3A\u0E3ABright": {fileID: 255445306272398876}
+  m_CountBright: {fileID: 255445306272398876}
   m_CompetitivePanel: {fileID: 7282640982589108623}
   m_BackgroundImage: {fileID: 0}
   m_TextFeedback: {fileID: 2649423315590453676}
@@ -2594,6 +2594,7 @@ MonoBehaviour:
   Bridge3: {fileID: 7148501850410709451}
   Bridge4: {fileID: 4180215765690327224}
   Bridge5: {fileID: 5559318291794486896}
+  CountBridge: 0
   m_MaxTime: 0
   RunOneTime: 0
   bad: {fileID: 5268306644109172168}
@@ -2605,7 +2606,6 @@ MonoBehaviour:
   TrunoffB: {fileID: 7258355942449442992}
   idel: {fileID: 199122735354022191}
   goodAnime: {fileID: 6988582468638670657}
-  badAnime: {fileID: 8958217723410107142}
 --- !u!1 &5663457255390855014
 GameObject:
   m_ObjectHideFlags: 0
@@ -3256,7 +3256,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TimerBar: {fileID: 7497891109730560054}
   m_TimerText: {fileID: 4640903896258741350}
-  m_MaxTime: 0
 --- !u!1 &6787362257301280214
 GameObject:
   m_ObjectHideFlags: 0
@@ -5341,11 +5340,6 @@ PrefabInstance:
 --- !u!4 &6056097036271766769 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 231619745676436853, guid: 695244b45fdd8394294ee2de82b4696c, type: 3}
-  m_PrefabInstance: {fileID: 6286309042260601220}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8958217723410107142 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3129033389310681730, guid: 695244b45fdd8394294ee2de82b4696c, type: 3}
   m_PrefabInstance: {fileID: 6286309042260601220}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7603609963919308893

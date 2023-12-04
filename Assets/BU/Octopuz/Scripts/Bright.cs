@@ -1,10 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Notero.MidiGameplay.Core;
 using Notero.RaindropGameplay.Core;
 using UnityEngine;
-using Notero.RaindropGameplay.UI;
+
 
 namespace BU.Octopuz.Scripts
 {

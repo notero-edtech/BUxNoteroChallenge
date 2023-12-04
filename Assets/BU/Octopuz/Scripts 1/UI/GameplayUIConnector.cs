@@ -9,7 +9,7 @@ using BU.Octopuz.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace BU.MidiGameplay.UI
+namespace BU.Octopuz.Scripts1.UI
 {
     public class GameplayUIConnector : MonoBehaviour, IGameplayUIControllable
     {
@@ -23,7 +23,7 @@ namespace BU.MidiGameplay.UI
         private CountInPanel m_CountInPanel;
 
         [SerializeField]
-        private Bright m_CountฺฺBright;
+        private Bright m_CountBright;
 
         [SerializeField]
         private CompetitivePanel m_CompetitivePanel;
@@ -56,14 +56,14 @@ namespace BU.MidiGameplay.UI
         public void HandleGameplayTimeUpdate(float time)
         {
             m_CompetitivePanel.OnGameplayTimeUpdate(time);
-            m_CountฺฺBright.OnGameplayTimeUpdate(time);
-            m_CountฺฺBright.AnimetionFeedback(time);
+            m_CountBright.OnGameplayTimeUpdate(time);
+            m_CountBright.AnimetionFeedback(time);
         }
 
         public void HandleScoreUpdate(SelfResultInfo info)
         {
             m_CompetitivePanel.OnScoreUpdated(info);
-            m_CountฺฺBright.OnScoreUpdated(info);
+            m_CountBright.OnScoreUpdated(info);
         }
 
         public void SetAccuracyMeterBarActive(bool isActive)
@@ -135,7 +135,7 @@ namespace BU.MidiGameplay.UI
         public void SetupTimerDisplay(float duration)
         {
             m_CompetitivePanel.SetupTimerDisplay(duration);
-            m_CountฺฺBright.SetTimerBarMaxValue(duration);
+            m_CountBright.SetTimerBarMaxValue(duration);
         }
 
         public void SetVirtualPianoActive(bool isActive)
