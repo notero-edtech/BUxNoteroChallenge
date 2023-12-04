@@ -1,4 +1,5 @@
-﻿using DataStore.Quiz;
+﻿using BU.QuizExample.Scripts.UI;
+using DataStore.Quiz;
 using Notero.Unity.UI;
 using Notero.Utilities;
 using UnityEngine;
@@ -32,12 +33,15 @@ namespace BU.QuizExample.Scripts
         [SerializeField]
         private TextAsset m_QuizDataJSON;
 
+        [SerializeField]
+        private HUDController m_HUDController;
+
         private void Awake()
         {
             ApplicationFlagConfig.InitializeCommandlineArgs();
             QuizState.Default.SetAppVersion("2.0.0");
 
-            if(ApplicationFlagConfig.IsInstructorMode) FakeForInstructorController.Instance.Init(m_QuizControllerType, m_QuizDataJSON.text);
+            if(ApplicationFlagConfig.IsInstructorMode) FakeForInstructorController.Instance.Init(m_QuizControllerType, m_QuizDataJSON.text, m_HUDController);
             if(ApplicationFlagConfig.IsStudentMode) FakeForStudentController.Instance.Init("1", m_QuizControllerType, m_QuizDataJSON.text);
 
             m_PopQuizStartButton.onClick.AddListener(OnPopQuizStartButtonClick);

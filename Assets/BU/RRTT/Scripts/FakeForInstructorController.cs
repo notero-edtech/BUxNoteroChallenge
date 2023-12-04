@@ -1,5 +1,6 @@
 using BU.RRTT.QuizExampleMessages;
 using BU.RRTT.QuizExampleMessages.EventHandler;
+using BU.RRTT.Scripts.UI;
 using DataStore;
 using DataStore.Quiz;
 using Mirror;
@@ -28,6 +29,7 @@ namespace BU.RRTT.Scripts
 
         private QuizStore m_QuizStore => Store.QuizStore;
 
+        private HUDController m_HUDController;
         private IEventHandler[] m_EventHandler;
         private EventBus m_EventBus;
         private Store Store;
@@ -35,14 +37,17 @@ namespace BU.RRTT.Scripts
 
         private const int StudentAmount = 4;
 
-        public void Init(QuizControllerType quizControllerType, string jsonContent)
+        public void Init(QuizControllerType quizControllerType, string jsonContent, HUDController hudController)
         {
             Store = Store.Default;
             m_EventBus = EventBus.Default;
             m_QuizControllerType = quizControllerType;
             m_JsonContent = jsonContent;
+            m_HUDController = hudController;
 
             m_EventHandler = new IEventHandler[] { new InstructorQuizEventHandler(m_QuizStore) };
+
+            m_HUDController.OnNextClick.AddListener(GoToNextState);
 
             SubscribeInstructorEvent();
         }
@@ -50,6 +55,8 @@ namespace BU.RRTT.Scripts
         private void OnDisable()
         {
             UnsubscribeInstructorEvent();
+            
+            m_HUDController.OnNextClick.RemoveAllListeners();
         }
 
         public void DestroyCurrentUI()
@@ -131,6 +138,7 @@ namespace BU.RRTT.Scripts
 
         private void GoToNextState()
         {
+            m_HUDController.gameObject.SetActive(false);
             QuizConnectorController.Instance.DestroyInstructorQuestionStateUI();
             QuizConnectorController.Instance.DestroyInstructorPreResultStateUI();
 
@@ -274,6 +282,7 @@ namespace BU.RRTT.Scripts
         {
             CurrentQuizState = QuizStates.QUESTION;
 
+            m_HUDController.gameObject.SetActive(true);
             QuizConnectorController.Instance.SpawnInstructorQuestionStateUI();
 
             // Have only in fake
@@ -303,6 +312,7 @@ namespace BU.RRTT.Scripts
         {
             CurrentQuizState = QuizStates.PRERESULT;
 
+            m_HUDController.gameObject.SetActive(true);
             QuizConnectorController.Instance.SpawnInstructorPreResultStateUI();
         }
 
