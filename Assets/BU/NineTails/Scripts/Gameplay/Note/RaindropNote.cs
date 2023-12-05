@@ -19,8 +19,8 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
         [SerializeField]
         protected GameObject m_NoteAlphabet;
 
-        [SerializeField]
-        protected GameObject m_NoteSymbol;
+        //[SerializeField]
+        //protected GameObject m_NoteSymbol;
 
         [SerializeField]
         protected GameObject[] m_SubRaindropEffects;
@@ -122,19 +122,19 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
         public void AlphabetSymbolSpawner()
         {
             Vector3 m_leftArchorPosition = m_leftArchon.position;
-            Vector3 m_rightArchorPosition = m_rightArchon.position;
+            //Vector3 m_rightArchorPosition = m_rightArchon.position;
 
             GameObject leftObject = Instantiate(m_NoteAlphabet, m_leftArchorPosition, Quaternion.identity);
-            GameObject rightObject = Instantiate(m_NoteSymbol, m_rightArchorPosition, Quaternion.identity);
+            //GameObject rightObject = Instantiate(m_NoteSymbol, m_rightArchorPosition, Quaternion.identity);
 
             Destroy(m_NoteAlphabet);
-            Destroy(m_NoteSymbol);
+            //Destroy(m_NoteSymbol);
 
             leftObject.transform.localScale = new Vector3(1f, 1f, 1f);
-            rightObject.transform.localScale = new Vector3(1f, 1f, 1f);
+            //rightObject.transform.localScale = new Vector3(1f, 1f, 1f);
 
             leftObject.transform.SetParent(transform);
-            rightObject.transform.SetParent(transform);
+            //rightObject.transform.SetParent(transform);
 
         }
     }
