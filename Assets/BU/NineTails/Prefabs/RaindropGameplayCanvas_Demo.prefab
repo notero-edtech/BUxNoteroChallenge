@@ -421,7 +421,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 474, y: -0.00021362305}
+  m_AnchoredPosition: {x: 500, y: -0.00021362305}
   m_SizeDelta: {x: 16, y: -0.00054932}
   m_Pivot: {x: 0.5, y: 0.49999997}
 --- !u!222 &7466425013481959644
@@ -4053,7 +4053,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.27600002}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00012207031, y: -0.99975586}
+  m_AnchoredPosition: {x: 0.00012207031, y: -0.9997406}
   m_SizeDelta: {x: 0, y: 2}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &3566113897316604142
@@ -4068,10 +4068,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5182a3f2fed352b438fef69669c4d0d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_WhiteLeftSeed: {fileID: 4219638355259012098, guid: a18eee56a5ab7854a9bfe2d99e969619, type: 3}
-  m_WhiteRightSeed: {fileID: 4219638355259012098, guid: a18eee56a5ab7854a9bfe2d99e969619, type: 3}
-  m_BlackLeftSeed: {fileID: 4219638355259012098, guid: a18eee56a5ab7854a9bfe2d99e969619, type: 3}
-  m_BlackRightSeed: {fileID: 4219638355259012098, guid: a18eee56a5ab7854a9bfe2d99e969619, type: 3}
+  m_BlackLeftSeed: {fileID: 4120502479257036996, guid: 024065282d67c8b45bc92f7385909164, type: 3}
+  m_BlackRightSeed: {fileID: 4120502479257036996, guid: 024065282d67c8b45bc92f7385909164, type: 3}
   m_WhiteRaindropContainer: {fileID: 7596284178329885408}
   m_BlackRaindropContainer: {fileID: 9156022870763302290}
   noteC: {fileID: 1485867252011978454, guid: 971cd33875165344ba2511ea1a0f3bb7, type: 3}

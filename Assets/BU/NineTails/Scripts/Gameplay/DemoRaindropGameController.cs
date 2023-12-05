@@ -443,10 +443,10 @@ namespace BU.NineTails.MidiGameplay.Gameplay
         {
             var destination = m_ActionBar.anchoredPosition.x;
             //var origin = ((RectTransform)m_RaindropNoteController.RaindropNoteSpawner.transform).anchoredPosition.x;
-            var origin = 1270;
+            var origin = 1280;
             float distance = Mathf.Abs(destination - origin);
             Debug.Log("Destination = " + destination + " Origin = " + origin + " Distance = "+ distance);
-            return distance / noteSpeed * 1000;
+            return distance / noteSpeed * 920;
         }
 
         public class MidiNoteMapper
