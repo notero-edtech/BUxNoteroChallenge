@@ -422,7 +422,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 487, y: -0.00021362305}
+  m_AnchoredPosition: {x: 474, y: -0.00021362305}
   m_SizeDelta: {x: 16, y: -0.00054932}
   m_Pivot: {x: 0.5, y: 0.49999997}
 --- !u!222 &7466425013481959644
@@ -4383,6 +4383,7 @@ MonoBehaviour:
   G_WhiteKeySeed: {fileID: 126108642110468987, guid: 491966c8ca9dd274f86d2a0d0228e83c, type: 3}
   A_WhiteKeySeed: {fileID: 3328283171896972664, guid: 2063243edab8b5c428bde8e31046f087, type: 3}
   B_WhiteKeySeed: {fileID: 2449055844228313649, guid: 6ca4b48b65b15a449b3aa59b71ceda50, type: 3}
+  m_WhiteKeySeed: {fileID: -2643279685569616718, guid: 3c7293f314d05494a987896df25381cc, type: 3}
   m_BlackKeySeed: {fileID: 8956405792298196314, guid: a2f4cd72488ed654893edfca66e8cdb7, type: 3}
   m_WhiteLayer: {fileID: 7098666321752066335}
   m_BlackLayer: {fileID: 8879679600192834693}
