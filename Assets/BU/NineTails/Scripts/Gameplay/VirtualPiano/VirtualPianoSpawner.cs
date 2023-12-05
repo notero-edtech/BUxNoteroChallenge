@@ -32,6 +32,9 @@ namespace BU.NineTails.Scripts.UI.VirtualPiano
         protected PianoKey B_WhiteKeySeed;
 
         [SerializeField]
+        protected PianoKey m_WhiteKeySeed;
+
+        [SerializeField]
         protected PianoKey m_BlackKeySeed;
 
         [SerializeField]
@@ -97,10 +100,20 @@ namespace BU.NineTails.Scripts.UI.VirtualPiano
             for (int i = 0; i < lanePosXList.Count;)
             {
                 string note = VirtualPianoHelper.GetNoteName(i);
-                PianoKey whiteKeySeed = GetWhiteKeySeedByNote(note);
-                PianoKey whiteKey = CreateNewPianoKey(whiteKeySeed, m_WhiteLayer, new Vector2(lanePosXList[i], 0));
-                whiteKey.SetupPianoSpriteCollection(m_PianoKeySpriteCollection[i]);
-                i++;
+                int octave = VirtualPianoHelper.GetOctaveIndex(i);
+                if(octave == 1)
+                {
+                    PianoKey whiteKeySeed = GetWhiteKeySeedByNote(note);
+                    PianoKey whiteKey = CreateNewPianoKey(whiteKeySeed, m_WhiteLayer, new Vector2(lanePosXList[i], 0));
+                    whiteKey.SetupPianoSpriteCollection(m_PianoKeySpriteCollection[i]);
+                    i++;
+                }
+                else
+                {
+                    PianoKey whiteKey = CreateNewPianoKey(m_WhiteKeySeed, m_WhiteLayer, new Vector2(lanePosXList[i], 0));
+                    whiteKey.SetupPianoSpriteCollection(m_PianoKeySpriteCollection[i]);
+                    i++;
+                }
 
                 if (VirtualPianoHelper.IsBlackKey(m_Keys.Count()))
                 {
@@ -131,7 +144,7 @@ namespace BU.NineTails.Scripts.UI.VirtualPiano
                 case "B":
                     return B_WhiteKeySeed;
                 default:
-                    return C_WhiteKeySeed;
+                    return m_WhiteKeySeed;
             }
         }
         #endregion
