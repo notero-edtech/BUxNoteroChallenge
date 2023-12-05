@@ -59,8 +59,6 @@ namespace BU.NineTails.MidiGameplay.Gameplay
         [SerializeField]
         protected RectTransform m_ActionBar;
 
-        [SerializeField]
-        private HealthSliderController health;
 
         [SerializeField]
         private CharactersAnimationController[] characters;
@@ -276,7 +274,6 @@ namespace BU.NineTails.MidiGameplay.Gameplay
             int customValue = MidiNoteMapper.MapMidiToCustom(note.MidiId);
             if (!IsPressing(note.MidiId)) m_VirtualPiano.SetDefault(note.MidiId, false, customValue);
             m_GameplayUIController.UpdateTextFeedbackOnNoteEnd(note, time);
-            health.Opps_Healthbar();
             foreach (var character in characters)
             {
                 character.CheckOppsAnimation(midiId);
@@ -321,7 +318,6 @@ namespace BU.NineTails.MidiGameplay.Gameplay
 
                 if (score.ToString() == "Perfect")
                 {
-                    health.Perfect_Healthbar();
                     foreach (var character in characters)
                     {
                         character.CheckPerfectAnimation(midiId);
@@ -329,7 +325,6 @@ namespace BU.NineTails.MidiGameplay.Gameplay
                 }
                 else if(score.ToString() == "Good")
                 {
-                    health.Good_Healthbar();
                     foreach (var character in characters)
                     {
                         character.CheckGoodAnimation(midiId);
@@ -337,7 +332,6 @@ namespace BU.NineTails.MidiGameplay.Gameplay
                 }
                 else if (score.ToString() == "Oops")
                 {
-                    health.Opps_Healthbar();
                     foreach (var character in characters)
                     {
                         character.CheckOppsAnimation(midiId);
@@ -401,7 +395,6 @@ namespace BU.NineTails.MidiGameplay.Gameplay
 
             m_GameplayUIController.UpdateFeedbackBlankKeyRelease(midiId, time);
             m_VirtualPiano.SetDefault(midiId, false, customValue);
-            health.Opps_Healthbar();
             foreach (var character in characters)
             {
                 character.CheckOppsAnimation(midiId);
