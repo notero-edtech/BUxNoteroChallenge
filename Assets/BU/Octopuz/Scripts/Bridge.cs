@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace BU.Octopuz.Scripts
 {
-    public class Bright : MonoBehaviour
+    public class Bridge : MonoBehaviour
     {
         public GameObject Bridge1;
         public GameObject Bridge2;
