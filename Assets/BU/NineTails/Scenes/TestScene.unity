@@ -153,12 +153,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GameConnector: {fileID: 95072841}
-  m_GameControllerPrefab: {fileID: 3105845238269097863, guid: 1ec033e72f915764ea3263b862a92ef4, type: 3}
+  m_GameControllerPrefab: {fileID: 3105845238269097863, guid: ea66c2ec9c6f91b49b6ffb75cc054ccb, type: 3}
   m_StartGameplayStateButton: {fileID: 1729399543}
   m_StartGameplayPanel: {fileID: 1726403778}
   m_ActionDelaySec: 0
-  m_MidiFile: {fileID: 4900000, guid: 83f6371caac809d4d8fb01d12d95ba86, type: 3}
-  m_BackingTrack: {fileID: 8300000, guid: 2642659fcde340340a6d467c73ce70f4, type: 3}
+  m_MidiFile: {fileID: 4900000, guid: 7cd4d399b6d2a8443b9ee58693006118, type: 3}
+  m_BackingTrack: {fileID: 8300000, guid: 64555bdf144a46f49995e80fdaa13ffc, type: 3}
   m_MidiTimeOffset: 0
   m_GameName: 0
   m_BackgroundName: 1

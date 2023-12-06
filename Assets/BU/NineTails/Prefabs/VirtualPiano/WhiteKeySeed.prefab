@@ -89,4 +89,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59529ddd2e9dc0f47ae28f9fb8c8fbd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PianoKeyImage: {fileID: 0}
+  m_PianoKeyImage: {fileID: 1724347027132997746}

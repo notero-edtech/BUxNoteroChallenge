@@ -259,7 +259,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
             if (!IsPressing(note.MidiId))
             {
                 Handside hand = HandIdentifier.GetHandsideByTrackIndex(note.TrackIndex);
-                int customValue = MidiNoteMapper.MapMidiToCustom(note.MidiId);
+                int customValue = MapMidiToCustom(note.MidiId);
                 m_VirtualPiano.SetCueIn(note.MidiId, hand, false, customValue);
             }
 
@@ -271,7 +271,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
             //m_BackgroundFeedbackManager?.OnNoteInfoNoteStarted(note, time);
 
             int midiId = note.MidiId;
-            int customValue = MidiNoteMapper.MapMidiToCustom(note.MidiId);
+            int customValue = MapMidiToCustom(note.MidiId);
             if (!IsPressing(note.MidiId)) m_VirtualPiano.SetDefault(note.MidiId, false, customValue);
             m_GameplayUIController.UpdateTextFeedbackOnNoteEnd(note, time);
             foreach (var character in characters)
@@ -283,7 +283,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
         private void OnNotePressed(MidiNoteInfo note, double time)
         {
             var midiId = note.MidiId;
-            int customValue = MidiNoteMapper.MapMidiToCustom(note.MidiId);
+            int customValue = MapMidiToCustom(note.MidiId);
             Assert.IsFalse(m_MidiInputHashSet.Contains(midiId), $"Duplicate key press without release on note: {midiId}");
             m_MidiInputHashSet.Add(midiId);
 
@@ -304,7 +304,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
 
             const bool isPressing = false;
             int midiId = note.MidiId;
-            int customValue = MidiNoteMapper.MapMidiToCustom(note.MidiId);
+            int customValue = MapMidiToCustom(note.MidiId);
 
             if (IsPressing(midiId))
             {
@@ -364,7 +364,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
         {
             Assert.IsFalse(m_MidiInputHashSet.Contains(midiId), $"Duplicate key press without release on note: {midiId}");
             m_MidiInputHashSet.Add(midiId);
-            int customValue = MidiNoteMapper.MapMidiToCustom(midiId);
+            int customValue = MapMidiToCustom(midiId);
             if (!GameLogic.IsPlaying)
             {
                 m_VirtualPiano.SetDefault(midiId, true, 7);
@@ -379,7 +379,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
 
         private void OnBlankKeyReleased(int midiId, double time)
         {
-            int customValue = MidiNoteMapper.MapMidiToCustom(midiId);
+            int customValue = MapMidiToCustom(midiId);
             if (IsPressing(midiId))
             {
                 m_MidiInputHashSet.Remove(midiId);
@@ -448,43 +448,39 @@ namespace BU.NineTails.MidiGameplay.Gameplay
             Debug.Log("Destination = " + destination + " Origin = " + origin + " Distance = "+ distance);
             return distance / noteSpeed * 920;
         }
-
-        public class MidiNoteMapper
+        public static int MapMidiToCustom(int midiNote)
         {
-            public static int MapMidiToCustom(int midiNote)
+            if (midiNote == 24 || midiNote == 36 || midiNote == 48 || midiNote == 60 || midiNote == 72)
             {
-                if(midiNote == 24 || midiNote == 36 || midiNote == 48 || midiNote == 60 || midiNote == 72)
-                {
-                    return 0;
-                }
-                else if (midiNote == 26 || midiNote == 38 || midiNote == 50 || midiNote == 62 || midiNote == 74)
-                {
-                    return 1;
-                }
-                else if (midiNote == 28 || midiNote == 40 || midiNote == 52 || midiNote == 64 || midiNote == 76)
-                {
-                    return 2;
-                }
-                else if (midiNote == 29 || midiNote == 41 || midiNote == 53 || midiNote == 65 || midiNote == 77)
-                {
-                    return 3;
-                }
-                else if (midiNote == 31 || midiNote == 43 || midiNote == 55 || midiNote == 67 || midiNote == 79)
-                {
-                    return 4;
-                }
-                else if (midiNote == 33 || midiNote == 45 || midiNote == 57 || midiNote == 69 || midiNote == 81)
-                {
-                    return 5;
-                }
-                else if (midiNote == 35 || midiNote == 47 || midiNote == 59 || midiNote == 71 || midiNote == 83)
-                {
-                    return 6;
-                }
-                else
-                {
-                    throw new ArgumentException("Invalid MIDI note value");
-                }
+                return 0;
+            }
+            else if (midiNote == 26 || midiNote == 38 || midiNote == 50 || midiNote == 62 || midiNote == 74)
+            {
+                return 1;
+            }
+            else if (midiNote == 28 || midiNote == 40 || midiNote == 52 || midiNote == 64 || midiNote == 76)
+            {
+                return 2;
+            }
+            else if (midiNote == 29 || midiNote == 41 || midiNote == 53 || midiNote == 65 || midiNote == 77)
+            {
+                return 3;
+            }
+            else if (midiNote == 31 || midiNote == 43 || midiNote == 55 || midiNote == 67 || midiNote == 79)
+            {
+                return 4;
+            }
+            else if (midiNote == 33 || midiNote == 45 || midiNote == 57 || midiNote == 69 || midiNote == 81)
+            {
+                return 5;
+            }
+            else if (midiNote == 35 || midiNote == 47 || midiNote == 59 || midiNote == 71 || midiNote == 83)
+            {
+                return 6;
+            }
+            else
+            {
+                throw new ArgumentException("Invalid MIDI note value");
             }
         }
 
@@ -554,7 +550,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
 
         public void SetBackgroundFeedback(BaseBackgroundFeedbackManager manager)
         {
-            m_BackgroundFeedbackManager = manager;
+            //m_BackgroundFeedbackManager = manager;
         }
     }
 }
