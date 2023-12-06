@@ -4733,6 +4733,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 545829681432449469, guid: dda32d88bf9212e45ab43b35569067d3, type: 3}
+      propertyPath: m_MaxValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 545829681432449469, guid: dda32d88bf9212e45ab43b35569067d3, type: 3}
+      propertyPath: m_Transition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 545829681432449469, guid: dda32d88bf9212e45ab43b35569067d3, type: 3}
       propertyPath: m_WholeNumbers
       value: 1
       objectReference: {fileID: 0}
@@ -4852,6 +4860,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4587936434674169434, guid: dda32d88bf9212e45ab43b35569067d3, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4587936434674169434, guid: dda32d88bf9212e45ab43b35569067d3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -5
+      objectReference: {fileID: 0}
     - target: {fileID: 4650591054623199897, guid: dda32d88bf9212e45ab43b35569067d3, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -4884,6 +4900,10 @@ PrefabInstance:
       propertyPath: currentValueText
       value: 
       objectReference: {fileID: 9092690304310863374}
+    - target: {fileID: 9003710710117702657, guid: dda32d88bf9212e45ab43b35569067d3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8569079725406816689, guid: dda32d88bf9212e45ab43b35569067d3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dda32d88bf9212e45ab43b35569067d3, type: 3}
