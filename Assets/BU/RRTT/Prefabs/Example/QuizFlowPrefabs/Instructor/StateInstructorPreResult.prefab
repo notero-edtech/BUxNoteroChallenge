@@ -32,7 +32,7 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2040388450145830431}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -688,7 +688,7 @@ GameObject:
   - component: {fileID: 6436278830014740492}
   - component: {fileID: 2837713686506088728}
   - component: {fileID: 7595115824215602657}
-  - component: {fileID: 5852271786418580601}
+  - component: {fileID: 2385932156185326304}
   m_Layer: 5
   m_Name: Choice 4
   m_TagString: Untagged
@@ -756,7 +756,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5852271786418580601
+--- !u!114 &2385932156185326304
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -765,7 +765,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 919362641177039325}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 269c002edbef4772860ea357a80930ab, type: 3}
+  m_Script: {fileID: 11500000, guid: a9f08d106ccbaea4eb7032d46e610c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_AnswerAmount: {fileID: 730527244933439246}
@@ -918,7 +918,7 @@ GameObject:
   - component: {fileID: 8933258718383403265}
   - component: {fileID: 4723232648386447725}
   - component: {fileID: 1704920599235529933}
-  - component: {fileID: 6654372920392855405}
+  - component: {fileID: 8307008734490524406}
   m_Layer: 5
   m_Name: Choice 2
   m_TagString: Untagged
@@ -986,7 +986,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6654372920392855405
+--- !u!114 &8307008734490524406
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -995,7 +995,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1256611110122818550}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 269c002edbef4772860ea357a80930ab, type: 3}
+  m_Script: {fileID: 11500000, guid: a9f08d106ccbaea4eb7032d46e610c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_AnswerAmount: {fileID: 5988403412779447476}
@@ -3040,9 +3040,9 @@ RectTransform:
   - {fileID: 2131318489567214180}
   - {fileID: 307500927713108698}
   - {fileID: 648095778745407029}
+  - {fileID: 1126230926494544877}
   - {fileID: 8432772279582887246}
   - {fileID: 2258703233597516014}
-  - {fileID: 1126230926494544877}
   m_Father: {fileID: 4227472373590860123}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3334,7 +3334,7 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2040388450145830431}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3888,7 +3888,7 @@ GameObject:
   - component: {fileID: 1148408109471519585}
   - component: {fileID: 8576545507051101471}
   - component: {fileID: 5433542647083573609}
-  - component: {fileID: 1157067359993439641}
+  - component: {fileID: 7937397225128507912}
   m_Layer: 5
   m_Name: Choice 1
   m_TagString: Untagged
@@ -3956,7 +3956,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1157067359993439641
+--- !u!114 &7937397225128507912
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3965,7 +3965,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4733025138802846614}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 269c002edbef4772860ea357a80930ab, type: 3}
+  m_Script: {fileID: 11500000, guid: a9f08d106ccbaea4eb7032d46e610c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_AnswerAmount: {fileID: 5091902717889298425}
@@ -4541,10 +4541,10 @@ MonoBehaviour:
   m_Choice2: {fileID: 7893206049704725753}
   m_Choice3: {fileID: 6304092434869034134}
   m_Choice4: {fileID: 6250945638049517471}
-  m_ChartBar1: {fileID: 1157067359993439641}
-  m_ChartBar2: {fileID: 6654372920392855405}
-  m_ChartBar3: {fileID: 2637293482757912157}
-  m_ChartBar4: {fileID: 5852271786418580601}
+  m_ChartBar1: {fileID: 7937397225128507912}
+  m_ChartBar2: {fileID: 8307008734490524406}
+  m_ChartBar3: {fileID: 1481647774523916130}
+  m_ChartBar4: {fileID: 2385932156185326304}
   m_CorrectAnswerText: {fileID: 7296222577265715221}
   m_CorrectAnswerAmountText: {fileID: 8079014722588705511}
   m_WrongAnswerAmountText: {fileID: 8343471919020924761}
@@ -5630,7 +5630,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2040388450145830431}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5973,7 +5973,7 @@ GameObject:
   - component: {fileID: 8257615416464323781}
   - component: {fileID: 233345797153044314}
   - component: {fileID: 1190377157664808062}
-  - component: {fileID: 2637293482757912157}
+  - component: {fileID: 1481647774523916130}
   m_Layer: 5
   m_Name: Choice 3
   m_TagString: Untagged
@@ -6041,7 +6041,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2637293482757912157
+--- !u!114 &1481647774523916130
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6050,7 +6050,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8917643554228514292}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 269c002edbef4772860ea357a80930ab, type: 3}
+  m_Script: {fileID: 11500000, guid: a9f08d106ccbaea4eb7032d46e610c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_AnswerAmount: {fileID: 650639136951732581}

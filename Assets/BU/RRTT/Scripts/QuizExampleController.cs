@@ -309,6 +309,7 @@ namespace BU.RRTT.Scripts
             var quiz = QuizStore.QuizInfo;
             var quizList = QuizStore.QuizList;
             var studentAnswer = QuizStore.StudentAnswers;
+            byte currentHeart = 0;
             byte heart = 0;
 
             foreach(var question in quizList.Values)
@@ -317,7 +318,6 @@ namespace BU.RRTT.Scripts
                 {
                     continue;
                 }
-
                 if(m_CurrentQuiz == quiz.CurrentQuizNumber)
                 {
                     var score = 0;
@@ -326,13 +326,13 @@ namespace BU.RRTT.Scripts
 
                     if(score >= (0.25f * studentList.Count))
                     {
-                        heart++;
+                        currentHeart++;
                     }
-
-                    QuizStore.SetCustomData(new[] { bossIndex, heart });
+                    QuizStore.SetCustomData(new[] { bossIndex, currentHeart, heart });
+                    heart = currentHeart;
                 }
             }
-
+            
             //Set per-result data
             var assetFilePath = QuizStore.CurrentQuestion.Answer.AssetAnswerFile;
             var correctAnswer = QuizStore.CorrectAnswer;

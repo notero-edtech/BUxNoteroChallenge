@@ -51,6 +51,8 @@ namespace BU.RRTT.Scripts.UI.QuizResultUI.StudentUI
         private Image heartFiller;
         
         private float heart;
+        
+        private Animator animator;
 
         private void Start()
         {
@@ -60,18 +62,36 @@ namespace BU.RRTT.Scripts.UI.QuizResultUI.StudentUI
             SetQuestionAmountText(QuestionAmount);
             SetPostTestQuizScoreText(CurrentScore, QuestionAmount);
             SetPreTestQuizScoreText(PreTestScore, QuestionAmount);
+            if (heart < (0.5 * QuestionAmount))
+            {
+                animator.SetBool("ResultNeg", true);
+            }
+            if (heart >= (0.5 * QuestionAmount))
+            {
+                animator.SetBool("ResultPos", true);
+            }
         }
 
         private void Update()
         {
-            heartFiller.fillAmount = Mathf.MoveTowards(heartFiller.fillAmount, heart/TotalPage, 0.5f * Time.deltaTime);
+            heartFiller.fillAmount = Mathf.MoveTowards(heartFiller.fillAmount, heart/QuestionAmount, 0.5f * Time.deltaTime);
         }
 
         public override void OnCustomDataReceive(byte[] data)
         {
             heart = data[1];
+            //เขียนดักไว้เพราะว่าไม่มี Data สามารถลบได้เลยครับ ตอน Sync
+            if (heart == null)
+            {
+                heart = 0;
+            }
+            //เขียนดักไว้เพราะว่าไม่มี Data สามารถลบได้เลยครับ ตอน Sync
             bossList = bossReference.GetComponent<BossList>();
             GameObject boss = Instantiate(bossList.bossPrefabs[data[0]].gameObject, bossPosition);
+            animator = boss.GetComponent<Animator>();
+            animator.SetBool("Positive", false);
+            animator.SetBool("Negative", false);
+            animator.SetBool("Question", false);
             boss.transform.localScale = scale;
             boss.transform.SetParent(bossPosition);
         }
