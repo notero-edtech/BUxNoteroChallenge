@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace BU.Octopuz.Scripts
 {
-    public class Bridge : MonoBehaviour
+    public class Bright : MonoBehaviour
     {
         public GameObject Bridge1;
         public GameObject Bridge2;
@@ -34,7 +34,7 @@ namespace BU.Octopuz.Scripts
 
             if (time <= 10 && RunOneTime == 0)
             {
-                Animation();
+                Animetion();
                 RunOneTime = 1;
 
             }
@@ -46,35 +46,35 @@ namespace BU.Octopuz.Scripts
             {
                 CountBridge++;
                 Bridge1.SetActive(true);
-                idle.SetActive(false);
+                idel.SetActive(false);
                 goodAnime.SetActive(true);
             }
             else if (Percent >= 20 && CountBridge == 1) //ความคีบหน้าเมื่อถึง 39 สะพานอันที่ 2
             {
                 CountBridge++;
                 Bridge2.SetActive(true);
-                idle.SetActive(false);
+                idel.SetActive(false);
                 goodAnime.SetActive(true);
             }
             else if (Percent >= 40 && CountBridge == 2) //ความคีบหน้าเมื่อถึง 59 สะพานอันที่ 3
             {
                 CountBridge++;
                 Bridge3.SetActive(true);
-                idle.SetActive(false);
+                idel.SetActive(false);
                 goodAnime.SetActive(true);
             }
             else if (Percent >= 60 && CountBridge == 3) //ความคีบหน้าเมื่อถึง 79 สะพานอันที่ 4
             {
                 CountBridge++;
                 Bridge4.SetActive(true);
-                idle.SetActive(false);
+                idel.SetActive(false);
                 goodAnime.SetActive(true);
             }
             else if (Percent >= 80 && CountBridge == 4) //ความคีบหน้าเมื่อถึง 100 สะพานอันที่ 5
             {
                 CountBridge++;
                 Bridge5.SetActive(true);
-                idle.SetActive(false);
+                idel.SetActive(false);
                 goodAnime.SetActive(true);
             }
         }
@@ -86,43 +86,43 @@ namespace BU.Octopuz.Scripts
         public GameObject perfect;
         public GameObject TrunoffP;
         public GameObject TrunoffB;
-        public GameObject idle;
+        public GameObject idel;
         public GameObject goodAnime;
 
 
-        public void Animation()
+        public void Animetion()
         {
             if (CountBridge == 0 || CountBridge == 1)
             {
-                idle.SetActive(false);
+                idel.SetActive(false);
                 bad.SetActive(true);
                 TrunoffP.SetActive(false);
                 TrunoffB.SetActive(false);
             }
             if (CountBridge == 2)
             {
-                idle.SetActive(false);
+                idel.SetActive(false);
                 notbad.SetActive(true);
                 TrunoffP.SetActive(false);
                 TrunoffB.SetActive(false);
             }
             if (CountBridge == 3)
             {
-                idle.SetActive(false);
+                idel.SetActive(false);
                 good.SetActive(true);
                 TrunoffP.SetActive(false);
                 TrunoffB.SetActive(false);
             }
             if (CountBridge == 4)
             {
-                idle.SetActive(false);
+                idel.SetActive(false);
                 great.SetActive(true);
                 TrunoffP.SetActive(false);
                 TrunoffB.SetActive(false);
             }
             if (CountBridge == 5)
             {
-                idle.SetActive(false);
+                idel.SetActive(false);
                 perfect.SetActive(true);
                 TrunoffP.SetActive(false);
                 TrunoffB.SetActive(false);
@@ -132,7 +132,7 @@ namespace BU.Octopuz.Scripts
         float timeCountdownStarted = 0f;
         bool isCountingDown = false;
 
-        public void AnimationFeedback(float seconds)
+        public void AnimetionFeedback(float seconds)
         {
             var time = m_MaxTime - seconds;
 
@@ -148,7 +148,7 @@ namespace BU.Octopuz.Scripts
 
                 if (timePassed >= countdownTime && RunOneTime == 0)
                 {
-                    idle.SetActive(true);
+                    idel.SetActive(true);
                     goodAnime.SetActive(false);
                     isCountingDown = false;
                 }

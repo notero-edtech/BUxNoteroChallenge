@@ -23,7 +23,7 @@ namespace BU.Octopuz.Scripts1.UI
         private CountInPanel m_CountInPanel;
 
         [SerializeField]
-        private Bridge m_CountBridge;
+        private Bright m_CountBright;
 
         [SerializeField]
         private CompetitivePanel m_CompetitivePanel;
@@ -56,14 +56,14 @@ namespace BU.Octopuz.Scripts1.UI
         public void HandleGameplayTimeUpdate(float time)
         {
             m_CompetitivePanel.OnGameplayTimeUpdate(time);
-            m_CountBridge.OnGameplayTimeUpdate(time);
-            m_CountBridge.AnimationFeedback(time);
+            m_CountBright.OnGameplayTimeUpdate(time);
+            m_CountBright.AnimetionFeedback(time);
         }
 
         public void HandleScoreUpdate(SelfResultInfo info)
         {
             m_CompetitivePanel.OnScoreUpdated(info);
-            m_CountBridge.OnScoreUpdated(info);
+            m_CountBright.OnScoreUpdated(info);
         }
 
         public void SetAccuracyMeterBarActive(bool isActive)
@@ -135,7 +135,7 @@ namespace BU.Octopuz.Scripts1.UI
         public void SetupTimerDisplay(float duration)
         {
             m_CompetitivePanel.SetupTimerDisplay(duration);
-            m_CountBridge.SetTimerBarMaxValue(duration);
+            m_CountBright.SetTimerBarMaxValue(duration);
         }
 
         public void SetVirtualPianoActive(bool isActive)
