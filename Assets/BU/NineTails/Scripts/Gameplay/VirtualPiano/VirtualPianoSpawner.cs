@@ -101,7 +101,7 @@ namespace BU.NineTails.Scripts.UI.VirtualPiano
             {
                 string note = VirtualPianoHelper.GetNoteName(i);
                 int octave = VirtualPianoHelper.GetOctaveIndex(i);
-                if(octave == 1)
+                if(octave == 2)
                 {
                     PianoKey whiteKeySeed = GetWhiteKeySeedByNote(note);
                     PianoKey whiteKey = CreateNewPianoKey(whiteKeySeed, m_WhiteLayer, new Vector2(lanePosXList[i], 0));

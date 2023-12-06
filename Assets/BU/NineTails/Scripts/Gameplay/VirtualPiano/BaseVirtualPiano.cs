@@ -82,7 +82,7 @@ namespace BU.NineTails.Scripts.UI.VirtualPiano
 
         public void SetDefault(int midiId, bool isPressing, int note)
         {
-            if(midiId >= 36 && midiId <= 47)
+            if(midiId >= 48 && midiId <= 59)
             {
                 SetSprite(midiId, "0", Handside.Left, isPressing, note);
             }
@@ -129,7 +129,7 @@ namespace BU.NineTails.Scripts.UI.VirtualPiano
             if (m_VirtualPianoSpawner.IsMidiIdInRange(midiId))
             {
                 int index = GetPianoKeyIndex(midiId);
-                if(midiId >= 36 && midiId <= 47)
+                if(midiId >= 48 && midiId <= 59)
                 {
                     m_KeyStorage[index].SetSprite(state, handside, isPressing, note);
                 }
