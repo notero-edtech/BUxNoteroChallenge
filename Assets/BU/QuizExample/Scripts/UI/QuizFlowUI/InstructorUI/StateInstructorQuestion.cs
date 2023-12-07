@@ -37,12 +37,7 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
             SetQuestionImage(QuestionImage);
             SetStudentAmountText(0, StudentAmount);
 
-            m_NextButtonUI.OnNextClick.AddListener(OnNextStateReceive);
-        }
-
-        public override void OnCustomDataReceive(byte[] data)
-        {
-            Debug.Log($"NPA-data:{data}");
+            if(m_NextButtonUI != null) m_NextButtonUI.OnNextClick.AddListener(OnNextStateReceive);
         }
 
         public override void OnStudentAnswerReceive(int studentAnswer, int studentAmount)
@@ -51,13 +46,6 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
         }
 
         #region Custom functions
-
-        public override void SetStudentAmount(int amount)
-        {
-            base.SetStudentAmount(amount);
-
-            SetStudentAmountText(StudentAnswer, amount);
-        }
 
         private void OnNextStateReceive()
         {

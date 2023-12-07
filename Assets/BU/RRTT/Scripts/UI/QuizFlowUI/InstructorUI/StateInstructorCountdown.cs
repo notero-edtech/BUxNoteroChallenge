@@ -54,6 +54,9 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
             animator = boss.GetComponent<Animator>();
             animator.SetBool("Positive", false);
             animator.SetBool("Negative", false);
+            animator.SetBool("Question", false);
+            animator.SetBool("ResultNeg", false);
+            animator.SetBool("ResultPos", false);
             boss.transform.SetParent(countDownFrame);
             boss.transform.SetParent(bossPosition);
         }
@@ -65,7 +68,7 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
         public override void OnCountdownSet(int count)
         {
             m_CircleTimerAnimator.SetTrigger("TimerCountdown");
-            m_CountdownText.text = $"In {count} ...";
+            m_CountdownText.text = $"{count}";
 
             if(count < 1)
             {

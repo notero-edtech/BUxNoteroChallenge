@@ -31,11 +31,6 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.StudentUI
             SetQuestionImage(QuestionImage);
         }
 
-        public override void OnCustomDataReceive(byte[] data)
-        {
-            Debug.Log($"NPA-data:{data}");
-        }
-
         public override void OnPianoStateReceive(PianoStates pianoState, string choice)
         {
             base.OnPianoStateReceive(pianoState, choice);

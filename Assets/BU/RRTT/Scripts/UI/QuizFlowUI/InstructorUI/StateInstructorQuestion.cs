@@ -29,20 +29,28 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
         private const string ChapterIndexFormat = "Chapter: <color=white><font=\"EN_Stylize_Neutral_A\">{0}</font></color>";
         private const string MissionFormat = "Mission: <color=white><font=\"EN_Stylize_Neutral_B\">{0}</font></color>";
         private const string QuizInfoFormat = "<color=#14C287>{0}</color> / {1}";
-        
+
         // RRTT Variables
         [SerializeField]
         private Transform bossPosition;
 
         [SerializeField]
         private Transform contentFrame;
-        
+
         [SerializeField]
         private GameObject bossReference;
 
         private BossList bossList;
 
-        private Vector3 scale = new Vector3( 4,4,4);
+        private Animator animator;
+        
+        [SerializeField]
+        private Image heartFiller;
+        
+        private float currentHeart;
+        
+        private Vector3 scale = new Vector3(4, 4, 4);
+        
         private void Start()
         {
             SetChapterText(Chapter);
@@ -50,14 +58,23 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
             SetQuizInfoText(CurrentPage, TotalPage);
             SetQuestionImage(QuestionImage);
             SetStudentAmountText(0, StudentAmount);
+            heartFiller.fillAmount = currentHeart / TotalPage;
 
-            m_NextButtonUI.OnNextClick.AddListener(OnNextStateReceive);
+            if(m_NextButtonUI != null) m_NextButtonUI.OnNextClick.AddListener(OnNextStateReceive);
         }
 
         public override void OnCustomDataReceive(byte[] data)
         {
             bossList = bossReference.GetComponent<BossList>();
+            currentHeart = data[1];
+            heartFiller.fillAmount = currentHeart / TotalPage;
             GameObject boss = Instantiate(bossList.bossPrefabs[data[0]].gameObject, bossPosition);
+            animator = boss.GetComponent<Animator>();
+            animator.SetBool("Positive", false);
+            animator.SetBool("Negative", false);
+            animator.SetBool("Question", true);
+            animator.SetBool("ResultNeg", false);
+            animator.SetBool("ResultPos", false);
             boss.transform.localScale = scale;
             boss.transform.SetParent(contentFrame);
             boss.transform.SetParent(bossPosition);
