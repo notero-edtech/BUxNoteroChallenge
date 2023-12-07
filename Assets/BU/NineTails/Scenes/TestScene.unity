@@ -157,8 +157,8 @@ MonoBehaviour:
   m_StartGameplayStateButton: {fileID: 1729399543}
   m_StartGameplayPanel: {fileID: 1726403778}
   m_ActionDelaySec: 0
-  m_MidiFile: {fileID: 4900000, guid: 7cd4d399b6d2a8443b9ee58693006118, type: 3}
-  m_BackingTrack: {fileID: 8300000, guid: 64555bdf144a46f49995e80fdaa13ffc, type: 3}
+  m_MidiFile: {fileID: 4900000, guid: 67a599d4ac6358645b6fc4f22a80d3c3, type: 3}
+  m_BackingTrack: {fileID: 8300000, guid: 6e39cc9d3341f5841912e16b61384953, type: 3}
   m_MidiTimeOffset: 0
   m_GameName: 0
   m_BackgroundName: 1

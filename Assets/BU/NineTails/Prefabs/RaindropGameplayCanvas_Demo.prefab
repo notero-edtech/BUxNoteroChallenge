@@ -383,7 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c31ca576443f04d93df9b489d1a177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterNotes: 1800000024000000300000003c00000048000000
+  characterNotes: 30000000
 --- !u!1 &335131170735858886
 GameObject:
   m_ObjectHideFlags: 0
@@ -1841,7 +1841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c31ca576443f04d93df9b489d1a177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterNotes: 1d0000002900000035000000410000004d000000
+  characterNotes: 35000000
 --- !u!1 &2545503632543179773
 GameObject:
   m_ObjectHideFlags: 0
@@ -2005,7 +2005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c31ca576443f04d93df9b489d1a177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterNotes: 1c0000002800000034000000400000004c000000
+  characterNotes: 34000000
 --- !u!1 &2971874689948446048
 GameObject:
   m_ObjectHideFlags: 0
@@ -2169,7 +2169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c31ca576443f04d93df9b489d1a177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterNotes: 230000002f0000003b0000004700000053000000
+  characterNotes: 3b000000
 --- !u!1 &3105845238269097863
 GameObject:
   m_ObjectHideFlags: 0
@@ -2863,7 +2863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c31ca576443f04d93df9b489d1a177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterNotes: 1f0000002b00000037000000430000004f000000
+  characterNotes: 37000000
 --- !u!1 &4162581023885534367
 GameObject:
   m_ObjectHideFlags: 0
@@ -3139,7 +3139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c31ca576443f04d93df9b489d1a177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterNotes: 210000002d000000390000004500000051000000
+  characterNotes: 39000000
 --- !u!1 &4740502719356131066
 GameObject:
   m_ObjectHideFlags: 0
@@ -3679,7 +3679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c31ca576443f04d93df9b489d1a177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterNotes: 1a00000026000000320000003e0000004a000000
+  characterNotes: 32000000
 --- !u!1 &5281021646706441498
 GameObject:
   m_ObjectHideFlags: 0

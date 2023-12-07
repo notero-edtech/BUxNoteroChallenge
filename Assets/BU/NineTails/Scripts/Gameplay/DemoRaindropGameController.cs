@@ -272,12 +272,8 @@ namespace BU.NineTails.MidiGameplay.Gameplay
 
             int midiId = note.MidiId;
             int customValue = MapMidiToCustom(note.MidiId);
-            if (!IsPressing(note.MidiId)) m_VirtualPiano.SetDefault(note.MidiId, false, customValue);
+            if (!IsPressing(note.MidiId))m_VirtualPiano.SetDefault(note.MidiId, false, customValue);
             m_GameplayUIController.UpdateTextFeedbackOnNoteEnd(note, time);
-            foreach (var character in characters)
-            {
-                character.CheckOppsAnimation(midiId);
-            }
         }
 
         private void OnNotePressed(MidiNoteInfo note, double time)
@@ -445,7 +441,6 @@ namespace BU.NineTails.MidiGameplay.Gameplay
             //var origin = ((RectTransform)m_RaindropNoteController.RaindropNoteSpawner.transform).anchoredPosition.x;
             var origin = 1280;
             float distance = Mathf.Abs(destination - origin);
-            Debug.Log("Destination = " + destination + " Origin = " + origin + " Distance = "+ distance);
             return distance / noteSpeed * 920;
         }
         public static int MapMidiToCustom(int midiNote)
