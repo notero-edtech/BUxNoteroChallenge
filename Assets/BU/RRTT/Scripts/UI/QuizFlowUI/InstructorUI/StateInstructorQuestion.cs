@@ -1,5 +1,6 @@
 using BU.RRTT.Scripts.BossSystem;
 using Notero.QuizConnector.Instructor;
+using Notero.Unity.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,10 +22,7 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
         protected TMP_Text m_StudentAmountText;
 
         [SerializeField]
-        protected RawImage m_QuestionRawImage;
-
-        [SerializeField]
-        private HUDController m_NextButtonUI;
+        protected MediaPanel m_MediaPanel;
 
         private const string ChapterIndexFormat = "Chapter: <color=white><font=\"EN_Stylize_Neutral_A\">{0}</font></color>";
         private const string MissionFormat = "Mission: <color=white><font=\"EN_Stylize_Neutral_B\">{0}</font></color>";
@@ -43,7 +41,7 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
         private BossList bossList;
 
         private Animator animator;
-        
+
         [SerializeField]
         private Image heartFiller;
         
@@ -56,11 +54,22 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
             SetChapterText(Chapter);
             SetMissionText(Mission);
             SetQuizInfoText(CurrentPage, TotalPage);
-            SetQuestionImage(QuestionImage);
             SetStudentAmountText(0, StudentAmount);
             heartFiller.fillAmount = currentHeart / TotalPage;
+        }
 
-            if(m_NextButtonUI != null) m_NextButtonUI.OnNextClick.AddListener(OnNextStateReceive);
+        public override void SetQuestionImage(Texture texture)
+        {
+            base.SetQuestionImage(texture);
+
+            m_MediaPanel.ShowImage(texture);
+        }
+
+        public override void SetQuestionVideo(string url)
+        {
+            base.SetQuestionVideo(url);
+
+            m_MediaPanel.ShowVideo(url);
         }
 
         public override void OnCustomDataReceive(byte[] data)
@@ -80,6 +89,11 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
             boss.transform.SetParent(bossPosition);
         }
 
+        public override void SetFullScreen(bool isFull)
+        {
+            m_MediaPanel.SetFullScreenActive(isFull);
+        }
+
         public override void OnStudentAnswerReceive(int studentAnswer, int studentAmount)
         {
             SetStudentAmountText(studentAnswer, studentAmount);
@@ -92,11 +106,6 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
             base.SetStudentAmount(amount);
 
             SetStudentAmountText(StudentAnswer, amount);
-        }
-
-        private void OnNextStateReceive()
-        {
-            OnNextState?.Invoke();
         }
 
         private void SetChapterText(string text)
@@ -117,11 +126,6 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
         private void SetStudentAmountText(int commitedStudent, int totalStudent)
         {
             m_StudentAmountText.text = string.Format("<color=#14C287>{0}</color> / {1}", commitedStudent, totalStudent);
-        }
-
-        private void SetQuestionImage(Texture texture)
-        {
-            m_QuestionRawImage.texture = texture;
         }
 
         #endregion
