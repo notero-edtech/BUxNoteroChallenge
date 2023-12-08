@@ -9,14 +9,10 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
 {
     public class RaindropNoteSpawner : MonoBehaviour
     {
-        //[SerializeField] protected RaindropNote m_WhiteLeftSeed;
-        //[SerializeField] protected RaindropNote m_WhiteRightSeed;
         [SerializeField] protected RaindropNote m_BlackLeftSeed;
         [SerializeField] protected RaindropNote m_BlackRightSeed;
         [SerializeField] protected RectTransform m_WhiteRaindropContainer;
         [SerializeField] protected RectTransform m_BlackRaindropContainer;
-        
-        //Best UpdateSpawnNotes
         [SerializeField] protected RaindropNote noteC;
         [SerializeField] protected RaindropNote noteD;
         [SerializeField] protected RaindropNote noteE;
@@ -64,7 +60,6 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
             rect.anchoredPosition = new Vector2(xPos, yPos);
         }
 
-        // Best UpdateSpawnNotes 
         protected RaindropNote GetRaindropNoteType(MidiNoteInfo info)
         {
             if (info.MidiId == 24 || info.MidiId == 36 || info.MidiId == 48 || info.MidiId == 60 || info.MidiId == 72)
@@ -99,15 +94,6 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
             {
                 return m_BlackLeftSeed;
             }
-            
-            /*if (info.TrackIndex == (int)Handside.Left)
-            {
-                return VirtualPianoHelper.IsBlackKey(info.MidiId) ? m_BlackLeftSeed : m_WhiteLeftSeed;
-            }
-            else
-            {
-                return VirtualPianoHelper.IsBlackKey(info.MidiId) ? m_BlackRightSeed : m_WhiteRightSeed;
-            }*/
         }
 
         protected RaindropNote PoolNewRaindropNote(MidiNoteInfo info, Vector2 pos)
@@ -121,19 +107,5 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
             rect.anchoredPosition = pos;
             return raindropGo;
         }
-
-        /*void Update()
-        {
-            foreach (var note in GetComponentsInChildren<RaindropNote>())
-            {
-                RectTransform rect = (RectTransform)note.transform;
-                rect.anchoredPosition += new Vector2(-m_RaindropSpeed * Time.deltaTime, 0);
-
-                if (rect.anchoredPosition.x < -1280)
-                {
-                    ReturnRaindropNoteToPool(note);
-                }
-            }
-        }*/
     }
 }

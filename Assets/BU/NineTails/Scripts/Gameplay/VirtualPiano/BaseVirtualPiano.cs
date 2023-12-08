@@ -41,9 +41,6 @@ namespace BU.NineTails.Scripts.UI.VirtualPiano
         {
             m_currentPianoType = pianoType;
             m_KeyStorage = m_VirtualPianoSpawner.Create(pianoType);
-
-            //m_KeyStorage.ForEach(key => ShowLabel += key.ShowLabel);
-
             SetPianoNoteLabel(isShowLabel);
             if (m_currentPianoType != "quiz") SetActiveNoteIndicator(true);
         }

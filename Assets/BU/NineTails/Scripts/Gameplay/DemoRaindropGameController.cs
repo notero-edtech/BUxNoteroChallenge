@@ -243,7 +243,6 @@ namespace BU.NineTails.MidiGameplay.Gameplay
         private void SubscribeGameplayTimeUpdateEventHandlers()
         {
             GameLogic.OnGameplayTimeUpdate.AddListener(m_GameplayUIController.HandleGameplayTimeUpdate);
-            //GameLogic.OnGameplayTimeUpdate.AddListener(ActiveBarline);
             GameLogic.OnGameplayTimeUpdate.AddListener(m_RaindropNoteController.UpdateLogic);
         }
 
@@ -272,12 +271,8 @@ namespace BU.NineTails.MidiGameplay.Gameplay
 
             int midiId = note.MidiId;
             int customValue = MapMidiToCustom(note.MidiId);
-            if (!IsPressing(note.MidiId)) m_VirtualPiano.SetDefault(note.MidiId, false, customValue);
+            if (!IsPressing(note.MidiId))m_VirtualPiano.SetDefault(note.MidiId, false, customValue);
             m_GameplayUIController.UpdateTextFeedbackOnNoteEnd(note, time);
-            foreach (var character in characters)
-            {
-                character.CheckOppsAnimation(midiId);
-            }
         }
 
         private void OnNotePressed(MidiNoteInfo note, double time)
@@ -442,10 +437,8 @@ namespace BU.NineTails.MidiGameplay.Gameplay
         protected virtual double CalculateNoteStartTimeOffset(float noteSpeed)
         {
             var destination = m_ActionBar.anchoredPosition.x;
-            //var origin = ((RectTransform)m_RaindropNoteController.RaindropNoteSpawner.transform).anchoredPosition.x;
             var origin = 1280;
             float distance = Mathf.Abs(destination - origin);
-            Debug.Log("Destination = " + destination + " Origin = " + origin + " Distance = "+ distance);
             return distance / noteSpeed * 920;
         }
         public static int MapMidiToCustom(int midiNote)
@@ -489,21 +482,6 @@ namespace BU.NineTails.MidiGameplay.Gameplay
             m_GameplayUIController.SetActionBarActive(true);
             m_GameplayUIController.SetBarlineActive(true);
         }
-
-        /*private void ActiveBarline(float currentTime)
-        {
-            if(HasBarlineToActive(currentTime) && !m_RaindropNoteController.RaindropBarlineList[m_CurrentBarlineIndex].isActiveAndEnabled)
-            {
-                m_RaindropNoteController.RaindropBarlineList[m_CurrentBarlineIndex].gameObject.SetActive(true);
-                m_CurrentBarlineIndex++;
-            }
-        }*/
-
-        /*private bool HasBarlineToActive(double currentTime)
-        {
-            return m_CurrentBarlineIndex < m_RaindropNoteController.RaindropBarlineList.Count &&
-                   currentTime >= m_RaindropNoteController.RaindropBarlineList[m_CurrentBarlineIndex].EndScreenTimeInSecond;
-        }*/
 
         public void SetBackgroundImage(Texture texture)
         {
@@ -550,7 +528,6 @@ namespace BU.NineTails.MidiGameplay.Gameplay
 
         public void SetBackgroundFeedback(BaseBackgroundFeedbackManager manager)
         {
-            //m_BackgroundFeedbackManager = manager;
         }
     }
 }
