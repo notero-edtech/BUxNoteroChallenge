@@ -1,4 +1,4 @@
-﻿using BU.Gameplay.Scoring;
+﻿using BU.Octopuz.Gameplay.Scoring;
 using Notero.MidiAdapter;
 using Notero.MidiGameplay.Bot;
 using Notero.MidiGameplay.Core;
@@ -8,6 +8,8 @@ using Notero.RaindropGameplay.UI;
 using Notero.Unity.AudioModule;
 using Notero.Unity.MidiNoteInfo;
 using Notero.Unity.UI.VirtualPiano;
+using BU.Octopuz.Scripts1.Gameplay;
+using BU.Octopuz.Scripts;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,7 +17,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Events;
 
-namespace BU.MidiGameplay.Gameplay
+namespace BU.Octopuz.MidiGameplay.Gameplay
 {
     public class DemoRaindropGameController : MonoBehaviour, IMidiGameController, IBackgroundFeedbackChangable
     {
@@ -179,15 +181,20 @@ namespace BU.MidiGameplay.Gameplay
             SubscribeGameplayTimeUpdateEventHandlers();
         }
 
-        private void OnGameEnd()
+        private IEnumerator DelayedGameEnd()
         {
+            yield return new WaitForSeconds(13f); // Adjust the delay duration as needed
             OnGameEnded?.Invoke();
             UnsubscribeGameFeedback();
             UnsubscribeGameplayTimeUpdateEventHandlers();
             var selfResultInfo = m_ScoringController.GetScoringInfo();
             OnGameResultSubmitted?.Invoke(selfResultInfo);
             m_MidiInputHashSet.Clear();
+        }
 
+        private void OnGameEnd()
+        {
+            StartCoroutine(DelayedGameEnd());
         }
 
         public void ResetController()

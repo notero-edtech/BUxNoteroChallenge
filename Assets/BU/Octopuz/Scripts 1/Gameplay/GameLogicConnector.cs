@@ -6,7 +6,7 @@ using Notero.Unity.MidiNoteInfo;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace BU.MidiGameplay.Gameplay
+namespace BU.Octopuz.MidiGameplay.Gameplay
 {
     public class GameLogicConnector : MonoBehaviour, IMidiGameLogic
     {

@@ -1,5 +1,11 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Notero.MidiGameplay.Core;
 using Notero.RaindropGameplay.Core;
 using UnityEngine;
+using Notero.RaindropGameplay.UI;
+using UnityEngine.Events;
 
 
 namespace BU.Octopuz.Scripts
@@ -16,6 +22,7 @@ namespace BU.Octopuz.Scripts
 
         public float m_MaxTime;
 
+
         public void SetTimerBarMaxValue(float value)
         {
             m_MaxTime = value;
@@ -29,10 +36,9 @@ namespace BU.Octopuz.Scripts
         public void OnGameplayTimeUpdate(float seconds)
         {
             var time = m_MaxTime - seconds;
-            //Debug.Log(time);
-            Debug.Log(timeRemaining);
+            Debug.Log(time);
 
-            if (time <= 10 && RunOneTime == 0)
+            if (time <= 0.1 && RunOneTime == 0)
             {
                 Animetion();
                 RunOneTime = 1;
@@ -132,7 +138,7 @@ namespace BU.Octopuz.Scripts
         float timeCountdownStarted = 0f;
         bool isCountingDown = false;
 
-        public void AnimetionFeedback(float seconds)
+        public void AnimationFeedback(float seconds)
         {
             var time = m_MaxTime - seconds;
 

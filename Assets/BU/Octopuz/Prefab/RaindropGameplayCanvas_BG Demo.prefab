@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6064681952225585129}
-  - component: {fileID: 3391649697107771397}
   - component: {fileID: 5249047573310361528}
-  - component: {fileID: 3351390289793232884}
+  - component: {fileID: 757696887270223178}
   - component: {fileID: 3033474024311571981}
+  - component: {fileID: 2704235830800960456}
   m_Layer: 0
   m_Name: Demo_RaindropGameController
   m_TagString: Untagged
@@ -35,28 +35,6 @@ Transform:
   m_Father: {fileID: 3105845238269097859}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3391649697107771397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 25375924964497680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9af8f518141c5347979261df0bf8e79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_GameLogicController: {fileID: 3351390289793232884}
-  m_GameplayConfig: {fileID: 11400000, guid: 9e2d333ccacd0384b9d1e6044b673ea2, type: 2}
-  m_TimeProviderGO: {fileID: 25375924964497680}
-  m_VirtualPianoController: {fileID: 5771320644243864369}
-  m_RaindropNoteController: {fileID: 6265858028097019353}
-  m_IGameplayUIControllable: {fileID: 25375924964497680}
-  m_CurrentBackgroundTexture: {fileID: 0}
-  m_RaindropOctaveAmount: 4
-  m_RaindropMinimumKeyId: 24
-  m_ActionBar: {fileID: 6510731730976483514}
 --- !u!114 &5249047573310361528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,7 +50,7 @@ MonoBehaviour:
   m_GameplayCanvas: {fileID: 3105845238269097858}
   m_RaindropGameplayCanvas: {fileID: 3105845238269097863}
   m_CountInPanel: {fileID: 1544611240791376543}
-  m_CountBright: {fileID: 255445306272398876}
+  m_CountBridge: {fileID: 1457934291651266741}
   m_CompetitivePanel: {fileID: 7282640982589108623}
   m_BackgroundImage: {fileID: 0}
   m_TextFeedback: {fileID: 2649423315590453676}
@@ -81,7 +59,7 @@ MonoBehaviour:
   m_Barline: {fileID: 7884345898638238681}
   m_ActionBar: {fileID: 6510731730976483515}
   m_OctaceBar: {fileID: 8831715592600337776}
---- !u!114 &3351390289793232884
+--- !u!114 &757696887270223178
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,7 +68,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 25375924964497680}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ed7c1e9cdb84564f86f56cee2ae3235, type: 3}
+  m_Script: {fileID: 11500000, guid: 8623c3ef0dad4d7489c05756f73f7e22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &3033474024311571981
@@ -105,6 +83,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffc57e0e1ba0d9944ab6eafccebf3164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2704235830800960456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25375924964497680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2132637b1691d604f9fc091144ab4b64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_GameLogicController: {fileID: 757696887270223178}
+  m_GameplayConfig: {fileID: 11400000, guid: 3c9a2d52d9280014e91e1bf661f8c6a6, type: 2}
+  m_TimeProviderGO: {fileID: 25375924964497680}
+  m_VirtualPianoController: {fileID: 5771320644243864369}
+  m_RaindropNoteController: {fileID: 4394109471812222606}
+  m_IGameplayUIControllable: {fileID: 25375924964497680}
+  m_CurrentBackgroundTexture: {fileID: 0}
+  m_RaindropOctaveAmount: 4
+  m_RaindropMinimumKeyId: 24
+  m_ActionBar: {fileID: 6510731730976483514}
 --- !u!1 &50243320221621716
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,7 +1274,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6519975392220586026}
-  - component: {fileID: 6265858028097019353}
+  - component: {fileID: 4394109471812222606}
   m_Layer: 5
   m_Name: RaindropNoteController
   m_TagString: Untagged
@@ -1302,7 +1302,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6265858028097019353
+--- !u!114 &4394109471812222606
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1311,7 +1311,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2099798381438417227}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31816cb47d1baa04495f28f002daf940, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d02a58b324856846ba7cf782e7e6d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_RaindropNoteSpawner: {fileID: 7659204415998357288}
@@ -1426,7 +1426,7 @@ GameObject:
   - component: {fileID: 3105845238269097858}
   - component: {fileID: 3105845238269097857}
   m_Layer: 5
-  m_Name: RaindropGameplayCanvas_BGRefactored
+  m_Name: RaindropGameplayCanvas_BG Demo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2549,7 +2549,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 884488776639705917}
-  - component: {fileID: 255445306272398876}
+  - component: {fileID: 1457934291651266741}
   m_Layer: 5
   m_Name: GameObject
   m_TagString: Untagged
@@ -2577,7 +2577,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &255445306272398876
+--- !u!114 &1457934291651266741
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
