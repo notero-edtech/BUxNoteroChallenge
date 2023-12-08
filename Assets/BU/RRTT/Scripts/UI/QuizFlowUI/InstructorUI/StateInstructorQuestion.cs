@@ -44,11 +44,11 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
 
         [SerializeField]
         private Image heartFiller;
-
+        
         private float currentHeart;
-
+        
         private Vector3 scale = new Vector3(4, 4, 4);
-
+        
         private void Start()
         {
             SetChapterText(Chapter);

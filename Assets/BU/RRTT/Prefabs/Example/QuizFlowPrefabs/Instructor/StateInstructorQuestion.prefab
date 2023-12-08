@@ -1067,8 +1067,7 @@ MonoBehaviour:
   m_MediaPanel: {fileID: 5960469723224523166}
   bossPosition: {fileID: 2477209642844311835}
   contentFrame: {fileID: 2040388450145830431}
-  bossReference: {fileID: 6733189538501950096, guid: daaa0cb160d78aa439f6006cec98bf9a,
-    type: 3}
+  bossReference: {fileID: 6733189538501950096, guid: daaa0cb160d78aa439f6006cec98bf9a, type: 3}
   heartFiller: {fileID: 8564907856617738052}
 --- !u!1 &6607513578084226055
 GameObject:

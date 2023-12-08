@@ -100,7 +100,6 @@ namespace BU.NineTails.Gameplay.Scoring
                 if(actionState == ActionState.NoteEnd) isScoreUpdate = false;
             }
 
-            //OnSetNoteResult?.Invoke(noteId, result, actionState);
             if(isScoreUpdate) UpdateScore(result);
         }
 

@@ -41,9 +41,6 @@ namespace BU.NineTails.Scripts.UI.VirtualPiano
         {
             m_currentPianoType = pianoType;
             m_KeyStorage = m_VirtualPianoSpawner.Create(pianoType);
-
-            //m_KeyStorage.ForEach(key => ShowLabel += key.ShowLabel);
-
             SetPianoNoteLabel(isShowLabel);
             if (m_currentPianoType != "quiz") SetActiveNoteIndicator(true);
         }
@@ -82,7 +79,14 @@ namespace BU.NineTails.Scripts.UI.VirtualPiano
 
         public void SetDefault(int midiId, bool isPressing, int note)
         {
-            SetSprite(midiId, "0", Handside.Left, isPressing, note);
+            if(midiId >= 48 && midiId <= 59)
+            {
+                SetSprite(midiId, "0", Handside.Left, isPressing, note);
+            }
+            else
+            {
+                SetSprite(midiId, "0", Handside.Left, isPressing, 7);
+            }
         }
 
         public void SetQuiz(int midiId, bool isPressing, int note)
@@ -122,7 +126,14 @@ namespace BU.NineTails.Scripts.UI.VirtualPiano
             if (m_VirtualPianoSpawner.IsMidiIdInRange(midiId))
             {
                 int index = GetPianoKeyIndex(midiId);
-                m_KeyStorage[index].SetSprite(state, handside, isPressing, note);
+                if(midiId >= 48 && midiId <= 59)
+                {
+                    m_KeyStorage[index].SetSprite(state, handside, isPressing, note);
+                }
+                else
+                {
+                    m_KeyStorage[index].SetSprite(state, handside, isPressing, 7);
+                }
             }
             else
             {

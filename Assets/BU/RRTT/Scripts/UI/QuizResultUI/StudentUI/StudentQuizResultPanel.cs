@@ -49,6 +49,8 @@ namespace BU.RRTT.Scripts.UI.QuizResultUI.StudentUI
 
         private Animator animator;
 
+        private Animator animator;
+
         private void Start()
         {
             SetChapterText(Chapter);
@@ -76,16 +78,10 @@ namespace BU.RRTT.Scripts.UI.QuizResultUI.StudentUI
         {
             heart = data == null || data.Length < 2 ? 0 : data[1];
             if(data == null) data = new byte[] { 0 };
-            //เขียนดักไว้เพราะว่าไม่มี Data สามารถลบได้เลยครับ ตอน Sync
-            //if(heart == null)
-            //{
-            //    heart = 0;
-            //}
-            //เขียนดักไว้เพราะว่าไม่มี Data สามารถลบได้เลยครับ ตอน Sync
+
             bossList = bossReference.GetComponent<BossList>();
             GameObject boss = Instantiate(bossList.bossPrefabs[data[0]].gameObject, bossPosition);
             animator = boss.GetComponent<Animator>();
-
             animator.SetBool("Positive", false);
             animator.SetBool("Negative", false);
             animator.SetBool("Question", false);

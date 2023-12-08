@@ -7,96 +7,84 @@ namespace BU.NineTails.Gameplay
     public class CharactersAnimationController : MonoBehaviour
     {
         [SerializeField] private int[] characterNotes;
-        private Vector3 jumpDistance = new Vector3(0, 0.4f, 0);
-        private float jumpDuration = 0.5f;
         private Animator animator;
-        private Vector3 originalPosition;
-        private float animationTimer;
-        private bool isJumping;
-        private bool ownNote;
+        private float animationTimer = 0.5f;
+        private CharacterState currentState;
+
+        private enum CharacterState
+        {
+            Idle,
+            Opps,
+            Good,
+            Perfect
+        }
 
         private void Start()
         {
             animator = GetComponent<Animator>();
-            animator.SetBool("opps", false);
-            animator.SetBool("good", false);
-            animator.SetBool("perfect", false);
-            originalPosition = transform.position;
+            SetAnimationState(CharacterState.Idle);
         }
-        private void Update()
-        {
-            if (isJumping)
-            {
-                animationTimer += Time.deltaTime;
-                float progress = animationTimer / jumpDuration;
 
-                if (progress < 1.0f)
+        private void SetAnimationState(CharacterState newState)
+        {
+            currentState = newState;
+            if (currentState == CharacterState.Idle)
+            {
+                animator.SetBool("opps", false);
+                animator.SetBool("good", false);
+                animator.SetBool("perfect", false);
+            }
+            else
+            {
+                animator.SetBool("opps", currentState == CharacterState.Opps);
+                animator.SetBool("good", currentState == CharacterState.Good);
+                animator.SetBool("perfect", currentState == CharacterState.Perfect);
+            }
+        }
+
+        private bool CheckNote(int note)
+        {
+            foreach (int i in characterNotes)
+            {
+                if (i == note)
                 {
-                    transform.position = Vector3.Lerp(originalPosition, originalPosition + jumpDistance, progress);
-                }
-                else
-                {
-                    transform.position = originalPosition;
-                    animator.SetBool("opps", false);
-                    animator.SetBool("good", false);
-                    animator.SetBool("perfect", false);
-                    isJumping = false;
+                    return true;
                 }
             }
+            return false;
         }
 
         public void CheckOppsAnimation(int note)
         {
-            foreach (int i in characterNotes)
+            if (CheckNote(note))
             {
-                if(i == note)
-                {
-                    ownNote = true;
-                }
-            }
-            if (ownNote)
-            {
-                animationTimer = 0f;
-                animator.SetBool("opps", true);
-                isJumping = true;
-                ownNote = false;
+                SetAnimationState(CharacterState.Opps);
+                StartCoroutine(ResetToIdleAfterDelay(animationTimer));
             }
         }
 
         public void CheckGoodAnimation(int note)
         {
-            foreach (int i in characterNotes)
+            if (CheckNote(note))
             {
-                if (i == note)
-                {
-                    ownNote = true;
-                }
-            }
-            if (ownNote)
-            {
-                animationTimer = 0f;
-                animator.SetBool("good", true);
-                isJumping = true;
-                ownNote = false;
+                SetAnimationState(CharacterState.Good);
+                StartCoroutine(ResetToIdleAfterDelay(animationTimer));
             }
         }
 
         public void CheckPerfectAnimation(int note)
         {
-            foreach (int i in characterNotes)
+            if (CheckNote(note))
             {
-                if (i == note)
-                {
-                    ownNote = true;
-                }
+                SetAnimationState(CharacterState.Perfect);
+                StartCoroutine(ResetToIdleAfterDelay(animationTimer));
             }
-            if (ownNote)
-            {
-                animationTimer = 0f;
-                animator.SetBool("perfect", true);
-                isJumping = true;
-                ownNote = false;
-            }
+        }
+
+        private IEnumerator ResetToIdleAfterDelay(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            SetAnimationState(CharacterState.Idle);
         }
     }
 }

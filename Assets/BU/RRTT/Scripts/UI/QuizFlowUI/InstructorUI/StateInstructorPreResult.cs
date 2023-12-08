@@ -103,7 +103,9 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
         public override void OnCustomDataReceive(byte[] data)
         {
             currentHeart = data[1];
+
             heart = data == null || data.Length < 3 ? 0 : data[2];
+
             bossList = bossReference.GetComponent<BossList>();
             GameObject boss = Instantiate(bossList.bossPrefabs[data[0]].gameObject, bossPosition);
             animator = boss.GetComponent<Animator>();
