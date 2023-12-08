@@ -3,6 +3,7 @@ using Notero.QuizConnector.Instructor;
 using Notero.Unity.UI;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
 {
@@ -39,6 +40,13 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
 
         private BossList bossList;
 
+        private Animator animator;
+
+        [SerializeField]
+        private Image heartFiller;
+
+        private float currentHeart;
+
         private Vector3 scale = new Vector3(4, 4, 4);
 
         private void Start()
@@ -47,6 +55,7 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
             SetMissionText(Mission);
             SetQuizInfoText(CurrentPage, TotalPage);
             SetStudentAmountText(0, StudentAmount);
+            heartFiller.fillAmount = currentHeart / TotalPage;
         }
 
         public override void SetQuestionImage(Texture texture)
@@ -66,7 +75,15 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
         public override void OnCustomDataReceive(byte[] data)
         {
             bossList = bossReference.GetComponent<BossList>();
+            currentHeart = data[1];
+            heartFiller.fillAmount = currentHeart / TotalPage;
             GameObject boss = Instantiate(bossList.bossPrefabs[data[0]].gameObject, bossPosition);
+            animator = boss.GetComponent<Animator>();
+            animator.SetBool("Positive", false);
+            animator.SetBool("Negative", false);
+            animator.SetBool("Question", true);
+            animator.SetBool("ResultNeg", false);
+            animator.SetBool("ResultPos", false);
             boss.transform.localScale = scale;
             boss.transform.SetParent(contentFrame);
             boss.transform.SetParent(bossPosition);
