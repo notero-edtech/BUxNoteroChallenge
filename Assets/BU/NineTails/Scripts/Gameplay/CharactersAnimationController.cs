@@ -7,10 +7,7 @@ namespace BU.NineTails.Gameplay
     public class CharactersAnimationController : MonoBehaviour
     {
         [SerializeField] private int[] characterNotes;
-        //private Vector3 jumpDistance = new Vector3(0, 0.4f, 0);
-        //private float jumpDuration = 0.5f;
         private Animator animator;
-        //private Vector3 originalPosition;
         private float animationTimer = 0.5f;
         private CharacterState currentState;
 
@@ -26,7 +23,6 @@ namespace BU.NineTails.Gameplay
         {
             animator = GetComponent<Animator>();
             SetAnimationState(CharacterState.Idle);
-            //originalPosition = transform.position;
         }
 
         private void SetAnimationState(CharacterState newState)

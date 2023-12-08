@@ -156,7 +156,6 @@ namespace BU.NineTails.Scripts.UI.VirtualPiano
             PianoKey keyGo = Instantiate(prefab, layer.transform, true);
             keyGo.name = VirtualPianoHelper.GetNoteName(m_Keys.Count(), MinimumKey);
             var label = VirtualPianoHelper.GetNoteLabel(m_Keys.Count(), ShowAccidentalType.Both, "\n");
-            //keyGo.SetToneLabel(label);
             RectTransform rect = (RectTransform)keyGo.transform;
             rect.localScale = Vector3.one;
             rect.anchoredPosition = pos;
