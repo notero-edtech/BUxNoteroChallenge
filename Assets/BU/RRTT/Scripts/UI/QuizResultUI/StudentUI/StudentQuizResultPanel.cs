@@ -49,8 +49,6 @@ namespace BU.RRTT.Scripts.UI.QuizResultUI.StudentUI
 
         private Animator animator;
 
-        private Animator animator;
-
         private void Start()
         {
             SetChapterText(Chapter);
