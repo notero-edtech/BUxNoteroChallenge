@@ -74,7 +74,7 @@ public class MissScreen : MonoBehaviour
             if (slider.succeed == true)
             {
 
-                m_BGNormal.SetActive(true);
+                m_BGOops.SetActive(true);
             }
         }
 

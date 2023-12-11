@@ -4734,7 +4734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 545829681432449469, guid: dda32d88bf9212e45ab43b35569067d3, type: 3}
       propertyPath: m_MaxValue
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 545829681432449469, guid: dda32d88bf9212e45ab43b35569067d3, type: 3}
       propertyPath: m_Transition
@@ -4847,6 +4847,10 @@ PrefabInstance:
     - target: {fileID: 3229191283850701009, guid: dda32d88bf9212e45ab43b35569067d3, type: 3}
       propertyPath: m_Name
       value: ScoreSlider
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229191283850701009, guid: dda32d88bf9212e45ab43b35569067d3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4204194934606761811, guid: dda32d88bf9212e45ab43b35569067d3, type: 3}
       propertyPath: m_Color.b
