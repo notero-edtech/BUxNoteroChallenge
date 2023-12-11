@@ -57,7 +57,7 @@ namespace BU.Octopuz.Scripts1.UI
         {
             m_CompetitivePanel.OnGameplayTimeUpdate(time);
             m_CountBridge.OnGameplayTimeUpdate(time);
-            m_CountBridge.AnimetionFeedback(time);
+            m_CountBridge.AnimationFeedback(time);
         }
 
         public void HandleScoreUpdate(SelfResultInfo info)

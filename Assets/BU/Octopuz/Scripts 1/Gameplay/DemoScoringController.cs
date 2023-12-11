@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace BU.Gameplay.Scoring
+namespace BU.Octopuz.Gameplay.Scoring
 {
     public class DemoScoringController : BaseScoringProcessor
     {
