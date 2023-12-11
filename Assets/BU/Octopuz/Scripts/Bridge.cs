@@ -1,11 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Notero.MidiGameplay.Core;
 using Notero.RaindropGameplay.Core;
 using UnityEngine;
-using Notero.RaindropGameplay.UI;
-using UnityEngine.Events;
 
 
 namespace BU.Octopuz.Scripts
@@ -18,7 +12,6 @@ namespace BU.Octopuz.Scripts
         public GameObject Bridge4;
         public GameObject Bridge5;
         public int CountBridge = 0;
-        float timeRemaining = 0f;
 
         public float m_MaxTime;
 
@@ -36,7 +29,6 @@ namespace BU.Octopuz.Scripts
         public void OnGameplayTimeUpdate(float seconds)
         {
             var time = m_MaxTime - seconds;
-            Debug.Log(time);
 
             if (time <= 0.1 && RunOneTime == 0)
             {

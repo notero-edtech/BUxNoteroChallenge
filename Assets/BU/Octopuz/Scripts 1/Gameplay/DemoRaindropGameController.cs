@@ -9,7 +9,6 @@ using Notero.Unity.AudioModule;
 using Notero.Unity.MidiNoteInfo;
 using Notero.Unity.UI.VirtualPiano;
 using BU.Octopuz.Scripts1.Gameplay;
-using BU.Octopuz.Scripts;
 using System;
 using System.Collections;
 using System.Collections.Generic;
