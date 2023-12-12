@@ -4681,6 +4681,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4556410330223711402}
     - target: {fileID: 6859959787598290107, guid: e6ae26e3a4fe3cc4685e0e95f23449bf, type: 3}
+      propertyPath: failPanel
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859959787598290107, guid: e6ae26e3a4fe3cc4685e0e95f23449bf, type: 3}
       propertyPath: m_BGNormal
       value: 
       objectReference: {fileID: 6363722554659767694}
@@ -4790,7 +4794,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1892585478235890466, guid: dda32d88bf9212e45ab43b35569067d3, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 20
+      value: 31.136
       objectReference: {fileID: 0}
     - target: {fileID: 1892585478235890466, guid: dda32d88bf9212e45ab43b35569067d3, type: 3}
       propertyPath: m_LocalScale.x
@@ -4826,11 +4830,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1892585478235890466, guid: dda32d88bf9212e45ab43b35569067d3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 117
+      value: 317.9
       objectReference: {fileID: 0}
     - target: {fileID: 1892585478235890466, guid: dda32d88bf9212e45ab43b35569067d3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -126
+      value: -35.9
       objectReference: {fileID: 0}
     - target: {fileID: 1892585478235890466, guid: dda32d88bf9212e45ab43b35569067d3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
