@@ -1,5 +1,6 @@
 using BU.RRTT.Scripts.BossSystem;
 using Notero.QuizConnector.Instructor;
+using Notero.Unity.UI;
 using TMPro;
 using UnityEngine;
 
