@@ -713,6 +713,8 @@ namespace BU.RRTT.Scripts
         public void SpawnStudentResultStateUI(string mode)
         {
             var quizInfo = QuizStore.QuizInfo;
+            
+            
 
             switch(mode)
             {
