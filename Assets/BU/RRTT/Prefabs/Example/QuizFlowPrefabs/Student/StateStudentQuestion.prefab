@@ -728,6 +728,8 @@ MonoBehaviour:
   m_Mission: {fileID: 5023981669159808407}
   m_QuizInfoText: {fileID: 8607955180998768138}
   m_QuestionRawImage: {fileID: 2428650570548812953}
+  m_WatchInstructorScreen: {fileID: 2800000, guid: 829fd42a93b3fcf47bf68aab4eb1955c,
+    type: 3}
 --- !u!1 &7401990598183500318
 GameObject:
   m_ObjectHideFlags: 0

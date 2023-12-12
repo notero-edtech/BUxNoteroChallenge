@@ -19,9 +19,6 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
         protected TMP_Text m_QuizInfoText;
 
         [SerializeField]
-        private HUDController m_NextButtonUI;
-
-        [SerializeField]
         public RawImage m_QuestionImage;
 
         [SerializeField]
@@ -96,8 +93,6 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
             SetQuizInfoText(CurrentPage, TotalPage);
             SetQuestionImage(QuestionImage);
             SetPreResultUI();
-
-            if(m_NextButtonUI != null) m_NextButtonUI.OnNextClick.AddListener(OnNextStateReceive);
         }
 
         private void Update()
@@ -108,7 +103,9 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
         public override void OnCustomDataReceive(byte[] data)
         {
             currentHeart = data[1];
-            heart = data[2];
+
+            heart = data == null || data.Length < 3 ? 0 : data[2];
+
             bossList = bossReference.GetComponent<BossList>();
             GameObject boss = Instantiate(bossList.bossPrefabs[data[0]].gameObject, bossPosition);
             animator = boss.GetComponent<Animator>();
@@ -119,7 +116,7 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
                 animator.SetBool("Positive", true);
             }
 
-            if (currentHeart <= heart)
+            if(currentHeart <= heart)
             {
                 animator.SetBool("Negative", true);
             }
@@ -127,11 +124,6 @@ namespace BU.RRTT.Scripts.UI.QuizFlowUI.InstructorUI
         }
 
         #region Custom function
-
-        private void OnNextStateReceive()
-        {
-            OnNextState?.Invoke();
-        }
 
         private void SetChapterText(string text)
         {

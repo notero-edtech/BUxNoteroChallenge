@@ -9,14 +9,10 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
 {
     public class RaindropNoteSpawner : MonoBehaviour
     {
-        [SerializeField] protected RaindropNote m_WhiteLeftSeed;
-        [SerializeField] protected RaindropNote m_WhiteRightSeed;
         [SerializeField] protected RaindropNote m_BlackLeftSeed;
         [SerializeField] protected RaindropNote m_BlackRightSeed;
         [SerializeField] protected RectTransform m_WhiteRaindropContainer;
         [SerializeField] protected RectTransform m_BlackRaindropContainer;
-        
-        //Best UpdateSpawnNotes
         [SerializeField] protected RaindropNote noteC;
         [SerializeField] protected RaindropNote noteD;
         [SerializeField] protected RaindropNote noteE;
@@ -38,7 +34,7 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
         {
             m_RaindropSpeed = speed;
             float containerWidth = ((RectTransform)transform).rect.width;
-            m_WhiteKeySize = ((RectTransform)m_WhiteLeftSeed.transform).rect.width;
+            m_WhiteKeySize = ((RectTransform)noteC.transform).rect.width;
             m_BlackKeySize = ((RectTransform)m_BlackLeftSeed.transform).rect.width;
             m_MinimumKeyGiven = minimumKeyGiven;
             LanePositionList = VirtualPianoHelper.GetLanePosition(containerWidth, m_WhiteKeySize, m_BlackKeySize, octaveInputAmount);
@@ -64,46 +60,40 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
             rect.anchoredPosition = new Vector2(xPos, yPos);
         }
 
-        // Best UpdateSpawnNotes 
         protected RaindropNote GetRaindropNoteType(MidiNoteInfo info)
         {
             if (info.MidiId == 24 || info.MidiId == 36 || info.MidiId == 48 || info.MidiId == 60 || info.MidiId == 72)
             {
                 return noteC;
             }
-            if (info.MidiId == 26 || info.MidiId == 38 || info.MidiId == 50 || info.MidiId == 62 || info.MidiId == 74)
+            else if (info.MidiId == 26 || info.MidiId == 38 || info.MidiId == 50 || info.MidiId == 62 || info.MidiId == 74)
             {
                 return noteD;
             }
-            if (info.MidiId == 28 || info.MidiId == 40 || info.MidiId == 52 || info.MidiId == 64 || info.MidiId == 76)
+            else if (info.MidiId == 28 || info.MidiId == 40 || info.MidiId == 52 || info.MidiId == 64 || info.MidiId == 76)
             {
                 return noteE;
             }
-            if (info.MidiId == 29 || info.MidiId == 41 || info.MidiId == 53 || info.MidiId == 65 || info.MidiId == 77)
+            else if (info.MidiId == 29 || info.MidiId == 41 || info.MidiId == 53 || info.MidiId == 65 || info.MidiId == 77)
             {
                 return noteF;
             }
-            if (info.MidiId == 31 || info.MidiId == 43 || info.MidiId == 55 || info.MidiId == 67 || info.MidiId == 79)
+            else if (info.MidiId == 31 || info.MidiId == 43 || info.MidiId == 55 || info.MidiId == 67 || info.MidiId == 79)
             {
                 return noteG;
             }
-            if (info.MidiId == 33 || info.MidiId == 45 || info.MidiId == 57 || info.MidiId == 69 || info.MidiId == 79)
+            else if (info.MidiId == 33 || info.MidiId == 45 || info.MidiId == 57 || info.MidiId == 69 || info.MidiId == 81)
             {
                 return noteA;
             }
-            else
+            else if (info.MidiId == 35 || info.MidiId == 47 || info.MidiId == 59 || info.MidiId == 71 || info.MidiId == 83)
             {
                 return noteB;
             }
-            
-            /*if (info.TrackIndex == (int)Handside.Left)
-            {
-                return VirtualPianoHelper.IsBlackKey(info.MidiId) ? m_BlackLeftSeed : m_WhiteLeftSeed;
-            }
             else
             {
-                return VirtualPianoHelper.IsBlackKey(info.MidiId) ? m_BlackRightSeed : m_WhiteRightSeed;
-            }*/
+                return m_BlackLeftSeed;
+            }
         }
 
         protected RaindropNote PoolNewRaindropNote(MidiNoteInfo info, Vector2 pos)
@@ -117,23 +107,5 @@ namespace BU.NineTails.MidiGameplay.Scripts.Gameplay
             rect.anchoredPosition = pos;
             return raindropGo;
         }
-        protected void ReturnRaindropNoteToPool(RaindropNote note)
-        {
-            Destroy(note.gameObject);
-        }
-
-        /*void Update()
-        {
-            foreach (var note in GetComponentsInChildren<RaindropNote>())
-            {
-                RectTransform rect = (RectTransform)note.transform;
-                rect.anchoredPosition += new Vector2(-m_RaindropSpeed * Time.deltaTime, 0);
-
-                if (rect.anchoredPosition.x < -1280)
-                {
-                    ReturnRaindropNoteToPool(note);
-                }
-            }
-        }*/
     }
 }

@@ -30,7 +30,7 @@ namespace BU.RRTT.Scripts.UI.QuizResultUI.StudentUI
         private const string QuestionAmountFormat = "Amount of Questions: <color=white><font=EN_Stylize_Neutral_A>{0} Questions</font></color>";
         private const string ScoreColor = "#14C287";
         private const string QuizScoreFormat = "Your Quiz Score\n<color=" + ScoreColor + ">{0}</color>/{1}";
-        
+
         // RRTT Variables
         [SerializeField]
         private Transform bossPosition;
@@ -39,14 +39,14 @@ namespace BU.RRTT.Scripts.UI.QuizResultUI.StudentUI
         private GameObject bossReference;
 
         private BossList bossList;
-        
-        private Vector3 scale = new Vector3( 4.5f,4.5f,4.5f);
-        
+
+        private Vector3 scale = new Vector3(4.5f, 4.5f, 4.5f);
+
         [SerializeField]
         private Image heartFiller;
-        
+
         private float heart;
-        
+
         private Animator animator;
 
         private void Start()
@@ -56,30 +56,27 @@ namespace BU.RRTT.Scripts.UI.QuizResultUI.StudentUI
             SetQuizModeText(QuizMode);
             SetQuestionAmountText(QuestionAmount);
             SetQuizScoreText(CurrentScore, QuestionAmount);
-            if (heart < (0.5 * QuestionAmount))
+
+            if(heart < (0.5 * QuestionAmount))
             {
                 animator.SetBool("ResultNeg", true);
             }
-            if (heart >= (0.5 * QuestionAmount))
+            if(heart >= (0.5 * QuestionAmount))
             {
                 animator.SetBool("ResultPos", true);
             }
         }
-        
+
         private void Update()
         {
-            heartFiller.fillAmount = Mathf.MoveTowards(heartFiller.fillAmount, heart/QuestionAmount, 0.5f * Time.deltaTime);
+            heartFiller.fillAmount = Mathf.MoveTowards(heartFiller.fillAmount, heart / QuestionAmount, 0.5f * Time.deltaTime);
         }
 
         public override void OnCustomDataReceive(byte[] data)
         {
-            heart = data[1];
-            //เขียนดักไว้เพราะว่าไม่มี Data สามารถลบได้เลยครับ ตอน Sync
-            if (heart == null)
-            {
-                heart = 0;
-            }
-            //เขียนดักไว้เพราะว่าไม่มี Data สามารถลบได้เลยครับ ตอน Sync
+            heart = data == null || data.Length < 2 ? 0 : data[1];
+            if(data == null) data = new byte[] { 0 };
+
             bossList = bossReference.GetComponent<BossList>();
             GameObject boss = Instantiate(bossList.bossPrefabs[data[0]].gameObject, bossPosition);
             animator = boss.GetComponent<Animator>();
