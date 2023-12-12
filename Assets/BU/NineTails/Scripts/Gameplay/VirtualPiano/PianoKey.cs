@@ -21,17 +21,5 @@ namespace BU.NineTails.Scripts.UI.VirtualPiano
         {
             m_PianoKeyImage.sprite = m_LocalPianoInfo.GetSprite(state, handSide, isPressing, note);
         }
-
-        /*public void ShowLabel(bool showLabel)
-        {
-            if (ToneLabel == null) return;
-            ToneLabel.gameObject.SetActive(showLabel);
-
-        /*public void SetToneLabel(string toneName)
-        {
-            if (ToneLabel == null) return;
-            ToneLabel.text = toneName;
-            ShowLabel(false);
-        }*/
     }
 }

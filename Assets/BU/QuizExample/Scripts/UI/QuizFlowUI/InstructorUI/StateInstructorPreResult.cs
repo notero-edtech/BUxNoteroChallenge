@@ -18,9 +18,6 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
         protected TMP_Text m_QuizInfoText;
 
         [SerializeField]
-        private HUDController m_NextButtonUI;
-
-        [SerializeField]
         public RawImage m_QuestionImage;
 
         [SerializeField]
@@ -74,16 +71,9 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.InstructorUI
             SetQuizInfoText(CurrentPage, TotalPage);
             SetQuestionImage(QuestionImage);
             SetPreResultUI();
-
-            if(m_NextButtonUI != null) m_NextButtonUI.OnNextClick.AddListener(OnNextStateReceive);
         }
 
         #region Custom function
-
-        private void OnNextStateReceive()
-        {
-            OnNextState?.Invoke();
-        }
 
         private void SetChapterText(string text)
         {

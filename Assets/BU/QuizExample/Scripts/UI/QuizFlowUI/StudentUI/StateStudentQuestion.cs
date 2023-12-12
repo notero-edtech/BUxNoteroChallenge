@@ -19,6 +19,9 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.StudentUI
         [SerializeField]
         protected RawImage m_QuestionRawImage;
 
+        [SerializeField]
+        private Texture m_WatchInstructorScreen;
+
         private const string ChapterIndexFormat = "Chapter: <color=white><font=\"EN_Stylize_Neutral_A\">{0}</font></color>";
         private const string MissionFormat = "Mission: <color=white><font=\"EN_Stylize_Neutral_B\">{0}</font></color>";
         private const string QuizInfoFormat = "<color=#14C287>{0}</color> / {1}";
@@ -28,7 +31,18 @@ namespace BU.QuizExample.Scripts.UI.QuizFlowUI.StudentUI
             SetChapterText(Chapter);
             SetMissionText(Mission);
             SetQuizInfoText(CurrentPage, TotalPage);
-            SetQuestionImage(QuestionImage);
+        }
+
+        public override void SetQuestionTexture(Texture texture)
+        {
+            base.SetQuestionTexture(texture);
+
+            SetQuestionImage(texture);
+        }
+
+        public override void ShowWatchInstructorScreen()
+        {
+            SetQuestionImage(m_WatchInstructorScreen);
         }
 
         public override void OnPianoStateReceive(PianoStates pianoState, string choice)
