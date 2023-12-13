@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MissScreen : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] private GameObject failPanel;
+    //[SerializeField] private GameObject failPanel;
     [SerializeField] private GameObject m_BGPerfect;
     [SerializeField] private GameObject m_BGOops;
     [SerializeField] private GameObject m_BGNormal;
@@ -26,7 +26,7 @@ public class MissScreen : MonoBehaviour
             {
             m_BGPerfect.SetActive(false);
             m_BGNormal.SetActive(false);
-            failPanel.SetActive(true);
+            //failPanel.SetActive(true);
 
                 if(slider.succeed == true)
                 {
@@ -48,12 +48,12 @@ public class MissScreen : MonoBehaviour
 
         }
 
-        else
-        {
-            failPanel.SetActive(false);
+        //else
+        //{
+            //failPanel.SetActive(false);
 
           
-        }
+        //}
 
         if (GameObject.Find("vfx_perfect_old") != null)
         {
