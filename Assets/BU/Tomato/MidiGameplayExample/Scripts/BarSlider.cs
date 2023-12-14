@@ -41,10 +41,9 @@ public class BarSlider : MonoBehaviour
             slider.value = progress;
             barColor.gameObject.GetComponent<Image>().color = lowScore;
             handle.gameObject.GetComponent<Image>().color = lowScore;
-         
-
-      
         }
+
+
 
         if (valueText.text == ("4000") || valueText.text == ("4500"))
         {
@@ -62,7 +61,6 @@ public class BarSlider : MonoBehaviour
             slider.value = progress;
             barColor.gameObject.GetComponent<Image>().color = lowScore;
             handle.gameObject.GetComponent<Image>().color = lowScore;
-
         }
 
      
@@ -74,6 +72,7 @@ public class BarSlider : MonoBehaviour
             barColor.gameObject.GetComponent<Image>().color = midScore;
             handle.gameObject.GetComponent<Image>().color = midScore;
         }
+
 
 
         if (valueText.text == ("10000") || valueText.text == ("10500"))
@@ -95,7 +94,6 @@ public class BarSlider : MonoBehaviour
             normalBG.SetActive(true);
             thaiBG.SetActive(false);
             succeed = true;
-
         }
       
     }
