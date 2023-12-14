@@ -25,7 +25,7 @@ namespace BU.Chainpunch.MidiGameplay.Gameplay
         public void Setup()
         {
             var instant = MascotList[0];
-            Instantiate(instant.MascotPrefab, instant.SpawnPoint.position, instant.SpawnPoint.rotation);
+            Instantiate(instant.MascotPrefab, instant.SpawnPoint.position, instant.SpawnPoint.rotation,transform.parent);
             instant.isSpawned = true;
             m_ScoringController.OnScoreUpdated.AddListener(MascotSpawner);
         }
@@ -35,31 +35,31 @@ namespace BU.Chainpunch.MidiGameplay.Gameplay
             switch (Info.AccuracyPercent)
             {
                 case >= 15f and < 30f when !MascotList[1].isSpawned :
-                    Instantiate(MascotList[1].MascotPrefab, MascotList[1].SpawnPoint.position, MascotList[1].SpawnPoint.rotation);
+                    Instantiate(MascotList[1].MascotPrefab, MascotList[1].SpawnPoint.position, MascotList[1].SpawnPoint.rotation,transform.parent);
                     Instantiate(m_Particle, m_FeedbackPoint.position, m_FeedbackPoint.rotation);
                     Instantiate(m_EmojiMascot, m_FeedbackPoint.position, m_FeedbackPoint.rotation);
                     MascotList[1].isSpawned = true;
                     break;
                 case >= 30f and < 45f when !MascotList[2].isSpawned:
-                    Instantiate(MascotList[2].MascotPrefab, MascotList[2].SpawnPoint.position, MascotList[2].SpawnPoint.rotation);
+                    Instantiate(MascotList[2].MascotPrefab, MascotList[2].SpawnPoint.position, MascotList[2].SpawnPoint.rotation,transform.parent);
                     Instantiate(m_Particle, m_FeedbackPoint.position, m_FeedbackPoint.rotation);
                     Instantiate(m_EmojiMascot, m_FeedbackPoint.position, m_FeedbackPoint.rotation);
                     MascotList[2].isSpawned = true;
                     break;
                 case >= 45f and < 60f when !MascotList[3].isSpawned:
-                    Instantiate(MascotList[3].MascotPrefab, MascotList[3].SpawnPoint.position, MascotList[3].SpawnPoint.rotation);
+                    Instantiate(MascotList[3].MascotPrefab, MascotList[3].SpawnPoint.position, MascotList[3].SpawnPoint.rotation,transform.parent);
                     Instantiate(m_Particle, m_FeedbackPoint.position, m_FeedbackPoint.rotation);
                     Instantiate(m_EmojiMascot, m_FeedbackPoint.position, m_FeedbackPoint.rotation);
                     MascotList[3].isSpawned = true;
                     break;
                 case >= 60f and < 75f when !MascotList[4].isSpawned:
-                    Instantiate(MascotList[4].MascotPrefab, MascotList[4].SpawnPoint.position, MascotList[4].SpawnPoint.rotation);
+                    Instantiate(MascotList[4].MascotPrefab, MascotList[4].SpawnPoint.position, MascotList[4].SpawnPoint.rotation,transform.parent);
                     Instantiate(m_Particle, m_FeedbackPoint.position, m_FeedbackPoint.rotation);
                     Instantiate(m_EmojiMascot, m_FeedbackPoint.position, m_FeedbackPoint.rotation);
                     MascotList[4].isSpawned = true;
                     break;
                 case >= 75f and < 95f when !MascotList[5].isSpawned:
-                    Instantiate(MascotList[5].MascotPrefab, MascotList[5].SpawnPoint.position, MascotList[5].SpawnPoint.rotation);
+                    Instantiate(MascotList[5].MascotPrefab, MascotList[5].SpawnPoint.position, MascotList[5].SpawnPoint.rotation,transform.parent);
                     Instantiate(m_Particle, m_FeedbackPoint.position, m_FeedbackPoint.rotation);
                     Instantiate(m_EmojiMascot, m_FeedbackPoint.position, m_FeedbackPoint.rotation);
                     MascotList[5].isSpawned = true;
