@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Let's, <color=#EC0F47>IMPRESS HIM</color>
+  m_text: Let's, <color=#14C287>IMPRESS HIM</color>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2be576db1a866054299f7ca1edb064a0, type: 2}
   m_sharedMaterial: {fileID: 6918333184260302384, guid: 2be576db1a866054299f7ca1edb064a0, type: 2}
@@ -380,7 +380,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: He is <color=#EC0F47>A MASTER OF MUSIC!</color>
+  m_text: He is <color=#14C287>A MASTER OF MUSIC!</color>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2be576db1a866054299f7ca1edb064a0, type: 2}
   m_sharedMaterial: {fileID: 6918333184260302384, guid: 2be576db1a866054299f7ca1edb064a0, type: 2}

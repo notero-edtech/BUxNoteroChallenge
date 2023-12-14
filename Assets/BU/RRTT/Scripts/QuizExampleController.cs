@@ -111,6 +111,9 @@ namespace BU.RRTT.Scripts
         private byte bossIndex;
         private int m_CurrentQuiz;
 
+        private byte heart;
+        private byte currentHeart;
+
         public void Init(Transform container, QuizStore quizStore, Func<string, string, Texture> logic)
         {
             m_Container = container;
@@ -330,6 +333,8 @@ namespace BU.RRTT.Scripts
                     }
                     QuizStore.SetCustomData(new[] { bossIndex, currentHeart, heart });
                     heart = currentHeart;
+                    this.heart = heart;
+                    this.currentHeart = currentHeart;
                 }
             }
             
@@ -713,7 +718,9 @@ namespace BU.RRTT.Scripts
         public void SpawnStudentResultStateUI(string mode)
         {
             var quizInfo = QuizStore.QuizInfo;
-
+            
+            QuizStore.SetCustomData(new[] { bossIndex, currentHeart, heart });
+            
             switch(mode)
             {
                 case "POP_QUIZ":
