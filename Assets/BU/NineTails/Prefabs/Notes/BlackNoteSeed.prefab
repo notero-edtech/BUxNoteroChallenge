@@ -86,7 +86,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1580194150723632497}
   - component: {fileID: 6057258559101314167}
-  - component: {fileID: 8063495790690587850}
   - component: {fileID: 4120502479257036996}
   m_Layer: 0
   m_Name: BlackNoteSeed
@@ -127,26 +126,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1145505177049111827}
   m_CullTransparentMesh: 1
---- !u!114 &8063495790690587850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1145505177049111827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c3fd5105852dc446bc9fa4f6a2774a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ExpireDuration: 10
-  m_DefaultRaindropGO: {fileID: 4560400319829384073}
-  m_SubRaindropEffects:
-  - {fileID: 5627676554162852293}
-  - {fileID: 7675290586715917352}
-  m_NoteRect: {fileID: 1580194150723632497}
-  m_NoteNameText: {fileID: 1599029532270973879}
-  m_AccidentalText: {fileID: 4620129014357955659}
 --- !u!114 &4120502479257036996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -978,28 +957,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36c688ccb3baca44987a1c902a6ec47c, type: 3}
---- !u!114 &1599029532270973879 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1933579574972889365, guid: 36c688ccb3baca44987a1c902a6ec47c, type: 3}
-  m_PrefabInstance: {fileID: 929307793782696610}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4620129014357955659 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5546304299335909097, guid: 36c688ccb3baca44987a1c902a6ec47c, type: 3}
-  m_PrefabInstance: {fileID: 929307793782696610}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &8874524347922973311 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8632613663966652637, guid: 36c688ccb3baca44987a1c902a6ec47c, type: 3}

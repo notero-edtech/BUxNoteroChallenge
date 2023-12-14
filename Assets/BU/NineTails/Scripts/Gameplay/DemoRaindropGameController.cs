@@ -473,7 +473,7 @@ namespace BU.NineTails.MidiGameplay.Gameplay
             }
             else
             {
-                throw new ArgumentException("Invalid MIDI note value");
+                return 7;
             }
         }
 
