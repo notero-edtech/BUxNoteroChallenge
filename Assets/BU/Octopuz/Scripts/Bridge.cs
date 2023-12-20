@@ -75,6 +75,41 @@ namespace BU.Octopuz.Scripts
                 idel.SetActive(false);
                 goodAnime.SetActive(true);
             }
+            else if (Percent <= 1 && CountBridge == 1)
+            {
+                CountBridge--;
+                Bridge1.SetActive(false);
+                idel.SetActive(true);
+                badAnime.SetActive(true);
+            }
+            else if (Percent <= 20 && CountBridge == 2)
+            {
+                CountBridge--;
+                Bridge2.SetActive(false);
+                idel.SetActive(true);
+                badAnime.SetActive(true);
+            }
+            else if (Percent <= 40 && CountBridge == 3)
+            {
+                CountBridge--;
+                Bridge3.SetActive(false);
+                idel.SetActive(true);
+                badAnime.SetActive(true);
+            }
+            else if (Percent <= 60 && CountBridge == 4)
+            {
+                CountBridge--;
+                Bridge4.SetActive(false);
+                idel.SetActive(true);
+                badAnime.SetActive(true);
+            }
+            else if (Percent <= 80 && CountBridge == 5)
+            {
+                CountBridge--;
+                Bridge5.SetActive(false);
+                idel.SetActive(true);
+                badAnime.SetActive(true);
+            }
         }
         public int RunOneTime = 0;
         public GameObject bad;
@@ -86,7 +121,7 @@ namespace BU.Octopuz.Scripts
         public GameObject TrunoffB;
         public GameObject idel;
         public GameObject goodAnime;
-
+        public GameObject badAnime;
 
         public void Animetion()
         {
